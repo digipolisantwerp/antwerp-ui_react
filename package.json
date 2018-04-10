@@ -1,0 +1,63 @@
+{
+  "name": "@astad/react-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=development start-storybook -p 9001 -c .storybook",
+    "test": "jest --coverage --verbose",
+    "bootstrap": "lerna bootstrap",
+    "build": "lerna exec --parallel -- babel src -d dist --ignore spec.js,story.js",
+    "build-storybook": "build-storybook",
+    "publish": "lerna publish --skip-git --skip-npm",
+    "prepublish": "npm run build",
+    "postinstall": "npm run bootstrap"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-jest": "^20.0.3",
+    "babel-plugin-transform-react-jsx": "~6.24.1",
+    "babel-preset-env": "~1.6.1",
+    "babel-preset-react": "~6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "lerna": "^2.10.0"
+  },
+  "jest": {
+    "resetMocks": true,
+    "resetModules": true,
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "packages/**/*.js",
+      "!packages/**/dist/**",
+      "!**/node_modules/**",
+      "!**/*.story.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    },
+    "coverageReporters": [
+      "lcov",
+      "html"
+    ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>node_modules/",
+      "<rootDir>coverage/"
+    ],
+    "testMatch": [
+      "**/?(*.)(spec).js?(x)"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>node_modules/"
+    ]
+  },
+  "dependencies": {
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1"
+  }
+}

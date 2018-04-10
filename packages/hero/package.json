@@ -1,0 +1,14 @@
+{
+  "name": "hero",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1"
+  }
+}
