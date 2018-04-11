@@ -23,6 +23,11 @@ export {
   Checkbox,
   Fieldset,
   TextField,
+  Select,
+  Option,
+  Textarea,
+  Radio,
+  RadioGroup,
 } from './packages/form';
 
 export { default as Header } from './packages/header';

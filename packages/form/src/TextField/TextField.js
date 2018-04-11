@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 const TextField = ({
+  id,
   label,
   value,
   description,
@@ -14,8 +15,8 @@ const TextField = ({
   );
   return (
     <div class={inputClass}>
-      <label class="a-input__label" for="text-field">{label}</label>
-      <input type="text" name="text-field" id="text-field" placeholder={placeholder} />
+      <label class="a-input__label" htmlFor={id}>{label}</label>
+      <input type="text" id={id} placeholder={placeholder} />
       <small>{description}</small>
     </div>
   )

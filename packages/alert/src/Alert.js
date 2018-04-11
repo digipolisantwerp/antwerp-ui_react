@@ -16,20 +16,24 @@ class Alert extends Component {
       closed: false
     };
   }
+
   handleClose(e) {
     e.preventDefault();
   }
+
   render() {
     const {
       type,
       message,
       description,
       closable,
+      className,
     } = this.props;
 
     const alertClass = classNames(
       'm-alert',
-      { [`${typeClasses[type]}`]: !!type }
+      { [`${typeClasses[type]}`]: !!type },
+      className,
     );
 
     const closeButton = closable ? (
