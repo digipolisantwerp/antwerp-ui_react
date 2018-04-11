@@ -14,6 +14,8 @@ export {
 
 export { default as Contact } from './packages/contact';
 
+export { default as Content } from './packages/content';
+
 export { default as Footer } from './packages/footer';
 
 export { default as Form } from './packages/form';
