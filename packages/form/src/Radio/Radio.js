@@ -4,6 +4,7 @@ import classNames from 'classnames';
 const Radio = ({
   id,
   name,
+  value,
   checked,
   children,
   disabled,
@@ -13,7 +14,7 @@ const Radio = ({
   );
   return (
     <div class={radioClass}>
-      <input type="radio" id={id} name={name} checked={checked} disabled={disabled} />
+      <input type="radio" value={value} id={id} name={name} checked={checked} disabled={disabled} />
       <label htmlFor={id}>{children}</label>
     </div>
   )
