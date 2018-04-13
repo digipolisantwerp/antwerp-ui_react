@@ -5,11 +5,10 @@ class TagListItem extends Component {
         const {
             onClick,
             value,
-            key
         } = this.props;
 
         return (
-            <li key={key} className="m-tag">
+            <li className="m-tag">
                 <span className="m-tag__label">{value}</span>
                 <button
                     className="a-button-transparent a-button--small a-button--danger has-icon"
