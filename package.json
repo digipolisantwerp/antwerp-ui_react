@@ -6,12 +6,11 @@
   "scripts": {
     "start": "NODE_ENV=development start-storybook -p 9001 -c .storybook",
     "test": "jest --coverage --verbose",
-    "bootstrap": "lerna bootstrap",
+    "bootstrap": "./node_modules/bin/lerna bootstrap",
     "build": "lerna exec --parallel -- babel src -d dist --ignore spec.js,story.js",
     "build-storybook": "build-storybook",
     "publish": "lerna publish --skip-git --skip-npm",
-    "prepublish": "npm run build",
-    "postinstall": "npm run bootstrap"
+    "prepublish": "npm run build"
   },
   "license": "ISC",
   "devDependencies": {
