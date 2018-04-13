@@ -48,7 +48,7 @@ class Button extends Component {
     );
 
     return (
-      <button class={btnClass} onClick={onClick}>
+      <button className={btnClass} onClick={onClick}>
         {icon ? <Icon name={icon} /> : null}
         {iconLeft ? <Icon name={iconLeft} /> : null}
         {iconRight ? <Icon name={iconRight} /> : null}

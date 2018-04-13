@@ -17,8 +17,8 @@ class Step extends Component {
     );
 
     return (
-      <li class={stepClass}>
-        <span class="m-step-indicator__label">{title}</span>
+      <li className={stepClass}>
+        <span className="m-step-indicator__label">{title}</span>
       </li>
     )
   }

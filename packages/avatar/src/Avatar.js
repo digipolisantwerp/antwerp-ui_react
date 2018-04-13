@@ -14,7 +14,7 @@ const Avatar = ({ size, icon, children, style }) => {
 
   const iconComponent = icon ? (<Icon name={icon} />) : null;
   return (
-    <div class={avatarClass} style={style}>
+    <div className={avatarClass} style={style}>
       {iconComponent}
       {children}
     </div>

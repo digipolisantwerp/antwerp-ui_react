@@ -3,7 +3,7 @@ import Contact from '../../../contact';
 
 const CardHeader = ({ title, actions, avatar }) => {
   const cardHeader = (
-    <div class="m-card__header" style={{ display: 'flex' }}>
+    <div className="m-card__header" style={{ display: 'flex' }}>
       <Contact
         avatar={avatar}
         name={title}

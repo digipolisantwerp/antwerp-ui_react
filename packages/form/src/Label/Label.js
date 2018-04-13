@@ -14,7 +14,7 @@ const Label = ({
     }
   );
   return (
-    <label class={labelClass} htmlFor={htmlFor} style={style}>
+    <label className={labelClass} htmlFor={htmlFor} style={style}>
       {children}
     </label>
   )
