@@ -8,6 +8,7 @@
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.2.5",
+    "rc-slider": "~8.6.1",
     "react": "^16.3.1",
     "react-dom": "^16.3.1"
   }

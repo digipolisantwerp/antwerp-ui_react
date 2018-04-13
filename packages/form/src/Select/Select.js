@@ -45,9 +45,9 @@ class Select extends Component {
       }
     );
     return (
-      <div class={selectClass} name={name}>
+      <div className={selectClass} name={name}>
         <Label inline={inline} htmlFor={id}>{label}</Label>
-        <div class={wrapperClass}>
+        <div className={wrapperClass}>
           <select id={id} name={name} onChange={(e) => this.onChange(e)}>
             {options.map(option => (
               <Option

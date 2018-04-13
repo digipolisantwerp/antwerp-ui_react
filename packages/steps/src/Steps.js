@@ -12,13 +12,12 @@ class Steps extends Component {
   }
 
   render() {
+    const { className } = this.props;
     return (
-      <div class="u-wrapper u-margin-top u-margin-bottom">
-        <div class="u-container">
-          <ol class="m-step-indicator">
-            { this.props.children.map((child, i) => this.renderStep(child, i)) }
-          </ol>
-        </div>
+      <div className={className}>
+        <ol className="m-step-indicator">
+          { this.props.children.map((child, i) => this.renderStep(child, i)) }
+        </ol>
       </div>
     )
   }

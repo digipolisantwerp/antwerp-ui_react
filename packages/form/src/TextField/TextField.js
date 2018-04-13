@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import Label from '../Label';
 
 const TextField = ({
   id,
@@ -14,8 +15,8 @@ const TextField = ({
     { 'is-required': !!required }
   );
   return (
-    <div class={inputClass}>
-      <label class="a-input__label" htmlFor={id}>{label}</label>
+    <div className={inputClass}>
+      <Label htmlFor={id}>{label}</Label>
       <input type="text" id={id} placeholder={placeholder} />
       <small>{description}</small>
     </div>

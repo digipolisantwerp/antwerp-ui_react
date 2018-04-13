@@ -26,6 +26,7 @@ export {
   Select,
   Textarea,
   RadioGroup,
+  Label,
 } from './packages/form';
 
 export { default as Header } from './packages/header';

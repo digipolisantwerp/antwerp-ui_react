@@ -1,9 +1,14 @@
 import React from 'react';
+import classNames from 'classnames';
 
-const Content = ({ children }) => {
+const Content = ({ className, children }) => {
+  const contentClass = classNames(
+    'u-wrapper',
+    className,
+  );
   return (
-    <div class="u-wrapper">
-      <div class="u-container">
+    <div className={contentClass}>
+      <div className="u-container">
         {children}
       </div>
     </div>

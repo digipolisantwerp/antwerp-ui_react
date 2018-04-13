@@ -16,8 +16,8 @@ const Checkbox = ({
     { 'is-required': !!required }
   );
   return (
-    <div class={inputClass}>
-      <div class="a-input__checkbox">
+    <div className={inputClass}>
+      <div className="a-input__checkbox">
         <input type="checkbox" id={id} />
         <Label htmlFor={id}>{label}</Label>
       </div>

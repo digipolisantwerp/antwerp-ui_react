@@ -8,11 +8,11 @@ const Icon = ({ name, style, span }) => {
 
   if (span) {
     return (
-      <span class={iconClass} style={style}></span>
+      <span className={iconClass} style={style}></span>
     )
   } else {
     return (
-      <i class={iconClass} style={style}></i>
+      <i className={iconClass} style={style}></i>
     )
   }
 }

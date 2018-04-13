@@ -13,7 +13,7 @@ const Radio = ({
     'a-input__radio'
   );
   return (
-    <div class={radioClass}>
+    <div className={radioClass}>
       <input type="radio" value={value} id={id} name={name} checked={checked} disabled={disabled} />
       <label htmlFor={id}>{children}</label>
     </div>

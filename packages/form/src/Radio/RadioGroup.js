@@ -22,7 +22,7 @@ const RadioGroup = ({
     }
   );
   return (
-    <div class={radioGroupClass} style={style} onChange={onChange}>
+    <div className={radioGroupClass} style={style} onChange={onChange}>
       <Label inline={inline} htmlFor={id}>{label}</Label>
       {options.map(option => (
         <Radio

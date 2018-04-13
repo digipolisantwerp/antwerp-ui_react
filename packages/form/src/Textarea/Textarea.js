@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import Label from '../Label';
 
 const Textarea = ({
   id,
@@ -17,11 +18,11 @@ const Textarea = ({
   );
 
   const labelComponent = label ? (
-    <label class="a-input__label" htmlFor={id}>{label}</label>
+    <Label htmlFor={id}>{label}</Label>
   ) : null;
 
   return (
-    <div class={textareaClass} style={style}>
+    <div className={textareaClass} style={style}>
       {labelComponent}
       <textarea id={id} placeholder={placeholder}></textarea>
     </div>

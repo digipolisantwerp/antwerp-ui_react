@@ -6,9 +6,9 @@ const styles = {
 
 const Hero = ({ children }) => {
   return (
-    <div class="u-wrapper u-bg-light" style={styles}>
-      <div class="u-container">
-        <div class="u-text-center u-margin-lg">
+    <div className="u-wrapper u-bg-light" style={styles}>
+      <div className="u-container">
+        <div className="u-text-center u-margin-lg">
         {children}
         </div>
       </div>

@@ -40,11 +40,11 @@ class Alert extends Component {
       <Button type="warning" transparent icon="close" onClick={this.handleClose} className="m-alert__close">
       </Button>
     ) : null;
-    const messageText = message ? (<h5 class="u-margin-bottom-xs">{message}</h5>) : null;
+    const messageText = message ? (<h5 className="u-margin-bottom-xs">{message}</h5>) : null;
     const descriptionText = description ? (<p>{description}</p>) : null;
 
     return (
-      <div class={alertClass}>
+      <div className={alertClass}>
         {closeButton}
         {messageText}
         {descriptionText}
