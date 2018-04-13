@@ -29,6 +29,8 @@ export {
   Label,
 } from './packages/form';
 
+export { default as TagList, TagListItem } from './packages/taglist';
+
 export { default as Header } from './packages/header';
 
 export { default as Hero } from './packages/hero';
