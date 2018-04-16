@@ -1,5 +1,9 @@
 module.exports = {
   components: 'packages/*/src/!(index).js',
+  getExampleFilename(componentPath) {
+    const basePath = componentPath.split('src/')[0];
+    return basePath + 'Readme.md';
+  },
   webpackConfig: {
     module: {
       rules: [
