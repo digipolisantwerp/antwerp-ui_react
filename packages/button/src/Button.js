@@ -32,6 +32,7 @@ class Button extends Component {
       title,
       type,
       size,
+      block = false,
       style = {}
     } = this.props;
     const btnClass = classNames(
@@ -46,6 +47,7 @@ class Button extends Component {
         'a-button-transparent': !!transparent,
         'a-button-negative': !!negative,
         'a-button-outline': !!outline,
+        'a-button--block': block
       }
     );
 
