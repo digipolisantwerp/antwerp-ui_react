@@ -2,14 +2,24 @@ import React from 'react';
 import classNames from 'classnames';
 import Label from '../Label';
 
-const Textarea = ({
-  id,
-  label,
-  placeholder,
-  className,
-  style,
-  required,
-}) => {
+type Props = {
+  id?: string,
+  label?: string,
+  placeholder?: string,
+  className?: string,
+  style?: object,
+  required?: boolean,
+};
+
+const Textarea = (props: Props) => {
+  const {
+    id,
+    label,
+    placeholder,
+    className,
+    style,
+    required,
+  } = props;
 
   const textareaClass = classNames(
     'a-input',

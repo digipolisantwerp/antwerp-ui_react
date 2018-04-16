@@ -2,14 +2,25 @@ import React from 'react';
 import classNames from 'classnames';
 import Label from '../Label';
 
-const TextField = ({
-  id,
-  label,
-  value,
-  description,
-  required,
-  placeholder,
-}) => {
+type Props = {
+  id?: string,
+  label?: string,
+  value?: string,
+  description?: string,
+  required?: boolean,
+  placeholder?: string,
+};
+
+const TextField = (props: Props) => {
+  const {
+    id,
+    label,
+    value,
+    description,
+    required,
+    placeholder,
+  } = props;
+
   const inputClass = classNames(
     'a-input',
     { 'is-required': !!required }

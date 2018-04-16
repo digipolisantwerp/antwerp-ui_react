@@ -1,7 +1,16 @@
 import React from 'react';
 import classNames from 'classnames';
 
-const Icon = ({ name, style, span }) => {
+type Props = {
+  /** Font Awesome icon name */
+  name: string,
+  style?: object,
+  /** Use span tag instead of i */
+  span?: boolean,
+};
+
+const Icon = (props: Props) => {
+  const { name, style, span } = props;
   const iconClass = classNames(
     `fa fa-${name}`
   )

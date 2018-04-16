@@ -4,7 +4,25 @@ import Option from './Option';
 import Label from '../Label';
 import Icon from '../../../icon';
 
-class Select extends Component {
+type SelectOption = {
+  label: string,
+  value: string,
+  disabled?: boolean,
+};
+
+type Props = {
+  id?: string,
+  label?: string,
+  name?: string,
+  inline?: boolean,
+  className?: string,
+  style?: object,
+  required?: boolean,
+  options?: Array<SelectOption>,
+  onChange,
+};
+
+class Select extends Component<Props> {
   constructor(props) {
     super(props);
     this.state = {  }

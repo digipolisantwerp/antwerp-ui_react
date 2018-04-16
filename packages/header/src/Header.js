@@ -1,7 +1,14 @@
 import React from 'react';
 import classNames from 'classnames';
 
-const Header = ({ children, style = {}, className = '' }) => {
+type Props = {
+  children?: any,
+  style?: object,
+  className?: string,
+};
+
+const Header = (props: Props) => {
+  const { children, style, className } = props;
   const headerClass = classNames('o-header', className);
   return (
     <header className={headerClass}>

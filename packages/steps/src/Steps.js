@@ -1,6 +1,10 @@
 import React, { Component, cloneElement } from 'react';
 
-class Steps extends Component {
+type Props = {
+  className?: string,
+};
+
+class Steps extends Component<Props> {
   renderStep(child, i) {
     return cloneElement(
       child,

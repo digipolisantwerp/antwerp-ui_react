@@ -1,6 +1,12 @@
 import React from 'react';
 
-const Form = ({children, style}) => {
+type Props = {
+  children?: any,
+  style?: object,
+};
+
+const Form = (props: Props) => {
+  const { children, style } = props;
   return (
     <div className="a-form" style={style}>
       {children}

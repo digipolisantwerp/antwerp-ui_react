@@ -1,12 +1,20 @@
 import React from 'react';
 import classNames from 'classnames';
 
-const Label = ({
-  style,
-  htmlFor,
-  children,
-  inline,
-}) => {
+type Props = {
+  style?: object,
+  htmlFor?: string,
+  children?: any,
+  inline?: boolean,
+};
+
+const Label = (props: Props) => {
+  const {
+    style,
+    htmlFor,
+    children,
+    inline,
+  } = props;
   const labelClass = classNames(
     'a-input__label',
     {

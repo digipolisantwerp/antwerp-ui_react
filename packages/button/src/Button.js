@@ -17,7 +17,27 @@ const typeClasses = {
   danger: 'a-button--danger',
 };
 
-class Button extends Component {
+type ButtonSize = "tiny" | "small" | "large";
+type ButtonTypes = "primary" | "secondary" | "success" | "warning" | "danger";
+
+type Props = {
+  title: string,
+  negative?: boolean,
+  outline?: boolean,
+  transparent?: boolean,
+  className?: string,
+  style?: object,
+  children?: any,
+  /** Font Awesome icon name */
+  icon?: string,
+  iconLeft?: string,
+  iconRight?: string,
+  size?: ButtonSizes,
+  block?: boolean,
+  onClick?: (e: object) => void,
+}
+
+class Button extends Component<Props> {
   render() {
     const {
       negative,

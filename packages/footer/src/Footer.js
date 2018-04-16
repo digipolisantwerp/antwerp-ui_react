@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Footer = ({ style }) => {
+type Props = {
+  style?: object,
+};
+const Footer = (props: Props) => {
+  const { style } = props;
   return (
     <footer className="o-footer" style={style}>
       <span className="o-footer__label">© 2017 Stad Antwerpen</span>
