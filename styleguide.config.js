@@ -11,5 +11,17 @@ module.exports = {
         }
       ]
     }
+  },
+  template: {
+    head: {
+      scripts: [],
+      links: [
+        {
+          rel: 'stylesheet',
+          href:
+            'https://cdn.antwerpen.be/core_branding_scss/2.0.0/main.min.css'
+        }
+      ]
+    }
   }
 };
