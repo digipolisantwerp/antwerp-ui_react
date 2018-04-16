@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '../../../button';
 
-class TagListItem extends Component.Component {
+class TagListItem extends React.Component {
     render() {
         const {
             onClick,
