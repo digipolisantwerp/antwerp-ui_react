@@ -42,13 +42,19 @@ class FlyoutButton extends Component {
   }
 
   render() {
+    const {
+      label,
+      flyoutHasPadding,
+      children,
+      ...buttonProps
+    } = this.props;
     const flyoutClass = this.getClassNames();
     return (
       <div className={flyoutClass} ref={(ref) => { this.containerRef = ref }}>
-        <Button {...this.props} onClick={this.toggleIsOpen}>
-          {this.props.label}
+        <Button {...buttonProps} onClick={this.toggleIsOpen}>
+          {label}
         </Button>
-        <FlyoutContent hasPadding={this.props.flyoutHasPadding}>
+        <FlyoutContent hasPadding={flyoutHasPadding}>
           {this.props.children}
         </FlyoutContent>
       </div>
