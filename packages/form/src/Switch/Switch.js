@@ -5,10 +5,8 @@ import Label from '../Label';
 const Switch = ({
                       id,
                       label,
-                      value,
-                      description,
+                      checked,
                       required,
-                      placeholder,
                       onChange,
                   }) => {
     const inputClass = classNames(
@@ -18,14 +16,14 @@ const Switch = ({
     return (
         <div className={inputClass}>
             <div className="a-input">
-                <Label className="a-input__label">{label}</Label>
+                <label className="a-input__label">{label}</label>
                 <div className="a-switch">
-                    <Label className="a-switch__label">Off</Label>
+                    <label className="a-switch__label">Off</label>
                     <div className="a-switch__toggle">
-                        <input type="checkbox" name={id} id={id} />
-                            <Label></Label>
+                        <input type="checkbox" name="switch1" id={id}/>
+                        <label for={id}></label>
                     </div>
-                    <Label className="a-switch__label">On</Label>
+                    <label className="a-switch__label">On</label>
                 </div>
             </div>
         </div>

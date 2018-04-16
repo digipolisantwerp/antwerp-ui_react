@@ -27,6 +27,7 @@ export {
   Textarea,
   RadioGroup,
   Label,
+  Switch,
 } from './packages/form';
 
 export { default as Header } from './packages/header';
