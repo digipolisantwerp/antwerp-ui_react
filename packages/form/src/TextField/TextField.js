@@ -17,7 +17,7 @@ const TextField = ({
   return (
     <div className={inputClass}>
       <Label htmlFor={id}>{label}</Label>
-      <input type="text" id={id} placeholder={placeholder} />
+      <input type="text" id={id} placeholder={placeholder} value={value} />
       <small>{description}</small>
     </div>
   )
