@@ -34,7 +34,7 @@ const Textarea = (props: Props) => {
   return (
     <div className={textareaClass} style={style}>
       {labelComponent}
-      <textarea id={id} placeholder={placeholder}></textarea>
+      <textarea id={id} placeholder={placeholder} value={value}></textarea>
     </div>
   )
 }

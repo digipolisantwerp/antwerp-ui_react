@@ -22,6 +22,7 @@ const Checkbox = (props: Props) => {
     placeholder,
     onChange,
   } = props;
+
   const inputClass = classNames(
     'a-input',
     { 'is-required': !!required }
@@ -29,7 +30,7 @@ const Checkbox = (props: Props) => {
   return (
     <div className={inputClass}>
       <div className="a-input__checkbox">
-        <input type="checkbox" id={id} />
+        <input type="checkbox" id={id} value={value} />
         <Label htmlFor={id}>{label}</Label>
       </div>
     </div>
