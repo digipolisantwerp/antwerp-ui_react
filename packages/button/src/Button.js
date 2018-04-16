@@ -29,7 +29,7 @@ class Button extends Component {
       iconLeft,
       iconRight,
       onClick,
-      title,
+      title = '',
       type,
       size,
       block = false,

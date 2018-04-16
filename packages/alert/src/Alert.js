@@ -44,7 +44,7 @@ class Alert extends Component {
     return (
       <div className={alertClass}>
         {closeButton}
-        {this.props.title && <h5 className="u-margin-bottom-xs">{this.props.title}</h5>}
+        {title && <h5 className="u-margin-bottom-xs">{title}</h5>}
         {children}
       </div>
     )
