@@ -5,7 +5,6 @@ import Label from '../Label';
 const Checkbox = ({
   id,
   label,
-  value,
   description,
   required,
   placeholder,
