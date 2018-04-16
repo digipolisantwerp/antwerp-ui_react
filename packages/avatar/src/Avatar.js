@@ -12,10 +12,11 @@ const Avatar = ({ size, icon, children, style }) => {
     { [`${sizeClasses[size]}`]: !!size },
   );
 
-  const iconComponent = icon ? (<Icon name={icon} />) : null;
   return (
     <div className={avatarClass} style={style}>
-      {iconComponent}
+      {icon && <span className="a-avatar__icon">
+        <Icon name={icon} />
+      </span>}  
       {children}
     </div>
   )
