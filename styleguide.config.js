@@ -1,0 +1,27 @@
+module.exports = {
+  components: 'packages/*/src/!(index).js',
+  webpackConfig: {
+    module: {
+      rules: [
+        // Babel loader, will use your project’s .babelrc
+        {
+          test: /\.jsx?$/,
+          exclude: /node_modules/,
+          loader: 'babel-loader'
+        }
+      ]
+    }
+  },
+  template: {
+    head: {
+      scripts: [],
+      links: [
+        {
+          rel: 'stylesheet',
+          href:
+            'https://cdn.antwerpen.be/core_branding_scss/2.0.0/main.min.css'
+        }
+      ]
+    }
+  }
+};

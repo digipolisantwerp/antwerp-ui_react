@@ -24,13 +24,16 @@ class Button extends Component {
       outline,
       transparent,
       className,
+      children,
       icon,
       iconLeft,
       iconRight,
       onClick,
-      children,
+      title = '',
       type,
       size,
+      block = false,
+      style = {}
     } = this.props;
     const btnClass = classNames(
       'a-button',
@@ -44,11 +47,12 @@ class Button extends Component {
         'a-button-transparent': !!transparent,
         'a-button-negative': !!negative,
         'a-button-outline': !!outline,
+        'a-button--block': block
       }
     );
 
     return (
-      <button className={btnClass} onClick={onClick}>
+      <button className={btnClass} title={title || ''} onClick={onClick} style={style}>
         {icon ? <Icon name={icon} /> : null}
         {iconLeft ? <Icon name={iconLeft} /> : null}
         {iconRight ? <Icon name={iconRight} /> : null}
