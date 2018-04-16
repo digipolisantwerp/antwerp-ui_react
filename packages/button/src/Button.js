@@ -24,14 +24,15 @@ class Button extends Component {
       outline,
       transparent,
       className,
+      children,
       icon,
       iconLeft,
       iconRight,
       onClick,
-      children,
+      title,
       type,
-      title, 
       size,
+      style = {}
     } = this.props;
     const btnClass = classNames(
       'a-button',
@@ -49,7 +50,7 @@ class Button extends Component {
     );
 
     return (
-      <button className={btnClass} title={title || ''} onClick={onClick}>
+      <button className={btnClass} title={title || ''} onClick={onClick} style={style}>
         {icon ? <Icon name={icon} /> : null}
         {iconLeft ? <Icon name={iconLeft} /> : null}
         {iconRight ? <Icon name={iconRight} /> : null}
