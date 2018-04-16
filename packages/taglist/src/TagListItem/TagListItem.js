@@ -1,24 +1,32 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Button from '../../../button';
 
-class TagListItem extends Component {
+class TagListItem extends Component.Component {
     render() {
         const {
             onClick,
             value,
+            closable = false,
+            icon = '', // vb. check
+            buttonClass = 'a-button--default' // vb. success
+
         } = this.props;
 
         return (
             <li className="m-tag">
+                {icon &&
+                    <Button className={'a-button a-button--small has-icon ' + (buttonClass && 'a-button--' + buttonClass)} icon={icon}></Button>
+                }
                 <span className="m-tag__label">{value}</span>
-                <button
-                    className="a-button-transparent a-button--small a-button--danger has-icon"
-                    onClick={onClick}>
-                    <i className="fa fa-close"></i>
-                </button>
+                {closable &&
+                    <Button className="a-button-transparent a-button--small a-button--danger has-icon"
+                            onClick={onClick}
+                            icon="close">
+                    </Button>
+                }
             </li>
         )
     }
 }
-
 
 export default TagListItem;
