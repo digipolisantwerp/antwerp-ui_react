@@ -7,7 +7,7 @@
     "start": "npx styleguidist server",
     "test": "jest --coverage --verbose",
     "bootstrap": "./node_modules/bin/lerna bootstrap",
-    "build": "lerna exec --parallel -- babel src -d dist --ignore spec.js,story.js",
+    "build": "lerna exec --parallel -- babel src -d dist",
     "publish": "lerna publish --skip-git --skip-npm",
     "prepublish": "npm run build"
   },
@@ -17,6 +17,7 @@
     "babel-jest": "^20.0.3",
     "babel-plugin-transform-react-jsx": "~6.24.1",
     "babel-preset-env": "~1.6.1",
+    "babel-preset-flow": "~6.23.0",
     "babel-preset-react": "~6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "eslint": "~4.19.1",

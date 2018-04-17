@@ -19,7 +19,7 @@ type Props = {
   style?: object,
   required?: boolean,
   options?: Array<SelectOption>,
-  onChange,
+  onChange?: (e: object) => void,
 };
 
 class Select extends Component<Props> {
