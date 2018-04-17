@@ -9,7 +9,22 @@ const flyoutSizes = {
   full: 'full'
 }
 
-class FlyoutButton extends Component {
+type FlyoutDirections = "left" |  "right";
+type FlyoutSizes = "small" | "medium" | "large" | "full";
+
+type Props = {
+  label?: string,
+  /** Flyout direction ("left" |  "right") */
+  flyoutDirection?: FlyoutDirections,
+  /** Flyout size ("small" | "medium" | "large" | "full") */
+  flyoutSizes?: FlyoutSizes,
+  flyourHasPadding?: boolean,
+  /** Font Awesome icon name */
+  icon?: string,
+  children?: any,
+};
+
+class FlyoutButton extends Component<Props> {
   state = {
     isOpen: true
   }

@@ -1,7 +1,13 @@
 
 import React from 'react';
 
-export const FlyoutContent = ({ hasPadding = false, children }) => {
+type Props = {
+  hasPadding?: boolean,
+  children?: any
+}
+
+export const FlyoutContent = (props: Props) => {
+  const { hasPadding, children } = props;
   const classes = classNames('m-flyout__content', {
     'has-padding': !!hasPadding
   });

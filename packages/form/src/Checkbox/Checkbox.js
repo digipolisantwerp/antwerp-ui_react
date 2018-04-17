@@ -2,15 +2,27 @@ import React from 'react';
 import classNames from 'classnames';
 import Label from '../Label';
 
-const Checkbox = ({
-  id,
-  label,
-  description,
-  required,
-  placeholder,
-  value,
-  onChange,
-}) => {
+type Props = {
+  id?: string,
+  label: string,
+  value?: string,
+  description?: string,
+  required?: boolean,
+  placeholder?: string,
+  onChange?: (e: Object) => void,
+};
+
+const Checkbox = (props: Props) => {
+  const {
+    id,
+    label,
+    value,
+    description,
+    required,
+    placeholder,
+    onChange,
+  } = props;
+
   const inputClass = classNames(
     'a-input',
     { 'is-required': !!required }

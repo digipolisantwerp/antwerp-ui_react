@@ -8,7 +8,20 @@ const typeClasses = {
   danger: 'm-alert--danger',
 };
 
-class Alert extends Component {
+type AlertTypes = "success" |  "warning" |  "danger";
+
+type Props = {
+  /** Type of alert ("success" |  "warning" |  "danger") */
+  type?: AlertTypes,
+  /** Title of alert */
+  title?: string,
+  /** Alert body */
+  children?: any,
+  closable?: boolean,
+  className?: string
+};
+
+class Alert extends Component<Props> {
   constructor(props) {
     super(props);
     this.state = {

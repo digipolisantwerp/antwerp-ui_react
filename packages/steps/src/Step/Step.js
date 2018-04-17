@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 
-class Step extends Component {
+type Props = {
+  /** Step title */
+  title: string,
+  active?: boolean,
+  completed?: boolean,
+};
+
+class Step extends Component<Props> {
   render() {
     const {
       title,
