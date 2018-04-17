@@ -10,6 +10,7 @@ class Switch extends React.Component {
     }
     onChange(e) {
         const value = e.currentTarget.value;
+        this.setState({ checked: !this.state.checked });
 
         if (this.props.onChange) {
             this.props.onChange(e);
@@ -29,10 +30,12 @@ class Switch extends React.Component {
         const {
             id,
             label,
+            name,
             checked,
+            labelTrue,
+            labelFalse,
             required,
             disabled,
-            onChange,
         } = this.props;
 
         const inputClass = classNames(
@@ -45,10 +48,11 @@ class Switch extends React.Component {
                 <div className="a-input">
                     <label className="a-input__label">{label}</label>
                     <div className="a-switch">
-                        <label className="a-switch__label">Off</label>
+                        <label className="a-switch__label">{labelFalse ? labelFalse : 'Nee'}</label>
                         <div className="a-switch__toggle">
                             <input type="checkbox"
-                                   name="switch1" id={id}
+                                   name={name}
+                                   id={id}
                                    value={this.state.checked}
                                    defaultChecked={checked}
                                    disabled={disabled}
@@ -57,7 +61,7 @@ class Switch extends React.Component {
                             />
                             <label htmlFor={id}></label>
                         </div>
-                        <label className="a-switch__label">On</label>
+                        <label className="a-switch__label">{labelTrue ? labelTrue : 'Ja'}</label>
                     </div>
                 </div>
             </div>
