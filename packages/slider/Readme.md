@@ -1,0 +1,10 @@
+  ```
+  <Slider
+    min={0}
+    max={100}
+    start={20}
+    end={80}
+    minRange={5}
+    tooltips={false}
+  />
+  ```
