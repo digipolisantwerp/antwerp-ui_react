@@ -9,6 +9,7 @@ type Props = {
   description?: string,
   required?: boolean,
   placeholder?: string,
+  onChange?: (e: object) => void,
 };
 
 const TextField = (props: Props) => {

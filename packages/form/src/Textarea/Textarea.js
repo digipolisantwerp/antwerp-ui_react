@@ -9,6 +9,7 @@ type Props = {
   className?: string,
   style?: object,
   required?: boolean,
+  onChange?: (e: object) => void,
 };
 
 const Textarea = (props: Props) => {
