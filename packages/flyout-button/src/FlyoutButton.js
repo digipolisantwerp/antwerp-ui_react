@@ -26,7 +26,7 @@ type Props = {
 
 class FlyoutButton extends Component<Props> {
   state = {
-    isOpen: true
+    isOpen: false
   }
 
   static defaultProps = {

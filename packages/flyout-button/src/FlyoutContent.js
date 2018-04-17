@@ -1,6 +1,6 @@
 
 import React from 'react';
-
+import classNames from 'classnames';
 type Props = {
   hasPadding?: boolean,
   children?: any
