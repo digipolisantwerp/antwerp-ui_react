@@ -8,7 +8,7 @@ const sizeClasses = {
   large: 'a-avatar--large'
 };
 
-type AvatarSize = "small";
+type AvatarSizes = "small" | "medium" | "large";
 
 type Props = {
   /** Avatar size ("small")  */
@@ -21,9 +21,6 @@ type Props = {
 
 const IconWrapper = ({ icon }) => (<span className="a-avatar__icon"><Icon name={icon} /></span>);
 const LetterWrapper = ({ letter }) => (<span className="a-avatar__letter">{letter}</span>);
-
-const Avatar = ({ size, icon, image, alt='', letter, children, style }) => {
-
 
 const Avatar = (props: Props) => {
   const { size, icon, children, style } = props
