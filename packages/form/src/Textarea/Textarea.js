@@ -5,6 +5,7 @@ import Label from '../Label';
 type Props = {
   id?: string,
   label?: string,
+  value?: string,
   placeholder?: string,
   className?: string,
   style?: object,
@@ -16,6 +17,7 @@ const Textarea = (props: Props) => {
   const {
     id,
     label,
+    value,
     placeholder,
     className,
     style,
