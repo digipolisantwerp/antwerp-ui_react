@@ -8,7 +8,7 @@ const sizeClasses = {
   large: 'a-avatar--large'
 };
 
-type AvatarSizes = "small" | "medium" | "large";
+type AvatarSizes = 'small' | 'medium' | 'large';
 
 type Props = {
   /** Avatar size ("small")  */

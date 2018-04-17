@@ -6,10 +6,10 @@ type Props = {
   /** when no size is given, the medium format is used */
   size?: SpinnerSizes,
   style?: object,
-  className: string
+  className?: string
 };
 
-spinnerSizes = {
+const spinnerSizes = {
   small: 'sm',
   large: 'lg'
 };
