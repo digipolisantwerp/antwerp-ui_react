@@ -5,20 +5,24 @@ import Label from '../Label';
 type Props = {
   id?: string,
   label?: string,
+  value?: string,
   placeholder?: string,
   className?: string,
   style?: object,
   required?: boolean,
+  onChange?: (e: object) => void,
 };
 
 const Textarea = (props: Props) => {
   const {
     id,
     label,
+    value,
     placeholder,
     className,
     style,
     required,
+    onChange,
   } = props;
 
   const textareaClass = classNames(
@@ -34,7 +38,7 @@ const Textarea = (props: Props) => {
   return (
     <div className={textareaClass} style={style}>
       {labelComponent}
-      <textarea id={id} placeholder={placeholder} value={value}></textarea>
+      <textarea id={id} placeholder={placeholder} value={value} onChange={onChange}></textarea>
     </div>
   )
 }
