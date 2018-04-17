@@ -19,6 +19,7 @@ const TextField = (props: Props) => {
     description,
     required,
     placeholder,
+    onChange,
   } = props;
 
   const inputClass = classNames(
@@ -28,7 +29,7 @@ const TextField = (props: Props) => {
   return (
     <div className={inputClass}>
       <Label htmlFor={id}>{label}</Label>
-      <input type="text" id={id} placeholder={placeholder} value={value} />
+      <input type="text" id={id} placeholder={placeholder} value={value} onChange={onChange} />
       <small>{description}</small>
     </div>
   )
