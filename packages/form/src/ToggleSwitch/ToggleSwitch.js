@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-class Switch extends React.Component {
+class ToggleSwitch extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -9,7 +9,6 @@ class Switch extends React.Component {
         }
     }
     onChange(e) {
-        const value = e.currentTarget.value;
         this.setState({ checked: !this.state.checked });
 
         if (this.props.onChange) {
@@ -18,7 +17,6 @@ class Switch extends React.Component {
     }
 
     onClick(e) {
-        const value = e.currentTarget.value;
         this.setState({ checked: !this.state.checked });
 
         if (this.props.onClick) {
@@ -69,4 +67,4 @@ class Switch extends React.Component {
     }
 }
 
-export default Switch;
+export default ToggleSwitch;
