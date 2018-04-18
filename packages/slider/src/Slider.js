@@ -1,7 +1,7 @@
 import React, {Component } from 'react';
 
-import Bar from './Bar'
-import Handle from './Handle'
+import Bar from './Bar';
+import Handle from './Handle';
 
 type Props = {
 	/** Number to start minimum handler on. */
@@ -85,10 +85,10 @@ class Slider extends Component<Props, State> {
 		let {minRange} = this.props;
 
 		if(end - start < minRange){
-			end = start + minRange
+			end = start + minRange;
 		}
 
-		this.onChange(start, end)
+		this.onChange(start, end);
 	}
 
 	updateEnd = (end) => {
