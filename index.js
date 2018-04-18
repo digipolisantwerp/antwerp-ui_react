@@ -37,6 +37,9 @@ export { default as Hero } from './packages/hero';
 export { default as Icon } from './packages/icon';
 
 export { default as Steps } from './packages/steps';
+
+export { default as Slider } from './packages/slider';
+
 export {
   Step,
 } from './packages/steps';
