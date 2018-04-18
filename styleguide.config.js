@@ -1,10 +1,17 @@
+const path = require('path');
+
 module.exports = {
   components: 'packages/*/src/!(index).js',
   getExampleFilename(componentPath) {
     const basePath = componentPath.split('src/')[0];
     return basePath + 'Readme.md';
   },
-  
+  getComponentPathLine(componentPath) {
+    const name = path.basename(componentPath, '.js')
+    return `import { ${name} } from '@astad/react-ui';`
+  },
+  title: 'AStad React Components',
+  showUsage: true,
   webpackConfig: {
     module: {
       rules: [
