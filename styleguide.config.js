@@ -11,7 +11,7 @@ module.exports = {
     const name = path.basename(componentPath, '.js')
     return `import { ${name} } from '@astad/react-ui';`
   },
-  title: 'AStad React Components',
+  title: 'Astad React Components',
   showUsage: true,
   webpackConfig: {
     module: {
