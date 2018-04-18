@@ -1,6 +1,6 @@
 ```
 <Hero>
-  <h1>Hero title</h1>
-  <p>Arma virumque cano, Troiae qui primus ab oris Italiam, fato profugus, Laviniaque venit litora, multum ille et terris iactatus et alto vi superum saevae memorem Iunonis ob iram.</p>
+  <h3 className="u-margin">App title</h3>
+  <h5>This is the subtitle</h5>
 </Hero>
 ```
