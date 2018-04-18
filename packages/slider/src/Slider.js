@@ -1,109 +1,177 @@
-import React, { PropTypes, Component } from 'react'
-import Fill from './Fill'
+import React, {Component } from 'react';
+
+import Bar from './Bar'
 import Handle from './Handle'
 
-class Slider extends Component {
+type Props = {
+	/** Number to start minimum handler on. */
+	start?: number,
+	/** Number to end maximum handler on. */
+	end?: number,
+	/** The minimum allowed value for the minimum handler. */
+	min?: number,
+	/** The maximum allowed value for the maximum handler. */
+	max?: number,
+	/** The interval number of the slider. */
+	step?: number,
+	/** The unit string to display behind the number labels. */
+	unit?: string,
+	/** The minimum range between the minimum and maximum handlers. */
+	minRange?: number,
+	/** Show default of tooltip labels. */
+	tooltips?: boolean,
+	/** Show minimum and maximum or single slider. */
+	range?: boolean,
+	/** Function that is triggered when a handler is dropped after sliding */
+	onDragEnd?: void,
+	/** Function that is continuously triggered when a handler is being dragged */
+	onChange?: void,
+};
+
+type State = {
+	limit: number,
+	start?: number,
+	end?: number,
+}
+
+class Slider extends Component<Props, State> {
+
+	static defaultProps = {
+		start: 0,
+		end: 100,
+		min: 0,
+		max: 100,
+		step: 1,
+		unit: '%',
+		minRange: 0,
+		tooltips: false,
+		range: false,
+	}
+
 	constructor(props, context){
-		super(props, context)
+		super(props, context);
 		this.state = {
 			limit: 0,
-			start: props.start ? props.start : 0,
-			end: props.end ? props.end : 20,
-			min: props.min ? props.min : 0,
-			max: props.max ? props.max : 20,
-			step: props.step ? props.step : 1,
-			value: props.value ? props.value : 0,
-			minRange: props.minRange ? props.minRange : 5,
-			tooltips: props.tooltips ? props.tooltips : false,
+			start: props.start || 0,
+			end: props.end || 100,
 		}
 	}
 
 	componentDidMount () {
-		window.addEventListener('resize', this.handleUpdate)
+		window.addEventListener('resize', this.handleUpdate);
 		this.handleUpdate()
 	}
 
 	componentWillUnmount () {
-		window.removeEventListener('resize', this.handleUpdate)
+		window.removeEventListener('resize', this.handleUpdate);
+	}
+
+	onDragEnd = () => {
+		let {
+			start,
+			end
+		} = this.state;
+
+		const { onDragEnd } = this.props;
+		if (!onDragEnd) return;
+		onDragEnd && onDragEnd(start, end);
 	}
 
 	updateStart = (start) => {
 		let {
-			end, minRange
-		} = this.state
+			end
+		} = this.state;
+
+		let {minRange} = this.props;
+
 		if(end - start < minRange){
-			console.log("ENDING IN RANGE");
 			end = start + minRange
 		}
-		console.log("CHANGING");
 
 		this.onChange(start, end)
-	}
-
-	onChange = (start, end) => {
-		console.log('start',start, 'end', end)
-		this.setState({
-			start, end
-		})
 	}
 
 	updateEnd = (end) => {
 		let {
-			start, minRange
-		} = this.state
+			start
+		} = this.state;
+
+		let {minRange} = this.props;
+
 		if(end - start < minRange){
-			start = end - minRange
+			start = end - minRange;
 		}
-		this.onChange(start, end)
+
+		this.onChange(start, end);
 	}
 
 	handleUpdate = () => {
-		const sliderPos = this.slider[`offsetWidth`]
-		const handlePos = 40
+		const sliderPos = this.slider['offsetWidth'];
+		const handlePos = 30; // Fills the bar up correctly on the right side
 
-		const node = this.slider
-		const direction = node.getBoundingClientRect()['left']
-		console.log('base dir', direction)
+		const node = this.slider;
+		const direction = node.getBoundingClientRect()['left'];
+
 		this.setState({
 			limit: sliderPos - handlePos,
-			grab: handlePos / 2,
 			sliderPos,
 			direction
-		})
+		});
 	}
 
 	handleNoop = (e) => {
-		e.stopPropagation()
-		e.preventDefault()
+		e.stopPropagation();
+		e.preventDefault();
+	}
+
+	onChange = (start, end) => {
+		let {
+			onChange
+		} = this.props;
+
+		onChange(start, end);
+
+		this.setState({
+			start, end
+		});
 	}
 
 	getPositionFromValue = (value) => {
-		const { limit } = this.state
-		const { min, max } = this.props
-		const diffMaxMin = max - min
-		const diffValMin = value - min
-		const percentage = diffValMin / diffMaxMin
-		const pos = Math.round(percentage * limit)
+		const { limit } = this.state;
+		const { min, max } = this.props;
+		const diffMaxMin = max - min;
+		const diffValMin = value - min;
+		const percentage = diffValMin / diffMaxMin;
 
-		return pos
+		return  Math.round(percentage * limit);
 	}
 
 	render(){
 		let {
-			sliderPos, direction,
-			start, end,
-			min, max,
+			min,
+			max,
+			step,
+			unit,
 			minRange,
-			tooltips
-		} = this.state
+			tooltips,
+			range,
+		} = this.props;
+
+		let {
+			sliderPos,
+			direction,
+			start,
+			end
+	} = this.state;
 
 		return(
 			<div className="m-range-slider" ref={(s) => { this.slider = s }}>
 				<div className="m-range-slider__inner">
-					<Fill
+					<Bar
 						start={start}
 						end={end}
 						getPositionFromValue={this.getPositionFromValue}
+						range={range}
 					/>
 
 					<Handle
@@ -111,28 +179,37 @@ class Slider extends Component {
 						onChange={this.updateStart}
 						min={min}
 						max={max - minRange}
+						step={step}
+						unit={unit}
 						handleNoop={this.handleNoop}
 						sliderPos={sliderPos}
 						direction={direction}
 						getPositionFromValue={this.getPositionFromValue}
 						tooltips={tooltips}
+						onDragEnd={this.onDragEnd}
 					/>
-
-					<Handle
-						value={end}
-						onChange={this.updateEnd}
-						min={min + minRange}
-						max={max}
-						handleNoop={this.handleNoop}
-						sliderPos={sliderPos}
-						direction={direction}
-						getPositionFromValue={this.getPositionFromValue}
-						tooltips={tooltips}
-					/>
+					{range &&
+						<Handle
+							value={end}
+							onChange={this.updateEnd}
+							min={min + minRange}
+							max={max}
+							step={step}
+							unit={unit}
+							handleNoop={this.handleNoop}
+							sliderPos={sliderPos}
+							direction={direction}
+							getPositionFromValue={this.getPositionFromValue}
+							tooltips={tooltips}
+							onDragEnd={this.onDragEnd}
+						/>
+					}
 				</div>
 		</div>
 		)
 	}
 }
 
-export default Slider
+export default Slider;
+
+

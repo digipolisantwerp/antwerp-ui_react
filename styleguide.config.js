@@ -27,5 +27,6 @@ module.exports = {
         }
       ]
     }
-  }
+  },
+	ignore: ['**/*.spec.js', '**/packages/slider/src/Handle.js', '**/packages/slider/src/Bar.js']
 };
