@@ -30,6 +30,8 @@ export {
   ToggleSwitch,
 } from './packages/form';
 
+export { default as Datepicker } from './packages/datepicker';
+
 export { default as Header } from './packages/header';
 
 export { default as Hero } from './packages/hero';
