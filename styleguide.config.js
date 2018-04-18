@@ -4,7 +4,7 @@ module.exports = {
     const basePath = componentPath.split('src/')[0];
     return basePath + 'Readme.md';
   },
-  
+  skipComponentsWithoutExample: true,
   webpackConfig: {
     module: {
       rules: [
