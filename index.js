@@ -42,3 +42,4 @@ export {
 } from './packages/steps';
 export { default as FlyoutButton } from './packages/flyout-button';
 export { default as Spinner } from './packages/spinner';
+export { default as UserMenu } from './packages/user-menu';
