@@ -8,8 +8,12 @@
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.2.5",
+    "moment": "^2.22.1",
+    "moment-range": "^4.0.0",
+    "momentjs": "^2.0.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
-    "react-calendar": "^2.14.0"
+    "react-mdl": "^1.11.0",
+    "react-moment": "^0.7.0"
   }
 }
