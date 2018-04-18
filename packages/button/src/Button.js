@@ -17,7 +17,7 @@ const typeClasses = {
   danger: 'a-button--danger',
 };
 
-type ButtonSize = "tiny" | "small" | "large";
+type ButtonSizes = "tiny" | "small" | "large";
 type ButtonTypes = "primary" | "secondary" | "success" | "warning" | "danger";
 
 type Props = {
