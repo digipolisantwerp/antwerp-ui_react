@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Button from '../../../button';
 
-class TagListItem extends React.Component {
+type Props = {
+	/** The label to display. */
+	value: string,
+	/** Make the tag closable or not. */
+	closable?: boolean,
+	/** Add a custom icon like for example 'check'. */
+	icon?: string,
+	/** Add a custom buttonclass like for example 'success'. */
+	buttonClass?: string,
+	/** Add a custom function that gets triggered when the tag gets closes. */
+	onClick?: void,
+};
+
+class TagListItem extends Component<Props> {
     render() {
         const {
-            onClick,
             value,
             closable = false,
-            icon = '', // vb. check
-            buttonClass = 'a-button--default' // vb. success
+            icon = '',
+            buttonClass = 'a-button--default',
+					  onClick,
 
         } = this.props;
 
