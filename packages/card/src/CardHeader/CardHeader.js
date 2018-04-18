@@ -1,7 +1,14 @@
 import React from 'react';
 import Contact from '../../../contact';
 
-const CardHeader = ({ title, actions, avatar }) => {
+type Props = {
+  title: string,
+  actions?: Array<any>,
+  avatar?: any,
+};
+
+const CardHeader = (props: Props) => {
+  const { title, actions, avatar }  = props;
   const cardHeader = (
     <div className="m-card__header" style={{ display: 'flex' }}>
       <Contact

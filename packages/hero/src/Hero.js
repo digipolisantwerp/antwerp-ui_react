@@ -4,7 +4,12 @@ const styles = {
   overflow: 'auto'
 };
 
-const Hero = ({ children }) => {
+type Props = {
+  children?: any,
+};
+
+const Hero = (props: Props) => {
+  const { children } = props;
   return (
     <div className="u-wrapper u-bg-light" style={styles}>
       <div className="u-container">

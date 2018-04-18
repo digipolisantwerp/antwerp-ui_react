@@ -27,6 +27,7 @@ export {
   Textarea,
   RadioGroup,
   Label,
+  ToggleSwitch,
 } from './packages/form';
 
 export { default as TagList, TagListItem } from './packages/taglist';
@@ -38,6 +39,12 @@ export { default as Hero } from './packages/hero';
 export { default as Icon } from './packages/icon';
 
 export { default as Steps } from './packages/steps';
+
+export { default as Slider } from './packages/slider';
+
 export {
   Step,
 } from './packages/steps';
+export { default as FlyoutButton } from './packages/flyout-button';
+export { default as Spinner } from './packages/spinner';
+export { default as UserMenu } from './packages/user-menu';

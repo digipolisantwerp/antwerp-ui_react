@@ -1,10 +1,17 @@
 import React from 'react';
 
-const Option = ({
-  value,
-  disabled,
-  children,
-}) => {
+type Props = {
+  children: any,
+  value: string,
+  disabled?: boolean,
+};
+
+const Option = (props: Props) => {
+  const {
+    value,
+    disabled,
+    children,
+  } = props;
   return (
     <option value={value} disabled={disabled}>
       {children}

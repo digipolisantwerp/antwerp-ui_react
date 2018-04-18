@@ -8,7 +8,20 @@ const typeClasses = {
   danger: 'm-alert--danger',
 };
 
-class Alert extends Component {
+type AlertTypes = "success" |  "warning" |  "danger";
+
+type Props = {
+  /** Type of alert ("success" |  "warning" |  "danger") */
+  type?: AlertTypes,
+  /** Title of alert */
+  title?: string,
+  /** Alert body */
+  children?: any,
+  closable?: boolean,
+  className?: string
+};
+
+class Alert extends Component<Props> {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,8 +37,8 @@ class Alert extends Component {
   render() {
     const {
       type,
-      message,
-      description,
+      title,
+      children,
       closable,
       className,
     } = this.props;
@@ -37,17 +50,15 @@ class Alert extends Component {
     );
 
     const closeButton = closable ? (
-      <Button type="warning" transparent icon="close" onClick={this.handleClose} className="m-alert__close">
+      <Button type={type} transparent icon="close" onClick={this.handleClose} className="m-alert__close">
       </Button>
     ) : null;
-    const messageText = message ? (<h5 className="u-margin-bottom-xs">{message}</h5>) : null;
-    const descriptionText = description ? (<p>{description}</p>) : null;
 
     return (
       <div className={alertClass}>
         {closeButton}
-        {messageText}
-        {descriptionText}
+        {title && <h5 className="u-margin-bottom-xs">{title}</h5>}
+        {children}
       </div>
     )
   }

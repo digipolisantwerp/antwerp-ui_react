@@ -1,6 +1,14 @@
 import React from 'react';
 
-const Contact = ({ name, avatar, style }) => {
+type Props = {
+  /** Contact name */
+  name: string,
+  avatar?: any,
+  style?: object,
+};
+
+const Contact = (props: Props) => {
+  const { name, avatar, style } = props;
   return (
     <div className="m-contact" style={style}>
       {avatar}

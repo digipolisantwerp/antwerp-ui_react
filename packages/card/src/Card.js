@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 
-class Card extends Component {
+type Props = {
+  className?: string,
+  style?: object,
+  children?: any,
+};
+
+class Card extends Component<Props> {
   render() {
     const {
       className,

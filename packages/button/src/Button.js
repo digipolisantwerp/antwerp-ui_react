@@ -17,20 +17,43 @@ const typeClasses = {
   danger: 'a-button--danger',
 };
 
-class Button extends Component {
+type ButtonSizes = "tiny" | "small" | "large";
+type ButtonTypes = "primary" | "secondary" | "success" | "warning" | "danger";
+
+type Props = {
+  title: string,
+  negative?: boolean,
+  outline?: boolean,
+  transparent?: boolean,
+  className?: string,
+  style?: object,
+  children?: any,
+  /** Font Awesome icon name */
+  icon?: string,
+  iconLeft?: string,
+  iconRight?: string,
+  size?: ButtonSizes,
+  block?: boolean,
+  onClick?: (e: object) => void,
+}
+
+class Button extends Component<Props> {
   render() {
     const {
       negative,
       outline,
       transparent,
       className,
+      children,
       icon,
       iconLeft,
       iconRight,
       onClick,
-      children,
+      title = '',
       type,
       size,
+      block = false,
+      style = {}
     } = this.props;
     const btnClass = classNames(
       'a-button',
@@ -41,14 +64,15 @@ class Button extends Component {
         'has-icon': !!icon,
         'has-icon-left': !!iconLeft,
         'has-icon-right': !!iconRight,
-        'a-button-transparent': !!transparent,
+        'a-button--transparent': !!transparent,
         'a-button-negative': !!negative,
         'a-button-outline': !!outline,
+        'a-button--block': block
       }
     );
 
     return (
-      <button className={btnClass} onClick={onClick}>
+      <button className={btnClass} title={title || ''} onClick={onClick} style={style}>
         {icon ? <Icon name={icon} /> : null}
         {iconLeft ? <Icon name={iconLeft} /> : null}
         {iconRight ? <Icon name={iconRight} /> : null}
