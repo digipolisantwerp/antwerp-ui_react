@@ -1,13 +1,9 @@
 import React, { PropTypes, Component } from 'react'
 
 class Handle extends Component {
-	constructor (props, context) {
-		super(props, context);
-
-		this.state = {
-			limit: 480,
-			grab: 5
-		}
+	state = {
+		limit: 480,
+		grab: 5
 	}
 
 	componentWillReceiveProps(nextProps){
