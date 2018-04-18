@@ -19,7 +19,8 @@ https://api.adorable.io/avatars/285/jasper@adorable.png
 
 ### Avatar sizes
 ```
-<Avatar image="https://api.adorable.io/avatars/285/jasper@adorable.png" size="small" alt="Klein"/> <br />
-<Avatar image="https://api.adorable.io/avatars/285/jasper@adorable.png" size="medium" alt="Medium"/> <br />
-<Avatar image="https://api.adorable.io/avatars/285/jasper@adorable.png" size="large" alt="Groot"/>
+<Avatar image="https://api.adorable.io/avatars/285/jasper@adorable.png" size="large" alt="Groot"/>{' '}
+<Avatar image="https://api.adorable.io/avatars/285/jasper@adorable.png" size="medium" alt="Medium"/>{' '}
+<Avatar image="https://api.adorable.io/avatars/285/jasper@adorable.png" size="small" alt="Klein"/>
+
 ```
