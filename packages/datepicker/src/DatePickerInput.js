@@ -13,11 +13,16 @@ type Props = {
 	activeDate?: typeof(DateTime),
 	/** Toggle the calender open/closed. */
 	isCalendarOpen?: boolean,
+	/** Every date less than this date will be disabled */
+	minDate:  typeof(DateTime),
+	/** Every date greater than this date will be disabled */
+	maxDate:  typeof(DateTime),
 	/** Event for when the date changes. */
 	onChange?: (e: object) => void,
 };
 
 class DatePickerInput extends Component<Props> {
+
 	state = {
 		activeDate: Moment(),
 		isCalendarOpen: false
@@ -105,7 +110,7 @@ class DatePickerInput extends Component<Props> {
 								<DatePicker
 									label={label}
 									format={format}
-									activeDate={Moment(activeDate)}
+									activeDate={activeDate}
 									isCalendarOpen={isCalendarOpen}
 									minDate={minDate}
 									maxDate={maxDate}

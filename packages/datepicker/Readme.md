@@ -4,6 +4,8 @@
 <div>
 <DatePickerInput 
     activeDate={new Date('05/05/1992')} 
+    minDate={new Date('04/05/1992')} 
+    maxDate={new Date('06/05/1992')}
     onChange={(date) => console.log('date is ' + date)}
     label={"Geboortedatum"}
     format={"DD/MM/YYYY"} 

@@ -6,26 +6,32 @@ type Props = {
 	/** The label to display above the field. */
 	label: string,
 	/** The date format used to render the date. */
-	format: string,
+	format?: string,
 	/** The selected or predefined date. */
-	activeDate: typeof(DateTime),
+	activeDate?: typeof(DateTime),
 	/** Toggle the calender open/closed. */
-	isCalendarOpen: boolean,
+	isCalendarOpen?: boolean,
+	/** Every date less than this date will be disabled */
+	minDate:  typeof(DateTime),
+	/** Every date greater than this date will be disabled */
+	maxDate:  typeof(DateTime),
 	/** Event for when the date changes. */
-	onChange: (e: object) => void,
+	onChange?: (e: object) => void,
 };
 class DatePickerView extends Component<Prop> {
+
+	state = {
+		activeDate: Moment()
+	};
 
 	static defaultProps = {
 		format: 'DD/MM/YYYY',
 		isCalendarOpen: true
 	};
 
-	constructor (props) {
-		super(props);
-
-		this.state = {
-			activeDate: Moment(props.activeDate)
+	static getDerivedStateFromProps(nextProps, prevState){
+		return {
+			activeDate : Moment(nextProps.activeDate)
 		};
 	}
 
