@@ -2,7 +2,7 @@ import React from 'react';
 
 type Props = {
   children?: any,
-  style: string,
+  style?: string,
 };
 
 const CardBody = (props: Props) => {

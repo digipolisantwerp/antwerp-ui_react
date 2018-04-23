@@ -4,7 +4,7 @@ import Contact from '../../../contact';
 type Props = {
   title: string,
   actions?: Array<any>,
-  avatar: any,
+  avatar?: any,
 };
 
 const CardHeader = (props: Props) => {
