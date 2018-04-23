@@ -12,6 +12,7 @@ type Props = {
   style?: object,
   required?: boolean,
   onChange?: (e: object) => void,
+  onBlur?: (e: object) => void,
 };
 
 const Textarea = (props: Props) => {
@@ -25,6 +26,7 @@ const Textarea = (props: Props) => {
     style,
     required,
     onChange,
+    onBlur,
   } = props;
 
   const textareaClass = classNames(
@@ -40,7 +42,7 @@ const Textarea = (props: Props) => {
   return (
     <div className={textareaClass} style={style}>
       {labelComponent}
-      <textarea id={id} placeholder={placeholder} name={name} value={value} onChange={onChange}></textarea>
+      <textarea id={id} placeholder={placeholder} name={name} value={value} onChange={onChange} onBlur={onBlur}></textarea>
     </div>
   )
 }
