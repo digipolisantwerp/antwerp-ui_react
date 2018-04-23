@@ -35,7 +35,6 @@ export function isDateFromPrevMonth (date, displayedMonth) {
 }
 
 export function yearsOfMonth (displayedMonth) {
-	console.log(displayedMonth);
 	const amountOfYearsBack = -11;
 	let results = [];
 
@@ -47,13 +46,9 @@ export function yearsOfMonth (displayedMonth) {
 	return results;
 }
 
-export function switchToView(viewType) {
-	switch(viewType) {
-		case 'days':
-			return 'months';
-		case 'months':
-			return 'years';
-		default:
-			return'days';
-	}
+export function nextItemInArray(element, array) {
+	let i = array.findIndex(k => k== element);
+	i = i + 1;
+	i = i % array.length;
+	return array[i];
 }

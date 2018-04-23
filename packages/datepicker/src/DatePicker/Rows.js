@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, {Component} from 'react';
 
 class Rows extends Component {
 
@@ -6,7 +6,7 @@ class Rows extends Component {
 		const { list, rowLength, onClick } = this.props;
 		return list.map(function(content, index) {
 			return <td key={index}>
-				<button tabIndex={index} onClick={onClick} type="button">
+				<button tabIndex={index} value={content} onClick={onClick} type="button">
 					{content}
 				</button></td>;
 		}).reduce(function(r, element, index) {
@@ -15,9 +15,9 @@ class Rows extends Component {
 			index % rowLength === 0 && r.push([]);
 			r[r.length - 1].push(element);
 			return r;
-		}, []).map(function(rowContent) {
+		}, []).map(function(rowContent, index) {
 			// surround every group with a tr
-			return <tr>{rowContent}</tr>;
+			return <tr key={index}>{rowContent}</tr>;
 		});
 	}
 
@@ -29,13 +29,3 @@ class Rows extends Component {
 }
 
 export default Rows;
-/*
- DateInput.propTypes = {
- inputValue: PropTypes.instanceOf(moment),
- inputOnClick: PropTypes.func,
- inputClassName: PropTypes.string
- };
-
- DateInput.defaultProps = {
- inputClassName: 'datepicker__input'
- };*/

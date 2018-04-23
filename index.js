@@ -30,8 +30,6 @@ export {
   ToggleSwitch,
 } from './packages/form';
 
-export { default as Datepicker } from './packages/datepicker';
-
 export { default as Header } from './packages/header';
 
 export { default as Hero } from './packages/hero';
@@ -45,3 +43,7 @@ export {
 export { default as FlyoutButton } from './packages/flyout-button';
 export { default as Spinner } from './packages/spinner';
 export { default as UserMenu } from './packages/user-menu';
+export { default as DatePickerInput } from './packages/datepicker';
+export {
+	DatePickerView,
+} from './packages/datepicker';

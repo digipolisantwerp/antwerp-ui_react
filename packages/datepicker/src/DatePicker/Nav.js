@@ -1,18 +1,18 @@
-import React, { Component, PropTypes } from 'react';
-import {yearsOfMonth} from '../utils';
+import React, {Component} from 'react';
+import {yearsOfMonth} from '../../utils/index';
 
 
 class Nav extends Component {
 
 	renderNav () {
-		const { viewType, displayedMonth } = this.props;
+		const { viewType, displayedPeriod } = this.props;
 		switch(viewType) {
 			case 'months':
-				return (displayedMonth.format('YYYY'));
+				return (displayedPeriod.format('YYYY'));
 			case 'years':
-				return this.renderYearsNav(displayedMonth);
+				return this.renderYearsNav(displayedPeriod);
 			default:
-				return (displayedMonth.format('MMMM YYYY'));
+				return (displayedPeriod.format('MMMM YYYY'));
 		}
 	}
 
@@ -54,13 +54,3 @@ class Nav extends Component {
 }
 
 export default Nav;
-/*
- DateInput.propTypes = {
- inputValue: PropTypes.instanceOf(moment),
- inputOnClick: PropTypes.func,
- inputClassName: PropTypes.string
- };
-
- DateInput.defaultProps = {
- inputClassName: 'datepicker__input'
- };*/
