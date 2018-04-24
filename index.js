@@ -48,4 +48,5 @@ export {
 export { default as FlyoutButton } from './packages/flyout-button';
 export { default as Spinner } from './packages/spinner';
 export { default as UserMenu } from './packages/user-menu';
-export { default as Badge} from './packages/badge';
+export { default as Badge } from './packages/badge';
+export { default as Label} from './packages/Label';
