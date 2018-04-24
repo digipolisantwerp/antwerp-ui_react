@@ -45,3 +45,13 @@
 <Button icon="download" type="primary" size="small"></Button>{' '}
 <Button icon="download" type="primary" size="tiny"></Button>
 ```
+
+### Button Group
+```
+const ButtonGroup = require('./dist').ButtonGroup;
+<ButtonGroup>
+  <Button type="primary" size="tiny">left</Button>
+  <Button type="primary" size="tiny">middle</Button>
+  <Button type="primary" size="tiny">right</Button>
+</ButtonGroup>
+```

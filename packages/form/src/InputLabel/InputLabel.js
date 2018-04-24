@@ -8,7 +8,7 @@ type Props = {
   inline?: boolean,
 };
 
-const Label = (props: Props) => {
+const InputLabel = (props: Props) => {
   const {
     style,
     htmlFor,
@@ -28,4 +28,4 @@ const Label = (props: Props) => {
   )
 }
 
-export default Label;
+export default InputLabel;
