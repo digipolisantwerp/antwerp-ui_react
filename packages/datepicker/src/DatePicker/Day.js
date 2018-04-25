@@ -1,14 +1,6 @@
 import React, {Component} from 'react';
 
-type Props = {
-	disabled: boolean,
-	dayNextMonth: boolean,
-	dayPrevMonth: boolean,
-	selectDay: void,
-	activeDate: void, //add instance of moment
-};
-
-class Day extends Component<Props> {
+class Day extends Component {
 
 	static defaultProps = {
 		dayClassName: '',

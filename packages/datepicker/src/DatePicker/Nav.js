@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {yearsOfMonth} from '../../utils/index';
-
+import Button from '../../../button';
 
 class Nav extends Component {
 
@@ -26,28 +26,21 @@ class Nav extends Component {
 
 		return(
 			<React.Fragment>
-				<button tabIndex="-1"
-					type="button"
-					aria-label="previous month"
+				<Button
 					onClick={onClickPrevious}
-					className="a-button has-icon">
-					<i className="fa fa-angle-left"></i>
-				</button>
-				<button
-					tabIndex="0"
-					type="button"
+					className={"a-button has-icon"}
+					icon={"angle-left"} />
+
+				<Button
 					onClick={onClickViewType}
-					className="m-datepicker__title a-button">
+					className={"m-datepicker__title a-button"} >
 					{this.renderNav()}
-				</button>
-				<button
-					tabIndex="0"
-					type="button"
-					aria-label="next month"
+				</Button>
+
+				<Button
 					onClick={onClickNext}
-					className="a-button has-icon">
-					<i className="fa fa-angle-right"></i>
-					</button>
+					className={"a-button has-icon"}
+					icon={"angle-right"} />
 			</React.Fragment>
 		)
 	}
