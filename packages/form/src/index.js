@@ -1,6 +1,6 @@
 export { default } from './Form';
 export { default as Fieldset } from './Fieldset';
-export { default as Label } from './Label';
+export { default as InputLabel } from './InputLabel';
 export { default as TextField } from './TextField';
 export { default as Checkbox } from './Checkbox';
 export { default as Select } from './Select';
