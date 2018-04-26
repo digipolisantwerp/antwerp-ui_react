@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
-import Label from '../Label';
+import InputLabel from '../InputLabel';
+import InputMask from 'react-input-mask';
+
+const stateClasses = {
+  success: 'has-success',
+  warning: 'has-warning',
+  error: 'has-error',
+};
+
+type InputStates = "success" | "warning" | "error";
 
 type Props = {
   id?: string,
@@ -12,32 +21,44 @@ type Props = {
   placeholder?: string,
   onChange?: (e: object) => void,
   onBlur?: (e: object) => void,
+  mask?: string,
+  state?: InputStates,
 };
 
-const TextField = (props: Props) => {
-  const {
-    id,
-    label,
-    value,
-    name,
-    description,
-    required,
-    placeholder,
-    onChange,
-    onBlur,
-  } = props;
+class TextField extends Component<Props> {
+  render() {
+    const {
+      id,
+      label,
+      value,
+      name,
+      description,
+      required,
+      placeholder,
+      onChange,
+      onBlur,
+      mask,
+      state,
+    } = this.props;
 
-  const inputClass = classNames(
-    'a-input',
-    { 'is-required': !!required }
-  );
-  return (
-    <div className={inputClass}>
-      <Label htmlFor={id}>{label}</Label>
-      <input type="text" id={id} placeholder={placeholder} name={name} value={value} onChange={onChange} onBlur={onBlur} />
-      <small>{description}</small>
-    </div>
-  )
+    const inputClass = classNames(
+      'a-input',
+      {
+        'is-required': !!required,
+        [`${stateClasses[state]}`]: !!state,
+      }
+    );
+
+    return (
+      <div className={inputClass}>
+        {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
+        <div className="a-input__wrapper">
+          {mask ?  <InputMask {...this.props} /> : <input type="text" {...this.props} />}
+          <small>{description}</small>
+        </div>
+      </div>
+    )
+  }
 }
 
 export default TextField;

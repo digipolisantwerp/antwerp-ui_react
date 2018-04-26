@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import Label from '../Label';
+import InputLabel from '../InputLabel';
 
 type Props = {
   id?: string,
@@ -35,13 +35,9 @@ const Textarea = (props: Props) => {
     className,
   );
 
-  const labelComponent = label ? (
-    <Label htmlFor={id}>{label}</Label>
-  ) : null;
-
   return (
     <div className={textareaClass} style={style}>
-      {labelComponent}
+      {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
       <textarea id={id} placeholder={placeholder} name={name} value={value} onChange={onChange} onBlur={onBlur}></textarea>
     </div>
   )

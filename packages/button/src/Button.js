@@ -34,6 +34,7 @@ type Props = {
   iconRight?: string,
   size?: ButtonSizes,
   block?: boolean,
+  disabled?: boolean,
   onClick?: (e: object) => void,
 }
 
@@ -53,7 +54,8 @@ class Button extends Component<Props> {
       type,
       size,
       block = false,
-      style = {}
+      style = {},
+      disabled = false,
     } = this.props;
     const btnClass = classNames(
       'a-button',
@@ -72,7 +74,12 @@ class Button extends Component<Props> {
     );
 
     return (
-      <button className={btnClass} title={title || ''} onClick={onClick} style={style}>
+      <button
+        className={btnClass}
+        title={title || ''}
+        onClick={onClick}
+        style={style}
+        disabled={disabled}>
         {icon ? <Icon name={icon} /> : null}
         {iconLeft ? <Icon name={iconLeft} /> : null}
         {iconRight ? <Icon name={iconRight} /> : null}
