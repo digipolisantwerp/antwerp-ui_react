@@ -8,9 +8,9 @@ type Props = {
 const Form = (props: Props) => {
   const { children, style } = props;
   return (
-    <div className="a-form" style={style}>
+    <form className="a-form" style={style}>
       {children}
-    </div>
+    </form>
   )
 }
 
