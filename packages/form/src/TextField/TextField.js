@@ -11,6 +11,7 @@ type Props = {
   required?: boolean,
   placeholder?: string,
   onChange?: (e: object) => void,
+  onClick?: (e: object) => void,
   onBlur?: (e: object) => void,
 };
 
@@ -24,6 +25,7 @@ const TextField = (props: Props) => {
     required,
     placeholder,
     onChange,
+    onClick,
     onBlur,
   } = props;
 
@@ -34,7 +36,15 @@ const TextField = (props: Props) => {
   return (
     <div className={inputClass}>
       <Label htmlFor={id}>{label}</Label>
-      <input type="text" id={id} placeholder={placeholder} name={name} value={value} onChange={onChange} onBlur={onBlur} />
+      <input
+        type="text"
+        id={id}
+        placeholder={placeholder}
+        name={name}
+        value={value}
+        onChange={onChange}
+        onClick={onClick}
+        onBlur={onBlur} />
       <small>{description}</small>
     </div>
   )
