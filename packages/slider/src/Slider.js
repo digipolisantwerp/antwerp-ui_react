@@ -4,10 +4,10 @@ import Bar from './Bar';
 import Handle from './Handle';
 
 type Props = {
-  /** The label to display above the field. */
-  label: string,
-  /** The id for the field. */
-  id: string,
+	/** The label to display above the field. */
+	label: string,
+	/** The id for the field. */
+	id: string,
 	/** Number to start minimum handler on. */
 	start?: number,
 	/** Number to end maximum handler on. */
