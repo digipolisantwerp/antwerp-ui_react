@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import Option from './Option';
-import Label from '../Label';
+import InputLabel from '../InputLabel';
 import Icon from '../../../icon';
 
 type SelectOption = {
@@ -64,7 +64,7 @@ class Select extends Component<Props> {
     );
     return (
       <div className={selectClass} name={name}>
-        <Label inline={inline} htmlFor={id}>{label}</Label>
+        {label && <InputLabel inline={inline} htmlFor={id}>{label}</InputLabel>}
         <div className={wrapperClass}>
           <select id={id} name={name} onChange={(e) => this.onChange(e)}>
             {options.map(option => (

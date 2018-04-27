@@ -1,6 +1,6 @@
 import React from 'react';
 import Radio from './Radio';
-import Label from '../Label';
+import InputLabel from '../InputLabel';
 import classNames from 'classnames';
 
 type RadioOption = {
@@ -43,7 +43,7 @@ const RadioGroup = (props: Props) => {
   );
   return (
     <div className={radioGroupClass} style={style} onChange={onChange}>
-      <Label inline={inline} htmlFor={id}>{label}</Label>
+      {label && <InputLabel inline={inline} htmlFor={id}>{label}</InputLabel>}
       {options.map(option => (
         <Radio
           value={option.value}
