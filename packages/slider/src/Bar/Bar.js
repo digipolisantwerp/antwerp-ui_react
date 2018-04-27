@@ -11,7 +11,7 @@ let Bar = ({
 		className='m-range-slider__bar'
 		style={{
 			left: range && (getPositionFromValue(start))+ 'px',
-			width: range ? getPositionFromValue(end - start) + 'px' : '100%'
+			width: range ? getPositionFromValue(end - start) + 'px' : getPositionFromValue(start) + 'px'
 		}}/>
 
 export default Bar;
