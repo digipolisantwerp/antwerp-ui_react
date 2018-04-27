@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import Icon from '../../icon';
 
 const typeClasses = {
   primary: 'a-label--primary',
