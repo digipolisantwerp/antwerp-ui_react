@@ -3,6 +3,9 @@
 ```
 <div>
 <DatePickerInput 
+    id={"datepicker-id"}
+    name={"datepicker-name"}
+    label={"Percentage"}
     activeDate={new Date('05/05/1992')} 
     minDate={new Date('04/05/1992')} 
     maxDate={new Date('06/05/1992')}
