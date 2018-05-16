@@ -56,8 +56,8 @@ class TextField extends Component<Props> {
         {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
         <div className="a-input__wrapper">
           {mask ?  <InputMask {...this.props} /> : <input type="text" {...this.props} />}
-          <small>{description}</small>
         </div>
+        <small>{description}</small>
       </div>
     )
   }
