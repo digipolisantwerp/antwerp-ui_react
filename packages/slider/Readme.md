@@ -1,6 +1,8 @@
 ### Slider
 ```
 <Slider
+  id={"slider-id"}
+  label={"Percentage"}
   range={false}
   min={0}
   max={100}

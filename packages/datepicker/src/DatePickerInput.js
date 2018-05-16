@@ -2,11 +2,15 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import Moment from 'moment';
 import DatePicker from './DatePicker/DatePicker';
-import {TextField} from '../../form/dist/index';
+import {TextField, InputLabel} from '../../form';
 
 type Props = {
 	/** The label to display above the field. */
 	label: string,
+  /** The id for the field. */
+  id: string,
+  /** The name for thefield. */
+  name: string,
 	/** The date format used to render the date. */
 	format?: string,
 	/** The selected or predefined date. */
@@ -85,6 +89,8 @@ class DatePickerInput extends Component<Props> {
 	render () {
 		const {
 			label,
+			id,
+			name,
 			format,
 			minDate,
 			maxDate
@@ -95,12 +101,13 @@ class DatePickerInput extends Component<Props> {
 			isCalendarOpen,
 		} = this.state;
 
-		return <div className="a-input has-icon-right">
-						<label className="a-input__label" htmlFor="input-datepicker">{label}</label>
+		return <div>
+			{label && <InputLabel htmlFor={id}>{label}</InputLabel>}
+					<div className="a-input has-icon-right">
 						<div className="a-input__wrapper">
 							<TextField type='text'
-												 name="input-datepicker"
-												 id="input-datepicker"
+												 name={name}
+												 id={id}
 												 value={activeDate.format(format)}
 												 onClick={this.toggleCalendar.bind(this)}
 												 onChange={this.changeDate.bind(this)}
@@ -119,6 +126,7 @@ class DatePickerInput extends Component<Props> {
 							</div>
 						</div>
 					</div>
+		</div>
 		;
 	}
 }

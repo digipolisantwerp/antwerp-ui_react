@@ -1,9 +1,13 @@
 import React, {Component } from 'react';
-
+import {InputLabel} from '../../form';
 import Bar from './Bar';
 import Handle from './Handle';
 
 type Props = {
+	/** The label to display above the field. */
+	label: string,
+	/** The id for the field. */
+	id: string,
 	/** Number to start minimum handler on. */
 	start?: number,
 	/** Number to end maximum handler on. */
@@ -48,13 +52,10 @@ class Slider extends Component<Props, State> {
 		range: false,
 	}
 
-	constructor(props, context){
-		super(props, context);
-		this.state = {
-			limit: 0,
-			start: props.start || 0,
-			end: props.end || 100,
-		}
+  state = {
+		limit: 0,
+		start: this.props.start,
+		end: this.props.end,
 	}
 
 	componentDidMount () {
@@ -148,6 +149,8 @@ class Slider extends Component<Props, State> {
 
 	render(){
 		let {
+			id,
+			label,
 			min,
 			max,
 			step,
@@ -165,35 +168,22 @@ class Slider extends Component<Props, State> {
 	} = this.state;
 
 		return(
-			<div className="m-range-slider" ref={(s) => { this.slider = s }}>
-				<div className="m-range-slider__inner">
-					<Bar
-						start={start}
-						end={end}
-						getPositionFromValue={this.getPositionFromValue}
-						range={range}
-					/>
+			<div id={id}>
+				{label && <InputLabel htmlFor={id}>{label}</InputLabel>}
+				<div className="m-range-slider" ref={(s) => { this.slider = s }}>
+					<div className="m-range-slider__inner">
+						<Bar
+							start={start}
+							end={end}
+							getPositionFromValue={this.getPositionFromValue}
+							range={range}
+						/>
 
-					<Handle
-						value={start}
-						onChange={this.updateStart}
-						min={min}
-						max={max - minRange}
-						step={step}
-						unit={unit}
-						handleNoop={this.handleNoop}
-						sliderPos={sliderPos}
-						direction={direction}
-						getPositionFromValue={this.getPositionFromValue}
-						tooltips={tooltips}
-						onDragEnd={this.onDragEnd}
-					/>
-					{range &&
 						<Handle
-							value={end}
-							onChange={this.updateEnd}
-							min={min + minRange}
-							max={max}
+							value={start}
+							onChange={this.updateStart}
+							min={min}
+							max={max - minRange}
 							step={step}
 							unit={unit}
 							handleNoop={this.handleNoop}
@@ -203,9 +193,25 @@ class Slider extends Component<Props, State> {
 							tooltips={tooltips}
 							onDragEnd={this.onDragEnd}
 						/>
-					}
+						{range &&
+							<Handle
+								value={end}
+								onChange={this.updateEnd}
+								min={min + minRange}
+								max={max}
+								step={step}
+								unit={unit}
+								handleNoop={this.handleNoop}
+								sliderPos={sliderPos}
+								direction={direction}
+								getPositionFromValue={this.getPositionFromValue}
+								tooltips={tooltips}
+								onDragEnd={this.onDragEnd}
+							/>
+						}
+					</div>
 				</div>
-		</div>
+			</div>
 		)
 	}
 }
