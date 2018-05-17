@@ -18,7 +18,7 @@ type Props = {
   className?: string,
   style?: object,
   required?: boolean,
-  initialDisabledOption?: string,
+  placeholder?: string,
   options?: Array<SelectOption>,
   onChange?: (e: object) => void,
 };
@@ -45,7 +45,7 @@ class Select extends Component<Props> {
       className,
       style,
       required,
-      initialDisabledOption,
+      placeholder,
       options,
       onChange,
     } = this.props;
@@ -69,7 +69,7 @@ class Select extends Component<Props> {
         {label && <InputLabel inline={inline} htmlFor={id}>{label}</InputLabel>}
         <div className={wrapperClass}>
           <select id={id} name={name} onChange={(e) => this.onChange(e)}>
-            {initialDisabledOption && <option value={initialDisabledOption} disabled selected>{initialDisabledOption}</option>}
+            {placeholder && <option value={placeholder} disabled selected>{placeholder}</option>}
             {options.map(option => (
               <Option
                 value={option.value}

@@ -127,7 +127,7 @@ const optionsDistrict = [
     className={"select-class"}
     required={true}
     inline={false}
-    initialDisabledOption={"----Select-----"}
+    placeholder={"----Select-----"}
     options={optionsDistrict}     
     onChange={(value) => console.log('select value is ' + value)}
 />

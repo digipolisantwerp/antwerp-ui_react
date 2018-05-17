@@ -105,7 +105,7 @@ class DatePickerInput extends Component<Props> {
 							<TextField type='text'
 												 name={name}
 												 id={id}
-												 value={activeDate.format(format)}
+												 value={Moment(activeDate).format(format)}
 												 onClick={this.toggleCalendar.bind(this)}
 												 onChange={this.changeDate.bind(this)}
 												 readOnly />
