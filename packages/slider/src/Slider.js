@@ -9,19 +9,21 @@ type Props = {
 	/** The id for the field. */
 	id: string,
 	/** Number to start minimum handler on. */
-	start?: number,
+	start?: decimal,
 	/** Number to end maximum handler on. */
-	end?: number,
+	end?: decimal,
 	/** The minimum allowed value for the minimum handler. */
-	min?: number,
+	min?: decimal,
 	/** The maximum allowed value for the maximum handler. */
-	max?: number,
+	max?: decimal,
 	/** The interval number of the slider. */
 	step?: number,
 	/** The unit string to display behind the number labels. */
 	unit?: string,
 	/** The minimum range between the minimum and maximum handlers. */
 	minRange?: number,
+  /** The amount of numbers behind comma */
+  fixed?: number,
 	/** Show default of tooltip labels. */
 	tooltips?: boolean,
 	/** Show minimum and maximum or single slider. */
@@ -48,6 +50,7 @@ class Slider extends Component<Props, State> {
 		step: 1,
 		unit: '%',
 		minRange: 0,
+    fixed: 0,
 		tooltips: false,
 		range: false,
 	}
@@ -130,11 +133,12 @@ class Slider extends Component<Props, State> {
 			onChange
 		} = this.props;
 
-		onChange(start, end);
+    this.setState({
+      start, end
+    });
 
-		this.setState({
-			start, end
-		});
+    if (!onChange) return;
+		onChange(start, end);
 	}
 
 	getPositionFromValue = (value) => {
@@ -158,6 +162,7 @@ class Slider extends Component<Props, State> {
 			minRange,
 			tooltips,
 			range,
+      fixed,
 		} = this.props;
 
 		let {
@@ -186,6 +191,7 @@ class Slider extends Component<Props, State> {
 							max={max - minRange}
 							step={step}
 							unit={unit}
+							fixed={fixed}
 							handleNoop={this.handleNoop}
 							sliderPos={sliderPos}
 							direction={direction}
@@ -201,6 +207,7 @@ class Slider extends Component<Props, State> {
 								max={max}
 								step={step}
 								unit={unit}
+								fixed={fixed}
 								handleNoop={this.handleNoop}
 								sliderPos={sliderPos}
 								direction={direction}

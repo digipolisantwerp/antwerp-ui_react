@@ -80,6 +80,7 @@ class Handle extends Component {
 			handleNoop,
 			getPositionFromValue,
 			unit,
+      fixed,
 			tooltips,
 			onDragEnd
 		} = this.props;
@@ -97,10 +98,10 @@ class Handle extends Component {
 			>
 				{tooltips ? (
 					<div className="m-range-slider__tooltip a-tooltip a-tooltip--primary a-tooltip--top">
-						<p>{value.toString().replace(/[.]/, ",")}&nbsp;{unit}</p>
+						<p>{value.toFixed(fixed).replace(/[.]/, ",")}&nbsp;{unit}</p>
 					</div>
 				) : (
-					<span className="m-range-slider__value">{value.toString().replace(/[.]/, ",")}&nbsp;{unit}</span>
+					<span className="m-range-slider__value">{value.toFixed(fixed).replace(/[.]/, ",")}&nbsp;{unit}</span>
 				)}
 			</div>
 		)

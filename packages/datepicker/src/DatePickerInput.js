@@ -27,21 +27,18 @@ type Props = {
 
 class DatePickerInput extends Component<Props> {
 
-	state = {
-		activeDate: Moment(),
-		isCalendarOpen: false
-	};
+  constructor(props) {
+    super(props);
+		const {activeDate, isCalendarOpen} = this.props;
+    this.state = {
+      activeDate: activeDate || Moment(),
+      isCalendarOpen: isCalendarOpen || false
+    };
+  }
 
 	static defaultProps = {
 		format: 'DD/MM/YYYY',
 	};
-
-	static getDerivedStateFromProps(nextProps, prevState){
-		return {
-			activeDate : Moment(nextProps.activeDate),
-			isCalendarOpen: nextProps.isCalendarOpen
-		};
-	}
 
 	componentDidMount () {
 		if (typeof window !== 'undefined') {

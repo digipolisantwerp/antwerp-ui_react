@@ -47,9 +47,9 @@ const ToggleSwitch = require('./src').ToggleSwitch;
 
 <ToggleSwitch 
     label={"Verklaard en goedgekeurd"}
-    id={"checkbox-id"}
-    name={"checkbox-name"}
-    className={"checkbox-class"}
+    id={"toggleswitch-id"}
+    name={"toggleswitch-name"}
+    className={"toggleswitch-class"}
     required={true}
     checked={true} 
     onChange={(value) => console.log('select value is ' + value)} />
@@ -127,6 +127,7 @@ const optionsDistrict = [
     className={"select-class"}
     required={true}
     inline={false}
+    initialDisabledOption={"----Select-----"}
     options={optionsDistrict}     
     onChange={(value) => console.log('select value is ' + value)}
 />
