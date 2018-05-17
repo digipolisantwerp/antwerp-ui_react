@@ -50,14 +50,15 @@ class ToggleSwitch extends React.Component {
             <label className="a-switch__label">{labelFalse ? labelFalse : 'Nee'}</label>
             <div className="a-switch__toggle">
               <input type="checkbox"
-                name={name}
-                id={id}
-                value={this.state.checked}
-                defaultChecked={checked}
-                disabled={disabled}
-                onChange={(e) => this.onChange(e)}
-                onClick={(e) => this.onClick(e)}
+                 name={name}
+                 id={id}
+                 value={this.state.checked}
+                 defaultChecked={checked}
+                 disabled={disabled}
+                 onChange={(e) => this.onChange(e)}
+                 onClick={(e) => this.onClick(e)}
               />
+              <label htmlFor={id}></label>
             </div>
             <label className="a-switch__label">{labelTrue ? labelTrue : 'Ja'}</label>
           </div>
