@@ -13,6 +13,7 @@ type Props = {
   id?: string,
   name?: string,
   label?: string,
+  description?: string,
   value?: string,
   className?: string,
   style?: object,
@@ -29,6 +30,7 @@ const RadioGroup = (props: Props) => {
     label,
     value,
     className,
+    description,
     style,
     required,
     onChange,
@@ -44,17 +46,21 @@ const RadioGroup = (props: Props) => {
   return (
     <div className={radioGroupClass} style={style} onChange={onChange}>
       {label && <InputLabel inline={inline} htmlFor={id}>{label}</InputLabel>}
-      {options.map(option => (
-        <Radio
-          value={option.value}
-          key={option.value}
-          id={option.value}
-          name={name}
-          disabled={option.disabled}
-          checked={option.checked}>
-          {option.label}
-        </Radio>
-      ))}
+      <div className="a-input__wrapper">
+        {options.map((option, index) => (
+          <Radio
+            value={option.value}
+            key={option.value}
+            id={option.value}
+            name={name}
+            disabled={option.disabled}
+            checked={value === option.value}
+            required={(index === 0) && required}>
+            {option.label}
+          </Radio>
+        ))}
+      </div>
+      <small>{description}</small>
     </div>
   )
 }
