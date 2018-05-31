@@ -39,6 +39,7 @@ const RadioGroup = (props: Props) => {
   } = props;
   const radioGroupClass = classNames(
     'a-input',
+    className,
     {
       'is-required': !!required,
     }
@@ -55,7 +56,7 @@ const RadioGroup = (props: Props) => {
             name={name}
             disabled={option.disabled}
             checked={value === option.value}
-            required={(index === 0) && required}>
+            required={required}>
             {option.label}
           </Radio>
         ))}
