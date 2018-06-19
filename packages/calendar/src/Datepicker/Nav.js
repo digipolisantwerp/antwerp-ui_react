@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {yearsOfMonth} from '../utils/index';
+import {yearsOfMonth} from '../utils';
 import Button from '../../../button';
 
 class Nav extends Component {

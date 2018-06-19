@@ -3,7 +3,7 @@ import Moment from 'moment';
 import Nav from './Nav';
 import Body from './Body';
 import Head from './Head';
-import {nextItemInArray} from '../utils/index';
+import {nextItemInArray} from '../utils';
 
 class Calendar extends Component {
 
