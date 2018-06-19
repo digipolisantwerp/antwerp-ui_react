@@ -9,7 +9,7 @@ import {
 	weekEnum,
 	isDateFromNextMonth,
 	isDateFromPrevMonth
-} from '../../utils/index';
+} from '../utils/index';
 
 class Body extends Component {
 

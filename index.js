@@ -28,6 +28,7 @@ export {
   RadioGroup,
   InputLabel,
   ToggleSwitch,
+  Datepicker
 } from './packages/form';
 
 export { default as TagList, TagListItem } from './packages/taglist';
@@ -50,7 +51,4 @@ export { default as Spinner } from './packages/spinner';
 export { default as UserMenu } from './packages/user-menu';
 export { default as Badge } from './packages/badge';
 export { default as Label} from './packages/label';
-export { default as DatePickerInput } from './packages/datepicker';
-export {
-	DatePickerView,
-} from './packages/datepicker';
+export { default as Calendar } from './packages/calendar';

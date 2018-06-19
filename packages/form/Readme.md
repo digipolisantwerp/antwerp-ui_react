@@ -132,3 +132,24 @@ const optionsDistrict = [
     onChange={(value) => console.log('select value is ' + value)}
 />
 ```
+
+
+### Datepicker
+
+```
+const Datepicker = require('./src').Datepicker;
+
+<div>
+<Datepicker 
+    id={"datepicker-id"}
+    name={"datepicker-name"}
+    label={"Geboortedatum"}
+    activeDate={new Date('05/05/1992')} 
+    minDate={new Date('04/05/1992')} 
+    maxDate={new Date('06/05/1992')}
+    onChange={(date) => console.log('date is ' + date)}
+    format={"DD/MM/YYYY"} 
+    isCalendarOpen={false} />
+</div>
+
+```
