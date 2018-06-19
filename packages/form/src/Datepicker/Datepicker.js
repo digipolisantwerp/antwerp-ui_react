@@ -70,11 +70,10 @@ class Datepicker extends Component<Props> {
 
   changeDate(day) {
     const {onChange, format} = this.props;
-    const formattedDate = Moment(day).format(format);
-    if (onChange) onChange(formattedDate);
+    if (onChange) onChange(day);
 
     this.setState({
-      activeDate: formattedDate,
+      activeDate: Moment(day).format(format),
       isCalendarOpen: false
     });
   }
