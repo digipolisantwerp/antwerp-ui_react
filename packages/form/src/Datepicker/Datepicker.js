@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import Moment from 'moment';
-import DatePicker from './DatePicker/DatePicker';
-import {TextField, InputLabel} from '../../form';
+import {TextField, InputLabel} from '../../dist/index';
+import Calendar from '../../../calendar';
 
 type
 Props = {
@@ -26,7 +26,7 @@ Props = {
   onChange? : (e: object) => void,
 };
 
-class DatePickerInput extends Component<Props> {
+class Datepicker extends Component<Props> {
 
   constructor(props) {
     super(props);
@@ -70,10 +70,10 @@ class DatePickerInput extends Component<Props> {
 
   changeDate(day) {
     const {onChange, format} = this.props;
-    if (onChange) onChange(day.clone().format(format));
+    if (onChange) onChange(day);
 
     this.setState({
-      activeDate: day,
+      activeDate: Moment(day).format(format),
       isCalendarOpen: false
     });
   }
@@ -103,23 +103,24 @@ class DatePickerInput extends Component<Props> {
       {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
       <div className="a-input has-icon-right">
         <div className="a-input__wrapper">
-          <TextField type='text'
-                     name={name}
-                     id={id}
-                     value={Moment(activeDate).format(format)}
-                     onClick={this.toggleCalendar.bind(this)}
-                     onChange={this.changeDate.bind(this)}
-                     readOnly/>
+          <TextField
+            type='text'
+            name={name}
+            id={id}
+            value={Moment(activeDate).format(format)}
+            onClick={this.toggleCalendar.bind(this)}
+            onChange={this.changeDate.bind(this)}
+            readOnly/>
           <span onClick={this.toggleCalendar.bind(this)} className="fa fa-calendar is-clickable"></span>
           <div className="m-datepicker is-open m-datepicker--fixed" aria-hidden="false">
-            <DatePicker
+            <Calendar
               label={label}
               format={format}
               activeDate={activeDate}
               isCalendarOpen={isCalendarOpen}
               minDate={minDate}
               maxDate={maxDate}
-              clickOnDate={this.changeDate.bind(this)}
+              onChange={this.changeDate.bind(this)}
             />
           </div>
         </div>
@@ -129,4 +130,4 @@ class DatePickerInput extends Component<Props> {
   }
 }
 
-export default DatePickerInput;
+export default Datepicker;
