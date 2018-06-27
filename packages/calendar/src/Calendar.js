@@ -27,7 +27,8 @@ class Calendar extends Component<Prop> {
 
   static defaultProps = {
     format: 'DD/MM/YYYY',
-    isCalendarOpen: true
+    isCalendarOpen: true,
+    activeDate: Moment()
   };
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -64,8 +65,8 @@ class Calendar extends Component<Prop> {
         format={format}
         activeDate={activeDate}
         isCalendarOpen={isCalendarOpen}
-        minDate={minDate}
-        maxDate={maxDate}
+        minDate={Moment(minDate, format)}
+        maxDate={Moment(maxDate, format)}
         clickOnDate={this.changeDate.bind(this)}
       />
     </div>
