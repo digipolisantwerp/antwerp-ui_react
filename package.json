@@ -1,6 +1,6 @@
 {
   "name": "@astad/react-ui",
-  "version": "1.0.1-9",
+  "version": "1.0.1-10",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -65,6 +65,7 @@
   },
   "dependencies": {
     "babel-loader": "~7.1.4",
+    "moment": "~2.22.1",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-input-mask": "~2.0.1"

@@ -18,13 +18,14 @@ const Radio = (props: Props) => {
     checked,
     children,
     disabled,
+    required,
   } = props;
   const radioClass = classNames(
     'a-input__radio'
   );
   return (
     <div className={radioClass}>
-      <input type="radio" value={value} id={id} name={name} checked={checked} disabled={disabled} />
+      <input type="radio" value={value} id={id} name={name} checked={checked} disabled={disabled} required={required} />
       <label htmlFor={id}>{children}</label>
     </div>
   )
