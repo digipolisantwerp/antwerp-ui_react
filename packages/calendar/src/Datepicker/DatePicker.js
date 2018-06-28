@@ -9,6 +9,7 @@ class DatePicker extends Component {
       maxDate,
       isCalendarOpen,
       activeDate,
+      format,
       clickOnDate
     } = this.props;
 
@@ -21,6 +22,7 @@ class DatePicker extends Component {
         Calendar
       }}
       activeDate={activeDate}
+      format={format}
       minDate={minDate}
       maxDate={maxDate}
       selectDay={clickOnDate.bind(this)}/>;
