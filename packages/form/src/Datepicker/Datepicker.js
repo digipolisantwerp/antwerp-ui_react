@@ -30,9 +30,10 @@ class Datepicker extends Component<Props> {
 
   constructor(props) {
     super(props);
-    const {activeDate, isCalendarOpen} = this.props;
+    const {activeDate, isCalendarOpen, format} = this.props;
+
     this.state = {
-      activeDate: activeDate || Moment(),
+      activeDate: activeDate ? Moment(activeDate, format) : Moment(),
       isCalendarOpen: isCalendarOpen || false
     };
   }
@@ -73,7 +74,7 @@ class Datepicker extends Component<Props> {
     if (onChange) onChange(day);
 
     this.setState({
-      activeDate: Moment(day).format(format),
+      activeDate: Moment(day, format),
       isCalendarOpen: false
     });
   }
