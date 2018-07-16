@@ -1,5 +1,5 @@
 import Avatar from './Avatar';
-import { mount, shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import React from 'react';
 
 test('should apply the correct className for size - small', () => {

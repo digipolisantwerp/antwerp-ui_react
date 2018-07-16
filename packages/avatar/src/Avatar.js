@@ -12,14 +12,14 @@ type AvatarSizes = 'small' | 'medium' | 'large';
 
 type Props = {
   /** Avatar size ("small")  */
-  size: AvatarSizes,
+  size?: AvatarSizes,
   /** Font Awesome icon name */
-  icon: string,
-  letter: string,
-  image: string,
-  alt: string,
-  children: any,
-  style: object,
+  icon?: string,
+  letter?: string,
+  image?: string,
+  alt?: string,
+  children?: any,
+  style?: object,
 };
 
 const IconWrapper = ({ icon }) => (<span className="a-avatar__icon"><Icon name={icon} /></span>);
