@@ -9,4 +9,9 @@ describe('Content', () => {
         expect(content.getDOMNode().className).toContain('test');
     });
 
+    it('should wrap the content in a container', () => {
+        const content = mount(<Content><span>test</span></Content>);
+        expect(content.find('span').parent().props().className).toContain('u-container');
+    });
+
 });
