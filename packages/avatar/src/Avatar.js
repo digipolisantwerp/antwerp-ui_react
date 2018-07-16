@@ -15,6 +15,9 @@ type Props = {
   size: AvatarSizes,
   /** Font Awesome icon name */
   icon: string,
+  letter: string,
+  image: string,
+  alt: string,
   children: any,
   style: object,
 };
