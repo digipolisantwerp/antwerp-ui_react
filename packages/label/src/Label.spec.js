@@ -41,7 +41,7 @@ describe('Label', () => {
         expect(label.getDOMNode().style).toHaveProperty('color');
     });
 
-    it(' should insert the children', () => {
+    it('should insert the children', () => {
         const label = mount(<Label>test</Label>);
         expect(label.text()).toBe('test');
     });
