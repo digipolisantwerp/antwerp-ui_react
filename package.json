@@ -3,6 +3,8 @@
   "version": "1.0.1-16",
   "description": "",
   "main": "index.js",
+  "repository": "digipolisantwerp/acpaas-ui_react.git",
+  "homepage": "https://github.com/digipolisantwerp/acpaas-ui_react#readme",
   "scripts": {
     "start": "npx styleguidist server",
     "test": "jest --coverage --verbose",
