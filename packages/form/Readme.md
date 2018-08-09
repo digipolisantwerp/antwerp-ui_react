@@ -135,7 +135,8 @@ const Datepicker = require('./src').Datepicker;
     maxDate={"06/05/1992"}
     onChange={(date) => console.log('date is ' + date)}
     format={"DD/MM/YYYY"}
-    isCalendarOpen={false} />
+    open={false}
+    autoClose={true} />
 </div>
 
 ```

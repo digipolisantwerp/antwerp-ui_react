@@ -7,12 +7,12 @@ class DatePicker extends Component {
     const {
       minDate,
       maxDate,
-      isCalendarOpen,
+      open,
       activeDate,
       clickOnDate
     } = this.props;
 
-    if (!isCalendarOpen) {
+    if (!open) {
       return null;
     }
 

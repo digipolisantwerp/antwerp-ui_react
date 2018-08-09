@@ -6,5 +6,5 @@ const Calendar = require('./src/Calendar').default;
     label={"Startdatum"}  
     format={"DD-MM-YYYY"} 
     onChange={(date) => console.log('date is ' + date)}
-    isCalendarOpen={true} />
+    open={true} />
 ```

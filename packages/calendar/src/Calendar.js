@@ -11,7 +11,7 @@ Props = {
   /** The selected or predefined date. */
   activeDate? : typeof(DateTime),
   /** Toggle the calender open/closed. */
-  isCalendarOpen? : boolean,
+  open? : boolean,
   /** Every date less than this date will be disabled */
   minDate: typeof(DateTime),
   /** Every date greater than this date will be disabled */
@@ -27,7 +27,7 @@ class Calendar extends Component<Prop> {
 
   static defaultProps = {
     format: 'DD/MM/YYYY',
-    isCalendarOpen: true,
+    open: true,
     activeDate: Moment()
   };
 
@@ -52,7 +52,7 @@ class Calendar extends Component<Prop> {
       format,
       minDate,
       maxDate,
-      isCalendarOpen,
+      open,
     } = this.props;
 
     const {
@@ -64,7 +64,7 @@ class Calendar extends Component<Prop> {
         label={label}
         format={format}
         activeDate={activeDate}
-        isCalendarOpen={isCalendarOpen}
+        open={open}
         minDate={Moment(minDate, format)}
         maxDate={Moment(maxDate, format)}
         clickOnDate={this.changeDate.bind(this)}
