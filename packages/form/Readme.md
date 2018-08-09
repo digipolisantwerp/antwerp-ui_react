@@ -2,7 +2,7 @@
 ```
 const TextField = require('./src').TextField;
 
-<TextField 
+<TextField
     label={"Naam"}
     id={"textfield-id"}
     name={"textfield-name"}
@@ -16,7 +16,7 @@ const TextField = require('./src').TextField;
 ```
 const Textarea = require('./src').Textarea;
 
-<Textarea 
+<Textarea
     label={"Beschrijving"}
     id={"textarea-id"}
     name={"textarea-name"}
@@ -31,27 +31,13 @@ const Textarea = require('./src').Textarea;
 ```
 const Checkbox = require('./src').Checkbox;
 
-<Checkbox 
+<Checkbox
     label={"Verklaard en goedgekeurd"}
     id={"checkbox-id"}
     name={"checkbox-name"}
     className={"checkbox-class"}
     required={true}
-    checked={true} 
-    onChange={(value) => console.log('select value is ' + value)} />
-```
-
-### ToggleSwitch
-```
-const ToggleSwitch = require('./src').ToggleSwitch;
-
-<ToggleSwitch 
-    label={"Verklaard en goedgekeurd"}
-    id={"toggleswitch-id"}
-    name={"toggleswitch-name"}
-    className={"toggleswitch-class"}
-    required={true}
-    checked={true} 
+    checked={true}
     onChange={(value) => console.log('select value is ' + value)} />
 ```
 
@@ -83,14 +69,14 @@ const optionsAges = [
     }
 ];
 
-<RadioGroup label="District" 
+<RadioGroup label="District"
     id={"radio-id"}
     label={"Leeftijden"}
     name={"radio-name"}
     className={"radio-class"}
     required={true}
     inline={false}
-    options={optionsAges}     
+    options={optionsAges}
     onChange={(value) => console.log('select value is ' + value)} >
 </RadioGroup>
 ```
@@ -120,7 +106,7 @@ const optionsDistrict = [
         label: '2040 Brasschaat',
     }
 ];
-<Select label="District" 
+<Select label="District"
     id={"select-id"}
     label={"Districten"}
     name={"select-name"}
@@ -128,7 +114,7 @@ const optionsDistrict = [
     required={true}
     inline={false}
     placeholder={"----Select-----"}
-    options={optionsDistrict}     
+    options={optionsDistrict}
     onChange={(value) => console.log('select value is ' + value)}
 />
 ```
@@ -140,15 +126,15 @@ const optionsDistrict = [
 const Datepicker = require('./src').Datepicker;
 
 <div>
-<Datepicker 
+<Datepicker
     id={"datepicker-id"}
     name={"datepicker-name"}
     label={"Geboortedatum"}
-    activeDate={"20/03/1992"} 
-    minDate={"04/01/1992"} 
+    activeDate={"20/03/1992"}
+    minDate={"04/01/1992"}
     maxDate={"06/05/1992"}
     onChange={(date) => console.log('date is ' + date)}
-    format={"DD/MM/YYYY"} 
+    format={"DD/MM/YYYY"}
     isCalendarOpen={false} />
 </div>
 

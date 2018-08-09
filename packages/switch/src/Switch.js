@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import InputLabel from '../InputLabel';
 
-class ToggleSwitch extends React.Component {
+class Switch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -55,8 +55,8 @@ class ToggleSwitch extends React.Component {
                  value={this.state.checked}
                  defaultChecked={checked}
                  disabled={disabled}
-                 onChange={(e) => this.onChange(e)}
-                 onClick={(e) => this.onClick(e)}
+                 onChange={this.onChange}
+                 onClick={this.onClick}
               />
               <label htmlFor={id}></label>
             </div>
@@ -68,4 +68,4 @@ class ToggleSwitch extends React.Component {
   }
 }
 
-export default ToggleSwitch;
+export default Switch;

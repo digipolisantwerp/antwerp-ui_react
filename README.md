@@ -33,7 +33,6 @@ TODO
 | Form/Select         | TODO                                     | TODO                                                      |
 | Form/Textarea         | TODO                                     | TODO                                                      |
 | Form/TextField         | TODO                                     | TODO                                                      |
-| Form/ToggleSwitch         | TODO                                     | TODO                                                      |
 | Header         | TODO                                     | TODO                                                      |
 | Hero         | TODO                                     | TODO                                                      |
 | Icon         | TODO                                     | TODO                                                      |
@@ -41,7 +40,9 @@ TODO
 | Slider         | TODO                                     | TODO                                                      |
 | Spinner         | TODO                                     | TODO                                                      |
 | Steps         | TODO                                     | TODO                                                      |
+| Switch         | TODO                                     | TODO                                                      |
 | TagList         | TODO                                     | TODO                                                      |
+| Toggle         | TODO                                     | TODO                                                      |
 | UserMenu         | TODO                                     | TODO                                                      |
 
 

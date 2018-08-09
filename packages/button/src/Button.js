@@ -8,7 +8,7 @@ const sizeClasses = {
   tiny: 'a-button--tiny',
   small: 'a-button--small',
   large: 'a-button--large',
-}
+};
 const typeClasses = {
   primary: '',
   secondary: 'a-button--secondary',
@@ -68,7 +68,7 @@ class Button extends Component<Props> {
         'has-icon': !!icon,
         'has-icon-left': !!iconLeft,
         'has-icon-right': !!iconRight,
-        'a-button--transparent': !!transparent,
+        'a-button-transparent': !!transparent,
         'a-button-negative': !!negative,
         'a-button-outline': !!outline,
         'a-button--block': block

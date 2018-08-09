@@ -66,6 +66,7 @@
   },
   "dependencies": {
     "babel-loader": "~7.1.4",
+    "classnames": "~2.2.6",
     "moment": "~2.22.1",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
