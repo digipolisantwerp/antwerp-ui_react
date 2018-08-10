@@ -9,7 +9,7 @@ class Switch extends React.Component {
       checked: false
     }
   }
-  onChange(e) {
+  onChange = (e) => {
     this.setState({ checked: !this.state.checked });
 
     if (this.props.onChange) {
@@ -17,7 +17,7 @@ class Switch extends React.Component {
     }
   }
 
-  onClick(e) {
+  onClick = (e) => {
     this.setState({ checked: !this.state.checked });
 
     if (this.props.onClick) {
