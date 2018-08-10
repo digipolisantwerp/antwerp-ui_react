@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import InputLabel from '../InputLabel';
+import InputLabel from '../../form';
 
 class Switch extends React.Component {
   constructor(props) {
