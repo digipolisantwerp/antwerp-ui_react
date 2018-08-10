@@ -54,6 +54,8 @@ export {
 
 export { default as Spinner } from './packages/spinner';
 
+export { default as Switch } from './packages/switch';
+
 export { default as TagList, TagListItem } from './packages/taglist';
 
 export { default as Toggle } from './packages/toggle';
