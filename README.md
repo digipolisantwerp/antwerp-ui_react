@@ -6,6 +6,17 @@
 
 Antwerp City Platform as a Service User Interface (ACPaas UI) is a **component interface library** for building user interfaces and responsive web apps. It's designed to provide developers with functionality and UI/UX patterns that matches the Antwerpen styleguide.
 
+## Ecosystem
+
+This library is part of [ACPaaS UI][acpaas-ui].
+
+| Name              | Framework  | Status  |
+| ----------------- | ---------- | ------- |
+| Schematics        | ES5+       | [![acpaas-ui-schematics-github]][acpaas-ui-schematics] |
+| Javascript        | ES5+       | [![acpaas-ui-js-github]][acpaas-ui-js] |
+| Angular           | Angular 6+ | [![acpaas-ui-angular-github]][acpaas-ui-angular] |
+| React             | React 16+  | [![acpaas-ui-react-github]][acpaas-ui-react] |
+
 ## Documentation
 
 To check out live examples and docs, visit [https://digipolisantwerp.github.io/acpaas-ui_react/](https://digipolisantwerp.github.io/acpaas-ui_react/).
@@ -87,3 +98,9 @@ Copyright (c) 2018-present, Digipolis
 [acpaas-ui-js]: https://github.com/digipolisantwerp/acpaas-ui_js
 [acpaas-ui-angular]: https://github.com/digipolisantwerp/acpaas-ui_angular
 [acpaas-ui-react]: https://github.com/digipolisantwerp/acpaas-ui_react
+
+<!-- Github Version Badge -->
+[acpaas-ui-schematics-github]: https://img.shields.io/github/package-json/v/digipolisantwerp/acpaas-ui_schematics.svg
+[acpaas-ui-angular-github]: https://img.shields.io/github/package-json/v/digipolisantwerp/acpaas-ui_angular.svg
+[acpaas-ui-react-github]: https://img.shields.io/github/package-json/v/digipolisantwerp/acpaas-ui_react.svg
+[acpaas-ui-js-github]: https://img.shields.io/github/package-json/v/digipolisantwerp/acpaas-ui_js.svg
