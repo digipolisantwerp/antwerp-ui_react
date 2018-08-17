@@ -26,6 +26,7 @@ type Props = {
   outline?: boolean,
   transparent?: boolean,
   className?: string,
+  type?: string,
   style?: object,
   children?: any,
   /** Font Awesome icon name */
