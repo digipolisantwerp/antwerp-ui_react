@@ -9,9 +9,9 @@ module.exports = {
   skipComponentsWithoutExample: true,
   getComponentPathLine(componentPath) {
     const name = path.basename(componentPath, '.js')
-    return `import { ${name} } from '@astad/react-ui';`
+    return `import { ${name} } from '@acpaas-ui/react-components';`
   },
-  title: 'Astad React Components',
+  title: 'ACPaaS UI React Components',
   showUsage: true,
   webpackConfig: {
     module: {

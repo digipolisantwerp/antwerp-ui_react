@@ -1,8 +1,10 @@
 {
-  "name": "@astad/react-ui",
-  "version": "1.0.1-16",
+  "name": "@acpaas-ui/react-components",
+  "version": "1.0.1-21",
   "description": "",
   "main": "index.js",
+  "repository": "digipolisantwerp/acpaas-ui_react.git",
+  "homepage": "https://github.com/digipolisantwerp/acpaas-ui_react#readme",
   "scripts": {
     "start": "npx styleguidist server",
     "test": "jest --coverage --verbose",
@@ -70,6 +72,7 @@
   },
   "dependencies": {
     "babel-loader": "~7.1.4",
+    "classnames": "~2.2.6",
     "moment": "~2.22.1",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",

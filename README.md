@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Antwerp City Platform as a Service User Interface (ACPaas UI) is a **component interface library** for building user interfaces and responsive web apps. It's designed to provide developers with functionality en UI/UX patterns that matches the Antwerpen styleguide.
+Antwerp City Platform as a Service User Interface (ACPaas UI) is a **component interface library** for building user interfaces and responsive web apps. It's designed to provide developers with functionality and UI/UX patterns that matches the Antwerpen styleguide.
 
 ## Documentation
 
@@ -33,7 +33,6 @@ TODO
 | Form/Select         | TODO                                     | TODO                                                      |
 | Form/Textarea         | TODO                                     | TODO                                                      |
 | Form/TextField         | TODO                                     | TODO                                                      |
-| Form/ToggleSwitch         | TODO                                     | TODO                                                      |
 | Header         | TODO                                     | TODO                                                      |
 | Hero         | TODO                                     | TODO                                                      |
 | Icon         | TODO                                     | TODO                                                      |
@@ -41,7 +40,9 @@ TODO
 | Slider         | TODO                                     | TODO                                                      |
 | Spinner         | TODO                                     | TODO                                                      |
 | Steps         | TODO                                     | TODO                                                      |
+| Switch         | TODO                                     | TODO                                                      |
 | TagList         | TODO                                     | TODO                                                      |
+| Toggle         | TODO                                     | TODO                                                      |
 | UserMenu         | TODO                                     | TODO                                                      |
 
 

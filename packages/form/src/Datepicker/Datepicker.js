@@ -17,7 +17,9 @@ Props = {
   /** The selected or predefined date. */
   activeDate? : typeof(DateTime),
   /** Toggle the calender open/closed. */
-  isCalendarOpen? : boolean,
+  open? : boolean,
+  /** If the calender should open/close after datechange. */
+  autoClose? : boolean,
   /** Every date less than this date will be disabled */
   minDate: typeof(DateTime),
   /** Every date greater than this date will be disabled */
@@ -30,16 +32,17 @@ class Datepicker extends Component<Props> {
 
   constructor(props) {
     super(props);
-    const {activeDate, isCalendarOpen, format} = this.props;
+    const {activeDate, open, format} = this.props;
 
     this.state = {
       activeDate: activeDate ? Moment(activeDate, format) : Moment(),
-      isCalendarOpen: isCalendarOpen || false
+      open: open || false
     };
   }
 
   static defaultProps = {
     format: 'DD/MM/YYYY',
+    autoClose: true
   };
 
   componentDidMount() {
@@ -64,24 +67,24 @@ class Datepicker extends Component<Props> {
 
     if (!calendar.contains(e.target) && !dateInput.contains(e.target)) {
       this.setState({
-        isCalendarOpen: false
+        open: false
       });
     }
   }
 
   changeDate(day) {
-    const {onChange, format} = this.props;
+    const {onChange, format, autoClose} = this.props;
     if (onChange) onChange(day);
 
     this.setState({
       activeDate: Moment(day, format),
-      isCalendarOpen: false
+      open: !autoClose || false
     });
   }
 
   toggleCalendar() {
     this.setState({
-      isCalendarOpen: !this.state.isCalendarOpen
+      open: !this.state.open
     });
   }
 
@@ -97,7 +100,7 @@ class Datepicker extends Component<Props> {
 
     const {
       activeDate,
-      isCalendarOpen,
+      open,
     } = this.state;
 
     return <div>
@@ -118,7 +121,7 @@ class Datepicker extends Component<Props> {
               label={label}
               format={format}
               activeDate={activeDate}
-              isCalendarOpen={isCalendarOpen}
+              open={open}
               minDate={minDate}
               maxDate={maxDate}
               onChange={this.changeDate.bind(this)}

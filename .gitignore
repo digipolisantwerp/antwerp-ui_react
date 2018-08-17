@@ -3,4 +3,8 @@ build
 node_modules
 *.log
 dist
+<<<<<<< HEAD
 coverage
+=======
+!docs/build
+>>>>>>> master
