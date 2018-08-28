@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import Moment from 'moment';
-import {TextField, InputLabel} from '../../dist/index';
-import Calendar from '../../../calendar';
+import TextField from '../TextField';
+import InputLabel from '../InputLabel';
+import Calendar from '../../../calendar/src/Calendar';
 
 type
 Props = {
