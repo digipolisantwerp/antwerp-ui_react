@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import FlyoutButton from '../../flyout-button';
-import Button from '../../button';
+import FlyoutButton from '../../flyout-button/src/FlyoutButton';
+import Button from '../../button/src/Button';
 
 type User = {
   firstName?: string,
