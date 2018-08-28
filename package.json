@@ -11,7 +11,8 @@
     "start": "npx styleguidist server",
     "test": "jest --coverage --verbose",
     "bootstrap": "./node_modules/bin/lerna bootstrap",
-    "build": "lerna exec -- rollup -c && rollup -c",
+    "build": "lerna exec --parallel -- rollup -c",
+    "postbuild": "rollup -c",
     "publish": "lerna publish --skip-git --skip-npm",
     "prepublish": "npm run build"
   },
