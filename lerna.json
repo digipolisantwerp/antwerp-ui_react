@@ -1,8 +1,7 @@
 {
   "lerna": "2.10.0",
   "packages": [
-    "index",
-    "packages/contact"
+    "packages/*"
   ],
   "version": "0.0.1-0"
 }

@@ -1,4 +1,6 @@
 
+
+import resolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
 
 export default {
@@ -8,6 +10,7 @@ export default {
 		{ file: 'dist/index.esm.js', format: 'es' }
 	],
 	plugins: [
+		resolve(),
 		babel({
 			exclude: ['node_modules/**']
 		})
