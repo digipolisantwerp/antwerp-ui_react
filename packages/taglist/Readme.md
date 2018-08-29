@@ -1,5 +1,5 @@
 ```
-const TagListItem = require('./dist').TagListItem;
+const TagListItem = require('.').TagListItem;
 <TagList>
     <TagListItem
         value="standard"
