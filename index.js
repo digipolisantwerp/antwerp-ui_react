@@ -61,3 +61,9 @@ export { default as TagList, TagListItem } from './packages/taglist';
 export { default as Toggle } from './packages/toggle';
 
 export { default as UserMenu } from './packages/user-menu';
+
+export { 
+  Modal,
+  ModalBody,
+  ModalFooter
+} from './packages/modal';
