@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {yearsOfMonth} from '../utils';
-import Button from '../../../button';
+import Button from '../../../button/src/Button';
 
 class Nav extends Component {
 

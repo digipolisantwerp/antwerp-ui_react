@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import Icon from '../../icon';
+import Icon from '../../icon/src/Icon';
 
 const defaultClass = 'a-button'
 const sizeClasses = {
@@ -26,6 +26,7 @@ type Props = {
   outline?: boolean,
   transparent?: boolean,
   className?: string,
+  type?: string,
   style?: object,
   children?: any,
   /** Font Awesome icon name */

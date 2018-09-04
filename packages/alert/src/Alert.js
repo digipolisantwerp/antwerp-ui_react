@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import Button from '../../button';
+import Button from '../../button/src/Button';
 
 const typeClasses = {
   success: 'm-alert--success',

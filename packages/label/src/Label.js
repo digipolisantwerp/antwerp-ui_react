@@ -20,13 +20,13 @@ type Props = {
 
 const Label = (props: Props) => {
   const { type, className, style = {}, children } = props
-  const badgeClass = classNames(
+  const labelClass = classNames(
     'a-label',
     className,
     { [`${typeClasses[type]}`]: !!type },
   );
 
-  return <span className={badgeClass} style={style}>{children}</span>
+  return <span className={labelClass} style={style}>{children}</span>
 }
 
 export default Label;
