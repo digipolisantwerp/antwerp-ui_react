@@ -1,15 +1,18 @@
 {
   "name": "@acpaas-ui/react-components",
-  "version": "1.0.1-21",
-  "description": "",
-  "main": "index.js",
+  "version": "1.0.1-26",
+  "description": "Antwerp City Platform as a Service User Interface (ACPaas UI) is a **component interface library** for building user interfaces and responsive web apps.",
+  "license": "MIT",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
   "repository": "digipolisantwerp/acpaas-ui_react.git",
   "homepage": "https://github.com/digipolisantwerp/acpaas-ui_react#readme",
   "scripts": {
     "start": "npx styleguidist server",
     "test": "jest --coverage --verbose",
     "bootstrap": "./node_modules/bin/lerna bootstrap",
-    "build": "lerna exec --parallel -- babel src -d dist",
+    "build": "lerna exec --parallel -- rollup -c",
+    "postbuild": "rollup -c",
     "publish": "lerna publish --skip-git --skip-npm",
     "prepublish": "npm run build"
   },
@@ -33,7 +36,10 @@
     "jest-cli": "^22.4.4",
     "lerna": "~2.10.1",
     "react-addons-test-utils": "^15.6.2",
-    "react-styleguidist": "~7.0.5",
+    "react-styleguidist": "~7.2.3",
+    "rollup": "^0.65.0",
+    "rollup-plugin-babel": "^3.0.7",
+    "rollup-plugin-node-resolve": "^3.3.0",
     "webpack": "~4.5.0"
   },
   "jest": {
