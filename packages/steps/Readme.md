@@ -1,5 +1,5 @@
 ```
-const Step = require('./dist').Step;
+const Step = require('.').Step;
 <Steps current={2}>
   <Step key="1" title="Step 1"/>
   <Step key="2" title="Step 2"/>
