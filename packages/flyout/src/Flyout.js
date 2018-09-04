@@ -60,7 +60,8 @@ class Flyout extends Component<Props> {
 
   getClassNames = () => {
     return classNames(
-      'm-flyout', 'm-flyout--scrollable', `m-flyout--${this.props.flyoutDirection}`, this.props.className, {
+      this.props.className,
+      'm-flyout', 'm-flyout--scrollable', `m-flyout--${this.props.flyoutDirection}`, {
         'is-open': this.state.isOpen,
         [`m-flyout--${flyoutSizes[this.props.flyoutSize]}`]: !!flyoutSizes[this.props.flyoutSize]
       });
