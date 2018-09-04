@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import classNames from 'classnames';
-import { Button } from '../../button';
+import Button from '../../button/src/Button';
 
 const sizeClasses = {
   default: '',
