@@ -16,8 +16,8 @@ type FlyoutSizes = "small" | "medium" | "large" | "full";
 
 type Props = {
   trigger?: any,
-  flyoutDirection?: FlyoutDirections,
-  flyoutSizes?: FlyoutSizes,
+  direction?: FlyoutDirections,
+  size?: FlyoutSizes,
   hasPadding?: boolean,
   className?: string,
   open?: boolean,
@@ -30,16 +30,10 @@ class Flyout extends Component<Props> {
   }
 
   static defaultProps = {
-    flyoutDirection: 'left',
-    flyoutSize: 'medium',
+    direction: 'left',
+    size: 'medium',
     hasPadding: false,
     open: false,
-  }
-
-  static getDerivedStateFromProps(nextProps, prevState) {
-    return {
-      isOpen: nextProps.open
-    };
   }
 
   toggleIsOpen = () => {
@@ -61,9 +55,9 @@ class Flyout extends Component<Props> {
   getClassNames = () => {
     return classNames(
       this.props.className,
-      'm-flyout', 'm-flyout--scrollable', `m-flyout--${this.props.flyoutDirection}`, {
+      'm-flyout', 'm-flyout--scrollable', `m-flyout--${this.props.direction}`, {
         'is-open': this.state.isOpen,
-        [`m-flyout--${flyoutSizes[this.props.flyoutSize]}`]: !!flyoutSizes[this.props.flyoutSize]
+        [`m-flyout--${flyoutSizes[this.props.size]}`]: !!flyoutSizes[this.props.size]
       });
   }
 
