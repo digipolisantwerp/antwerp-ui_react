@@ -8,9 +8,13 @@ const sizeClasses = {
   large: 'm-modal--large',
 };
 
+type ModalTypes = "success" | "warning" | "danger"
+
 type ModalSizes = "large"
 
 type Props = {
+  /** Type of modal */
+  type?: ModalTypes,
   /** Size of modal */
   size?: ModalSizes,
   /** Title of modal */
@@ -36,6 +40,7 @@ class Modal extends Component<Props> {
 
   render() {
     const {
+      type,
       size,
       title,
       children,
@@ -52,10 +57,10 @@ class Modal extends Component<Props> {
     const closeButton = closable ? (
       <Button
         transparent
-        type="default"
+        type={type}
         icon="close"
         onClick={this.handleClose}
-        className="m-modal__close" />
+        className={type ? 'm-modal__close' : 'm-modal__close a-button--default'} />
     ) : null;
 
     return (
