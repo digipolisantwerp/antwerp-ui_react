@@ -120,13 +120,13 @@ class Autocomplete extends Component<Props> {
   render() {
     return (
       <div>
-        <Flyout toggle={
+        <Flyout trigger={
           <TextField
             name="autocomplete"
             className="autocomplete"
             value={this.state.inputValue}
             onChange={this.handleChange}
-            onKeyDown={this.handleKeyPress} 
+            onKeyDown={this.handleKeyPress}
             />
           }
           open={this.state.open}
