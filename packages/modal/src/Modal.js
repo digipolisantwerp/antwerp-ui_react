@@ -1,7 +1,7 @@
 // @flow
-import React, { Component } from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
-import Button from '../../button/src/Button';
+import { Button } from '../../button';
 
 const sizeClasses = {
   default: '',
@@ -29,7 +29,21 @@ type Props = {
   onSubmit: Function
 }
 
-class Modal extends Component<Props> {
+type State = {
+  show: boolean
+}
+
+class Modal extends React.Component<Props, State> {
+  static defaultProps = {
+    type: '',
+    size: '',
+    title: '',
+    show: false,
+    children: null,
+    closable: false,
+    className: '',
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -37,9 +51,10 @@ class Modal extends Component<Props> {
     };
   }
 
-  componentDidUpdate(prevProps, nextProps) {
-    if (prevProps.show !== nextProps.show) {
-      this.setState({ show: nextProps.show });
+  componentDidUpdate(prevProps) {
+    const { show } = this.props;
+    if (prevProps.show !== show) {
+      this.setState({ show }); // eslint-disable-line
     }
   }
 
@@ -77,17 +92,21 @@ class Modal extends Component<Props> {
     ) : null;
 
     return (
-      <form onSubmit={onSubmit} style={{ display: show ? 'block' : 'none' }}>
-        <div className={sizeClass}>
-          <div className="m-modal__content">
-            <div className="m-modal__header u-margin-bottom-xs">
-              {closeButton}
-              {title && <h5>{title}</h5>}
+      <div className={show ? 'm-overlay is-active' : 'm-overlay'}>
+        <div className="m-overlay__inner">
+          <form onSubmit={onSubmit}>
+            <div className={sizeClass}>
+              <div className="m-modal__content">
+                <div className="m-modal__header u-margin-bottom-xs">
+                  {closeButton}
+                  {title && <h6>{title}</h6>}
+                </div>
+                {children}
+              </div>
             </div>
-            {children}
-          </div>
+          </form>
         </div>
-      </form>
+      </div>
     );
   }
 }

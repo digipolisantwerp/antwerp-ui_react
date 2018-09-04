@@ -1,20 +1,21 @@
 // @flow
-import React, { Component } from 'react';
+import * as React from 'react';
 
 type Props = {
-  /** Modal body */
   children?: any
 }
 
-class ModalBody extends Component<Props> {
-  render() {
-    const { children } = this.props;
-    return (
-      <div className="u-margin-bottom">
-        {children}
-      </div>
-    );
-  }
+function ModalBody(props: Props) {
+  const { children } = props;
+  return (
+    <div className="u-margin-bottom">
+      {children}
+    </div>
+  );
 }
+
+ModalBody.defaultProps = {
+  children: null,
+};
 
 export default ModalBody;

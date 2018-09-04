@@ -1,20 +1,22 @@
 // @flow
-import React, { Component } from 'react';
+import * as React from 'react';
 
 type Props = {
   /** Modal footer */
   children?: any
 }
 
-class ModalFooter extends Component<Props> {
-  render() {
-    const { children } = this.props;
-    return (
-      <div className="m-modal__footer">
-        {children}
-      </div>
-    );
-  }
+function ModalFooter(props: Props) {
+  const { children } = props;
+  return (
+    <div className="m-modal__footer">
+      {children}
+    </div>
+  );
 }
+
+ModalFooter.defaultProps = {
+  children: null,
+};
 
 export default ModalFooter;
