@@ -37,6 +37,12 @@ class Modal extends Component<Props> {
     };
   }
 
+  componentDidUpdate(prevProps, nextProps) {
+    if (prevProps.show !== nextProps.show) {
+      this.setState({ show: nextProps.show });
+    }
+  }
+
   handleClose = (e) => {
     e.preventDefault();
     this.setState(state => ({ ...state, show: false }));
