@@ -19,23 +19,27 @@ type Props = {
   size?: ModalSizes,
   /** Title of modal */
   title?: string,
+  /** Visibility of modal */
+  show?: boolean,
   /** Modal body */
   children?: any,
   closable?: boolean,
-  className?: string
+  className?: string,
+  /** Modal functionality */
+  onSubmit: Function
 }
 
 class Modal extends Component<Props> {
   constructor(props) {
     super(props);
     this.state = {
-      closing: true,
-      closed: false,
+      show: props.show,
     };
   }
 
   handleClose = (e) => {
     e.preventDefault();
+    this.setState(state => ({ ...state, show: false }));
   }
 
   render() {
@@ -46,7 +50,10 @@ class Modal extends Component<Props> {
       children,
       closable,
       className,
+      onSubmit,
     } = this.props;
+
+    const { show } = this.state;
 
     const sizeClass = classNames(
       'm-modal',
@@ -64,15 +71,17 @@ class Modal extends Component<Props> {
     ) : null;
 
     return (
-      <div className={sizeClass}>
-        <div className="m-modal__content">
-          <div className="m-modal__header u-margin-bottom-xs">
-            {closeButton}
-            {title && <h5>{title}</h5>}
+      <form onSubmit={onSubmit} style={{ display: show ? 'block' : 'none' }}>
+        <div className={sizeClass}>
+          <div className="m-modal__content">
+            <div className="m-modal__header u-margin-bottom-xs">
+              {closeButton}
+              {title && <h5>{title}</h5>}
+            </div>
+            {children}
           </div>
-          {children}
         </div>
-      </div>
+      </form>
     );
   }
 }
