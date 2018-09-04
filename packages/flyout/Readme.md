@@ -1,7 +1,7 @@
 ```
 <Flyout trigger={
   <button>click me</button>
-  } flyoutHasPadding>
+  } hasPadding>
   this is the flyout
 </Flyout>
 ```

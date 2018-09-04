@@ -18,7 +18,8 @@ type Props = {
   trigger?: any,
   flyoutDirection?: FlyoutDirections,
   flyoutSizes?: FlyoutSizes,
-  flyourHasPadding?: boolean,
+  hasPadding?: boolean,
+  className?: string,
   open?: boolean,
   children?: any,
 };
@@ -31,7 +32,7 @@ class Flyout extends Component<Props> {
   static defaultProps = {
     flyoutDirection: 'left',
     flyoutSize: 'medium',
-    flyoutHasPadding: false,
+    hasPadding: false,
     open: false,
   }
 
@@ -59,7 +60,7 @@ class Flyout extends Component<Props> {
 
   getClassNames = () => {
     return classNames(
-      'm-flyout', 'm-flyout--scrollable', `m-flyout--${this.props.flyoutDirection}`, {
+      'm-flyout', 'm-flyout--scrollable', `m-flyout--${this.props.flyoutDirection}`, this.props.className, {
         'is-open': this.state.isOpen,
         [`m-flyout--${flyoutSizes[this.props.flyoutSize]}`]: !!flyoutSizes[this.props.flyoutSize]
       });
@@ -68,7 +69,7 @@ class Flyout extends Component<Props> {
   render() {
     const {
       trigger,
-      flyoutHasPadding,
+      hasPadding,
       children,
       ...flyoutProps
     } = this.props;
@@ -78,7 +79,7 @@ class Flyout extends Component<Props> {
           <div onClick={this.toggleIsOpen}> 
             {this.props.trigger}
           </div>
-        <FlyoutContent hasPadding={flyoutHasPadding}>
+        <FlyoutContent hasPadding={hasPadding}>
           {this.props.children}
         </FlyoutContent>
       </div>
