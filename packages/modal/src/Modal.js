@@ -23,7 +23,7 @@ type Props = {
     children?: any,
     closable?: boolean,
     className?: string
-};
+}
 
 class Modal extends Component<Props> {
     constructor(props) {
@@ -61,9 +61,9 @@ class Modal extends Component<Props> {
           ) : null;
 
         return (
-            <div class={sizeClass}>
-                <div class="m-modal__content">
-                    <div class="m-modal__header u-margin-bottom-xs">
+            <div className={sizeClass}>
+                <div className="m-modal__content">
+                    <div className="m-modal__header u-margin-bottom-xs">
                         {closeButton}
                         {title && <h6>{title}</h6>}
                     </div>

@@ -33,7 +33,7 @@ export {
   Textarea,
   RadioGroup,
   InputLabel,
-  Datepicker
+  Datepicker,
 } from './packages/form';
 
 export { default as Header } from './packages/header';
@@ -42,15 +42,13 @@ export { default as Hero } from './packages/hero';
 
 export { default as Icon } from './packages/icon';
 
-export { default as Label} from './packages/label';
+export { default as Label } from './packages/label';
 
 export { default as Steps } from './packages/steps';
 
 export { default as Slider } from './packages/slider';
 
-export {
-  Step,
-} from './packages/steps';
+export { Step } from './packages/steps';
 
 export { default as Spinner } from './packages/spinner';
 
