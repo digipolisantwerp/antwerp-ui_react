@@ -52,6 +52,7 @@ class Modal extends Component<Props> {
     const closeButton = closable ? (
       <Button
         transparent
+        type="default"
         icon="close"
         onClick={this.handleClose}
         className="m-modal__close" />
@@ -62,7 +63,7 @@ class Modal extends Component<Props> {
         <div className="m-modal__content">
           <div className="m-modal__header u-margin-bottom-xs">
             {closeButton}
-            {title && <h6>{title}</h6>}
+            {title && <h5>{title}</h5>}
           </div>
           {children}
         </div>
