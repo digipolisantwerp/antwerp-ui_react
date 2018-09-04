@@ -60,8 +60,8 @@ export { default as Toggle } from './packages/toggle';
 
 export { default as UserMenu } from './packages/user-menu';
 
-export { 
+export {
   Modal,
   ModalBody,
-  ModalFooter
+  ModalFooter,
 } from './packages/modal';
