@@ -20,6 +20,8 @@ export { default as Contact } from './packages/contact';
 
 export { default as Content } from './packages/content';
 
+export { default as Flyout } from './packages/flyout';
+
 export { default as FlyoutButton } from './packages/flyout-button';
 
 export { default as Footer } from './packages/footer';
