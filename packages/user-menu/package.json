@@ -1,8 +1,9 @@
 {
-  "name": "button",
+  "name": "user-menu",
   "version": "0.0.1-0",
   "description": "",
-  "main": "dist/index.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
