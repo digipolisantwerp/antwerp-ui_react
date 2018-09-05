@@ -1,7 +1,16 @@
 // @flow
 import * as React from 'react';
 import classNames from 'classnames';
+import ReactModal from 'react-modal';
+import styled from 'styled-components';
+
 import Button from '../../button/src/Button';
+
+const ReactModalWrapper = styled(ReactModal)`
+  .Modal {
+    background-color: transparent;
+  }
+`;
 
 const sizeClasses = {
   default: '',
@@ -59,21 +68,27 @@ function Modal(props: Props) {
   ) : null;
 
   return (
-    <div className={show ? 'm-overlay is-active' : 'm-overlay'}>
-      <div className="m-overlay__inner">
-        <form onSubmit={onSubmit}>
-          <div className={sizeClass}>
-            <div className="m-modal__content">
-              <div className="m-modal__header">
-                {closeButton}
-                {title && <h6 style={{ fontWeight: 'bold', fontFamily: 'Antwerpen regular' }}>{title}</h6>}
+    <ReactModalWrapper
+      isOpen={show}
+      onRequestClose={closeModal}
+      ariaHideApp={false}
+      shouldCloseOnOverlayClick>
+      <div className={show ? 'm-overlay is-active' : 'm-overlay'}>
+        <div className="m-overlay__inner">
+          <form onSubmit={onSubmit}>
+            <div className={sizeClass}>
+              <div className="m-modal__content">
+                <div className="m-modal__header">
+                  {closeButton}
+                  {title && <h6 style={{ fontWeight: 'bold', fontFamily: 'Antwerpen regular' }}>{title}</h6>}
+                </div>
+                {children}
               </div>
-              {children}
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
-    </div>
+    </ReactModalWrapper>
   );
 }
 
