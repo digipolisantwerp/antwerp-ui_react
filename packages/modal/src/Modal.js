@@ -1,5 +1,5 @@
 // @flow
-import * as React from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import Button from '../../button/src/Button';
 
@@ -29,11 +29,7 @@ type Props = {
   onSubmit: Function
 }
 
-type State = {
-  show: boolean
-}
-
-class Modal extends React.Component<Props, State> {
+class Modal extends Component<Props> {
   static defaultProps = {
     type: '',
     size: '',
@@ -97,9 +93,9 @@ class Modal extends React.Component<Props, State> {
           <form onSubmit={onSubmit}>
             <div className={sizeClass}>
               <div className="m-modal__content">
-                <div className="m-modal__header u-margin-bottom-xs">
+                <div className="m-modal__header">
                   {closeButton}
-                  {title && <h6>{title}</h6>}
+                  {title && <h6 style={{ fontWeight: 'bold', fontFamily: 'Antwerpen regular' }}>{title}</h6>}
                 </div>
                 {children}
               </div>
