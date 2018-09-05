@@ -73,8 +73,12 @@ function Modal(props: Props) {
       onRequestClose={closeModal}
       ariaHideApp={false}
       shouldCloseOnOverlayClick>
-      <div className={show ? 'm-overlay is-active' : 'm-overlay'}>
-        <div className="m-overlay__inner">
+      <div
+        className={show ? 'm-overlay is-active' : 'm-overlay'}
+        style={{ pointerEvents: 'none' }}>
+        <div
+          className="m-overlay__inner"
+          style={{ pointerEvents: 'auto' }}>
           <form onSubmit={onSubmit}>
             <div className={sizeClass}>
               <div className="m-modal__content">
