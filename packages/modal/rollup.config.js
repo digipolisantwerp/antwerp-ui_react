@@ -14,5 +14,5 @@ export default {
 			exclude: ['node_modules/**']
 		})
 	],
-	external: ['react', 'classnames'],
+	external: ['react', 'classnames', 'react-modal', 'styled-components'],
 };

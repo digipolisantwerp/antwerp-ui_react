@@ -14,7 +14,8 @@
     "build": "lerna exec --parallel -- rollup -c",
     "postbuild": "rollup -c",
     "publish": "lerna publish --skip-git --skip-npm",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "lint": "eslint ./ --fix"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -71,11 +72,16 @@
     ]
   },
   "dependencies": {
+    "babel-eslint": "^9.0.0",
     "babel-loader": "~7.1.4",
     "classnames": "~2.2.6",
+    "eslint-config-flowtype-essential": "^0.3.0",
+    "jest": "^23.5.0",
     "moment": "~2.22.1",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
-    "react-input-mask": "~2.0.1"
+    "react-input-mask": "~2.0.1",
+    "react-modal": "^3.5.1",
+    "styled-components": "^3.4.2"
   }
 }

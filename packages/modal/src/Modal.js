@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import classNames from 'classnames';
-import ReactModal from 'react-modal';
+import * as ReactModal from 'react-modal';
 import styled from 'styled-components';
 
 import Button from '../../button/src/Button';
