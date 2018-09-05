@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import Button from '../../button/src/Button';
 
@@ -26,85 +26,65 @@ type Props = {
   closable?: boolean,
   className?: string,
   /** Modal functionality */
-  onSubmit: Function
+  onSubmit: Function,
+  closeModal: Function
 }
 
-class Modal extends Component<Props> {
-  static defaultProps = {
-    type: '',
-    size: '',
-    title: '',
-    show: false,
-    children: null,
-    closable: false,
-    className: '',
-  }
+function Modal(props: Props) {
+  const {
+    type,
+    size,
+    title,
+    children,
+    closable,
+    show,
+    className,
+    onSubmit,
+    closeModal,
+  } = props;
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      show: props.show,
-    };
-  }
+  const sizeClass = classNames(
+    'm-modal',
+    { [`${sizeClasses[size]}`]: !!size },
+    className,
+  );
 
-  componentDidUpdate(prevProps) {
-    const { show } = this.props;
-    if (prevProps.show !== show) {
-      this.setState({ show }); // eslint-disable-line
-    }
-  }
+  const closeButton = closable ? (
+    <Button
+      transparent
+      type={type}
+      icon="close"
+      onClick={closeModal}
+      className={type ? 'm-modal__close' : 'm-modal__close a-button--default'} />
+  ) : null;
 
-  handleClose = (e) => {
-    e.preventDefault();
-    this.setState(state => ({ ...state, show: false }));
-  }
-
-  render() {
-    const {
-      type,
-      size,
-      title,
-      children,
-      closable,
-      className,
-      onSubmit,
-    } = this.props;
-
-    const { show } = this.state;
-
-    const sizeClass = classNames(
-      'm-modal',
-      { [`${sizeClasses[size]}`]: !!size },
-      className,
-    );
-
-    const closeButton = closable ? (
-      <Button
-        transparent
-        type={type}
-        icon="close"
-        onClick={this.handleClose}
-        className={type ? 'm-modal__close' : 'm-modal__close a-button--default'} />
-    ) : null;
-
-    return (
-      <div className={show ? 'm-overlay is-active' : 'm-overlay'}>
-        <div className="m-overlay__inner">
-          <form onSubmit={onSubmit}>
-            <div className={sizeClass}>
-              <div className="m-modal__content">
-                <div className="m-modal__header">
-                  {closeButton}
-                  {title && <h6 style={{ fontWeight: 'bold', fontFamily: 'Antwerpen regular' }}>{title}</h6>}
-                </div>
-                {children}
+  return (
+    <div className={show ? 'm-overlay is-active' : 'm-overlay'}>
+      <div className="m-overlay__inner">
+        <form onSubmit={onSubmit}>
+          <div className={sizeClass}>
+            <div className="m-modal__content">
+              <div className="m-modal__header">
+                {closeButton}
+                {title && <h6 style={{ fontWeight: 'bold', fontFamily: 'Antwerpen regular' }}>{title}</h6>}
               </div>
+              {children}
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
-    );
-  }
+    </div>
+  );
 }
+
+Modal.defaultProps = {
+  type: '',
+  size: '',
+  title: '',
+  show: false,
+  children: null,
+  closable: false,
+  className: '',
+};
 
 export default Modal;
