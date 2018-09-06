@@ -66,5 +66,4 @@ export {
   Modal,
   ModalBody,
   ModalFooter,
-  ModalText,
 } from './packages/modal';
