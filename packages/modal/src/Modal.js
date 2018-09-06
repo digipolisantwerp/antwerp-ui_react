@@ -8,10 +8,12 @@ import Button from '../../button/src/Button';
 const customReactModalStyles = {
   overlay: {
     backgroundColor: 'transparent',
+    pointerEvents: 'none',
   },
   content: {
     backgroundColor: 'transparent',
     border: 'none',
+    pointerEvents: 'none',
   },
 };
 
