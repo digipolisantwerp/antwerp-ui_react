@@ -1,16 +1,19 @@
 // @flow
 import * as React from 'react';
 import classNames from 'classnames';
-import * as ReactModal from 'react-modal';
-import styled from 'styled-components';
+import ReactModal from 'react-modal';
 
 import Button from '../../button/src/Button';
 
-const ReactModalWrapper = styled(ReactModal)`
-  .Modal {
-    background-color: transparent;
-  }
-`;
+const customReactModalStyles = {
+  overlay: {
+    backgroundColor: 'transparent',
+  },
+  content: {
+    backgroundColor: 'transparent',
+    border: 'none',
+  },
+};
 
 const sizeClasses = {
   default: '',
@@ -68,11 +71,12 @@ function Modal(props: Props) {
   ) : null;
 
   return (
-    <ReactModalWrapper
+    <ReactModal
+      ariaHideApp={false}
       isOpen={show}
       onRequestClose={closeModal}
-      ariaHideApp={false}
-      shouldCloseOnOverlayClick>
+      shouldCloseOnOverlayClick
+      style={customReactModalStyles}>
       <div
         className={show ? 'm-overlay is-active' : 'm-overlay'}
         style={{ pointerEvents: 'none' }}>
@@ -92,7 +96,7 @@ function Modal(props: Props) {
           </form>
         </div>
       </div>
-    </ReactModalWrapper>
+    </ReactModal>
   );
 }
 
