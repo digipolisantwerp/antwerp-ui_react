@@ -14,7 +14,7 @@
     "build": "lerna exec --parallel -- rollup -c",
     "postbuild": "rollup -c",
     "publish": "lerna publish --skip-git --skip-npm",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build && ./node_modules/react-styleguidist/bin/styleguidist.js build"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -36,7 +36,7 @@
     "jest-cli": "^22.4.4",
     "lerna": "~2.10.1",
     "react-addons-test-utils": "^15.6.2",
-    "react-styleguidist": "~7.2.3",
+    "react-styleguidist": "~7.2.5",
     "rollup": "^0.65.0",
     "rollup-plugin-babel": "^3.0.7",
     "rollup-plugin-node-resolve": "^3.3.0",
