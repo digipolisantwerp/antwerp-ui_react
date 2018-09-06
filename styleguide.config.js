@@ -12,7 +12,7 @@ module.exports = {
     return `import { ${name} } from '@acpaas-ui/react-components';`
   },
   title: 'ACPaaS UI React Components',
-  showUsage: true,
+  usageMode: 'expand',
   webpackConfig: {
     module: {
       rules: [

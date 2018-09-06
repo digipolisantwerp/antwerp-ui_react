@@ -1,8 +1,8 @@
 ```
-const CardBody = require('./dist').CardBody;
-const CardHeader = require('./dist').CardHeader;
-const CardTitle = require('./dist').CardTitle;
-const CardDescription = require('./dist').CardDescription;
+const CardBody = require('.').CardBody;
+const CardHeader = require('.').CardHeader;
+const CardTitle = require('.').CardTitle;
+const CardDescription = require('.').CardDescription;
 <Card>
   <CardHeader title="Card header" />
   <CardBody>

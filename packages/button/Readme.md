@@ -48,7 +48,7 @@
 
 ### Button Group
 ```
-const ButtonGroup = require('./dist').ButtonGroup;
+const ButtonGroup = require('.').ButtonGroup;
 <ButtonGroup>
   <Button type="primary" size="tiny">left</Button>
   <Button type="primary" size="tiny">middle</Button>
