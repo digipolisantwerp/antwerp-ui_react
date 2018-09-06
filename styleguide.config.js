@@ -11,6 +11,7 @@ module.exports = {
     const name = path.basename(componentPath, '.js')
     return `import { ${name} } from '@acpaas-ui/react-components';`
   },
+  styleguideDir: 'docs',
   title: 'ACPaaS UI React Components',
   usageMode: 'expand',
   webpackConfig: {
