@@ -48,7 +48,8 @@ To check out live examples and docs, visit [https://digipolisantwerp.github.io/a
 | Hero         | TODO                                       | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/hero/Readme.md)          |
 | Icon         | TODO                                       | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/icon/Readme.md)          |
 | Label         | TODO                                      | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/label/Readme.md)         |
-| Slider         | TODO                                     | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/slider/Readme.md)        |
+| Modal         | TODO                                     | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/modal/Readme.md)        |
+| Slider         | TODO                                     | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/steps/Readme.md)         |
 | Spinner         | TODO                                    | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/spinner/Readme.md)       |
 | Steps         | TODO                                      | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/steps/Readme.md)         |
 | Switch         | TODO                                     | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/switch/Readme.md)        |
