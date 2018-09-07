@@ -16,5 +16,5 @@ import { Link } from 'react-router-dom';
 ```
 
 ```js
-<Link destination="/meow" component="span">I'm not a real link</Link>
+<Link destination="/meow" component="span">I am not a real link</Link>
 ```
