@@ -67,3 +67,10 @@ export { default as TagList, TagListItem } from './packages/taglist';
 export { default as Toggle } from './packages/toggle';
 
 export { default as UserMenu } from './packages/user-menu';
+
+export { default as Badge } from './packages/badge';
+export { default as Label} from './packages/label';
+export { default as Calendar } from './packages/calendar';
+
+export { default as Link } from './packages/link';
+
