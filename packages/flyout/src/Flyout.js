@@ -35,6 +35,12 @@ class Flyout extends Component<Props> {
     hasPadding: false,
     open: false,
   }
+  
+  componentDidUpdate(prevProps) {
+    if (this.props.open !== prevProps.open) {
+      this.setState({ isOpen: !prevProps.open });  
+    }
+  }
 
   toggleIsOpen = () => {
     if(!this.state.isOpen){
