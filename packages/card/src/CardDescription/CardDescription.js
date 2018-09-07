@@ -8,7 +8,7 @@ type Props = {
 const CardDescription = (props: Props) => {
   const { children, style } = props;
   return (
-    <p className="u-margin-bottom" style={style}>
+    <p style={style}>
       {children}
     </p>
   )
