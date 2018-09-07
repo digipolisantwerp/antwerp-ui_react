@@ -3,3 +3,5 @@ build
 node_modules
 *.log
 dist
+!docs/build
+coverage

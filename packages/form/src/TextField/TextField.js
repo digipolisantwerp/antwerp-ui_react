@@ -22,6 +22,7 @@ type Props = {
   onChange?: (e: object) => void,
   onClick?: (e: object) => void,
   onBlur?: (e: object) => void,
+  onKeyDown?: (e: object) => void,
   mask?: string,
   state?: InputStates,
 };
@@ -39,6 +40,7 @@ class TextField extends Component<Props> {
       onChange,
       onClick,
       onBlur,
+      onKeyDown,
       mask,
       state,
     } = this.props;

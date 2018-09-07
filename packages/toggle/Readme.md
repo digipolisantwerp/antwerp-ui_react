@@ -1,0 +1,5 @@
+### Toggle
+
+```
+<Toggle size="small" />
+```

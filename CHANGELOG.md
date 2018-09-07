@@ -28,7 +28,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - `Form/Select`
 - `Form/Textarea`
 - `Form/TextField`
-- `Form/ToggleSwitch`
+- `Form/Switch`
 - `Header`
 - `Hero`
 - `Icon`
