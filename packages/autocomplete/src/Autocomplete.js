@@ -8,7 +8,8 @@ import TextField from '../../form/src/TextField';
 type Props = {
   items?: object,
   children?: any,
-  open?: boolean
+  open?: boolean,
+  label: string
 };
 
 class Autocomplete extends Component<Props> {
@@ -50,8 +51,7 @@ class Autocomplete extends Component<Props> {
     });
     if (e.target.value === "") {
       this.setState({
-        open: false,
-        results: this.data
+        results: this.props.items
       });
     }
   }
@@ -68,10 +68,11 @@ class Autocomplete extends Component<Props> {
   }
 
   handleClick = ( e ) => {
-    this.setState({
-      inputValue: e.target.innerText,
-      open: false
-    });
+    this.selectOption(e.target.innerText);
+  }
+
+  toggleOpen = () => {
+    this.setState({ open: !this.state.open })
   }
 
   handleKeyPress = (e) => {
@@ -93,16 +94,23 @@ class Autocomplete extends Component<Props> {
        });
     }
     if (e.key === "Enter") {
-      this.setState({
-        inputValue: results[cursor].label,
-        open: false
-      });
+      this.selectOption(results[cursor].label)
+    }
+    if (e.key === "Backspace") {
+      this.search(this.state.inputValue);
     }
   }
 
   scrollToItem = () => {
     const domNode = ReactDOM.findDOMNode(this['item_' + this.state.cursor]);
     domNode.scrollIntoView(false)
+  }
+
+  selectOption = (val) => {
+    this.setState({
+      inputValue: val,
+      open: false
+    });
   }
 
   renderItems = (item, index) => {
@@ -124,8 +132,10 @@ class Autocomplete extends Component<Props> {
           <TextField
             name="autocomplete"
             className="autocomplete"
+            label={this.props.label}
             value={this.state.inputValue}
             onChange={this.handleChange}
+            onClick={this.toggleOpen}
             onKeyDown={this.handleKeyPress}
             />
           }

@@ -12,6 +12,8 @@
       { label: "Sint-Niklaas", value: "sint-niklaas"},
       { label: "Aalst", value: "aalst"},
       { label: "Genk", value: "genk"}
-    ]}></Autocomplete>
+    ]}
+    label="Selecteer een stad">
+    </Autocomplete>
 
 ```
