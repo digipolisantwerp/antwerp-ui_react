@@ -25,6 +25,7 @@ To check out live examples and docs, visit [https://digipolisantwerp.github.io/a
 
 | Name           | Description                              | URL                                                       |
 | -------------- | ---------------------------------------- | --------------------------------------------------------- |
+| Accordion          | TODO                                 | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/accordion/Readme.md)         |
 | Alert          | TODO                                     | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/alert/Readme.md)         |
 | Avatar         | TODO                                     | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/avatar/Readme.md)        |
 | Badge          | TODO                                     | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/badge/Readme.md)         |
