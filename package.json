@@ -1,7 +1,7 @@
 {
   "name": "@acpaas-ui/react-components",
   "version": "1.0.1-26",
-  "description": "Antwerp City Platform as a Service User Interface (ACPaas UI) is a **component interface library** for building user interfaces and responsive web apps.",
+  "description": "Anatwerp City Platform as a Service User Interface (ACPaas UI) is a **component interface library** for building user interfaces and responsive web apps.",
   "license": "MIT",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
