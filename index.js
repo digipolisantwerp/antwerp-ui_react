@@ -15,6 +15,9 @@ export {
   CardDescription,
   CardHeader,
   CardTitle,
+  CardActions,
+  CardIcon,
+  CardImage
 } from './packages/card';
 
 export { default as Contact } from './packages/contact';
