@@ -36,6 +36,10 @@ class Flyout extends Component<Props> {
     open: false,
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ isOpen: nextProps.open });  
+  }
+
   toggleIsOpen = () => {
     if(!this.state.isOpen){
       document.addEventListener('click', this.handleOutsideClick, false);
