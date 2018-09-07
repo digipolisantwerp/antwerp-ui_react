@@ -5,6 +5,7 @@ export { default as Avatar } from './packages/avatar';
 export { default as Badge } from './packages/badge';
 
 export { default as Button } from './packages/button';
+export { default as ButtonGroup } from './packages/button';
 
 export { default as Calendar } from './packages/calendar';
 
