@@ -126,27 +126,30 @@ class Autocomplete extends Component<Props> {
   }
 
   render() {
+    const { items } = this.props;
     return (
-      <div>
-        <Flyout trigger={
-          <TextField
-            name="autocomplete"
-            className="autocomplete"
-            label={this.props.label}
-            value={this.state.inputValue}
-            onChange={this.handleChange}
-            onClick={this.toggleOpen}
-            onKeyDown={this.handleKeyPress}
-            />
-          }
-          open={this.state.open}
-          >
-            <ul className="m-selectable-list m-selectable-list--no-border">
-              {this.state.results.map((item, index) => this.renderItems(item, index))}
-            </ul>
-        </Flyout>
-      </div>
-    );
+      items && items.length > 0 && (
+        <div>
+          <Flyout trigger={
+            <TextField
+              name="autocomplete"
+              className="autocomplete"
+              label={this.props.label}
+              value={this.state.inputValue}
+              onChange={this.handleChange}
+              onClick={this.toggleOpen}
+              onKeyDown={this.handleKeyPress}
+              />
+            }
+            open={this.state.open}
+            >
+              <ul className="m-selectable-list m-selectable-list--no-border">
+                {this.state.results.map((item, index) => this.renderItems(item, index))}
+              </ul>
+          </Flyout>
+        </div>
+      )
+    )
   }
 }
 
