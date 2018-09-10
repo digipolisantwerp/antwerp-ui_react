@@ -70,3 +70,5 @@ export { default as UserMenu } from './packages/user-menu';
 
 export { default as Link } from './packages/link';
 
+export { default as Modal } from './packages/modal';
+
