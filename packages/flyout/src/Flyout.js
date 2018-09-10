@@ -71,8 +71,7 @@ class Flyout extends Component<Props> {
     const {
       trigger,
       hasPadding,
-      children,
-      ...flyoutProps
+      children
     } = this.props;
     const flyoutClass = this.getClassNames();
     return (
