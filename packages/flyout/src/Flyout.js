@@ -76,6 +76,7 @@ class Flyout extends Component<Props> {
     } = this.props;
     const flyoutClass = this.getClassNames();
     return (
+      trigger && (
       <div className={flyoutClass} ref="flyout">
           <div onClick={this.toggleIsOpen}> 
             {this.props.trigger}
@@ -84,6 +85,7 @@ class Flyout extends Component<Props> {
           {this.props.children}
         </FlyoutContent>
       </div>
+      )
     );
   }
 
