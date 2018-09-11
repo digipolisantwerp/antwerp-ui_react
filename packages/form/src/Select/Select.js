@@ -21,6 +21,7 @@ type Props = {
   placeholder?: string,
   options?: Array<SelectOption>,
   onChange?: (e: object) => void,
+  value?: string,
 };
 
 class Select extends Component<Props> {
@@ -48,6 +49,7 @@ class Select extends Component<Props> {
       placeholder,
       options,
       onChange,
+      value?
     } = this.props;
     const selectClass = classNames(
       'a-input',
@@ -68,7 +70,7 @@ class Select extends Component<Props> {
       <div className={selectClass} name={name}>
         {label && <InputLabel inline={inline} htmlFor={id}>{label}</InputLabel>}
         <div className={wrapperClass}>
-          <select id={id} name={name} onChange={(e) => this.onChange(e)}>
+          <select id={id} name={name} onChange={(e) => this.onChange(e)} value={value}>
             {placeholder && <option value={placeholder} disabled selected>{placeholder}</option>}
             {options.map(option => (
               <Option
@@ -76,8 +78,7 @@ class Select extends Component<Props> {
                 key={option.value}
                 id={option.value}
                 name={name}
-                disabled={option.disabled}
-                checked={option.checked}>
+                disabled={option.disabled}>
                 {option.label}
               </Option>
             ))}
