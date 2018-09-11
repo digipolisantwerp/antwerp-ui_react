@@ -1,5 +1,7 @@
 export { default as Alert } from './packages/alert';
 
+export { default as Autocomplete } from './packages/autocomplete';
+
 export { default as Avatar } from './packages/avatar';
 
 export { default as Badge } from './packages/badge';
@@ -60,7 +62,11 @@ export {
 
 export { default as Spinner } from './packages/spinner';
 
+export { default as Breadcrumbs } from './packages/breadcrumbs';
+
 export { default as Switch } from './packages/switch';
+
+export { default as Tabs } from './packages/tabs';
 
 export { default as TagList, TagListItem } from './packages/taglist';
 
