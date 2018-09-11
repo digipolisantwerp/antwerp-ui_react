@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { Link } from './Link';
+import Link from './Link';
 
 describe('Link', () => {
   test('Link renders default as an <a>-tag', () => {

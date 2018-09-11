@@ -74,5 +74,12 @@ export { default as Toggle } from './packages/toggle';
 
 export { default as UserMenu } from './packages/user-menu';
 
+export { default as Accordion } from './packages/accordion';
+export {
+  AccordionTab,
+  AccordionTabHeader,
+  AccordionTabContent,
+} from './packages/accordion'
+
 export { default as Link } from './packages/link';
 
