@@ -1,5 +1,7 @@
 export { default as Alert } from './packages/alert';
 
+export { default as Autocomplete } from './packages/autocomplete';
+
 export { default as Avatar } from './packages/avatar';
 
 export { default as Badge } from './packages/badge';
