@@ -66,6 +66,8 @@ export { default as Breadcrumbs } from './packages/breadcrumbs';
 
 export { default as Switch } from './packages/switch';
 
+export { default as Tabs } from './packages/tabs';
+
 export { default as TagList, TagListItem } from './packages/taglist';
 
 export { default as Toggle } from './packages/toggle';

@@ -52,6 +52,7 @@ To check out live examples and docs, visit [https://digipolisantwerp.github.io/a
 | Label         | TODO                                      | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/label/Readme.md)         |
 | Link          | TODO                                      | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/link/Readme.md)         |
 | Slider         | TODO                                     | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/slider/Readme.md)        |
+| Tabs         | TODO                                       | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/tabs/Readme.md)        |
 | Spinner         | TODO                                    | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/spinner/Readme.md)       |
 | Steps         | TODO                                      | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/steps/Readme.md)         |
 | Switch         | TODO                                     | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/switch/Readme.md)        |
