@@ -30,6 +30,7 @@ To check out live examples and docs, visit [https://digipolisantwerp.github.io/a
 | Avatar         | TODO                                     | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/avatar/Readme.md)        |
 | Badge          | TODO                                     | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/badge/Readme.md)         |
 | Button         | TODO                                     | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/button/Readme.md)        |
+| Breadcrumbs         | TODO                                | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/breadcrumbs/Readme.md)        |
 | Calendar       | TODO                                     | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/calendar/Readme.md)      |
 | Card           | TODO                                     | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/tree/master/packages/card/Readme.md)          |
 | Contact         | TODO                                    | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/contact/Readme.md)       |

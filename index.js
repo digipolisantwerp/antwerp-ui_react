@@ -62,6 +62,8 @@ export {
 
 export { default as Spinner } from './packages/spinner';
 
+export { default as Breadcrumbs } from './packages/breadcrumbs';
+
 export { default as Switch } from './packages/switch';
 
 export { default as TagList, TagListItem } from './packages/taglist';
