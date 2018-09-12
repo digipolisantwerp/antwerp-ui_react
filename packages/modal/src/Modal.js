@@ -95,9 +95,7 @@ export default class Modal extends React.Component<Props, State> {
     this.handleConfirm = this.handleConfirm.bind(this);
     this.handleDeny = this.handleDeny.bind(this);
     this.handleRequestClose = this.handleRequestClose.bind(this);
-  }
 
-  componentWillMount() {
     const { appElement, ariaHideApp } = this.props;
 
     if (!Modal.appElement && ariaHideApp) {
