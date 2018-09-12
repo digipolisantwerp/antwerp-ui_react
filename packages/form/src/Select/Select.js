@@ -49,7 +49,7 @@ class Select extends Component<Props> {
       placeholder,
       options,
       onChange,
-      value?
+      value
     } = this.props;
     const selectClass = classNames(
       'a-input',
