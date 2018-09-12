@@ -4,6 +4,7 @@ import Moment from 'moment';
 import TextField from '../TextField';
 import InputLabel from '../InputLabel';
 import Calendar from '../../../calendar/src/Calendar';
+import classNames from 'classnames';
 
 type
 Props = {
@@ -104,6 +105,14 @@ class Datepicker extends Component<Props> {
       open,
     } = this.state;
 
+	  const classNamesDatepicker = classNames(
+      'm-datepicker',
+      'm-datepicker--fixed',
+      {
+        'is-open': open
+      }
+    );
+
     return <div>
       {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
       <div className="a-input has-icon-right">
@@ -117,17 +126,21 @@ class Datepicker extends Component<Props> {
             onChange={this.changeDate.bind(this)}
             readOnly/>
           <span onClick={this.toggleCalendar.bind(this)} className="fa fa-calendar is-clickable"></span>
-          <div className="m-datepicker is-open m-datepicker--fixed" aria-hidden="false">
-            <Calendar
-              label={label}
-              format={format}
-              activeDate={activeDate}
-              open={open}
-              minDate={minDate}
-              maxDate={maxDate}
-              onChange={this.changeDate.bind(this)}
-            />
-          </div>
+	        { open &&
+            <div className={classNamesDatepicker} aria-hidden="false">
+              <div className="m-datepicker is-open">
+                <Calendar
+                  label={label}
+                  format={format}
+                  activeDate={activeDate}
+                  open={open}
+                  minDate={minDate}
+                  maxDate={maxDate}
+                  onChange={this.changeDate.bind(this)}
+                />
+              </div>
+            </div>
+	        }
         </div>
       </div>
     </div>

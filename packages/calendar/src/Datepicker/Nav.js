@@ -4,9 +4,9 @@ import Button from '../../../button/src/Button';
 
 class Nav extends Component {
 
-	renderNav () {
-		const { viewType, displayedPeriod } = this.props;
-		switch(viewType) {
+	renderNav() {
+		const {viewType, displayedPeriod} = this.props;
+		switch (viewType) {
 			case 'months':
 				return (displayedPeriod.format('YYYY'));
 			case 'years':
@@ -16,31 +16,31 @@ class Nav extends Component {
 		}
 	}
 
-	renderYearsNav (displayedMonth) {
+	renderYearsNav(displayedMonth) {
 		const years = yearsOfMonth(displayedMonth);
 		return years[0] + '-' + years.slice(-1);
 	}
 
-	render () {
-		const { onClickPrevious, onClickViewType, onClickNext } = this.props;
+	render() {
+		const {onClickPrevious, onClickViewType, onClickNext} = this.props;
 
-		return(
+		return (
 			<React.Fragment>
 				<Button
 					onClick={onClickPrevious}
 					className={"a-button has-icon"}
-					icon={"angle-left"} />
+					icon={"angle-left"}/>
 
 				<Button
 					onClick={onClickViewType}
-					className={"m-datepicker__title a-button"} >
+					className={"m-datepicker__title a-button"}>
 					{this.renderNav()}
 				</Button>
 
 				<Button
 					onClick={onClickNext}
 					className={"a-button has-icon"}
-					icon={"angle-right"} />
+					icon={"angle-right"}/>
 			</React.Fragment>
 		)
 	}

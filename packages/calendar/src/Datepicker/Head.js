@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 
 class Head extends Component {
 
-	renderHeader () {
-		const { viewType } = this.props;
+	renderHeader() {
+		const {viewType} = this.props;
 
-		switch(viewType) {
+		switch (viewType) {
 			case 'months':
 				return null;
 			case 'years':
@@ -15,7 +15,7 @@ class Head extends Component {
 		}
 	}
 
-	renderNameOfDays () {
+	renderNameOfDays() {
 		const nameOfDays = ["Ma", "Di", "Woe", "Do", "Vr", "Za", "Zo"];
 		return (
 			<tr className="m-datepicker__days">
@@ -26,8 +26,8 @@ class Head extends Component {
 		);
 	}
 
-	render () {
-		return(
+	render() {
+		return (
 			this.renderHeader()
 		)
 	}

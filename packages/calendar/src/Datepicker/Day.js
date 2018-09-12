@@ -17,7 +17,7 @@ class Day extends Component {
 	};
 
 	render() {
-		  const {
+		const {
 			activeDate,
 			day,
 			disabled,
@@ -25,30 +25,31 @@ class Day extends Component {
 			dayPrevMonth,
 			dayActiveClassName,
 			dayDisabledClassName,
-			dayFromOtherMonthClassName} = this.props;
+			dayFromOtherMonthClassName
+		} = this.props;
 
-			let buttonClasses = [];
+		let buttonClasses = [];
 
-			if (day.isSame(activeDate, 'day')) {
-				buttonClasses.push(dayActiveClassName);
-			}
+		if (day.isSame(activeDate, 'day')) {
+			buttonClasses.push(dayActiveClassName);
+		}
 
-			if (disabled) {
-				buttonClasses.push(dayDisabledClassName);
-			}
+		if (disabled) {
+			buttonClasses.push(dayDisabledClassName);
+		}
 
-			if (dayPrevMonth || dayNextMonth) {
-				buttonClasses.push(dayFromOtherMonthClassName);
-			}
+		if (dayPrevMonth || dayNextMonth) {
+			buttonClasses.push(dayFromOtherMonthClassName);
+		}
 
-			return <td>
-								<button
-									type="button"
-									onClick={this.handleOnClick.bind(this, day)}
-									className={buttonClasses.join(' ')}>
-									{ day.date() }
-								</button>
-							</td>;
+		return <td>
+			<button
+				type="button"
+				onClick={this.handleOnClick.bind(this, day)}
+				className={buttonClasses.join(' ')}>
+				{ day.date() }
+			</button>
+		</td>;
 	}
 }
 
