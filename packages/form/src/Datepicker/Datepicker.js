@@ -1,5 +1,4 @@
-import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from 'react';
 import Moment from 'moment';
 import TextField from '../TextField';
 import InputLabel from '../InputLabel';
@@ -49,30 +48,25 @@ class Datepicker extends Component<Props> {
 
 	componentDidMount() {
 		if (typeof window !== 'undefined') {
-			document.addEventListener('mousedown', this.onClickOutside.bind(this));
-			document.addEventListener('touchstart', this.onClickOutside.bind(this));
+			document.addEventListener('mousedown', this.handleClickOutside.bind(this));
+			document.addEventListener('touchstart', this.handleClickOutside.bind(this));
 		}
 	}
 
 	componentDidUpdate() {
 		if (typeof window !== 'undefined') {
-			document.removeEventListener('mousedown', this.onClickOutside.bind(this));
-			document.removeEventListener('touchstart', this.onClickOutside.bind(this));
+			document.removeEventListener('mousedown', this.handleClickOutside.bind(this));
+			document.removeEventListener('touchstart', this.handleClickOutside.bind(this));
 		}
 	}
 
-	onClickOutside(e) {
-		const calendar = ReactDOM.findDOMNode(this.refs.calendar);
-		const dateInput = ReactDOM.findDOMNode(this.refs.dateInput);
-
-		if (!calendar) return;
-
-		if (!calendar.contains(e.target) && !dateInput.contains(e.target)) {
-			this.setState({
-				open: false
-			});
+	handleClickOutside = (e) => {
+		if (this.datepicker.contains(e.target)) {
+			return;
 		}
-	}
+
+		this.setState({ open: false });
+	};
 
 	changeDate(day) {
 		const {onChange, format, autoClose} = this.props;
@@ -113,7 +107,7 @@ class Datepicker extends Component<Props> {
 			}
 		);
 
-		return <div className="a-input has-icon-right">
+		return <div className="a-input has-icon-right" ref={node => this.datepicker = node}>
 			{label && <InputLabel htmlFor={id}>{label}</InputLabel>}
 			<div className="a-input__wrapper">
 				<TextField
