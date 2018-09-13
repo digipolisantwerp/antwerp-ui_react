@@ -12,9 +12,6 @@ class DatePicker extends Component {
 		} = this.props;
 
 		return <Calendar
-			ref={() => {
-				Calendar
-			}}
 			activeDate={activeDate}
 			minDate={minDate}
 			maxDate={maxDate}

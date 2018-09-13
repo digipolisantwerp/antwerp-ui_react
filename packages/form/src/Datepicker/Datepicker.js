@@ -8,25 +8,25 @@ import classNames from 'classnames';
 type
 	Props = {
 	/** The label to display above the text field. */
-		label: string,
+	label: string,
 	/** The id for the text field. */
-		id: string,
+	id: string,
 	/** The name for the text field. */
-		name: string,
+	name: string,
 	/** The date format used to render the date. */
-		format?: string,
+	format?: string,
 	/** The selected or predefined date. */
-		activeDate?: string,
+	activeDate?: string,
 	/** Toggle the calender open/closed. */
-		open?: boolean,
+	open?: boolean,
 	/** If the calender should open/close after datechange. */
-		autoClose?: boolean,
+	autoClose?: boolean,
 	/** Every date less than this date will be disabled */
-		minDate: string,
+	minDate: string,
 	/** Every date greater than this date will be disabled */
-		maxDate: string,
+	maxDate: string,
 	/** Event for when the date changes. */
-		onChange?: (e: object) => void,
+	onChange?: (e: object) => void,
 };
 
 class Datepicker extends Component<Props> {

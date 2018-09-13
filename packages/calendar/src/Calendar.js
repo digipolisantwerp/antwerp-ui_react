@@ -5,15 +5,15 @@ import DatePicker from './Datepicker/DatePicker';
 type
 	Props = {
 	/** The date format used to render the date. */
-		format?: string,
+	format?: string,
 	/** The selected or predefined date. */
-		activeDate?: string,
+	activeDate?: string,
 	/** Every date less than this date will be disabled */
-		minDate: string,
+	minDate: string,
 	/** Every date greater than this date will be disabled */
-		maxDate: string,
+	maxDate: string,
 	/** Event for when the date changes. */
-		onChange?: (e: object) => void,
+	onChange?: (e: object) => void,
 };
 class Calendar extends Component<Prop> {
 
