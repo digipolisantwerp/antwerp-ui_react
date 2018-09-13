@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Moment from 'moment';
 import DatePicker from './Datepicker/DatePicker';
 
@@ -7,11 +7,11 @@ type
 	/** The date format used to render the date. */
 		format?: string,
 	/** The selected or predefined date. */
-		activeDate?: typeof(DateTime),
+		activeDate?: string,
 	/** Every date less than this date will be disabled */
-		minDate: typeof(DateTime),
+		minDate: string,
 	/** Every date greater than this date will be disabled */
-		maxDate: typeof(DateTime),
+		maxDate: string,
 	/** Event for when the date changes. */
 		onChange?: (e: object) => void,
 };

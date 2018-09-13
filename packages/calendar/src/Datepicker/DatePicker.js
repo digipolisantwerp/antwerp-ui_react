@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Calendar from './Calender';
 
 class DatePicker extends Component {

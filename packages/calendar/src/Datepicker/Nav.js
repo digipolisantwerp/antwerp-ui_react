@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {yearsOfMonth} from '../utils';
 import Button from '../../../button/src/Button';
 

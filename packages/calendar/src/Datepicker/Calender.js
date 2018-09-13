@@ -58,14 +58,15 @@ class Calendar extends Component {
 					/>
 					</thead>
 					<tbody className="m-datepicker__calendar">
-					<Body viewType={viewType}
-					      displayedPeriod={displayedPeriod}
-					      selectDay={selectDay.bind(this)}
-					      minDate={minDate}
-					      maxDate={maxDate}
-					      activeDate={activeDate}
-					      goToViewType={this.goToViewType.bind(this)}
-					/>
+						<Body
+							viewType={viewType}
+				      displayedPeriod={displayedPeriod}
+				      selectDay={selectDay.bind(this)}
+				      minDate={minDate}
+				      maxDate={maxDate}
+				      activeDate={activeDate}
+				      goToViewType={this.goToViewType.bind(this)}
+						/>
 					</tbody>
 				</table>
 			</React.Fragment>
