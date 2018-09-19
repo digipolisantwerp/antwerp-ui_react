@@ -20,7 +20,7 @@ Hi! We're really excited that you are interested in contributing to ACPaaS UI. B
 
 ## Pull Request Guidelines
 
-- The `master` branch is where we ship releases from. Always send PR's to `master`.
+- The `master` branch is where we ship releases from. Always send PRs to `master`.
 
 - Commit your changes to a topic branch with a name matching these examples:
   - `feature/more-cowbell`
