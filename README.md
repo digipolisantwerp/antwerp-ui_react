@@ -27,7 +27,7 @@ Import the core branding to style the components:
 @import url("https://cdn.antwerpen.be/core_branding_scss/2.3.0/main.min.css");
 ```
 
-You can also add a core branding compatible [flexbox grid layout system](flexboxgrid):
+You can also add a core branding compatible [flexbox grid layout system][flexboxgrid]:
 
 ```sh
 npm install @a-ui/flexboxgrid
