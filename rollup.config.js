@@ -2,7 +2,7 @@
 
 import resolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
-import pkg from "./package.json";
+import pkg from './package.json';
 
 export default {
 	input: 'index.js',
@@ -16,5 +16,5 @@ export default {
 			exclude: ['node_modules/**']
 		})
 	],
-	external: ['react', 'classnames', 'moment', 'react-dom', 'react-input-mask'],
+	external: ['react', 'classnames', 'moment', 'react-dom', 'react-input-mask', 'react-modal'],
 };
