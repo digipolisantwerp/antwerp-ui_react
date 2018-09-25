@@ -1,7 +1,5 @@
 # ACPaaS UI - React Components
 
-**This documentation is work-in-progress!**
-
 ## Introduction
 
 Antwerp City Platform as a Service User Interface (ACPaas UI) is a **component interface library** for building user interfaces and responsive web apps. It's designed to provide developers with functionality and UI/UX patterns that matches the Antwerpen styleguide.
@@ -17,60 +15,37 @@ This library is part of [ACPaaS UI][acpaas-ui].
 | Angular           | Angular 6+ | [![acpaas-ui-angular-github]][acpaas-ui-angular] |
 | React             | React 16+  | [![acpaas-ui-react-github]][acpaas-ui-react] |
 
-## Documentation
+## Getting Started
 
-To check out live examples and docs, visit [https://digipolisantwerp.github.io/acpaas-ui_react/](https://digipolisantwerp.github.io/acpaas-ui_react/).
+```sh
+npm install @acpaas-ui/react-components
+```
 
-## Library Contents
+Import the core branding to style the components:
 
-| Name           | Description                              | URL                                                       |
-| -------------- | ---------------------------------------- | --------------------------------------------------------- |
-| Accordion          | TODO                                 | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/accordion/Readme.md)         |
-| Alert          | TODO                                     | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/alert/Readme.md)         |
-| Autocomplete   | TODO                                     | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/autocomplete/Readme.md)  |
-| Avatar         | TODO                                     | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/avatar/Readme.md)        |
-| Badge          | TODO                                     | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/badge/Readme.md)         |
-| Button         | TODO                                     | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/button/Readme.md)        |
-| Breadcrumbs         | TODO                                | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/breadcrumbs/Readme.md)        |
-| Calendar       | TODO                                     | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/calendar/Readme.md)      |
-| Card           | TODO                                     | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/tree/master/packages/card/Readme.md)          |
-| Contact         | TODO                                    | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/contact/Readme.md)       |
-| Content         | TODO                                    | TODO                                                                                                              |
-| FlyoutButton         | TODO                               | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/flyout-button/Readme.md) |
-| Footer         | TODO                                     | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/footer/Readme.md)        |
-| Form         | TODO                                       | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/form/Readme.md)          |
-| Form/Checkbox         | TODO                              | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/tree/master/packages/form#checkbox)           |
-| Form/Datepicker         | TODO                            | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/tree/master/packages/form#datepicker)         |
-| Form/Fieldset         | TODO                              | TODO                                                                                                              |
-| Form/InputLabel         | TODO                            | TODO                                                                                                              |
-| Form/Radio         | TODO                                 | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/tree/master/packages/form#radio)              |
-| Form/Select         | TODO                                | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/tree/master/packages/form#select)             |
-| Form/Textarea         | TODO                              | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/tree/master/packages/form#textarea)           |
-| Form/TextField         | TODO                             | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/tree/master/packages/form#textfield)          |
-| Header         | TODO                                     | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/header/Readme.md)        |
-| Hero         | TODO                                       | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/hero/Readme.md)          |
-| Icon         | TODO                                       | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/icon/Readme.md)          |
-| Label         | TODO                                      | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/label/Readme.md)         |
-| Link          | TODO                                      | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/link/Readme.md)         |
-| Modal         | TODO                                      | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/modal/Readme.md)         |
-| Slider         | TODO                                     | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/slider/Readme.md)        |
-| Tabs         | TODO                                       | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/tabs/Readme.md)        |
-| Spinner         | TODO                                    | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/spinner/Readme.md)       |
-| Steps         | TODO                                      | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/steps/Readme.md)         |
-| Switch         | TODO                                     | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/switch/Readme.md)        |
-| TagList         | TODO                                    | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/taglist/Readme.md)       |
-| Toggle         | TODO                                     | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/tree/master/packages/toggle)                  |
-| UserMenu         | TODO                                   | [Documentation](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/packages/user-menu/Readme.md)     |
+```scss
+@import url("https://cdn.antwerpen.be/core_branding_scss/2.3.0/main.min.css");
+```
 
+You can also add a core branding compatible [flexbox grid layout system][flexboxgrid]:
 
+```sh
+npm install @a-ui/flexboxgrid
+```
+
+```scss
+@import '@a-ui/flexboxgrid/dist/flexboxgrid.min.css';
+```
+
+Check out the [live examples and API docs](https://digipolisantwerp.github.io/acpaas-ui_react/) to learn more.
+
+> To learn more about using the branding look & feel, check the [core branding guide][branding-core-guide]. Note that the [core branding][branding-core] contains the Antwerp logo and fonts, which are subject to a usage restriction. For use outside of apps for the city of Antwerp you can use [acpaas branding][branding-acpaas] instead.
 
 ## Questions
 
-For questions and support please use [StackOverflow Issues][stackoverflow-issues]. The issue list of this repo is **exclusively** for bug reports and feature requests.
+For questions and support please ask a question on the [#acpaas-ui-react slack channel][acpaas-ui-react-slack].
 
-## Issues
-
-Please make sure to fill in the issue template when opening an issue. Issues not conforming to the guidelines may be closed immediately.
+If you stumble across a bug or missing feature, feel free to [report an issue][acpaas-ui-react-issues]. Please fill out the issue template completely when [opening an issue][acpaas-ui-react-issues]. This will help us get to your issue sooner.
 
 ## Changelog
 
@@ -78,24 +53,20 @@ Detailed changes for each release are documented in the [changelog](./CHANGELOG.
 
 ## Contributing
 
-Please make sure to read the [Contributing Guide](./CONTRIBUTING.md) before making a pull request.
+Your contributions are most welcome as pull requests, both code changes and documentation updates. However, to keep a high quality standard, please make sure to read the [Contributing Guide](./CONTRIBUTING.md) before making a pull request.
 
-Thank you to all the people who already contributed to ACPaaS UI!
-
-**List of contributors here**
+Thank you to all the people [who already contributed][acpaas-ui-react-contributors] to ACPaaS UI!
 
 ## License
 
-[MIT](http://opensource.org/licenses/MIT)
+[MIT](./LICENSE.md)
 
 Copyright (c) 2018-present, Digipolis
 
 <!-- Generic Links -->
 [acpaas-ui]: https://acpaas-ui.digipolis.be
-[acpaas-ui-components]: https://acpaas-ui.digipolis.be/ui-components
-
-<!-- StackOverflow -->
-[stackoverflow-issues]: https://stackoverflow.com/questions/tagged/acpaas-ui
+[acpaas-ui-react-slack]: https://dgpls.slack.com/messages/CCKU53FKN
+[flexboxgrid]: https://github.com/a-ui/core_flexboxgrid_scss
 
 <!-- Github links -->
 
@@ -104,6 +75,11 @@ Copyright (c) 2018-present, Digipolis
 [acpaas-ui-js]: https://github.com/digipolisantwerp/acpaas-ui_js
 [acpaas-ui-angular]: https://github.com/digipolisantwerp/acpaas-ui_angular
 [acpaas-ui-react]: https://github.com/digipolisantwerp/acpaas-ui_react
+[acpaas-ui-react-issues]: https://github.com/digipolisantwerp/acpaas-ui_react/issues
+[acpaas-ui-react-contributors]: https://github.com/digipolisantwerp/acpaas-ui_react/graphs/contributors
+[branding-core]: https://github.com/a-ui/core_branding_scss
+[branding-core-guide]: https://a-ui.github.io/core_branding_scss/
+[branding-acpaas]: https://github.com/a-ui/acpaas_branding_scss
 
 <!-- Github Version Badge -->
 [acpaas-ui-schematics-github]: https://img.shields.io/github/package-json/v/digipolisantwerp/acpaas-ui_schematics.svg
