@@ -44,24 +44,22 @@ class Switch extends React.Component {
 
     return (
       <div className={inputClass}>
-        <div className="a-input">
-          {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
-          <div className="a-switch">
-            <label className="a-switch__label">{labelFalse ? labelFalse : 'Nee'}</label>
-            <div className="a-switch__toggle">
-              <input type="checkbox"
-                 name={name}
-                 id={id}
-                 value={this.state.checked}
-                 defaultChecked={checked}
-                 disabled={disabled}
-                 onChange={this.onChange}
-                 onClick={this.onClick}
-              />
-              <label htmlFor={id}></label>
-            </div>
-            <label className="a-switch__label">{labelTrue ? labelTrue : 'Ja'}</label>
+        {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
+        <div className="a-switch">
+          <label className="a-switch__label">{labelFalse ? labelFalse : 'Nee'}</label>
+          <div className="a-switch__toggle">
+            <input type="checkbox"
+               name={name}
+               id={id}
+               value={this.state.checked}
+               defaultChecked={checked}
+               disabled={disabled}
+               onChange={this.onChange}
+               onClick={this.onClick}
+            />
+            <label htmlFor={id}></label>
           </div>
+          <label className="a-switch__label">{labelTrue ? labelTrue : 'Ja'}</label>
         </div>
       </div>
     )

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import InputLabel from '../../form/src/InputLabel';
 import Bar from './Bar';
 import Handle from './Handle';
