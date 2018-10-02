@@ -1,77 +1,73 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Moment from 'moment';
 import DatePicker from './Datepicker/DatePicker';
 
 type
-Props = {
-  /** The label to display above the field. */
-  label: string,
-  /** The date format used to render the date. */
-  format? : string,
-  /** The selected or predefined date. */
-  activeDate? : typeof(DateTime),
-  /** Toggle the calender open/closed. */
-  open? : boolean,
-  /** Every date less than this date will be disabled */
-  minDate: typeof(DateTime),
-  /** Every date greater than this date will be disabled */
-  maxDate: typeof(DateTime),
-  /** Event for when the date changes. */
-  onChange? : (e: object) => void,
+	Props = {
+	/** The date format used to render the date. */
+	format?: string,
+	/** The selected or predefined date. */
+	activeDate?: string,
+	/** Every date less than this date will be disabled */
+	minDate: string,
+	/** Every date greater than this date will be disabled */
+	maxDate: string,
+	/** Event for when the date changes. */
+	onChange?: (e: object) => void,
 };
 class Calendar extends Component<Prop> {
 
-  state = {
-    activeDate: Moment()
-  };
+	constructor(props) {
+		super(props);
+		const {activeDate, format} = this.props;
 
-  static defaultProps = {
-    format: 'DD/MM/YYYY',
-    open: true,
-    activeDate: Moment()
-  };
+		this.state = {
+			activeDate: activeDate ? Moment(activeDate, format) : Moment(),
+		};
+	}
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-    return {
-      activeDate: Moment(nextProps.activeDate)
-    };
-  }
+	static defaultProps = {
+		format: 'DD/MM/YYYY',
+		activeDate: Moment()
+	};
 
-  changeDate(day) {
-    const {onChange, format} = this.props;
-    if (onChange) onChange(Moment(day).format(format));
+	static getDerivedStateFromProps(nextProps, prevState) {
+		return {
+			activeDate: Moment(nextProps.activeDate, nextProps.format)
+		};
+	}
 
-    this.setState({
-      activeDate: day
-    });
-  }
+	changeDate(day) {
+		const {onChange, format} = this.props;
+		if (onChange) onChange(Moment(day).format(format));
 
-  render() {
-    const {
-      label,
-      format,
-      minDate,
-      maxDate,
-      open,
-    } = this.props;
+		this.setState({
+			activeDate: day
+		});
+	}
 
-    const {
-      activeDate,
-    } = this.state;
+	render() {
+		const {
+			format,
+			minDate,
+			maxDate,
+		} = this.props;
 
-    return <div className="m-datepicker is-open">
-      <DatePicker
-        label={label}
-        format={format}
-        activeDate={activeDate}
-        open={open}
-        minDate={Moment(minDate, format)}
-        maxDate={Moment(maxDate, format)}
-        clickOnDate={this.changeDate.bind(this)}
-      />
-    </div>
-      ;
-  }
+		const {
+			activeDate,
+		} = this.state;
+
+		return <div className="m-datepicker is-open">
+			<DatePicker
+				format={format}
+				activeDate={activeDate}
+				minDate={Moment(minDate, format)}
+				maxDate={Moment(maxDate, format)}
+				clickOnDate={this.changeDate.bind(this)}
+			/>
+		</div>
+			;
+	}
 }
 
 export default Calendar;
