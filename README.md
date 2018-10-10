@@ -27,19 +27,17 @@ Import the core branding to style the components:
 @import url("https://cdn.antwerpen.be/core_branding_scss/2.3.0/main.min.css");
 ```
 
-You can also add a core branding compatible [flexbox grid layout system][flexboxgrid]:
-
-```sh
-npm install @a-ui/flexboxgrid
-```
+You can also add a branding-compatible [flexbox grid layout system][flexboxgrid]:
 
 ```scss
-@import '@a-ui/flexboxgrid/dist/flexboxgrid.min.css';
+@import url('https://cdn.antwerpen.be/core_flexboxgrid_scss/1.0.1/flexboxgrid.min.css');
 ```
 
-Check out the [live examples and API docs](https://digipolisantwerp.github.io/acpaas-ui_react/) to learn more.
+Note that you are free to use your own grid, as long as it meets our branding guidelines.
 
 > To learn more about using the branding look & feel, check the [core branding guide][branding-core-guide]. Note that the [core branding][branding-core] contains the Antwerp logo and fonts, which are subject to a usage restriction. For use outside of apps for the city of Antwerp you can use [acpaas branding][branding-acpaas] instead.
+
+Check out the [live examples and API docs](https://digipolisantwerp.github.io/acpaas-ui_react/) to learn more.
 
 ## Questions
 
