@@ -29,6 +29,8 @@ class Flyout extends Component<Props> {
     isOpen: this.props.open
   }
 
+  flyoutRef = React.createRef()
+
   static defaultProps = {
     direction: 'left',
     size: 'medium',
@@ -52,7 +54,7 @@ class Flyout extends Component<Props> {
   }
 
   handleOutsideClick = (e) => {
-    const area = ReactDOM.findDOMNode(this.refs.flyout);
+    const area = ReactDOM.findDOMNode(this.flyoutRef.current);
     if (area && !area.contains(e.target)) {
       this.toggleIsOpen();
     }
@@ -76,12 +78,12 @@ class Flyout extends Component<Props> {
     const flyoutClass = this.getClassNames();
     return (
       trigger && (
-      <div className={flyoutClass} ref="flyout">
+      <div className={flyoutClass} ref={this.flyoutRef}>
           <div onClick={this.toggleIsOpen}> 
             {this.props.trigger}
           </div>
         <FlyoutContent hasPadding={hasPadding}>
-          {this.props.children}
+          {children}
         </FlyoutContent>
       </div>
       )
