@@ -1,23 +1,23 @@
-import React from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import InputLabel from '../../form/src/InputLabel';
 
-class Switch extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      checked: false
-    }
-  }
-  onChange = (e) => {
-    this.setState({ checked: !this.state.checked });
+class Switch extends Component {
+	state = {
+		checked: this.props.checked || false
+	}
 
-    if (this.props.onChange) {
-      this.props.onChange(e);
+  static getDerivedStateFromProps(nextProps, prevState){
+    if (nextProps.checked !== prevState.checked) {
+      return {
+        checked: nextProps.checked
+      };
     }
+
+    return null;
   }
 
-  onClick = (e) => {
+	onClick = (e) => {
     this.setState({ checked: !this.state.checked });
 
     if (this.props.onClick) {
@@ -30,31 +30,34 @@ class Switch extends React.Component {
       id,
       label,
       name,
-      checked,
       labelTrue,
       labelFalse,
       required,
       disabled,
     } = this.props;
 
-    const inputClass = classNames(
+    const containerClass = classNames(
       'a-input',
       { 'is-required': !!required }
     );
 
+    const switchWrapperClass = classNames(
+      'a-switch',
+      { 'disabled': disabled }
+    );
+
     return (
-      <div className={inputClass}>
+      <div className={containerClass}>
         {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
-        <div className="a-switch">
+        <div className={switchWrapperClass}>
           <label className="a-switch__label">{labelFalse ? labelFalse : 'Nee'}</label>
           <div className="a-switch__toggle">
-            <input type="checkbox"
+            <input
+               type="checkbox"
                name={name}
                id={id}
-               value={this.state.checked}
-               defaultChecked={checked}
+               checked={this.state.checked}
                disabled={disabled}
-               onChange={this.onChange}
                onClick={this.onClick}
             />
             <label htmlFor={id}></label>
