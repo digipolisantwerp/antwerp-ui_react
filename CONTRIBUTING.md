@@ -80,7 +80,7 @@ ACPaaS UI is supplied as a single library on NPM [@acpaas-ui/react-components](h
 
 It is released once a week, or more often if there are high priority changes.
 
-If your PR has been merged but not yet released, and it is high priority, please ping the [#acpaas-ui-react channel][acpaas-ui-react-slack] to ask for an out-of-band release ( If you're not yet a member of our DigAnt Café slack community, you can easily [join here][digantcafe-slack].). However, before you do so, container whether you can use a [local install or the npm link command](https://medium.com/@the1mills/how-to-test-your-npm-module-without-publishing-it-every-5-minutes-1c4cb4b369be) instead, or whether you can publish your own development snapshot package under your personal scope on NPM.
+If your PR has been merged but not yet released, and it is high priority, please ping the [#acpaas-ui-react channel][acpaas-ui-react-slack] to ask for an out-of-band release (if you're not yet a member of our DigAnt Café slack community, you can easily [join here][digantcafe-slack]). However, before you do so, container whether you can use a [local install or the npm link command](https://medium.com/@the1mills/how-to-test-your-npm-module-without-publishing-it-every-5-minutes-1c4cb4b369be) instead, or whether you can publish your own development snapshot package under your personal scope on NPM.
 
 A [changelog](CHANGELOG.md) is provided for your convenience.
 
