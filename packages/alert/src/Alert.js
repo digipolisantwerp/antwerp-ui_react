@@ -30,8 +30,9 @@ class Alert extends Component<Props> {
     };
   }
 
-  handleClose(e) {
+  handleClose = (e) => {
     e.preventDefault();
+    this.setState({ closed: true })
   }
 
   render() {
@@ -42,6 +43,7 @@ class Alert extends Component<Props> {
       closable,
       className,
     } = this.props;
+    const { closed } = this.state;
 
     const alertClass = classNames(
       'm-alert',
@@ -55,11 +57,16 @@ class Alert extends Component<Props> {
     ) : null;
 
     return (
-      <div className={alertClass}>
-        {closeButton}
-        {title && <h5 className="u-margin-bottom-xs">{title}</h5>}
-        {children}
+      <div>
+        {!closed ?
+          <div className={alertClass}>
+            {closeButton}
+            {title && <h5 className="u-margin-bottom-xs">{title}</h5>}
+            {children}
+          </div>
+          : <div />}
       </div>
+     
     )
   }
 }
