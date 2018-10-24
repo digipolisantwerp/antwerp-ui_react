@@ -9,7 +9,9 @@ type Props = {
   items?: object,
   children?: any,
   open?: boolean,
-  label: string
+  label: string,
+  onSelection?: Function,
+  onChange?: Function,
 };
 
 class Autocomplete extends Component<Props> {
@@ -28,7 +30,9 @@ class Autocomplete extends Component<Props> {
   }
 
   static defaultProps = {
-    open: false
+    open: false,
+    onSelection: () => {},
+    onChange: () => {}
   }
 
   componentDidMount() {
@@ -42,6 +46,7 @@ class Autocomplete extends Component<Props> {
       open: true
     });
     this.updateInputValue(e)
+    this.props.onChange(e.target.value);
     this.search(e.target.value)
   }
 
@@ -68,6 +73,8 @@ class Autocomplete extends Component<Props> {
   }
 
   handleClick = ( e ) => {
+    this.props.onSelection(e.target.dataset.value);
+    this.props.onChange(e.target.dataset.value);
     this.selectOption(e.target.innerText);
   }
 
@@ -119,7 +126,7 @@ class Autocomplete extends Component<Props> {
       'm-selectable-list__item--active': this.state.cursor === index
     });
     return (
-      <li key={item.value} className={liClasses} onClick={this.handleClick} ref={(item) => { this['item_' + index] = item }}>
+      <li key={item.value} data-value={item.value} className={liClasses} onClick={this.handleClick} ref={(item) => { this['item_' + index] = item }}>
         {item.label}
       </li>
     );

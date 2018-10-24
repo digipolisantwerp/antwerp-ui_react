@@ -13,6 +13,8 @@
       { label: "Aalst", value: "aalst"},
       { label: "Genk", value: "genk"}
     ]}
+    onSelection={(selected) => {console.log(`Selected ${selected}`)}}
+    onChange={(value) => {console.log(`Typed ${value}`)}}
     label="Selecteer een stad">
     </Autocomplete>
 
