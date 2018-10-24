@@ -5,6 +5,7 @@
     name={"switch-name"}
     className={"switch-class"}
     required={true}
+    disabled={false}
     checked={true}
-    onChange={(value) => console.log('select value is ' + value)} />
+    onClick={(value) => console.log('select value is ' + value)} />
 ```
