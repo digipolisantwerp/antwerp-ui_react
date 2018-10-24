@@ -13,7 +13,6 @@ Hi! We're really excited that you are interested in contributing to ACPaaS UI. B
 
 ## Issue Reporting Guidelines
 
-- If you're not yet a member of our DigAnt Café slack community, you can easily [join here][digantcafe-slack].
 - Use the [#acpaas-ui-react channel][acpaas-ui-react-slack] on slack to ask questions or discuss changes to the code itself.
 - Use [GitHub Issues][github-issues] to report bugs, request features, ask policy questions or propose policy changes.
 
@@ -27,7 +26,7 @@ Hi! We're really excited that you are interested in contributing to ACPaaS UI. B
   - `feature/more-cowbell`
   - `fix/42-broken-cowbell` (the issue id is in the branch name)
   - `docs/document-cowbell`
-
+  
 - Work in the `packages` folder and **DO NOT** check in the top-level `dist` or `styleguide` folders in the commits.
 
 - Make sure `npm test` passes. (see [development setup](#development-setup))
@@ -78,9 +77,9 @@ The default test script will do the following: lint with ESLint -> unit tests wi
 
 ACPaaS UI is supplied as a single library on NPM [@acpaas-ui/react-components](https://www.npmjs.com/package/@acpaas-ui/react-components).
 
-It is released once a week, or more often if there are high priority changes.
+It is released once a week, or more often if there are high priority changes. 
 
-If your PR has been merged but not yet released, and it is high priority, please ping the [#acpaas-ui-react channel][acpaas-ui-react-slack] to ask for an out-of-band release (if you're not yet a member of our DigAnt Café slack community, you can easily [join here][digantcafe-slack]). However, before you do so, container whether you can use a [local install or the npm link command](https://medium.com/@the1mills/how-to-test-your-npm-module-without-publishing-it-every-5-minutes-1c4cb4b369be) instead, or whether you can publish your own development snapshot package under your personal scope on NPM.
+If your PR has been merged but not yet released, and it is high priority, please ping the [#acpaas-ui-react channel][acpaas-ui-react-slack] to ask for an out-of-band release. However, before you do so, container whether you can use a [local install or the npm link command](https://medium.com/@the1mills/how-to-test-your-npm-module-without-publishing-it-every-5-minutes-1c4cb4b369be) instead, or whether you can publish your own development snapshot package under your personal scope on NPM.
 
 A [changelog](CHANGELOG.md) is provided for your convenience.
 
@@ -91,5 +90,4 @@ A [changelog](CHANGELOG.md) is provided for your convenience.
 Thank you to all the people who have already contributed to ACPaaS UI!
 
 [github-issues]: https://github.com/digipolisantwerp/acpaas-ui_react/issues
-[acpaas-ui-react-slack]: https://digantcafe.slack.com/messages/CDGCW8U30/
-[digantcafe-slack]: https://digantcafe-slack.digipolis.be
+[acpaas-ui-react-slack]: https://dgpls.slack.com/messages/CCKU53FKN
