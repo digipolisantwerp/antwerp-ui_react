@@ -59,7 +59,7 @@ class Autocomplete extends Component<Props> {
   search = (val) => {
     if (val) {
       var items = this.data;
-      let matches = items.filter(item => item.label.toLowerCase().includes(val));
+      let matches = items.filter(item => item.label.toLowerCase().includes(val.toLowerCase()));
       this.setState({
         results: matches,
         cursor: 0
