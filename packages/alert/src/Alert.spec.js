@@ -39,4 +39,11 @@ describe('Alert', () => {
         alert.find('Button').simulate('click', { preventDefault: cbMock });
         expect(cbMock).toBeCalled();
     });
+
+    it('should call the setState()', () => {
+      const alert = shallow(<Alert type="warning" closable={true}>Test</Alert>);
+      const cbMock = jest.fn();
+      alert.find('Button').simulate('click', { preventDefault: cbMock });
+      expect(alert.state('closed')).toBe(true)
+    });
 });
