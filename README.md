@@ -24,26 +24,24 @@ npm install @acpaas-ui/react-components
 Import the core branding to style the components:
 
 ```scss
-@import url("https://cdn.antwerpen.be/core_branding_scss/2.3.0/main.min.css");
+@import url("https://cdn.antwerpen.be/core_branding_scss/3.0.1/main.min.css");
 ```
 
-You can also add a core branding compatible [flexbox grid layout system][flexboxgrid]:
-
-```sh
-npm install @a-ui/flexboxgrid
-```
+You can also add a branding-compatible [flexbox grid layout system][flexboxgrid]:
 
 ```scss
-@import '@a-ui/flexboxgrid/dist/flexboxgrid.min.css';
+@import url('https://cdn.antwerpen.be/core_flexboxgrid_scss/1.0.1/flexboxgrid.min.css');
 ```
 
-Check out the [live examples and API docs](https://digipolisantwerp.github.io/acpaas-ui_react/) to learn more.
+Note that you are free to use your own grid, as long as it meets our branding guidelines.
 
 > To learn more about using the branding look & feel, check the [core branding guide][branding-core-guide]. Note that the [core branding][branding-core] contains the Antwerp logo and fonts, which are subject to a usage restriction. For use outside of apps for the city of Antwerp you can use [acpaas branding][branding-acpaas] instead.
 
+Check out the [live examples and API docs](https://digipolisantwerp.github.io/acpaas-ui_react/) to learn more.
+
 ## Questions
 
-For questions and support please ask a question on the [#acpaas-ui-react slack channel][acpaas-ui-react-slack].
+For questions and support please ask a question on the [#acpaas-ui-react slack channel][acpaas-ui-react-slack]. If you're not yet a member of our DigAnt Café slack community, you can easily [join here][digantcafe-slack].
 
 If you stumble across a bug or missing feature, feel free to [report an issue][acpaas-ui-react-issues]. Please fill out the issue template completely when [opening an issue][acpaas-ui-react-issues]. This will help us get to your issue sooner.
 
@@ -65,8 +63,9 @@ Copyright (c) 2018-present, Digipolis
 
 <!-- Generic Links -->
 [acpaas-ui]: https://acpaas-ui.digipolis.be
-[acpaas-ui-react-slack]: https://dgpls.slack.com/messages/CCKU53FKN
+[acpaas-ui-react-slack]: https://digantcafe.slack.com/messages/CDGCW8U30/
 [flexboxgrid]: https://github.com/a-ui/core_flexboxgrid_scss
+[digantcafe-slack]: https://digantcafe-slack.digipolis.be
 
 <!-- Github links -->
 
