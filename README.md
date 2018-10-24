@@ -41,7 +41,7 @@ Check out the [live examples and API docs](https://digipolisantwerp.github.io/ac
 
 ## Questions
 
-For questions and support please ask a question on the [#acpaas-ui-react slack channel][acpaas-ui-react-slack].
+For questions and support please ask a question on the [#acpaas-ui-react slack channel][acpaas-ui-react-slack]. If you're not yet a member of our DigAnt Café slack community, you can easily [join here][digantcafe-slack].
 
 If you stumble across a bug or missing feature, feel free to [report an issue][acpaas-ui-react-issues]. Please fill out the issue template completely when [opening an issue][acpaas-ui-react-issues]. This will help us get to your issue sooner.
 
@@ -63,8 +63,9 @@ Copyright (c) 2018-present, Digipolis
 
 <!-- Generic Links -->
 [acpaas-ui]: https://acpaas-ui.digipolis.be
-[acpaas-ui-react-slack]: https://dgpls.slack.com/messages/CCKU53FKN
+[acpaas-ui-react-slack]: https://digantcafe.slack.com/messages/CDGCW8U30/
 [flexboxgrid]: https://github.com/a-ui/core_flexboxgrid_scss
+[digantcafe-slack]: https://digantcafe-slack.digipolis.be
 
 <!-- Github links -->
 
