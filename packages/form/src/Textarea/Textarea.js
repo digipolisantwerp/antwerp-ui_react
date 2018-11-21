@@ -7,6 +7,7 @@ type Props = {
   label?: string,
   value?: string,
   name?: string,
+  disabled?: boolean,
   placeholder?: string,
   className?: string,
   style?: object,
@@ -21,6 +22,7 @@ const Textarea = (props: Props) => {
     label,
     value,
     name,
+    disabled,
     placeholder,
     className,
     style,
@@ -38,7 +40,7 @@ const Textarea = (props: Props) => {
   return (
     <div className={textareaClass} style={style}>
       {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
-      <textarea id={id} placeholder={placeholder} name={name} value={value} onChange={onChange} onBlur={onBlur}></textarea>
+      <textarea id={id} placeholder={placeholder} name={name} value={value} onChange={onChange} onBlur={onBlur} disabled={disabled}></textarea>
     </div>
   )
 }
