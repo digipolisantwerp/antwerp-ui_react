@@ -26,6 +26,19 @@ const Textarea = require('./src').Textarea;
     onChange={(value) => console.log('textarea value is ' + value)} />
 ```
 
+```
+const Textarea = require('./src').Textarea;
+
+<Textarea
+    label={"Beschrijving"}
+    id={"textarea-id"}
+    name={"textarea-name"}
+    className={"textarea-class"}
+    required={true}
+    placeholder={"beschrijving"}
+    disabled
+    onChange={(value) => console.log('textarea value is ' + value)} />
+```
 
 ### Checkbox
 ```
