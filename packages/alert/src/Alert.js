@@ -18,7 +18,8 @@ type Props = {
   /** Alert body */
   children?: any,
   closable?: boolean,
-  className?: string
+  className?: string,
+  onClose?: Function,
 };
 
 class Alert extends Component<Props> {
@@ -31,7 +32,9 @@ class Alert extends Component<Props> {
   }
 
   handleClose = (e) => {
+    const {onClose} = this.props;
     e.preventDefault();
+    onClose && onClose();
     this.setState({ closed: true })
   }
 

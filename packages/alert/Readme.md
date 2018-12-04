@@ -3,6 +3,7 @@
 <Alert 
   type="success" 
   title="This is a success box!" 
+  onClose={() => console.log('closed')}
   closable={true}> 
   This is my child <i className="fa fa-bell"/>
   </Alert>
