@@ -8,6 +8,8 @@ type
 	format?: string,
 	/** The selected or predefined date. */
 	activeDate?: string,
+	/** Every date in this prop will be selected and disabled */
+	selectedDates?: Array,
 	/** Every date less than this date will be disabled */
 	minDate: string,
 	/** Every date greater than this date will be disabled */
@@ -49,6 +51,7 @@ class Calendar extends Component<Prop> {
 	render() {
 		const {
 			format,
+			selectedDates,
 			minDate,
 			maxDate,
 		} = this.props;
@@ -61,6 +64,7 @@ class Calendar extends Component<Prop> {
 			<DatePicker
 				format={format}
 				activeDate={activeDate}
+				selectedDates={selectedDates}
 				minDate={Moment(minDate, format)}
 				maxDate={Moment(maxDate, format)}
 				clickOnDate={this.changeDate.bind(this)}

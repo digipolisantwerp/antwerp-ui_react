@@ -5,6 +5,7 @@ class Day extends Component {
 	static defaultProps = {
 		dayClassName: '',
 		dayActiveClassName: 'is-selected',
+		selectedClassName: 'is-current',
 		isUnavailableClassName: 'is-unavailable',
 		dayDisabledClassName: 'is-faded',
 		dayFromOtherMonthClassName: 'is-faded'
@@ -20,10 +21,12 @@ class Day extends Component {
 		const {
 			activeDate,
 			day,
+			selected,
 			disabled,
 			dayNextMonth,
 			dayPrevMonth,
 			dayActiveClassName,
+			selectedClassName,
 			dayDisabledClassName,
 			dayFromOtherMonthClassName
 		} = this.props;
@@ -36,6 +39,10 @@ class Day extends Component {
 
 		if (disabled) {
 			buttonClasses.push(dayDisabledClassName);
+		}
+
+		if (selected) {
+			buttonClasses.push(selectedClassName);
 		}
 
 		if (dayPrevMonth || dayNextMonth) {

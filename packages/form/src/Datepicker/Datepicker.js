@@ -17,6 +17,8 @@ type
 	format?: string,
 	/** The selected or predefined date. */
 	activeDate?: string,
+	/** Every date in this prop will be selected and disabled */
+	selectedDates?: Array,
 	/** Toggle the calender open/closed. */
 	open?: boolean,
 	/** If the calender should open/close after datechange. */
@@ -90,6 +92,7 @@ class Datepicker extends Component<Props> {
 			id,
 			name,
 			format,
+			selectedDates,
 			minDate,
 			maxDate
 		} = this.props;
@@ -124,6 +127,7 @@ class Datepicker extends Component<Props> {
 						<Calendar
 							format={format}
 							activeDate={activeDate}
+							selectedDates={selectedDates}
 							minDate={minDate}
 							maxDate={maxDate}
 							onChange={this.changeDate.bind(this)}

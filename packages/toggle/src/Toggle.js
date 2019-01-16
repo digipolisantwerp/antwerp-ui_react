@@ -13,24 +13,35 @@ type Props = {
   id?: string,
   name?: string,
   size?: Sizes,
+	checkedLabel?: string,
+	uncheckedLabel?: string,
   checked?: boolean,
   value?: string,
   onChange?: (e: Object) => void,
   onClick?: (e: Object) => void,
 };
 
+
 class Toggle extends Component<Props> {
   state = {
-    checked: false
+    checked: this.props.checked || false
   }
 
-  handleChange = (e) => {
-    console.log(e.target.value, this.state.checked);
-    e.target.value = this.state.checked
-    if (this.props.onChange) {
-      this.props.onChange(e);
-    }
-  }
+	static defaultProps = {
+  	id: 'toggle-normal',
+  	checkedLabel: '',
+		uncheckedLabel: '',
+	}
+
+	static getDerivedStateFromProps(nextProps, prevState) {
+		if (nextProps.checked !== prevState.checked) {
+			return {
+				checked: nextProps.checked
+			};
+		}
+
+		return null;
+	}
 
   handleClick = (e) => {
     this.setState({ checked: !this.state.checked });
@@ -45,8 +56,8 @@ class Toggle extends Component<Props> {
       name,
       size,
       value,
-      checked = false,
-      onChange,
+      checkedLabel,
+	    uncheckedLabel,
       onClick,
     } = this.props;
 
@@ -57,22 +68,39 @@ class Toggle extends Component<Props> {
       }
     );
 
+    const checkedClasses = classNames(
+      'a-toggle__on a-button', {
+		    'has-icon': checkedLabel === '',
+		    'has-icon-left': checkedLabel !== ''
+	    }
+    );
+
+	  const uncheckedClasses = classNames(
+		  'a-toggle__off a-button a-button--danger',
+		  {
+			  'has-icon': uncheckedLabel === '',
+			  'has-icon-left': uncheckedLabel !== ''
+		  }
+	  );
+
     return (
       <div className={toggleClass}>
         <input
           className="a-toggle__checkbox"
           id={id}
           name={name}
+          checked={this.state.checked}
           type="checkbox"
-          onChange={this.handleChange}
           onClick={this.handleClick}
         />
         <div className="a-toggle__labels">
-          <label htmlFor="icon-toggle" className="a-toggle__on a-button has-icon">
+          <label htmlFor={id} className={checkedClasses}>
             <i className="fa fa-bars"></i>
+              {checkedLabel}
           </label>
-          <label htmlFor="icon-toggle" className="a-toggle__off a-button a-button--danger has-icon">
+          <label htmlFor={id} className={uncheckedClasses}>
             <i className="fa fa-close"></i>
+              {uncheckedLabel}
           </label>
         </div>
       </div>

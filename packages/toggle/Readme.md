@@ -1,5 +1,5 @@
 ### Toggle
 
 ```
-<Toggle size="small" />
+<Toggle checkedLabel="Lijstweergave" uncheckedLabel="Kaart" />
 ```
