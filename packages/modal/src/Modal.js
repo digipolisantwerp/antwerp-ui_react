@@ -84,8 +84,8 @@ export default class Modal extends React.Component<Props, State> {
     openOnInit: false,
   };
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       showModal: false,
@@ -96,7 +96,7 @@ export default class Modal extends React.Component<Props, State> {
     this.handleDeny = this.handleDeny.bind(this);
     this.handleRequestClose = this.handleRequestClose.bind(this);
 
-    const { appElement, ariaHideApp } = this.props;
+    const { appElement, ariaHideApp } = props;
 
     if (!Modal.appElement && ariaHideApp) {
       Modal.appElement = appElement;
