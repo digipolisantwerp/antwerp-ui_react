@@ -14,6 +14,8 @@ type
 	minDate: string,
 	/** Every date greater than this date will be disabled */
 	maxDate: string,
+	/** enable/disable the days during the weekend */
+	noWeekends?: boolean,
 	/** Event for when the date changes. */
 	onChange?: (e: object) => void,
 };
@@ -30,7 +32,8 @@ class Calendar extends Component<Prop> {
 
 	static defaultProps = {
 		format: 'DD/MM/YYYY',
-		activeDate: Moment()
+		activeDate: Moment(),
+		noWeekends: false
 	};
 
 	static getDerivedStateFromProps(nextProps, prevState) {
@@ -54,6 +57,7 @@ class Calendar extends Component<Prop> {
 			selectedDates,
 			minDate,
 			maxDate,
+			noWeekends,
 		} = this.props;
 
 		const {
@@ -67,6 +71,7 @@ class Calendar extends Component<Prop> {
 				selectedDates={selectedDates}
 				minDate={Moment(minDate, format)}
 				maxDate={Moment(maxDate, format)}
+				noWeekends={noWeekends}
 				clickOnDate={this.changeDate.bind(this)}
 			/>
 		</div>

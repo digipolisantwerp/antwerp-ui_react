@@ -6,8 +6,7 @@ class Day extends Component {
 		dayClassName: '',
 		dayActiveClassName: 'is-selected',
 		selectedClassName: 'is-current',
-		isUnavailableClassName: 'is-unavailable',
-		dayDisabledClassName: 'is-faded',
+		dayDisabledClassName: 'is-unavailable',
 		dayFromOtherMonthClassName: 'is-faded'
 	}
 
@@ -23,6 +22,7 @@ class Day extends Component {
 			day,
 			selected,
 			disabled,
+			noWeekends,
 			dayNextMonth,
 			dayPrevMonth,
 			dayActiveClassName,

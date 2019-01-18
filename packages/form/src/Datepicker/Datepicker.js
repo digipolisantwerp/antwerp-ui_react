@@ -23,6 +23,8 @@ type
 	open?: boolean,
 	/** If the calender should open/close after datechange. */
 	autoClose?: boolean,
+	/** enable/disable the days during the weekend */
+	noWeekends?: boolean,
 	/** Every date less than this date will be disabled */
 	minDate: string,
 	/** Every date greater than this date will be disabled */
@@ -45,7 +47,8 @@ class Datepicker extends Component<Props> {
 
 	static defaultProps = {
 		format: 'DD/MM/YYYY',
-		autoClose: true
+		autoClose: true,
+		noWeekends: false
 	};
 
 	componentDidMount() {
@@ -94,7 +97,8 @@ class Datepicker extends Component<Props> {
 			format,
 			selectedDates,
 			minDate,
-			maxDate
+			maxDate,
+			noWeekends,
 		} = this.props;
 
 		const {
@@ -130,6 +134,7 @@ class Datepicker extends Component<Props> {
 							selectedDates={selectedDates}
 							minDate={minDate}
 							maxDate={maxDate}
+							noWeekends={noWeekends}
 							onChange={this.changeDate.bind(this)}
 						/>
 					</div>

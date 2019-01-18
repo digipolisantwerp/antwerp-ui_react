@@ -14,7 +14,11 @@ type Props = {
   name?: string,
   size?: Sizes,
 	checkedLabel?: string,
+	checkedIcon?: string,
+	checkedButtonClass?: string,
 	uncheckedLabel?: string,
+	uncheckedIcon?: string,
+	uncheckedButtonClass?: string,
   checked?: boolean,
   value?: string,
   onChange?: (e: Object) => void,
@@ -30,7 +34,11 @@ class Toggle extends Component<Props> {
 	static defaultProps = {
   	id: 'toggle-normal',
   	checkedLabel: '',
-		uncheckedLabel: '',
+		checkedIcon: 'fa-bars',
+		checkedButtonClass: '',
+		uncheckedLabel: 'a-button--danger',
+		uncheckedIcon: 'fa-close',
+		uncheckedButtonClass: ''
 	}
 
 	static getDerivedStateFromProps(nextProps, prevState) {
@@ -57,7 +65,11 @@ class Toggle extends Component<Props> {
       size,
       value,
       checkedLabel,
+	    checkedIcon,
+	    checkedButtonClass,
 	    uncheckedLabel,
+	    uncheckedIcon,
+	    uncheckedButtonClass,
       onClick,
     } = this.props;
 
@@ -69,17 +81,16 @@ class Toggle extends Component<Props> {
     );
 
     const checkedClasses = classNames(
-      'a-toggle__on a-button', {
-		    'has-icon': checkedLabel === '',
-		    'has-icon-left': checkedLabel !== ''
+      'a-toggle__on a-button',
+	    (checkedLabel === '' ? 'has-icon' : 'has-icon-left'), {
+		    [`${checkedButtonClass}`]: checkedButtonClass
 	    }
     );
 
 	  const uncheckedClasses = classNames(
-		  'a-toggle__off a-button a-button--danger',
-		  {
-			  'has-icon': uncheckedLabel === '',
-			  'has-icon-left': uncheckedLabel !== ''
+		  'a-toggle__off a-button',
+		  uncheckedLabel === '' ? 'has-icon' : 'has-icon-left', {
+			  [`${uncheckedButtonClass}`]: uncheckedButtonClass
 		  }
 	  );
 
@@ -95,11 +106,11 @@ class Toggle extends Component<Props> {
         />
         <div className="a-toggle__labels">
           <label htmlFor={id} className={checkedClasses}>
-            <i className="fa fa-bars"></i>
+            <i className={"fa " + checkedIcon}></i>
               {checkedLabel}
           </label>
           <label htmlFor={id} className={uncheckedClasses}>
-            <i className="fa fa-close"></i>
+            <i className={"fa " + uncheckedIcon}></i>
               {uncheckedLabel}
           </label>
         </div>

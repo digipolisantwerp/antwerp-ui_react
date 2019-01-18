@@ -56,6 +56,7 @@ class Body extends Component {
 			minDate,
 			maxDate,
 			format,
+			noWeekends,
 			selectDay
 		} = this.props;
 
@@ -72,6 +73,10 @@ class Body extends Component {
 				disabled = date.isAfter(maxDate, 'day');
 			}
 
+			if (noWeekends) {
+				disabled = date.day() === 6 || date.day() === 0;
+			}
+
 			let dayNextMonth = isDateFromNextMonth(date, displayedPeriod);
 			let dayPrevMonth = isDateFromPrevMonth(date, displayedPeriod);
 
@@ -85,14 +90,16 @@ class Body extends Component {
 			});
 
 			return (
-				<Day key={key}
-				     day={date}
-				     selectDay={selectDay.bind(this, date)}
-				     disabled={disabled}
-				     selected={selected}
-				     dayPrevMonth={dayPrevMonth}
-				     dayNextMonth={dayNextMonth}
-				     activeDate={activeDate}/>
+				<Day
+					key={key}
+					day={date}
+					selectDay={selectDay.bind(this, date)}
+					disabled={disabled}
+					noWeekends={noWeekends}
+					selected={selected}
+					dayPrevMonth={dayPrevMonth}
+					dayNextMonth={dayNextMonth}
+					activeDate={activeDate}/>
 			);
 		});
 	}
