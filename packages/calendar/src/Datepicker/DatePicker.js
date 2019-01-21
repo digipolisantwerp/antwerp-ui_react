@@ -5,9 +5,12 @@ class DatePicker extends Component {
 
 	renderCalendar() {
 		const {
+			activeDate,
 			minDate,
 			maxDate,
-			activeDate,
+			format,
+			selectedDates,
+			noWeekends,
 			clickOnDate
 		} = this.props;
 
@@ -15,6 +18,9 @@ class DatePicker extends Component {
 			activeDate={activeDate}
 			minDate={minDate}
 			maxDate={maxDate}
+			format={format}
+			selectedDates={selectedDates}
+			noWeekends={noWeekends}
 			selectDay={clickOnDate.bind(this)}/>;
 	}
 

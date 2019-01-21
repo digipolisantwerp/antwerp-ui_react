@@ -52,14 +52,18 @@ class Body extends Component {
 		const {
 			activeDate,
 			displayedPeriod,
+			selectedDates,
 			minDate,
 			maxDate,
+			format,
+			noWeekends,
 			selectDay
 		} = this.props;
 
 		return days.map((day, key) => {
 			let date = _daysOfMonth[week * 7 + day];
 			let disabled;
+			let selected = false;
 
 			if (minDate && maxDate) {
 				disabled = date.isBefore(minDate, 'day') || date.isAfter(maxDate, 'day');
@@ -69,17 +73,32 @@ class Body extends Component {
 				disabled = date.isAfter(maxDate, 'day');
 			}
 
-			const dayNextMonth = isDateFromNextMonth(date, displayedPeriod);
-			const dayPrevMonth = isDateFromPrevMonth(date, displayedPeriod);
+			if (noWeekends) {
+				disabled = date.day() === 6 || date.day() === 0;
+			}
+
+			let dayNextMonth = isDateFromNextMonth(date, displayedPeriod);
+			let dayPrevMonth = isDateFromPrevMonth(date, displayedPeriod);
+
+			selectedDates.forEach(function (selectedDate) {
+				if (date.isSame(Moment(selectedDate, format), 'day')) {
+					selected = true;
+					dayPrevMonth = false;
+					dayNextMonth = false;
+
+				}
+			});
 
 			return (
-				<Day key={key}
-				     day={date}
-				     selectDay={selectDay.bind(this, date)}
-				     disabled={disabled}
-				     dayPrevMonth={dayPrevMonth}
-				     dayNextMonth={dayNextMonth}
-				     activeDate={activeDate}/>
+				<Day
+					key={key}
+					day={date}
+					selectDay={selectDay.bind(this, date)}
+					disabled={disabled}
+					selected={selected}
+					dayPrevMonth={dayPrevMonth}
+					dayNextMonth={dayNextMonth}
+					activeDate={activeDate}/>
 			);
 		});
 	}

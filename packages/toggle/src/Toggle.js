@@ -7,30 +7,54 @@ const sizeClasses = {
   large: 'a-toggle--large',
 };
 
+const sizeBtnClasses = {
+	tiny: 'a-button--tiny',
+	small: 'a-button--small',
+	large: 'a-button--large',
+};
+
 type Sizes = "tiny" | "small" | "large";
 
 type Props = {
   id?: string,
   name?: string,
   size?: Sizes,
+	checkedLabel?: string,
+	checkedIcon?: string,
+	checkedButtonClass?: string,
+	uncheckedLabel?: string,
+	uncheckedIcon?: string,
+	uncheckedButtonClass?: string,
   checked?: boolean,
-  value?: string,
   onChange?: (e: Object) => void,
   onClick?: (e: Object) => void,
 };
 
+
 class Toggle extends Component<Props> {
   state = {
-    checked: false
+    checked: this.props.checked || false
   }
 
-  handleChange = (e) => {
-    console.log(e.target.value, this.state.checked);
-    e.target.value = this.state.checked
-    if (this.props.onChange) {
-      this.props.onChange(e);
-    }
-  }
+	static defaultProps = {
+  	id: 'toggle-normal',
+  	checkedLabel: '',
+		checkedIcon: 'fa-bars',
+		checkedButtonClass: '',
+		uncheckedLabel: '',
+		uncheckedIcon: 'fa-close',
+		uncheckedButtonClass: 'a-button--danger'
+	}
+
+	static getDerivedStateFromProps(nextProps, prevState) {
+		if (nextProps.checked !== prevState.checked) {
+			return {
+				checked: nextProps.checked
+			};
+		}
+
+		return null;
+	}
 
   handleClick = (e) => {
     this.setState({ checked: !this.state.checked });
@@ -44,10 +68,12 @@ class Toggle extends Component<Props> {
       id,
       name,
       size,
-      value,
-      checked = false,
-      onChange,
-      onClick,
+      checkedLabel,
+	    checkedIcon,
+	    checkedButtonClass,
+	    uncheckedLabel,
+	    uncheckedIcon,
+	    uncheckedButtonClass,
     } = this.props;
 
     const toggleClass = classNames(
@@ -57,22 +83,40 @@ class Toggle extends Component<Props> {
       }
     );
 
+    const checkedClasses = classNames(
+      'a-toggle__on a-button',
+	    (checkedLabel === '' ? 'has-icon' : 'has-icon-left'), {
+		    [`${checkedButtonClass}`]: checkedButtonClass,
+		    [`${sizeBtnClasses[size]}`]: !!size
+	    }
+    );
+
+	  const uncheckedClasses = classNames(
+		  'a-toggle__off a-button',
+		  uncheckedLabel === '' ? 'has-icon' : 'has-icon-left', {
+			  [`${uncheckedButtonClass}`]: uncheckedButtonClass,
+			  [`${sizeBtnClasses[size]}`]: !!size
+		  }
+	  );
+
     return (
       <div className={toggleClass}>
         <input
           className="a-toggle__checkbox"
           id={id}
           name={name}
+          checked={this.state.checked}
           type="checkbox"
-          onChange={this.handleChange}
           onClick={this.handleClick}
         />
         <div className="a-toggle__labels">
-          <label htmlFor="icon-toggle" className="a-toggle__on a-button has-icon">
-            <i className="fa fa-bars"></i>
+          <label htmlFor={id} className={checkedClasses}>
+            <i className={"fa " + checkedIcon}></i>
+              {checkedLabel}
           </label>
-          <label htmlFor="icon-toggle" className="a-toggle__off a-button a-button--danger has-icon">
-            <i className="fa fa-close"></i>
+          <label htmlFor={id} className={uncheckedClasses}>
+            <i className={"fa " + uncheckedIcon}></i>
+              {uncheckedLabel}
           </label>
         </div>
       </div>
