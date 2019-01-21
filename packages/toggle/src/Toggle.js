@@ -7,6 +7,12 @@ const sizeClasses = {
   large: 'a-toggle--large',
 };
 
+const sizeBtnClasses = {
+	tiny: 'a-button--tiny',
+	small: 'a-button--small',
+	large: 'a-button--large',
+};
+
 type Sizes = "tiny" | "small" | "large";
 
 type Props = {
@@ -36,9 +42,9 @@ class Toggle extends Component<Props> {
   	checkedLabel: '',
 		checkedIcon: 'fa-bars',
 		checkedButtonClass: '',
-		uncheckedLabel: 'a-button--danger',
+		uncheckedLabel: '',
 		uncheckedIcon: 'fa-close',
-		uncheckedButtonClass: ''
+		uncheckedButtonClass: 'a-button--danger'
 	}
 
 	static getDerivedStateFromProps(nextProps, prevState) {
@@ -70,7 +76,6 @@ class Toggle extends Component<Props> {
 	    uncheckedLabel,
 	    uncheckedIcon,
 	    uncheckedButtonClass,
-      onClick,
     } = this.props;
 
     const toggleClass = classNames(
@@ -83,14 +88,16 @@ class Toggle extends Component<Props> {
     const checkedClasses = classNames(
       'a-toggle__on a-button',
 	    (checkedLabel === '' ? 'has-icon' : 'has-icon-left'), {
-		    [`${checkedButtonClass}`]: checkedButtonClass
+		    [`${checkedButtonClass}`]: checkedButtonClass,
+		    [`${sizeBtnClasses[size]}`]: !!size
 	    }
     );
 
 	  const uncheckedClasses = classNames(
 		  'a-toggle__off a-button',
 		  uncheckedLabel === '' ? 'has-icon' : 'has-icon-left', {
-			  [`${uncheckedButtonClass}`]: uncheckedButtonClass
+			  [`${uncheckedButtonClass}`]: uncheckedButtonClass,
+			  [`${sizeBtnClasses[size]}`]: !!size
 		  }
 	  );
 
