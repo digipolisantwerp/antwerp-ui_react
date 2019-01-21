@@ -36,7 +36,14 @@ class Calendar extends Component {
 	}
 
 	render() {
-		const {selectDay, activeDate, minDate, maxDate} = this.props;
+		const {
+			selectDay,
+			activeDate,
+			selectedDates,
+			minDate,
+			maxDate,
+			format,
+			noWeekends} = this.props;
 		const {viewType, displayedPeriod} = this.state;
 
 		return (
@@ -59,11 +66,14 @@ class Calendar extends Component {
 					</thead>
 					<tbody className="m-datepicker__calendar">
 						<Body
-							viewType={viewType}
+						  viewType={viewType}
 				      displayedPeriod={displayedPeriod}
 				      selectDay={selectDay.bind(this)}
+					    selectedDates={selectedDates}
 				      minDate={minDate}
 				      maxDate={maxDate}
+				      format={format}
+					    noWeekends={noWeekends}
 				      activeDate={activeDate}
 				      goToViewType={this.goToViewType.bind(this)}
 						/>

@@ -8,10 +8,14 @@ type
 	format?: string,
 	/** The selected or predefined date. */
 	activeDate?: string,
+	/** Every date in this prop will be selected and disabled */
+	selectedDates?: Array,
 	/** Every date less than this date will be disabled */
 	minDate: string,
 	/** Every date greater than this date will be disabled */
 	maxDate: string,
+	/** enable/disable the days during the weekend */
+	noWeekends?: boolean,
 	/** Event for when the date changes. */
 	onChange?: (e: object) => void,
 };
@@ -28,7 +32,8 @@ class Calendar extends Component<Prop> {
 
 	static defaultProps = {
 		format: 'DD/MM/YYYY',
-		activeDate: Moment()
+		activeDate: Moment(),
+		noWeekends: false
 	};
 
 	static getDerivedStateFromProps(nextProps, prevState) {
@@ -49,8 +54,10 @@ class Calendar extends Component<Prop> {
 	render() {
 		const {
 			format,
+			selectedDates,
 			minDate,
 			maxDate,
+			noWeekends,
 		} = this.props;
 
 		const {
@@ -61,8 +68,10 @@ class Calendar extends Component<Prop> {
 			<DatePicker
 				format={format}
 				activeDate={activeDate}
+				selectedDates={selectedDates}
 				minDate={Moment(minDate, format)}
 				maxDate={Moment(maxDate, format)}
+				noWeekends={noWeekends}
 				clickOnDate={this.changeDate.bind(this)}
 			/>
 		</div>
