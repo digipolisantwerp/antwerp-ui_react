@@ -22,7 +22,6 @@ class Day extends Component {
 			day,
 			selected,
 			disabled,
-			noWeekends,
 			dayNextMonth,
 			dayPrevMonth,
 			dayActiveClassName,

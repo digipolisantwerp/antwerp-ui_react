@@ -95,7 +95,6 @@ class Body extends Component {
 					day={date}
 					selectDay={selectDay.bind(this, date)}
 					disabled={disabled}
-					noWeekends={noWeekends}
 					selected={selected}
 					dayPrevMonth={dayPrevMonth}
 					dayNextMonth={dayNextMonth}
