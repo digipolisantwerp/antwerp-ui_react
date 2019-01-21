@@ -26,7 +26,6 @@ type Props = {
 	uncheckedIcon?: string,
 	uncheckedButtonClass?: string,
   checked?: boolean,
-  value?: string,
   onChange?: (e: Object) => void,
   onClick?: (e: Object) => void,
 };
@@ -69,7 +68,6 @@ class Toggle extends Component<Props> {
       id,
       name,
       size,
-      value,
       checkedLabel,
 	    checkedIcon,
 	    checkedButtonClass,
