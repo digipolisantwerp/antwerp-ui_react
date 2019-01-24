@@ -13,6 +13,10 @@ import {
 
 class Body extends Component {
 
+	static defaultProps = {
+		selectedDates: []
+	}
+
 	renderBody(displayedPeriod) {
 		const {viewType} = this.props;
 		switch (viewType) {
