@@ -143,13 +143,10 @@ const Datepicker = require('./src').Datepicker;
     id={"datepicker-id"}
     name={"datepicker-name"}
     label={"Geboortedatum"}
-    activeDate={"20/03/1992"}
-    minDate={"04/01/1992"}
-    maxDate={"06/05/1992"}
     onChange={(date) => console.log('date is ' + date)}
     format={"DD/MM/YYYY"}
     open={false}
-    autoClose={true} />
+    autoClose={false} />
 </div>
 
 ```

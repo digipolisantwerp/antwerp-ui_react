@@ -12,7 +12,7 @@ class Nav extends Component {
 			case 'years':
 				return this.renderYearsNav(displayedPeriod);
 			default:
-				return (displayedPeriod.format('MMMM YYYY'));
+				return displayedPeriod.format('MMMM YYYY');
 		}
 	}
 

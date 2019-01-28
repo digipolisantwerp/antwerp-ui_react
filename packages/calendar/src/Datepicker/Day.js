@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Moment from 'moment';
 
 class Day extends Component {
 
@@ -32,6 +33,10 @@ class Day extends Component {
 
 		let buttonClasses = [];
 
+		if (day.isSame(Moment(), 'day')) {
+			buttonClasses.push(selectedClassName);
+		}
+
 		if (day.isSame(activeDate, 'day')) {
 			buttonClasses.push(dayActiveClassName);
 		}
@@ -41,7 +46,7 @@ class Day extends Component {
 		}
 
 		if (selected) {
-			buttonClasses.push(selectedClassName);
+			buttonClasses.push(dayActiveClassName);
 		}
 
 		if (dayPrevMonth || dayNextMonth) {

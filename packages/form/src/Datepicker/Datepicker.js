@@ -40,7 +40,7 @@ class Datepicker extends Component<Props> {
 		const {activeDate, open, format} = this.props;
 
 		this.state = {
-			activeDate: activeDate ? Moment(activeDate, format) : Moment(),
+			activeDate: activeDate ? Moment(activeDate, format) : '',
 			open: open || false
 		};
 	}
@@ -120,7 +120,7 @@ class Datepicker extends Component<Props> {
 				<TextField
 					name={name}
 					id={id}
-					value={Moment(activeDate).format(format)}
+					value={activeDate ? Moment(activeDate).format(format) : ''}
 					onClick={this.toggleCalendar.bind(this)}
 					onChange={this.changeDate.bind(this)}
 					readOnly/>
