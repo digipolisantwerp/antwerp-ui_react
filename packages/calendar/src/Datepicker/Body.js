@@ -42,7 +42,7 @@ class Body extends Component {
 	}
 
 	renderListMonths() {
-		const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+		const months = Moment.monthsShort();
 		return <Rows list={months} rowLength={4} onClick={this.handleOnClick.bind(this, 'days')}/>
 	}
 
