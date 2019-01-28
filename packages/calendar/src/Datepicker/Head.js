@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Moment from 'moment';
 
 class Head extends Component {
 
@@ -16,7 +17,7 @@ class Head extends Component {
 	}
 
 	renderNameOfDays() {
-		const nameOfDays = ["Ma", "Di", "Woe", "Do", "Vr", "Za", "Zo"];
+		const nameOfDays = Moment.weekdaysShort();
 		return (
 			<tr className="m-datepicker__days">
 				{

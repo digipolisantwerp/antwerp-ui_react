@@ -25,21 +25,29 @@ class Calendar extends Component<Prop> {
 		super(props);
 		const {activeDate, format} = this.props;
 
+		Moment.updateLocale('nl', {
+			months : ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December"],
+			monthsShort: ["Jan", "Feb", "Mrt", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"],
+			weekdaysShort: ["Ma", "Di", "Woe", "Do", "Vr", "Za", "Zo"]
+		});
+
 		this.state = {
-			activeDate: activeDate ? Moment(activeDate, format) : Moment(),
+			activeDate: activeDate ? Moment(activeDate, format) : '',
 		};
 	}
 
 	static defaultProps = {
 		format: 'DD/MM/YYYY',
-		activeDate: Moment(),
 		noWeekends: false
 	};
 
 	static getDerivedStateFromProps(nextProps, prevState) {
-		return {
-			activeDate: Moment(nextProps.activeDate, nextProps.format)
-		};
+		if (nextProps.activeDate !== '') {
+			return {
+				activeDate: Moment(nextProps.activeDate, nextProps.format)
+			};
+		}
+		return null;
 	}
 
 	changeDate(day) {
