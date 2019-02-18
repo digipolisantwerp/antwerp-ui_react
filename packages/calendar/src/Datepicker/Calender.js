@@ -8,19 +8,10 @@ import {nextItemInArray} from '../utils';
 class Calendar extends Component {
 
 	state = {
-		displayedPeriod: this.props.activeDate ? Moment(this.props.activeDate) : Moment(),
+		displayedPeriod: this.props.activeDate ? Moment(this.props.activeDate, this.props.format) : Moment(),
 		viewType: "days",
 		views: ["days", "months", "years"]
 	};
-
-	static getDerivedStateFromProps(nextProps, prevState) {
-		if (nextProps.activeDate !== '') {
-			return {
-				displayedPeriod: Moment(nextProps.activeDate, nextProps.format)
-			};
-		}
-		return null;
-	}
 
 	changeViewType() {
 		const {viewType, views} = this.state;
