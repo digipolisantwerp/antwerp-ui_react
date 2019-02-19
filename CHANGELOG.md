@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+- `BreadCrumbs` Last breadcrumb item is bold
 - `TextArea` Added disabled state
 
 ## [1.0.1-16] - 2018-07-02
