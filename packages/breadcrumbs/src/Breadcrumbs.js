@@ -23,7 +23,7 @@ class Breadcrumbs extends React.Component<Props> {
       <li key={item.name}>
         {
           (index >= items.length - 1 || !item.target)
-            ? item.name
+            ? (<span className={index >= items.length - 1 ? 'u-text-bold' : null}>{item.name}</span>)
             : (
               <Link {...linkProps({ href: item.target })}>
                 {item.name}
