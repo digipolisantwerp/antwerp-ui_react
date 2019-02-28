@@ -50,7 +50,7 @@ class Checkbox extends Component<Props> {
       <div className={inputClass}>
         <div className="a-input__checkbox">
           <input type="checkbox" id={id} name={name} onChange={this.handleChange} defaultChecked={checked}/>
-          <InputLabel htmlFor={id} required={required}>{label}{requiredLabel}</InputLabel>
+          <InputLabel htmlFor={id}>{label}{requiredLabel}</InputLabel>
         </div>
       </div>
     )
