@@ -7,5 +7,5 @@
     required={true}
     disabled={false}
     checked={true}
-    onClick={(value) => console.log('select value is ' + value)} />
+    onClick={(value) => console.log('select value is:', value)} />
 ```
