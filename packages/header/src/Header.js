@@ -13,7 +13,7 @@ const Header = (props: Props) => {
   return (
     <header className={headerClass} style={style}>
       <a href="/" className="o-header__logo">
-        <img src="https://a-ui.github.io/core_branding_scss/images/a-logo.svg" alt="Official logo Antwerpen" />
+        <img src="https://cdn.antwerpen.be/core_branding_scss/3.1.0/assets/images/a-logo.svg" alt="Official logo Antwerpen" />
       </a>
       {children}
     </header>
