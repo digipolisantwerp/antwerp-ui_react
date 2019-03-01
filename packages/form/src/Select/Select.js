@@ -49,7 +49,7 @@ class Select extends Component<Props> {
       placeholder,
       options,
       onChange,
-      value
+      value,
     } = this.props;
     const selectClass = classNames(
       'a-input',
@@ -70,8 +70,8 @@ class Select extends Component<Props> {
       <div className={selectClass} name={name}>
         {label && <InputLabel inline={inline} htmlFor={id}>{label}</InputLabel>}
         <div className={wrapperClass}>
-          <select id={id} name={name} onChange={(e) => this.onChange(e)} value={value}>
-            {placeholder && <option value={placeholder} disabled selected>{placeholder}</option>}
+          <select id={id} name={name} onChange={(e) => this.onChange(e)} value={value} defaultValue={placeholder}>
+            {placeholder && <option value={placeholder} disabled>{placeholder}</option>}
             {options.map(option => (
               <Option
                 value={option.value}

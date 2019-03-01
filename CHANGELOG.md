@@ -6,7 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
-- `TextArea` Added disabled state
+### Added
+- `Form/Select` Added support for defaultValue on select
+
+### Fixed
+- `Form/Checkbox` Fixed checking of checkboxes
+- `Form/Checkbox` Fixed required label on checkboxes
+- `Form/Radio` Fixed checking of radio buttons
+- `Form/Switch` Fixed behaviour of switch
+
 
 ## [1.0.1-16] - 2018-07-02
 ### Added
