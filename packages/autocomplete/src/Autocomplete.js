@@ -135,7 +135,7 @@ class Autocomplete extends Component<Props> {
   render() {
     const { items } = this.props;
     return (
-      items && items.length > 0 && (
+      items && (
         <div>
           <Flyout trigger={
             <TextField
