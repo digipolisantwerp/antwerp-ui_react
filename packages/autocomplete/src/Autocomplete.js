@@ -10,6 +10,7 @@ type Props = {
   children?: any,
   open?: boolean,
   label: string,
+  defaultValue?: string,
   onSelection?: Function,
   onChange?: Function,
 };
@@ -36,9 +37,24 @@ class Autocomplete extends Component<Props> {
   }
 
   componentDidMount() {
+    const { defaultValue, items } = this.props;
     this.setState({
       results: this.data
     });
+
+    if (!defaultValue) {
+      return;
+    }
+
+    this.props.onSelection(defaultValue);
+    this.props.onChange(defaultValue);
+
+    const foundItems = items.filter(item => item.value === defaultValue);
+    if (!foundItems.length > 0) {
+      return this.selectOption(defaultValue);
+    }
+    
+    this.selectOption(foundItems[0].label);
   }
 
   componentWillReceiveProps(props) {
@@ -51,9 +67,9 @@ class Autocomplete extends Component<Props> {
       open: true,
       searchVal: e.target.value
     });
-    this.updateInputValue(e)
+    this.updateInputValue(e);
     this.props.onChange(e.target.value);
-    this.search(e.target.value)
+    this.search(e.target.value);
   }
 
   updateInputValue(e) {
@@ -132,7 +148,7 @@ class Autocomplete extends Component<Props> {
       'm-selectable-list__item--active': this.state.cursor === index
     });
     return (
-      <li key={item.value} data-value={item.value} className={liClasses} onClick={this.handleClick} ref={(item) => { this['item_' + index] = item }}>
+      <li key={item.value} data-value={item.value} data-label={item.label} className={liClasses} onClick={this.handleClick} ref={(item) => { this['item_' + index] = item }}>
         {item.label}
       </li>
     );
@@ -144,15 +160,16 @@ class Autocomplete extends Component<Props> {
     return (
       items && (
         <div>
-          <Flyout trigger={
-            <TextField
-              name="autocomplete"
-              className="autocomplete"
-              label={this.props.label}
-              value={this.state.inputValue}
-              onChange={this.handleChange}
-              onClick={this.toggleOpen}
-              onKeyDown={this.handleKeyPress}
+          <Flyout
+            trigger={
+              <TextField
+                name="autocomplete"
+                className="autocomplete"
+                label={this.props.label}
+                value={this.state.inputValue}
+                onChange={this.handleChange}
+                onClick={this.toggleOpen}
+                onKeyDown={this.handleKeyPress}
               />
             }
             open={this.state.open}
