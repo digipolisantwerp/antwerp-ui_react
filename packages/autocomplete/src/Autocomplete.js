@@ -160,8 +160,6 @@ class Autocomplete extends Component<Props> {
     const { items, noResultsFound } = this.props;
     const { results, open } = this.state;
 
-    console.log(results.length)
-
     return (
       items && (
         <div>
