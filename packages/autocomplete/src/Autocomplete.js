@@ -11,6 +11,7 @@ type Props = {
   open?: boolean,
   label: string,
   defaultValue?: string,
+  noResultsFound?: string,
   onSelection?: Function,
   onChange?: Function,
 };
@@ -33,7 +34,8 @@ class Autocomplete extends Component<Props> {
   static defaultProps = {
     open: false,
     onSelection: () => {},
-    onChange: () => {}
+    onChange: () => {},
+    noResultsFound: 'No results were found'
   }
 
   componentDidMount() {
@@ -155,7 +157,10 @@ class Autocomplete extends Component<Props> {
   }
 
   render() {
-    const { items } = this.props;
+    const { items, noResultsFound } = this.props;
+    const { results, open } = this.state;
+
+    console.log(results.length)
 
     return (
       items && (
@@ -172,11 +177,15 @@ class Autocomplete extends Component<Props> {
                 onKeyDown={this.handleKeyPress}
               />
             }
-            open={this.state.open}
+            open={open}
             >
-              <ul className="m-selectable-list m-selectable-list--no-border">
-                {this.state.results.map((item, index) => this.renderItems(item, index))}
-              </ul>
+              {results.length == 0 ? (
+                <p className="u-margin-xs u-text-light u-text-center">{noResultsFound}</p>
+              ): (
+                <ul className="m-selectable-list m-selectable-list--no-border">
+                  {results.map((item, index) => this.renderItems(item, index))}
+                </ul>
+              )}
           </Flyout>
         </div>
       )
