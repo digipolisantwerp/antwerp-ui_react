@@ -9,7 +9,7 @@ const TextField = require('./src').TextField;
     className={"textfield-class"}
     required={true}
     placeholder={"naam"}
-    onChange={(value) => console.log('textfield value is ' + value)} />
+    onChange={(value) => console.log('textfield value is:', value)} />
 ```
 
 ### Textarea
@@ -23,7 +23,7 @@ const Textarea = require('./src').Textarea;
     className={"textarea-class"}
     required={true}
     placeholder={"beschrijving"}
-    onChange={(value) => console.log('textarea value is ' + value)} />
+    onChange={(value) => console.log('textarea value is:', value)} />
 ```
 
 ```
@@ -37,7 +37,7 @@ const Textarea = require('./src').Textarea;
     required={true}
     placeholder={"beschrijving"}
     disabled
-    onChange={(value) => console.log('textarea value is ' + value)} />
+    onChange={(value) => console.log('textarea value is:', value)} />
 ```
 
 ### Checkbox
@@ -51,7 +51,7 @@ const Checkbox = require('./src').Checkbox;
     className={"checkbox-class"}
     required={true}
     checked={true}
-    onChange={(value) => console.log('select value is ' + value)} />
+    onChange={(value) => console.log('checkbox value is:', value)} />
 ```
 
 ### Radio
@@ -67,18 +67,18 @@ const optionsAges = [
     },
     {
         key: '1',
-        value:'5-7 jaar',
-        label: '5-7 jaar',
+        value:'6-7 jaar',
+        label: '6-7 jaar',
     },
     {
         key: '2',
-        value: '7-10 jaar',
-        label: '7-10 jaar',
+        value: '8-10 jaar',
+        label: '8-10 jaar',
     },
     {
         key: '3',
-        value: '10-12 jaar',
-        label: '10-12 jaar',
+        value: '11-12 jaar',
+        label: '11-12 jaar',
     }
 ];
 
@@ -90,7 +90,8 @@ const optionsAges = [
     required={true}
     inline={false}
     options={optionsAges}
-    onChange={(value) => console.log('select value is ' + value)} >
+    value={"8-10 jaar"}
+    onChange={(value) => console.log('radiogroup value is:', value)} >
 </RadioGroup>
 ```
 
@@ -128,7 +129,7 @@ const optionsDistrict = [
     inline={false}
     placeholder={"----Select-----"}
     options={optionsDistrict}
-    onChange={(value) => console.log('select value is ' + value)}
+    onChange={(value) => console.log('select value is:', value)}
 />
 ```
 

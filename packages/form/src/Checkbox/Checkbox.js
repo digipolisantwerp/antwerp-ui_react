@@ -41,15 +41,16 @@ class Checkbox extends Component<Props> {
 
     const inputClass = classNames(
       'a-input',
-      { 'is-required': !!required }
     );
+
+    const requiredLabel = !!required ? <span className="u-text-danger"> *</span> : null;
 
     return (
 
       <div className={inputClass}>
         <div className="a-input__checkbox">
           <input type="checkbox" id={id} name={name} onChange={this.handleChange} defaultChecked={checked}/>
-          <InputLabel htmlFor={id}>{label}</InputLabel>
+          <InputLabel htmlFor={id}>{label}{requiredLabel}</InputLabel>
         </div>
       </div>
     )

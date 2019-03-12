@@ -2,6 +2,14 @@ import React from 'react';
 import classNames from 'classnames';
 import InputLabel from '../InputLabel';
 
+const stateClasses = {
+  success: 'has-success',
+  warning: 'has-warning',
+  error: 'has-error',
+};
+
+type InputStates = "success" | "warning" | "error";
+
 type Props = {
   id?: string,
   label?: string,
@@ -14,6 +22,7 @@ type Props = {
   required?: boolean,
   onChange?: (e: object) => void,
   onBlur?: (e: object) => void,
+  state?: InputStates,
 };
 
 const Textarea = (props: Props) => {
@@ -29,11 +38,15 @@ const Textarea = (props: Props) => {
     required,
     onChange,
     onBlur,
+    state,
   } = props;
 
   const textareaClass = classNames(
     'a-input',
-    { 'is-required': !!required },
+    {
+      'is-required': !!required,
+      [`${stateClasses[state]}`]: !!state,
+    },
     className,
   );
 
