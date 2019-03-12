@@ -5,7 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
-- `Autocomplete` Fixed items not updating when searching, added defaultValue option, added empty state
+- `Autocomplete` Fixed items not updating when searching, added defaultValue option, added empty state, fixed open state issue
+- `Flyout` Added an option to handle state change
 
 ### Added
 - `Form/Select` Added support for defaultValue on select
