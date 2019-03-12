@@ -21,6 +21,7 @@ type Props = {
   hasPadding?: boolean,
   className?: string,
   open?: boolean,
+  onStateChange?: Function,
   children?: any,
 };
 
@@ -36,6 +37,7 @@ class Flyout extends Component<Props> {
     size: 'medium',
     hasPadding: false,
     open: false,
+    onStateChange: () => {}
   }
   
   componentDidUpdate(prevProps) {
@@ -45,12 +47,15 @@ class Flyout extends Component<Props> {
   }
 
   toggleIsOpen = () => {
+    const {onStateChange } = this.props;
+
     if(!this.state.isOpen){
       document.addEventListener('click', this.handleOutsideClick, false);
     } else {
       document.removeEventListener('click', this.handleOutsideClick, false);
     }
-    this.setState({ isOpen: !this.state.isOpen })
+    this.setState({ isOpen: !this.state.isOpen });
+    onStateChange(this.state.isOpen);
   }
 
   handleOutsideClick = (e) => {

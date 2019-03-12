@@ -53,9 +53,10 @@ class Autocomplete extends Component<Props> {
 
     const foundItems = items.filter(item => item.value === defaultValue);
     if (!foundItems.length > 0) {
+      this.search(defaultValue);
       return this.selectOption(defaultValue);
     }
-    
+    this.search(foundItems[0].label);
     this.selectOption(foundItems[0].label);
   }
 
@@ -103,7 +104,12 @@ class Autocomplete extends Component<Props> {
   }
 
   toggleOpen = () => {
+    console.log('toggling open to', !this.state.open)
     this.setState({ open: !this.state.open })
+  }
+
+  handleFlyoutState = (isOpen) => {
+    this.setState({ open: isOpen });
   }
 
   handleKeyPress = (e) => {
@@ -175,6 +181,7 @@ class Autocomplete extends Component<Props> {
                 onKeyDown={this.handleKeyPress}
               />
             }
+            onStateChange={this.handleFlyoutState}
             open={open}
             >
               {results.length == 0 ? (
