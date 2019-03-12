@@ -66,7 +66,7 @@ class Datepicker extends Component<Props> {
 	}
 
 	handleClickOutside = (e) => {
-		if (this.datepicker.contains(e.target)) {
+		if (this.datepicker && this.datepicker.contains(e.target)) {
 			return;
 		}
 

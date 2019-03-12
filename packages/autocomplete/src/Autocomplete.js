@@ -6,7 +6,7 @@ import Flyout from '../../flyout/src/Flyout';
 import TextField from '../../form/src/TextField';
 
 type Props = {
-  items?: object,
+  items?: array,
   children?: any,
   open?: boolean,
   label: string,
@@ -15,7 +15,6 @@ type Props = {
 };
 
 class Autocomplete extends Component<Props> {
-
   constructor(props) {
     super(props);
     const {open} = this.props;
@@ -24,7 +23,8 @@ class Autocomplete extends Component<Props> {
       open: open || false,
       inputValue: '',
       results: [],
-      cursor: 0
+      cursor: 0,
+      searchVal: ''
     };
     this.data = this.props.items;
   }
@@ -41,9 +41,15 @@ class Autocomplete extends Component<Props> {
     });
   }
 
+  componentWillReceiveProps(props) {
+    const { searchVal } = this.state;
+    this.search(searchVal);
+  }
+
   handleChange = ( e ) => {
     this.setState({
-      open: true
+      open: true,
+      searchVal: e.target.value
     });
     this.updateInputValue(e)
     this.props.onChange(e.target.value);
@@ -134,6 +140,7 @@ class Autocomplete extends Component<Props> {
 
   render() {
     const { items } = this.props;
+
     return (
       items && (
         <div>
