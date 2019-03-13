@@ -18,7 +18,7 @@
     label="Selecteer een stad">
     </Autocomplete>
 
-The prop `defaultValue` can be used to show a default value when the component gets loaded in.
+The prop `defaultValue` can be used to show a default value when the component gets loaded.
 
 <Autocomplete items={[
       { label: "Antwerpen", value: "antwerpen"},
