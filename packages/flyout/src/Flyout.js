@@ -47,7 +47,7 @@ class Flyout extends Component<Props> {
   }
 
   toggleIsOpen = () => {
-    const {onStateChange } = this.props;
+    const { onStateChange } = this.props;
 
     if(!this.state.isOpen){
       document.addEventListener('click', this.handleOutsideClick, false);

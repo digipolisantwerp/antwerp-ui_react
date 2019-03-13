@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ## [Unreleased]
 - `Autocomplete` Fixed items not updating when searching, added defaultValue option, added empty state, fixed open state issue
 - `Flyout` Added an option to handle state change
+- `Datepicker` Fixed an issue where the datepicker spams console when it is not loaded in correctly
 
 ### Added
 - `Form/Select` Added support for defaultValue on select

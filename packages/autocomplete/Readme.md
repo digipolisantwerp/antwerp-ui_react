@@ -15,8 +15,8 @@
     ]}
     onSelection={(selected) => {console.log(`Selected ${selected}`)}}
     onChange={(value) => {console.log(`Typed ${value}`)}}
-    label="Selecteer een stad"
-></Autocomplete>
+    label="Selecteer een stad">
+    </Autocomplete>
 
 The prop `defaultValue` can be used to show a default value when the component gets loaded in.
 
@@ -37,6 +37,6 @@ The prop `defaultValue` can be used to show a default value when the component g
     defaultValue="oostende"
     onSelection={(selected) => {console.log(`Selected ${selected}`)}}
     onChange={(value) => {console.log(`Typed ${value}`)}}
-    label="Selecteer een stad"
-></Autocomplete>
+    label="Selecteer een stad">
+    </Autocomplete>
 ```

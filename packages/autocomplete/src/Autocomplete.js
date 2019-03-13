@@ -11,7 +11,7 @@ type Props = {
   open?: boolean,
   label: string,
   defaultValue?: string,
-  noResultsFound?: string,
+  noResults?: string,
   onSelection?: Function,
   onChange?: Function,
 };
@@ -35,7 +35,7 @@ class Autocomplete extends Component<Props> {
     open: false,
     onSelection: () => {},
     onChange: () => {},
-    noResultsFound: 'No results were found'
+    noResults: 'No results were found'
   }
 
   componentDidMount() {
@@ -163,7 +163,7 @@ class Autocomplete extends Component<Props> {
   }
 
   render() {
-    const { items, noResultsFound } = this.props;
+    const { items, noResults } = this.props;
     const { results, open } = this.state;
 
     return (
@@ -185,7 +185,7 @@ class Autocomplete extends Component<Props> {
             open={open}
             >
               {results.length == 0 ? (
-                <p className="u-margin-xs u-text-light u-text-center">{noResultsFound}</p>
+                <p className="u-margin-xs u-text-light u-text-center">{noResults}</p>
               ): (
                 <ul className="m-selectable-list m-selectable-list--no-border">
                   {results.map((item, index) => this.renderItems(item, index))}
