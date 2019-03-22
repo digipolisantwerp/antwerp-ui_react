@@ -1,48 +1,108 @@
 import React, { Component } from 'react';
-import FlyoutButton from '../../flyout-button/src/FlyoutButton';
-import Button from '../../button/src/Button';
 
-type User = {
-  firstName?: string,
-  lastName?: string
-}
-type LogoutFunction = () => void;
+import Avatar from '../../avatar/src/Avatar';
+import Button from '../../button/src/Button';
+import Flyout from '../../flyout/src/Flyout';
 
 type Props = {
-  user?: User,
-  onLogout?: LogoutFunction,
-  isLoading?: boolean,
-  className?: string,
-  style?: object,
-  children?: any
+  children?: any,
+  /** Login URL */
+  loginUrl: string,
+  /** Is the user logged in? */
+  loggedIn: boolean,
+  /** First name */
+  firstName: string,
+  /** Last name */
+  lastName: string,
+  /** Avatar URL */
+  avatarUrl?: string,
+  /** Logout URL */
+  logoutUrl: string,
 }
-const UserMenu = (props: Props) => {
-  const { user, onLogout, isLoading, children, className, style } = props;
-  const {
-    firstName = '',
-    lastName = '',
-  } = user;
 
-  const name = `${firstName} ${lastName}`;
-  return (
-      <FlyoutButton
-      flyoutDirection="right"
-      iconLeft="user"
-      flyoutSize="small"
-      label={name}
-      style={style}
-      className={className}
-    >
-      {children}
-      <Button
-        iconLeft="power-off"
-        type="danger"
-        block
-        onClick={onLogout}>
-        Uitloggen
-        </Button>
-      </FlyoutButton>
-  )
+class UserMenu extends Component<Props> {
+  renderAvatar() {
+    return (
+      <Avatar
+        image={ this.props.avatarUrl || 'https://www.antwerpen.be/assets/overzicht/gfx/no-thumbnail.svg' }
+        alt="avatar"
+        width="48"
+        height="48"
+        style={{ marginLeft: '-24px', marginRight: '10px' }}
+      />);
+  }
+  renderLoggedInButton() {
+    const {
+      firstName,
+      lastName,
+    } = this.props;
+    return (
+      <Button>
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          fontWeight: 'normal'
+        }}>
+          {this.renderAvatar()}
+          <p>{firstName} {lastName}</p>
+        </div>
+      </Button>
+    );
+  }
+
+  renderProfile() {
+    return (
+      <div style={{
+        paddingTop: '24px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}>
+        <Avatar
+          image={ this.props.avatarUrl || 'https://www.antwerpen.be/assets/overzicht/gfx/no-thumbnail.svg' }
+          alt="avatar"
+          width="48"
+          height="48" />
+        <h5 className="u-margin-top-xs u-margin-bottom">
+          {`${this.props.firstName} ${this.props.lastName}`}
+        </h5>
+      </div>
+    )
+  }
+
+  renderLoggedIn() {
+    return (
+      <div style={{ textAlign: 'right'}}>
+        <Flyout
+          trigger={this.renderLoggedInButton()}
+          direction="right"
+          hasPadding={true}
+          size="small"
+          >
+          <div>
+            {this.renderProfile()}
+            {this.props.children}
+            <Button
+              onClick={() => window.location.href=this.props.logoutUrl}
+              block
+              type="danger"
+              iconLeft="power-off"
+              style={{fontWeight: 'normal' }}>
+              Afmelden
+            </Button>
+          </div>
+        </Flyout>
+      </div>
+    )
+  }
+
+  renderLoggedOut() {
+    return (<div>LoggedOut</div>)
+  }
+
+  render() {
+    return (this.props.loggedIn ? this.renderLoggedIn() : this.renderLoggedOut());
+  }
 }
 
 export default UserMenu;

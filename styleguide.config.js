@@ -33,7 +33,7 @@ module.exports = {
         {
           rel: 'stylesheet',
           href:
-            'https://cdn.antwerpen.be/core_branding_scss/3.0.1/main.min.css'
+            'https://cdn.antwerpen.be/core_branding_scss/3.0.3/main.min.css'
         }
       ]
     }
