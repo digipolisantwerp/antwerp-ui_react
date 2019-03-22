@@ -41,7 +41,6 @@ class UserMenu extends Component<Props> {
         <div style={{
           display: 'flex',
           alignItems: 'center',
-          fontWeight: 'normal'
         }}>
           {this.renderAvatar()}
           <p>{firstName} {lastName}</p>
@@ -77,7 +76,6 @@ class UserMenu extends Component<Props> {
           trigger={this.renderLoggedInButton()}
           direction="right"
           hasPadding={true}
-          size="small"
           >
           <div>
             {this.renderProfile()}
@@ -86,8 +84,7 @@ class UserMenu extends Component<Props> {
               onClick={() => window.location.href=this.props.logoutUrl}
               block
               type="danger"
-              iconLeft="power-off"
-              style={{fontWeight: 'normal' }}>
+              iconLeft="power-off">
               Afmelden
             </Button>
           </div>
@@ -97,7 +94,10 @@ class UserMenu extends Component<Props> {
   }
 
   renderLoggedOut() {
-    return (<div>LoggedOut</div>)
+    return (
+      <div style={{ textAlign: 'right' }}>
+        <Button iconLeft="user">Aanmelden</Button>
+      </div>);
   }
 
   render() {
