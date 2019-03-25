@@ -11,16 +11,13 @@ const flyoutSizes = {
   full: 'full'
 }
 
-type FlyoutDirections = "left" |  "right";
-type FlyoutSizes = "small" | "medium" | "large" | "full";
-
 type Props = {
   /** Component which triggers the flyout to open */
   trigger?: any,
   /** Direction */
-  direction?: FlyoutDirections,
+  direction?: 'left' | 'right',
   /** Size */
-  size?: FlyoutSizes,
+  size?: 'small' | 'medium' | 'large' | 'full',
   hasPadding?: boolean,
   className?: string,
   open?: boolean,

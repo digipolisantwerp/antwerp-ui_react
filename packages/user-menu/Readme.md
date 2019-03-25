@@ -11,7 +11,8 @@
   firstName="John"
   lastName="Doe"
   loggedIn={true}
-  logoutUrl="/auth/logout/aprofiel">
+  logoutUrl="/auth/logout/aprofiel"
+  flyoutSize="medium">
   <ul class="m-nav-list m-nav-list--left u-margin-bottom">
     <li><a href="/" title="Notificaties">Notificaties</a></li>
     <li><a href="/" title="A-profiel beheren">A-profiel beheren</a></li>

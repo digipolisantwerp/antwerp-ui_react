@@ -18,9 +18,19 @@ type Props = {
   avatarUrl?: string,
   /** Logout URL */
   logoutUrl: string,
+  /** Flyout size */
+  flyoutSize: 'small' | 'medium' | 'large' | 'full',
+  /** Direction */
+  direction: 'left' | 'right',
 }
 
 class UserMenu extends Component<Props> {
+
+  static defaultProps = {
+    direction: 'right',
+    flyoutSize: 'medium',
+  }
+
   renderAvatar() {
     return (
       <Avatar
@@ -38,7 +48,7 @@ class UserMenu extends Component<Props> {
       lastName,
     } = this.props;
     return (
-      <Button>
+      <Button style={{paddingTop: 0, paddingBottom: 0}}>
         <div style={{
           display: 'flex',
           alignItems: 'center',
@@ -73,37 +83,37 @@ class UserMenu extends Component<Props> {
 
   renderLoggedIn() {
     return (
-      <div style={{ textAlign: 'right'}}>
-        <Flyout
-          trigger={this.renderLoggedInButton()}
-          direction="right"
-          hasPadding={true}
-          >
-          <div>
-            {this.renderProfile()}
-            {this.props.children}
-            <Button
-              onClick={() => window.location.href=this.props.logoutUrl}
-              block
-              type="danger"
-              iconLeft="power-off">
-              Afmelden
-            </Button>
-          </div>
-        </Flyout>
-      </div>
-    )
+      <Flyout
+        trigger={this.renderLoggedInButton()}
+        direction="right"
+        hasPadding={true}
+        size={this.props.flyoutSize}
+        >
+        <div>
+          {this.renderProfile()}
+          {this.props.children}
+          <Button
+            onClick={() => window.location.href=this.props.logoutUrl}
+            block
+            type="danger"
+            iconLeft="power-off">
+            Afmelden
+          </Button>
+        </div>
+      </Flyout>
+    );
   }
 
   renderLoggedOut() {
-    return (
-      <div style={{ textAlign: 'right' }}>
-        <Button iconLeft="user">Aanmelden</Button>
-      </div>);
+    return (<Button iconLeft="user">Aanmelden</Button>);
   }
 
   render() {
-    return (this.props.loggedIn ? this.renderLoggedIn() : this.renderLoggedOut());
+    return (
+      <div style={{ textAlign: this.props.direction }}>
+        {this.props.loggedIn ? this.renderLoggedIn() : this.renderLoggedOut()}
+      </div>
+    );
   }
 }
 
