@@ -7,6 +7,7 @@
 <br/>
 
 <UserMenu
+  avatarUrl="https://gravatar.com/avatar/66f865ee03bc019d2f06af6ec0c434ce?s=200"
   firstName="John"
   lastName="Doe"
   loggedIn={true}

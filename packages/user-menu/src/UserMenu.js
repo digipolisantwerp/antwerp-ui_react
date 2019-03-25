@@ -24,7 +24,8 @@ class UserMenu extends Component<Props> {
   renderAvatar() {
     return (
       <Avatar
-        image={ this.props.avatarUrl || 'https://www.antwerpen.be/assets/overzicht/gfx/no-thumbnail.svg' }
+        image={this.props.avatarUrl}
+        icon={this.props.avatarUrl ? null : 'user'}
         alt="avatar"
         width="48"
         height="48"
@@ -58,7 +59,8 @@ class UserMenu extends Component<Props> {
         alignItems: 'center',
       }}>
         <Avatar
-          image={ this.props.avatarUrl || 'https://www.antwerpen.be/assets/overzicht/gfx/no-thumbnail.svg' }
+          image={this.props.avatarUrl}
+          icon={this.props.avatarUrl ? null : 'user'}
           alt="avatar"
           width="48"
           height="48" />
