@@ -11,13 +11,13 @@ const flyoutSizes = {
   full: 'full'
 }
 
-type FlyoutDirections = "left" |  "right";
-type FlyoutSizes = "small" | "medium" | "large" | "full";
-
 type Props = {
+  /** Component which triggers the flyout to open */
   trigger?: any,
-  direction?: FlyoutDirections,
-  size?: FlyoutSizes,
+  /** Direction */
+  direction?: 'left' | 'right',
+  /** Size */
+  size?: 'small' | 'medium' | 'large' | 'full',
   hasPadding?: boolean,
   className?: string,
   open?: boolean,
@@ -36,11 +36,12 @@ class Flyout extends Component<Props> {
     size: 'medium',
     hasPadding: false,
     open: false,
+    scrollable: false,
   }
-  
+
   componentDidUpdate(prevProps) {
     if (this.props.open !== prevProps.open) {
-      this.setState({ isOpen: !prevProps.open });  
+      this.setState({ isOpen: !prevProps.open });
     }
   }
 
@@ -63,8 +64,9 @@ class Flyout extends Component<Props> {
   getClassNames = () => {
     return classNames(
       this.props.className,
-      'm-flyout', 'm-flyout--scrollable', `m-flyout--${this.props.direction}`, {
+      'm-flyout', `m-flyout--${this.props.direction}`, {
         'is-open': this.state.isOpen,
+        'm-flyout--scrollable': this.props.scrollable,
         [`m-flyout--${flyoutSizes[this.props.size]}`]: !!flyoutSizes[this.props.size]
       });
   }
@@ -79,7 +81,7 @@ class Flyout extends Component<Props> {
     return (
       trigger && (
       <div className={flyoutClass} ref={this.flyoutRef}>
-          <div onClick={this.toggleIsOpen}> 
+          <div onClick={this.toggleIsOpen}>
             {this.props.trigger}
           </div>
         <FlyoutContent hasPadding={hasPadding}>
