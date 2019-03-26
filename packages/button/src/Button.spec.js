@@ -96,17 +96,17 @@ describe('Button', () => {
     describe('.transparent', () => {
         it('should add the transparent class if transparent is true', () => {
             const button = mount(<Button transparent={true} />);
-            expect(button.getDOMNode().className).toContain('a-button--transparent');
+            expect(button.getDOMNode().className).toContain('a-button-transparent');
         });
 
         it('should not add the transparent class when transparent is false', () => {
             const button = mount(<Button transparent={false} />);
-            expect(button.getDOMNode().className).not.toContain('a-button--transparent');
+            expect(button.getDOMNode().className).not.toContain('a-button-transparent');
         });
 
         it('should not add the transparent class when transparent is undefined', () => {
             const button = mount(<Button />);
-            expect(button.getDOMNode().className).not.toContain('a-button--transparent');
+            expect(button.getDOMNode().className).not.toContain('a-button-transparent');
         });
     });
 

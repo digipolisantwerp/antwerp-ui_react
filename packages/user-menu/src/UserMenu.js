@@ -7,15 +7,15 @@ import Flyout from '../../flyout/src/Flyout';
 type Props = {
   children?: any,
   /** Login URL */
-  loginUrl: string,
+  loginUrl?: string,
   /** Is the user logged in? */
-  loggedIn: boolean,
-  /** First name */
-  firstName: string,
-  /** Last name */
-  lastName: string,
-  /** Avatar URL */
-  avatarUrl?: string,
+  loggedIn?: boolean,
+  /** User object */
+  user: {
+    firstName: string,
+    lastName: string,
+    avatarUrl: string
+  },
   /** Logout URL */
   logoutUrl: string,
   /** Flyout size */
@@ -28,25 +28,26 @@ class UserMenu extends Component<Props> {
 
   static defaultProps = {
     direction: 'right',
-    flyoutSize: 'medium',
+    flyoutSize: 'small',
   }
 
   renderAvatar() {
+    const { avatarUrl } = this.props.user;
     return (
       <Avatar
-        image={this.props.avatarUrl}
-        icon={this.props.avatarUrl ? null : 'user'}
+        image={avatarUrl}
+        icon={avatarUrl ? null : 'user'}
         alt="avatar"
         width="48"
         height="48"
-        style={{ marginLeft: '-24px', marginRight: '10px' }}
+        style={{ marginLeft: '-1.5rem', marginRight: '1.5rem' }}
       />);
   }
   renderLoggedInButton() {
     const {
       firstName,
       lastName,
-    } = this.props;
+    } = this.props.user;
     return (
       <Button style={{paddingTop: 0, paddingBottom: 0}}>
         <div style={{
@@ -61,6 +62,7 @@ class UserMenu extends Component<Props> {
   }
 
   renderProfile() {
+    const { firstName, lastName, avatarUrl } = this.props.user;
     return (
       <div style={{
         paddingTop: '24px',
@@ -69,31 +71,32 @@ class UserMenu extends Component<Props> {
         alignItems: 'center',
       }}>
         <Avatar
-          image={this.props.avatarUrl}
-          icon={this.props.avatarUrl ? null : 'user'}
+          image={avatarUrl}
+          icon={avatarUrl ? null : 'user'}
           alt="avatar"
           width="48"
           height="48" />
-        <h5 className="u-margin-top-xs u-margin-bottom">
-          {`${this.props.firstName} ${this.props.lastName}`}
-        </h5>
+        <p className="u-margin-top-xs u-margin-bottom h5">
+          {`${firstName} ${lastName}`}
+        </p>
       </div>
     )
   }
 
   renderLoggedIn() {
+    const { children, flyoutSize, logoutUrl } = this.props;
     return (
       <Flyout
         trigger={this.renderLoggedInButton()}
         direction="right"
-        hasPadding={true}
-        size={this.props.flyoutSize}
+        hasPadding={false}
+        size={flyoutSize}
         >
         <div>
           {this.renderProfile()}
-          {this.props.children}
+          {children}
           <Button
-            onClick={() => window.location.href=this.props.logoutUrl}
+            onClick={() => window.location.href=logoutUrl}
             block
             type="danger"
             iconLeft="power-off">
