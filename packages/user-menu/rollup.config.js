@@ -16,5 +16,5 @@ export default {
 			exclude: ['node_modules/**']
 		})
 	],
-	external: ['react', 'classnames'],
+	external: ['react', 'react-dom', 'classnames'],
 };

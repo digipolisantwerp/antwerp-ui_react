@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Button from '../../button/src/Button';
 import classNames from 'classnames';
-import { FlyoutContent } from './FlyoutContent';
+import FlyoutContent from './FlyoutContent';
 const flyoutSizes = {
   small: 'sm',
   medium: 'md',

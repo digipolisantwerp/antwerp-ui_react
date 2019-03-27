@@ -18,3 +18,5 @@ export const FlyoutContent = (props: Props) => {
     </div>
   );
 }
+
+export default FlyoutContent;
