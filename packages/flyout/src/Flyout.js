@@ -37,7 +37,7 @@ class Flyout extends Component<Props> {
     size: 'medium',
     hasPadding: false,
     open: false,
-    onStateChange: () => {}
+    onStateChange: () => {},
     scrollable: false,
   }
 
