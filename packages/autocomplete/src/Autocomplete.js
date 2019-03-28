@@ -6,16 +6,17 @@ import Flyout from '../../flyout/src/Flyout';
 import TextField from '../../form/src/TextField';
 
 type Props = {
-  items?: object,
+  items?: array,
   children?: any,
   open?: boolean,
   label: string,
+  defaultValue?: string,
+  noResults?: string,
   onSelection?: Function,
   onChange?: Function,
 };
 
 class Autocomplete extends Component<Props> {
-
   constructor(props) {
     super(props);
     const {open} = this.props;
@@ -24,7 +25,8 @@ class Autocomplete extends Component<Props> {
       open: open || false,
       inputValue: '',
       results: [],
-      cursor: 0
+      cursor: 0,
+      searchVal: ''
     };
     this.data = this.props.items;
   }
@@ -32,22 +34,45 @@ class Autocomplete extends Component<Props> {
   static defaultProps = {
     open: false,
     onSelection: () => {},
-    onChange: () => {}
+    onChange: () => {},
+    noResults: 'No results were found'
   }
 
   componentDidMount() {
+    const { defaultValue, items } = this.props;
     this.setState({
       results: this.data
     });
+
+    if (!defaultValue) {
+      return;
+    }
+
+    this.props.onSelection(defaultValue);
+    this.props.onChange(defaultValue);
+
+    const foundItems = items.filter(item => item.value === defaultValue);
+    if (!foundItems.length > 0) {
+      this.search(defaultValue);
+      return this.selectOption(defaultValue);
+    }
+    this.search(foundItems[0].label);
+    this.selectOption(foundItems[0].label);
+  }
+
+  componentWillReceiveProps(props) {
+    const { searchVal } = this.state;
+    this.search(searchVal);
   }
 
   handleChange = ( e ) => {
     this.setState({
-      open: true
+      open: true,
+      searchVal: e.target.value
     });
-    this.updateInputValue(e)
+    this.updateInputValue(e);
     this.props.onChange(e.target.value);
-    this.search(e.target.value)
+    this.search(e.target.value);
   }
 
   updateInputValue(e) {
@@ -79,7 +104,12 @@ class Autocomplete extends Component<Props> {
   }
 
   toggleOpen = () => {
+    console.log('toggling open to', !this.state.open)
     this.setState({ open: !this.state.open })
+  }
+
+  handleFlyoutState = (isOpen) => {
+    this.setState({ open: isOpen });
   }
 
   handleKeyPress = (e) => {
@@ -126,33 +156,41 @@ class Autocomplete extends Component<Props> {
       'm-selectable-list__item--active': this.state.cursor === index
     });
     return (
-      <li key={item.value} data-value={item.value} className={liClasses} onClick={this.handleClick} ref={(item) => { this['item_' + index] = item }}>
+      <li key={item.value} data-value={item.value} data-label={item.label} className={liClasses} onClick={this.handleClick} ref={(item) => { this['item_' + index] = item }}>
         {item.label}
       </li>
     );
   }
 
   render() {
-    const { items } = this.props;
+    const { items, noResults } = this.props;
+    const { results, open } = this.state;
+
     return (
       items && (
         <div>
-          <Flyout trigger={
-            <TextField
-              name="autocomplete"
-              className="autocomplete"
-              label={this.props.label}
-              value={this.state.inputValue}
-              onChange={this.handleChange}
-              onClick={this.toggleOpen}
-              onKeyDown={this.handleKeyPress}
+          <Flyout
+            trigger={
+              <TextField
+                name="autocomplete"
+                className="autocomplete"
+                label={this.props.label}
+                value={this.state.inputValue}
+                onChange={this.handleChange}
+                onClick={this.toggleOpen}
+                onKeyDown={this.handleKeyPress}
               />
             }
-            open={this.state.open}
+            onStateChange={this.handleFlyoutState}
+            open={open}
             >
-              <ul className="m-selectable-list m-selectable-list--no-border">
-                {this.state.results.map((item, index) => this.renderItems(item, index))}
-              </ul>
+              {results.length == 0 ? (
+                <p className="u-margin-xs u-text-light u-text-center">{noResults}</p>
+              ): (
+                <ul className="m-selectable-list m-selectable-list--no-border">
+                  {results.map((item, index) => this.renderItems(item, index))}
+                </ul>
+              )}
           </Flyout>
         </div>
       )
