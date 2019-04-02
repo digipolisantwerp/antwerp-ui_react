@@ -25,6 +25,7 @@ type Props = {
   onKeyDown?: (e: object) => void,
   mask?: string,
   state?: InputStates,
+  disableAutocomplete?: boolean,
 };
 
 class TextField extends Component<Props> {
@@ -43,6 +44,7 @@ class TextField extends Component<Props> {
       onKeyDown,
       mask,
       state,
+      disableAutocomplete
     } = this.props;
 
     const inputClass = classNames(
@@ -57,8 +59,9 @@ class TextField extends Component<Props> {
       <div className={inputClass}>
         {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
         <div className="a-input__wrapper">
-          {mask ?  <InputMask {...this.props} /> : <input type="text" {...this.props} />}
+          {mask ?  <InputMask {...this.props} /> : <input type="text" autocomplete={disableAutocomplete ? "off" : ''} {...this.props} />}
         </div>
+
         <small>{description}</small>
       </div>
     )
