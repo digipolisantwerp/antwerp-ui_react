@@ -104,7 +104,6 @@ class Autocomplete extends Component<Props> {
   }
 
   toggleOpen = () => {
-    console.log('toggling open to', !this.state.open)
     this.setState({ open: !this.state.open })
   }
 
