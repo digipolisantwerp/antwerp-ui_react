@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 
-import Link from '../../link';
+import Link from '../../link/src/Link';
 
 type Props = {
   items: Array<{
