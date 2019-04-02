@@ -12,14 +12,9 @@ describe('Datepicker', () => {
 		expect(datepicker.state('activeDate').format(format)).toBe("23/01/1991");
 	});
 
-	it('should set today as active date if not provided', () => {
-		const datepicker = mount(<Datepicker format={format} />);
-		expect(datepicker.state('activeDate').format(format)).toBe(Moment().format(format));
-	});
-
 	it('should set default format as DD/MM/YYYY  if not provided', () => {
 		const datepicker = mount(<Datepicker />);
-		expect(datepicker.state('activeDate').format(format)).toBe(Moment().format(format));
+		expect(datepicker.props().format).toBe('DD/MM/YYYY');
 	});
 
 	it('should set state open true when toggleCalendar is called', () => {
