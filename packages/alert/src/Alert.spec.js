@@ -10,25 +10,23 @@ const typeClasses = {
 
 describe('Alert', () => {
     it('should apply the correct className for type - danger', () => {
-        const alert = mount(<Alert type="danger">test</Alert>).find('.m-alert');
+      const alert = mount(<Alert type="danger">test</Alert>).find('.m-alert');
 	    expect(alert.hasClass(typeClasses['danger'])).toBe(true);
-	    console.log(alert.getDOMNode().className);
-
     });
 
     it('should apply the correct className for type - success', () => {
         const alert = mount(<Alert type="success">test</Alert>).find('.m-alert');
-	    expect(alert.hasClass(typeClasses['success'])).toBe(true);
+	      expect(alert.hasClass(typeClasses['success'])).toBe(true);
     });
 
     it('should apply the correct className for type - warning', () => {
         const alert = mount(<Alert type="warning">test</Alert>).find('.m-alert');
-	    expect(alert.hasClass(typeClasses['warning'])).toBe(true);
+	      expect(alert.hasClass(typeClasses['warning'])).toBe(true);
     });
 
     it('should apply the correct className', () => {
         const alert = mount(<Alert className="test">test</Alert>).find('.m-alert');
-	    expect(alert.hasClass('test')).toBe(true);
+	      expect(alert.hasClass('test')).toBe(true);
     });
 
     it('should set the title', () => {

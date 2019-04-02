@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount, render } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import Autocomplete from './Autocomplete';
 //scrollIntoView not supported by Jest...
 window.HTMLElement.prototype.scrollIntoView = function() {};
