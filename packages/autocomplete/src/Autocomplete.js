@@ -104,7 +104,6 @@ class Autocomplete extends Component<Props> {
   }
 
   toggleOpen = () => {
-    console.log('toggling open to', !this.state.open)
     this.setState({ open: !this.state.open })
   }
 
@@ -179,6 +178,7 @@ class Autocomplete extends Component<Props> {
                 onChange={this.handleChange}
                 onClick={this.toggleOpen}
                 onKeyDown={this.handleKeyPress}
+                autocomplete="off"
               />
             }
             onStateChange={this.handleFlyoutState}

@@ -37,14 +37,14 @@ describe('Switch', () => {
 	it('should trigger the onClick', () => {
 		const mock = jest.fn();
 		const switchButton = mount(<Switch onClick={mock} />);
-		switchButton.find('[type="checkbox"]').simulate('click');
+		switchButton.find('[type="checkbox"]').simulate('change');
 		expect(mock).toHaveBeenCalled();
 	});
 
 	it('onClick should trigger change checked state', () => {
 		const mock = jest.fn();
 		const switchButton = mount(<Switch onClick={mock} checked={false} />);
-		switchButton.find('[type="checkbox"]').simulate('click');
+		switchButton.find('[type="checkbox"]').simulate('change');
 		expect(switchButton.state('checked')).toBe(true);
 	});
 });
