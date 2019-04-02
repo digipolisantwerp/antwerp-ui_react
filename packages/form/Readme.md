@@ -12,6 +12,21 @@ const TextField = require('./src').TextField;
     onChange={(value) => console.log('textfield value is:', value)} />
 ```
 
+The prop `autocomplete` can be used to disable the prefill that some browsers show
+```
+const TextField = require('./src').TextField;
+
+<TextField
+    label={"Naam"}
+    id={"textfield-id"}
+    name={"textfield-name"}
+    className={"textfield-class"}
+    required={true}
+    placeholder={"naam"}
+    onChange={(value) => console.log('textfield value is:', value)}
+    autocomplete="off" />
+```
+
 ### Textarea
 ```
 const Textarea = require('./src').Textarea;
@@ -40,20 +55,6 @@ const Textarea = require('./src').Textarea;
     onChange={(value) => console.log('textarea value is:', value)} />
 ```
 
-Add `disableAutocomplete` to disable the prefill that some browsers show
-```
-const Textarea = require('./src').Textarea;
-
-<Textarea
-    label={"Beschrijving"}
-    id={"textarea-id"}
-    name={"textarea-name"}
-    className={"textarea-class"}
-    required={true}
-    placeholder={"beschrijving"}
-    disableAutocomplete
-    onChange={(value) => console.log('textarea value is:', value)} />
-```
 
 ### Checkbox
 ```

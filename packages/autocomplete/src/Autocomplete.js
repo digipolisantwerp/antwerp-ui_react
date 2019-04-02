@@ -179,7 +179,7 @@ class Autocomplete extends Component<Props> {
                 onChange={this.handleChange}
                 onClick={this.toggleOpen}
                 onKeyDown={this.handleKeyPress}
-                disableAutocomplete={true}
+                autocomplete="off"
               />
             }
             onStateChange={this.handleFlyoutState}
