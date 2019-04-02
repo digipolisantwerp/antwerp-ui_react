@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - `Flyout` Added an option to handle state change
 - `Datepicker` Fixed an issue where the datepicker spams console when it is not loaded correctly
 - `TextField` Add the option to disable autocomplete
+- `TextField` Add disabled option
 
 ### Added
 - `Form/Select` Added support for defaultValue on select

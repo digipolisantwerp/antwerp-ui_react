@@ -44,7 +44,8 @@ class TextField extends Component<Props> {
       onKeyDown,
       mask,
       state,
-      autocomplete
+      autocomplete,
+      disabled
     } = this.props;
 
     const inputClass = classNames(
@@ -59,7 +60,7 @@ class TextField extends Component<Props> {
       <div className={inputClass}>
         {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
         <div className="a-input__wrapper">
-          {mask ?  <InputMask {...this.props} /> : <input type="text" autocomplete={autocomplete} {...this.props} />}
+          {mask ?  <InputMask {...this.props} /> : <input type="text" autocomplete={autocomplete} disabled={disabled} {...this.props} />}
         </div>
 
         <small>{description}</small>

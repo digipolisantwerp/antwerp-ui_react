@@ -27,6 +27,21 @@ const TextField = require('./src').TextField;
     autocomplete="off" />
 ```
 
+The text field can be disabled using the `disabled` prop
+```
+const TextField = require('./src').TextField;
+
+<TextField
+    label={"Naam"}
+    id={"textfield-id"}
+    name={"textfield-name"}
+    className={"textfield-class"}
+    required={true}
+    placeholder={"naam"}
+    onChange={(value) => console.log('textfield value is:', value)}
+    disabled />
+```
+
 ### Textarea
 ```
 const Textarea = require('./src').Textarea;
