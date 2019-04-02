@@ -14,7 +14,7 @@
   loggedIn={true}
   logoutUrl="/auth/logout/aprofiel"
   flyoutSize="medium">
-  <ul class="m-nav-list m-nav-list--left">
+  <ul className="m-nav-list m-nav-list--left">
     <li><a href="/" title="Notificaties">Notificaties</a></li>
     <li><a href="/" title="A-profiel beheren">A-profiel beheren</a></li>
     <li><a href="/" title="Favorieten">Favorieten</a></li>

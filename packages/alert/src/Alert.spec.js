@@ -2,25 +2,31 @@ import Alert from './Alert';
 import { mount, shallow } from 'enzyme';
 import React from 'react';
 
+const typeClasses = {
+	success: 'm-alert--success',
+	warning: 'm-alert--warning',
+	danger: 'm-alert--danger',
+};
+
 describe('Alert', () => {
     it('should apply the correct className for type - danger', () => {
-        const alert = mount(<Alert type="danger">test</Alert>);
-        expect(alert.getDOMNode().className).toContain("danger");
+      const alert = mount(<Alert type="danger">test</Alert>).find('.m-alert');
+	    expect(alert.hasClass(typeClasses['danger'])).toBe(true);
     });
 
     it('should apply the correct className for type - success', () => {
-        const alert = mount(<Alert type="success">test</Alert>);
-        expect(alert.getDOMNode().className).toContain("success");
+        const alert = mount(<Alert type="success">test</Alert>).find('.m-alert');
+	      expect(alert.hasClass(typeClasses['success'])).toBe(true);
     });
 
     it('should apply the correct className for type - warning', () => {
-        const alert = mount(<Alert type="warning">test</Alert>);
-        expect(alert.getDOMNode().className).toContain("warning");
+        const alert = mount(<Alert type="warning">test</Alert>).find('.m-alert');
+	      expect(alert.hasClass(typeClasses['warning'])).toBe(true);
     });
 
     it('should apply the correct className', () => {
-        const alert = mount(<Alert className="test">test</Alert>);
-        expect(alert.getDOMNode().className).toContain("test");
+        const alert = mount(<Alert className="test">test</Alert>).find('.m-alert');
+	      expect(alert.hasClass('test')).toBe(true);
     });
 
     it('should set the title', () => {

@@ -2,7 +2,6 @@ import Calendar from './Calendar';
 
 import { mount } from 'enzyme';
 import React from 'react';
-import Moment from 'moment';
 
 describe('Calendar', () => {
 	const format = "DD/MM/YYYY";
@@ -12,14 +11,9 @@ describe('Calendar', () => {
 		expect(calendar.state('activeDate').format(format)).toBe("23/01/1991");
 	});
 
-	it('should set today as active date if not provided', () => {
-		const calendar = mount(<Calendar format={format} />);
-		expect(calendar.state('activeDate').format(format)).toBe(Moment().format(format));
-	});
-
 	it('should set default format as DD/MM/YYYY  if not provided', () => {
 		const calendar = mount(<Calendar />);
-		expect(calendar.state('activeDate').format(format)).toBe(Moment().format(format));
+		expect(calendar.props().format).toBe('DD/MM/YYYY');
 	});
 
 	it('should trigger the onChange', () => {
