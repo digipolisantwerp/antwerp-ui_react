@@ -27,6 +27,48 @@ const TextField = require('./src').TextField;
     autocomplete="off" />
 ```
 
+Use `iconRight` or `iconLeft` to add an icon respectively right or left
+```
+const TextField = require('./src').TextField;
+
+<div>
+<TextField
+    label={"Naam"}
+    id={"textfield-id"}
+    name={"textfield-name"}
+    className={"textfield-class"}
+    required={true}
+    placeholder={"naam"}
+    onChange={(value) => console.log('textfield value is:', value)}
+    iconRight="eye" />
+    
+<TextField
+    label={"Naam"}
+    id={"textfield-id"}
+    name={"textfield-name"}
+    className={"textfield-class"}
+    required={true}
+    placeholder={"naam"}
+    onChange={(value) => console.log('textfield value is:', value)}
+    iconLeft="user" />
+</div>
+```
+
+A spinner can be added using the `spinner` prop
+```
+const TextField = require('./src').TextField;
+
+<TextField
+    label={"Naam"}
+    id={"textfield-id"}
+    name={"textfield-name"}
+    className={"textfield-class"}
+    required={true}
+    placeholder={"naam"}
+    onChange={(value) => console.log('textfield value is:', value)}
+    spinner={true} />
+```
+
 The text field can be disabled using the `disabled` prop
 ```
 const TextField = require('./src').TextField;

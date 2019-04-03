@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - `TextField` Add the option to disable autocomplete
 - `TextField` Add disabled option
 - `Autocomplete` Remove console log
+- `Autocomplete` Take propegation delay into account when triggering search from componentWillReceiveProps
+- `TextField` rename autoComplete to autocomplete
+- `TextField` add support for left and right icon
+- `Autocomplete` add support for loading state
 
 ### Added
 - `Form/Select` Added support for defaultValue on select

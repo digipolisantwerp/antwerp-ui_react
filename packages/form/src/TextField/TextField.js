@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import InputLabel from '../InputLabel';
+import Icon from '../../../icon';
+import Spinner from '../../../spinner';
 import InputMask from 'react-input-mask';
 
 const stateClasses = {
@@ -26,6 +28,9 @@ type Props = {
   mask?: string,
   state?: InputStates,
   autocomplete?: string,
+  iconRight?: string,
+  iconLeft?: string,
+  spinner?: boolean,
 };
 
 class TextField extends Component<Props> {
@@ -45,12 +50,17 @@ class TextField extends Component<Props> {
       mask,
       state,
       autocomplete,
-      disabled
+      disabled,
+      iconRight,
+      iconLeft,
+      spinner
     } = this.props;
 
     const inputClass = classNames(
       'a-input',
       {
+        'has-icon-right': iconRight || spinner,
+        'has-icon-left': iconLeft,
         'is-required': !!required,
         [`${stateClasses[state]}`]: !!state,
       }
@@ -60,7 +70,10 @@ class TextField extends Component<Props> {
       <div className={inputClass}>
         {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
         <div className="a-input__wrapper">
+          {iconLeft ? <Icon name={iconLeft} /> : null}
           {mask ?  <InputMask {...this.props} /> : <input type="text" autocomplete={autocomplete} disabled={disabled} {...this.props} />}
+          {iconRight ? <Icon name={iconRight} /> : null}
+          {spinner ? <span className="fa a-spinner a-spinner--sm" /> : null}
         </div>
 
         <small>{description}</small>
