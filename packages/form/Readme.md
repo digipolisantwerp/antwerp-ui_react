@@ -12,7 +12,7 @@ const TextField = require('./src').TextField;
     onChange={(value) => console.log('textfield value is:', value)} />
 ```
 
-The prop `autocomplete` can be used to disable the prefill that some browsers show
+The prop `autoComplete` can be used to disable the prefill that some browsers show
 ```
 const TextField = require('./src').TextField;
 
@@ -24,10 +24,10 @@ const TextField = require('./src').TextField;
     required={true}
     placeholder={"naam"}
     onChange={(value) => console.log('textfield value is:', value)}
-    autocomplete="off" />
+    autoComplete="off" />
 ```
 
-Use `iconRight` or `iconLeft` to add an icon respectively right or left
+Use `iconright` or `iconleft` to add an icon respectively right or left
 ```
 const TextField = require('./src').TextField;
 
@@ -40,7 +40,7 @@ const TextField = require('./src').TextField;
     required={true}
     placeholder={"naam"}
     onChange={(value) => console.log('textfield value is:', value)}
-    iconRight="eye" />
+    iconright="eye" />
     
 <TextField
     label={"Naam"}
@@ -50,7 +50,7 @@ const TextField = require('./src').TextField;
     required={true}
     placeholder={"naam"}
     onChange={(value) => console.log('textfield value is:', value)}
-    iconLeft="user" />
+    iconleft="user" />
 </div>
 ```
 
@@ -66,7 +66,7 @@ const TextField = require('./src').TextField;
     required={true}
     placeholder={"naam"}
     onChange={(value) => console.log('textfield value is:', value)}
-    spinner={true} />
+    spinner="true" />
 ```
 
 The text field can be disabled using the `disabled` prop

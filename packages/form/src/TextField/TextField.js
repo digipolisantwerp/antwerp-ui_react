@@ -27,9 +27,9 @@ type Props = {
   onKeyDown?: (e: object) => void,
   mask?: string,
   state?: InputStates,
-  autocomplete?: string,
-  iconRight?: string,
-  iconLeft?: string,
+  autoComplete?: string,
+  iconright?: string,
+  iconleft?: string,
   spinner?: boolean,
 };
 
@@ -49,18 +49,18 @@ class TextField extends Component<Props> {
       onKeyDown,
       mask,
       state,
-      autocomplete,
+      autoComplete,
       disabled,
-      iconRight,
-      iconLeft,
+      iconright,
+      iconleft,
       spinner
     } = this.props;
 
     const inputClass = classNames(
       'a-input',
       {
-        'has-icon-right': iconRight || spinner,
-        'has-icon-left': iconLeft,
+        'has-icon-right': iconright || spinner,
+        'has-icon-left': iconleft,
         'is-required': !!required,
         [`${stateClasses[state]}`]: !!state,
       }
@@ -70,9 +70,9 @@ class TextField extends Component<Props> {
       <div className={inputClass}>
         {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
         <div className="a-input__wrapper">
-          {iconLeft ? <Icon name={iconLeft} /> : null}
-          {mask ?  <InputMask {...this.props} /> : <input type="text" autocomplete={autocomplete} disabled={disabled} {...this.props} />}
-          {iconRight ? <Icon name={iconRight} /> : null}
+          {iconleft ? <Icon name={iconleft} /> : null}
+          {mask ?  <InputMask {...this.props} /> : <input type="text" autoComplete={autoComplete} disabled={disabled} {...this.props} />}
+          {iconright ? <Icon name={iconright} /> : null}
           {spinner ? <span className="fa a-spinner a-spinner--sm" /> : null}
         </div>
 
