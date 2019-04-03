@@ -62,7 +62,7 @@ class Autocomplete extends Component<Props> {
 
   componentWillReceiveProps(nextProps) {
     const { searchVal } = this.state;
-    // This is necessarry since it takes around 1/10th of a second before the props have propegated.
+    // This is necessarry since it takes around 1/10th of a second before the props have propagated.
     setTimeout(() => this.search(searchVal), 100);
   }
 
@@ -185,7 +185,7 @@ class Autocomplete extends Component<Props> {
                 onClick={this.toggleOpen}
                 onKeyDown={this.handleKeyPress}
                 autoComplete="off"
-                spinner={loading}
+                loading={!!loading}
               />
             }
             onStateChange={this.handleFlyoutState}

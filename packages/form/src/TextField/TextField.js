@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { omit } from 'lodash-es';
 import classNames from 'classnames';
 import InputLabel from '../InputLabel';
 import Icon from '../../../icon';
@@ -30,7 +31,7 @@ type Props = {
   autoComplete?: string,
   iconright?: string,
   iconleft?: string,
-  spinner?: boolean,
+  loading?: boolean,
 };
 
 class TextField extends Component<Props> {
@@ -53,13 +54,13 @@ class TextField extends Component<Props> {
       disabled,
       iconright,
       iconleft,
-      spinner
+      loading
     } = this.props;
 
     const inputClass = classNames(
       'a-input',
       {
-        'has-icon-right': iconright || spinner,
+        'has-icon-right': iconright || loading,
         'has-icon-left': iconleft,
         'is-required': !!required,
         [`${stateClasses[state]}`]: !!state,
@@ -71,9 +72,9 @@ class TextField extends Component<Props> {
         {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
         <div className="a-input__wrapper">
           {iconleft ? <Icon name={iconleft} /> : null}
-          {mask ?  <InputMask {...this.props} /> : <input type="text" autoComplete={autoComplete} disabled={disabled} {...this.props} />}
+          {mask ?  <InputMask {...this.props} /> : <input type="text" autoComplete={autoComplete} disabled={disabled} {...omit(this.props, ['loading'])} />}
           {iconright ? <Icon name={iconright} /> : null}
-          {spinner ? <span className="fa a-spinner a-spinner--sm" /> : null}
+          {loading ? <span className="fa a-spinner a-spinner--sm" /> : null}
         </div>
 
         <small>{description}</small>

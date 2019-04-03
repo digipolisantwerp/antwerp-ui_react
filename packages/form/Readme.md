@@ -66,7 +66,7 @@ const TextField = require('./src').TextField;
     required={true}
     placeholder={"naam"}
     onChange={(value) => console.log('textfield value is:', value)}
-    spinner="true" />
+    loading={true} />
 ```
 
 The text field can be disabled using the `disabled` prop
