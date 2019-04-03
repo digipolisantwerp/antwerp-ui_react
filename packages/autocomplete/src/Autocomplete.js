@@ -28,7 +28,6 @@ class Autocomplete extends Component<Props> {
       cursor: 0,
       searchVal: ''
     };
-    this.data = this.props.items;
   }
 
   static defaultProps = {
@@ -41,7 +40,7 @@ class Autocomplete extends Component<Props> {
   componentDidMount() {
     const { defaultValue, items } = this.props;
     this.setState({
-      results: this.data
+      results: items
     });
 
     if (!defaultValue) {
@@ -60,9 +59,10 @@ class Autocomplete extends Component<Props> {
     this.selectOption(foundItems[0].label);
   }
 
-  componentWillReceiveProps(props) {
+  componentWillReceiveProps(nextProps) {
     const { searchVal } = this.state;
-    this.search(searchVal);
+    // This is necessarry since it takes around 1/10th of a second before the props have propegated.
+    setTimeout(() => this.search(searchVal), 100);
   }
 
   handleChange = ( e ) => {
@@ -87,17 +87,19 @@ class Autocomplete extends Component<Props> {
   }
 
   search = (val) => {
-    console.log('[AC]', 'search with val', val);
-    if (val) {
-      var items = this.data;
-      console.log('[AC]', 'items', items);
-      let matches = items.filter(item => item.label.toLowerCase().includes(val.toLowerCase()));
-      console.log('[AC]', 'matches', matches);
-      this.setState({
-        results: matches,
+    const { items } = this.props;
+    if (!val) {
+      return this.setState({
+        results: items,
         cursor: 0
       });
     }
+
+    let matches = items.filter(item => item.label.toLowerCase().includes(val.toLowerCase()));
+    this.setState({
+      results: matches,
+      cursor: 0
+    });
   }
 
   handleClick = ( e ) => {
@@ -167,8 +169,6 @@ class Autocomplete extends Component<Props> {
   render() {
     const { items, noResults } = this.props;
     const { results, open } = this.state;
-
-    console.log('[AC]', 'render', results);
 
     return (
       items && (
