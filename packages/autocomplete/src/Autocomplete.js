@@ -87,9 +87,12 @@ class Autocomplete extends Component<Props> {
   }
 
   search = (val) => {
+    console.log('[AC]', 'search with val', val);
     if (val) {
       var items = this.data;
+      console.log('[AC]', 'items', items);
       let matches = items.filter(item => item.label.toLowerCase().includes(val.toLowerCase()));
+      console.log('[AC]', 'matches', matches);
       this.setState({
         results: matches,
         cursor: 0
@@ -165,6 +168,8 @@ class Autocomplete extends Component<Props> {
   render() {
     const { items, noResults } = this.props;
     const { results, open } = this.state;
+
+    console.log('[AC]', 'render', results);
 
     return (
       items && (
