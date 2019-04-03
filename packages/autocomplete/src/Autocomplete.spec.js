@@ -50,13 +50,4 @@ window.HTMLElement.prototype.scrollIntoView = function() {};
     expect(autocompleteWrapper.state('open')).toBe(false)
     expect(autocompleteWrapper.state('inputValue')).toBe("Brussel")
   })
-
-  test('Autocomplete opens when clicking input field', () => {
-    const autocompleteWrapper = mount(<Autocomplete items={data} label="Testlabel" />)
-    const autocompleteInputWrapper = autocompleteWrapper.find('input')
-
-    autocompleteInputWrapper.simulate('click')
-    expect(autocompleteWrapper.state('open')).toBe(true)
-  })
-
  });
