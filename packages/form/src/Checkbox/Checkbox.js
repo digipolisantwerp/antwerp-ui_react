@@ -10,6 +10,7 @@ type Props = {
   value?: string,
   description?: string,
   required?: boolean,
+	disabled?: boolean,
   placeholder?: string,
   onChange?: (e: Object) => void,
 };
@@ -35,6 +36,7 @@ class Checkbox extends Component<Props> {
       checked = false,
       description,
       required,
+      disabled,
       placeholder,
       onChange,
     } = this.props;
@@ -49,7 +51,7 @@ class Checkbox extends Component<Props> {
 
       <div className={inputClass}>
         <div className="a-input__checkbox">
-          <input type="checkbox" id={id} name={name} onChange={this.handleChange} defaultChecked={checked}/>
+          <input type="checkbox" id={id} name={name} onChange={this.handleChange} defaultChecked={checked} disabled={disabled} />
           <InputLabel htmlFor={id}>{label}{requiredLabel}</InputLabel>
         </div>
       </div>
