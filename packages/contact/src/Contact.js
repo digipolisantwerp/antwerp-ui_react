@@ -15,7 +15,7 @@ const Contact = (props: Props) => {
       {avatar}
       <div className="m-contact__info">
         <p className="u-text-bold">{name}</p>
-        {info && <p class="small">{info}</p>}
+        {info && <p className="small">{info}</p>}
       </div>
     </div>
   )
