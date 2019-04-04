@@ -5,6 +5,8 @@ import ReactDOM from 'react-dom';
 import Flyout from '../../flyout/src/Flyout';
 import TextField from '../../form/src/TextField';
 
+type InputStates = "success" | "warning" | "error";
+
 type Props = {
   items?: array,
   children?: any,
@@ -16,6 +18,7 @@ type Props = {
   onChange?: Function,
   loading?: boolean,
   disabled?: boolean,
+  state?: InputStates
 };
 
 class Autocomplete extends Component<Props> {
@@ -169,7 +172,7 @@ class Autocomplete extends Component<Props> {
   }
 
   render() {
-    const { items, noResults, loading, disabled } = this.props;
+    const { items, noResults, loading, disabled, state } = this.props;
     const { results, open } = this.state;
 
     return (
@@ -188,6 +191,7 @@ class Autocomplete extends Component<Props> {
                 autoComplete="off"
                 loading={!!loading}
                 disabled={disabled}
+                state={state}
               />
             }
             onStateChange={this.handleFlyoutState}
