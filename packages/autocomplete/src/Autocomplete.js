@@ -15,6 +15,7 @@ type Props = {
   onSelection?: Function,
   onChange?: Function,
   loading?: boolean,
+  disabled?: boolean,
 };
 
 class Autocomplete extends Component<Props> {
@@ -168,7 +169,7 @@ class Autocomplete extends Component<Props> {
   }
 
   render() {
-    const { items, noResults, loading } = this.props;
+    const { items, noResults, loading, disabled } = this.props;
     const { results, open } = this.state;
 
     return (
@@ -186,6 +187,7 @@ class Autocomplete extends Component<Props> {
                 onKeyDown={this.handleKeyPress}
                 autoComplete="off"
                 loading={!!loading}
+                disabled={disabled}
               />
             }
             onStateChange={this.handleFlyoutState}
