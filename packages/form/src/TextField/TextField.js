@@ -53,9 +53,10 @@ class TextField extends Component<Props> {
       autoComplete,
       disabled,
       iconright,
-      iconleft,
-      loading
+      iconleft
     } = this.props;
+
+    const { loading, ...extraProps } = this.props;
 
     const inputClass = classNames(
       'a-input',
@@ -72,7 +73,7 @@ class TextField extends Component<Props> {
         {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
         <div className="a-input__wrapper">
           {iconleft ? <Icon name={iconleft} /> : null}
-          {mask ?  <InputMask {...this.props} /> : <input type="text" autoComplete={autoComplete} disabled={disabled} {...omit(this.props, ['loading'])} />}
+          {mask ?  <InputMask {...this.props} /> : <input type="text" autoComplete={autoComplete} disabled={disabled} {...extraProps} />}
           {iconright ? <Icon name={iconright} /> : null}
           {loading ? <span className="fa a-spinner a-spinner--sm" /> : null}
         </div>
