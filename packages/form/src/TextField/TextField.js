@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { omit } from 'lodash-es';
 import classNames from 'classnames';
 import InputLabel from '../InputLabel';
 import Icon from '../../../icon';
