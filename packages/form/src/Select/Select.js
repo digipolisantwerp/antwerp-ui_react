@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import Option from './Option';
 import InputLabel from '../InputLabel';
 import Icon from '../../../icon/src/Icon';
+import Spinner from '../../../spinner/src/Spinner';
 
 type SelectOption = {
   label: string,
@@ -85,7 +86,7 @@ class Select extends Component<Props> {
               </Option>
             ))}
           </select>
-          {loading ? <Icon name="fa a-spinner a-spinner--sm" span /> : <Icon name="angle-down" span />}
+          {loading ? <Spinner size="small" className="fa" /> : <Icon name="angle-down" span />}
         </div>
       </div>
     )
