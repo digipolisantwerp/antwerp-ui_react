@@ -193,17 +193,32 @@ const optionsDistrict = [
         label: '2040 Brasschaat',
     }
 ];
-<Select label="District"
-    id={"select-id"}
-    label={"Districten"}
-    name={"select-name"}
-    className={"select-class"}
-    required={true}
-    inline={false}
-    placeholder={"----Select-----"}
-    options={optionsDistrict}
-    onChange={(value) => console.log('select value is:', value)}
-/>
+
+<div>
+    <Select label="District"
+        id={"select-id"}
+        label={"Districten"}
+        name={"select-name"}
+        className={"select-class"}
+        required={true}
+        inline={false}
+        placeholder={"----Select-----"}
+        options={optionsDistrict}
+        onChange={(value) => console.log('select value is:', value)}
+    />
+    <Select label="District"
+        id={"select-id"}
+        label={"Districten loading"}
+        name={"select-name"}
+        className={"select-class u-margin-top"}
+        required={true}
+        inline={false}
+        placeholder={"----Select-----"}
+        options={optionsDistrict}
+        loading={true}
+        onChange={(value) => console.log('select value is:', value)}
+    />
+</div>
 ```
 
 

@@ -18,6 +18,7 @@ type Props = {
   className?: string,
   style?: object,
   required?: boolean,
+  loading?: boolean,
   placeholder?: string,
   options?: Array<SelectOption>,
   onChange?: (e: object) => void,
@@ -50,6 +51,7 @@ class Select extends Component<Props> {
       options,
       onChange,
       value,
+      loading,
     } = this.props;
     const selectClass = classNames(
       'a-input',
@@ -83,7 +85,7 @@ class Select extends Component<Props> {
               </Option>
             ))}
           </select>
-          <Icon name="angle-down" span />
+          {loading ? <Icon name="fa a-spinner a-spinner--sm" span /> : <Icon name="angle-down" span />}
         </div>
       </div>
     )
