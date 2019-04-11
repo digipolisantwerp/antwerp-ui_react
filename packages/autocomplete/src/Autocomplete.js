@@ -177,8 +177,6 @@ class Autocomplete extends Component<Props> {
     const { items, noResults, loading, disabled } = this.props;
     const { results, open } = this.state;
 
-    console.log(open);
-
     return (
       items && (
         <div>
