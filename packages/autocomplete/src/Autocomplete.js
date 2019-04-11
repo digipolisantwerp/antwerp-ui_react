@@ -150,6 +150,7 @@ class Autocomplete extends Component<Props> {
   }
 
   selectOption = (val) => {
+    this.closeTrigger();
     this.setState({
       inputValue: val,
       open: false
@@ -168,9 +169,15 @@ class Autocomplete extends Component<Props> {
     );
   }
 
+  handleCloseTrigger = (closeTrigger) => {
+    this.closeTrigger = closeTrigger;
+  }
+
   render() {
     const { items, noResults, loading, disabled } = this.props;
     const { results, open } = this.state;
+
+    console.log(open);
 
     return (
       items && (
@@ -190,6 +197,7 @@ class Autocomplete extends Component<Props> {
                 disabled={disabled}
               />
             }
+            triggerClose={this.handleCloseTrigger}
             onStateChange={this.handleFlyoutState}
             open={open}
             >
