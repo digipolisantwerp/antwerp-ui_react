@@ -15,6 +15,7 @@ const typeClasses = {
   success: 'a-button--success',
   warning: 'a-button--warning',
   danger: 'a-button--danger',
+  transparent: 'a-button--transparent'
 };
 
 type ButtonSizes = "tiny" | "small" | "large";
@@ -69,7 +70,6 @@ class Button extends Component<Props> {
         'has-icon': !!icon,
         'has-icon-left': !!iconLeft,
         'has-icon-right': !!iconRight,
-        'a-button-transparent': !!transparent,
         'a-button-negative': !!negative,
         'a-button-outline': !!outline,
         'a-button--block': block
