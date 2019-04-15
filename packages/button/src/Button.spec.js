@@ -93,23 +93,6 @@ describe('Button', () => {
         });
     });
 
-    describe('.transparent', () => {
-        it('should add the transparent class if transparent is true', () => {
-            const button = mount(<Button transparent={true} />);
-            expect(button.getDOMNode().className).toContain('a-button-transparent');
-        });
-
-        it('should not add the transparent class when transparent is false', () => {
-            const button = mount(<Button transparent={false} />);
-            expect(button.getDOMNode().className).not.toContain('a-button-transparent');
-        });
-
-        it('should not add the transparent class when transparent is undefined', () => {
-            const button = mount(<Button />);
-            expect(button.getDOMNode().className).not.toContain('a-button-transparent');
-        });
-    });
-
     describe('.size', () => {
         it('should add the correct button size - tiny', () => {
             const button = mount(<Button size="tiny" />);
@@ -146,6 +129,11 @@ describe('Button', () => {
         it('should add the correct button type - danger', () => {
             const button = mount(<Button type="danger" />);
             expect(button.getDOMNode().className).toContain('a-button--danger');
+        });
+
+        it('should add the correct button type - danger', () => {
+            const button = mount(<Button type="transparent" />);
+            expect(button.getDOMNode().className).toContain('a-button--transparent');
         });
     });
 
