@@ -108,7 +108,8 @@ class UserMenu extends Component<Props> {
   }
 
   renderLoggedOut() {
-    return (<Button iconLeft="user">Aanmelden</Button>);
+    const { loginUrl } = this.props;
+    return (<Button onClick={() => window.location.href=loginUrl} iconLeft="user">Aanmelden</Button>);
   }
 
   render() {

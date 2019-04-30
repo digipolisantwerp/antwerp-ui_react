@@ -19,6 +19,11 @@ class Checkbox extends Component<Props> {
     checked: false
   }
 
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.checked !== this.state.checked){
+      this.setState({checked: nextProps.checked});
+    }
+  }
   handleChange = (e) => {
     e.target.value = this.state.checked
     if (this.props.onChange) {
@@ -49,7 +54,7 @@ class Checkbox extends Component<Props> {
 
       <div className={inputClass}>
         <div className="a-input__checkbox">
-          <input type="checkbox" id={id} name={name} onChange={this.handleChange} defaultChecked={checked}/>
+          <input type="checkbox" id={id} name={name} onChange={this.handleChange} checked={checked}/>
           <InputLabel htmlFor={id}>{label}{requiredLabel}</InputLabel>
         </div>
       </div>
