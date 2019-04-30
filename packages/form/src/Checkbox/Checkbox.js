@@ -20,6 +20,11 @@ class Checkbox extends Component<Props> {
     checked: false
   }
 
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.checked !== this.state.checked){
+      this.setState({checked: nextProps.checked});
+    }
+  }
   handleChange = (e) => {
     e.target.value = this.state.checked
     if (this.props.onChange) {
@@ -36,7 +41,7 @@ class Checkbox extends Component<Props> {
       checked = false,
       description,
       required,
-      disabled,
+      disabled = false,
       placeholder,
       onChange,
     } = this.props;
@@ -51,7 +56,7 @@ class Checkbox extends Component<Props> {
 
       <div className={inputClass}>
         <div className="a-input__checkbox">
-          <input type="checkbox" id={id} name={name} onChange={this.handleChange} defaultChecked={checked} disabled={disabled} />
+          <input type="checkbox" id={id} name={name} onChange={this.handleChange} checked={checked} disabled={disabled}/>
           <InputLabel htmlFor={id}>{label}{requiredLabel}</InputLabel>
         </div>
       </div>

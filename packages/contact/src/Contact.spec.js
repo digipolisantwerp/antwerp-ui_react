@@ -21,4 +21,9 @@ describe('Contact', () => {
         expect(contact.getDOMNode().style).toHaveProperty('color');
     });
 
+    it('should show info', () => {
+        const contact = mount(<Contact name="Frank" info={(<span className="contact-role">Developer</span>)} />);
+        expect(contact.find('.contact-role').text()).toBe('Developer');
+    });
+
 });

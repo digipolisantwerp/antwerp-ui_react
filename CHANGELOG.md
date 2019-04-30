@@ -5,9 +5,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
+- `ButtonGroup` Added option for vertical button group (depends on core branding 3.2)
 - `Autocomplete` Fixed items not updating when searching, added defaultValue option, added empty state, fixed open state issue
 - `Flyout` Added an option to handle state change
 - `Datepicker` Fixed an issue where the datepicker spams console when it is not loaded correctly
+- `TextField` Add the option to disable autocomplete
+- `TextField` Add disabled option
+- `Autocomplete` Remove console log
+- `Autocomplete` Take propegation delay into account when triggering search from componentWillReceiveProps
+- `TextField` fix console errors
+- `TextField` add support for left and right icon
+- `Autocomplete` add support for loading state
+- `Autocomplete` add support for disabled state
 
 ### Added
 - `Form/Select` Added support for defaultValue on select

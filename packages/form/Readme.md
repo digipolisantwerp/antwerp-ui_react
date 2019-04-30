@@ -12,6 +12,78 @@ const TextField = require('./src').TextField;
     onChange={(value) => console.log('textfield value is:', value)} />
 ```
 
+The prop `autoComplete` can be used to disable the prefill that some browsers show
+```
+const TextField = require('./src').TextField;
+
+<TextField
+    label={"Naam"}
+    id={"textfield-id"}
+    name={"textfield-name"}
+    className={"textfield-class"}
+    required={true}
+    placeholder={"naam"}
+    onChange={(value) => console.log('textfield value is:', value)}
+    autoComplete="off" />
+```
+
+Use `iconright` or `iconleft` to add an icon respectively right or left
+```
+const TextField = require('./src').TextField;
+
+<div>
+<TextField
+    label={"Naam"}
+    id={"textfield-id"}
+    name={"textfield-name"}
+    className={"textfield-class"}
+    required={true}
+    placeholder={"naam"}
+    onChange={(value) => console.log('textfield value is:', value)}
+    iconright="eye" />
+    
+<TextField
+    label={"Naam"}
+    id={"textfield-id"}
+    name={"textfield-name"}
+    className={"textfield-class"}
+    required={true}
+    placeholder={"naam"}
+    onChange={(value) => console.log('textfield value is:', value)}
+    iconleft="user" />
+</div>
+```
+
+A spinner can be added using the `spinner` prop
+```
+const TextField = require('./src').TextField;
+
+<TextField
+    label={"Naam"}
+    id={"textfield-id"}
+    name={"textfield-name"}
+    className={"textfield-class"}
+    required={true}
+    placeholder={"naam"}
+    onChange={(value) => console.log('textfield value is:', value)}
+    loading={true} />
+```
+
+The text field can be disabled using the `disabled` prop
+```
+const TextField = require('./src').TextField;
+
+<TextField
+    label={"Naam"}
+    id={"textfield-id"}
+    name={"textfield-name"}
+    className={"textfield-class"}
+    required={true}
+    placeholder={"naam"}
+    onChange={(value) => console.log('textfield value is:', value)}
+    disabled />
+```
+
 ### Textarea
 ```
 const Textarea = require('./src').Textarea;
@@ -39,6 +111,7 @@ const Textarea = require('./src').Textarea;
     disabled
     onChange={(value) => console.log('textarea value is:', value)} />
 ```
+
 
 ### Checkbox
 ```
