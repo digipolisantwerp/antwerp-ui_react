@@ -13,18 +13,7 @@ type Props = {
 };
 
 class Checkbox extends Component<Props> {
-  state = {
-    checked: this.props.checked || false
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.checked !== prevProps.checked) {
-      this.setState({checked: this.props.checked});
-    }
-  }
-
   handleChange = (e) => {
-    e.target.value = this.state.checked;
     if (this.props.onChange) {
       this.props.onChange(e);
     }
@@ -35,13 +24,10 @@ class Checkbox extends Component<Props> {
       id,
       label,
       name,
+      checked = false,
       required,
       disabled = false,
     } = this.props;
-
-     const {
-       checked
-     } = this.state;
 
     const inputClass = classNames(
       'a-input',
