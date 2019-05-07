@@ -7,26 +7,24 @@ type Props = {
   label: string,
   name?: string,
   checked?: boolean,
-  value?: string,
-  description?: string,
   required?: boolean,
-	disabled?: boolean,
-  placeholder?: string,
+  disabled?: boolean,
   onChange?: (e: Object) => void,
 };
 
 class Checkbox extends Component<Props> {
   state = {
-    checked: false
+    checked: this.props.checked || false
   }
 
-  componentWillReceiveProps(nextProps) {
-    if(nextProps.checked !== this.state.checked){
-      this.setState({checked: nextProps.checked});
+  componentDidUpdate(prevProps) {
+    if (this.props.checked !== prevProps.checked) {
+      this.setState({checked: this.props.checked});
     }
   }
+
   handleChange = (e) => {
-    e.target.value = this.state.checked
+    e.target.value = this.state.checked;
     if (this.props.onChange) {
       this.props.onChange(e);
     }
@@ -37,14 +35,13 @@ class Checkbox extends Component<Props> {
       id,
       label,
       name,
-      value,
-      checked = false,
-      description,
       required,
       disabled = false,
-      placeholder,
-      onChange,
     } = this.props;
+
+     const {
+       checked
+     } = this.state;
 
     const inputClass = classNames(
       'a-input',
@@ -53,7 +50,6 @@ class Checkbox extends Component<Props> {
     const requiredLabel = !!required ? <span className="u-text-danger"> *</span> : null;
 
     return (
-
       <div className={inputClass}>
         <div className="a-input__checkbox">
           <input type="checkbox" id={id} name={name} onChange={this.handleChange} checked={checked} disabled={disabled}/>
