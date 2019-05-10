@@ -27,20 +27,20 @@ class Nav extends Component {
 		return (
 			<React.Fragment>
 				<Button
-					type="button"
+					htmlType="button"
 					onClick={onClickPrevious}
 					className={"a-button has-icon"}
 					icon={"angle-left"}/>
 
 				<Button
-					type="button"
+					htmlType="button"
 					onClick={onClickViewType}
 					className={"m-datepicker__title a-button"}>
 					{this.renderNav()}
 				</Button>
 
 				<Button
-					type="button"
+					htmlType="button"
 					onClick={onClickNext}
 					className={"a-button has-icon"}
 					icon={"angle-right"}/>
