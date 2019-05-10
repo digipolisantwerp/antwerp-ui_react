@@ -217,6 +217,7 @@ const Datepicker = require('./src').Datepicker;
     id={"datepicker-id"}
     name={"datepicker-name"}
     label={"Geboortedatum"}
+    required={true}
     onChange={(date) => console.log('date is ' + date)}
     format={"DD/MM/YYYY"}
     open={false}
