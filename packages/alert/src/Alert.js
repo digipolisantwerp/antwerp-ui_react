@@ -55,7 +55,7 @@ class Alert extends Component<Props> {
     );
 
     const closeButton = closable ? (
-      <Button type={type} transparent icon="close" onClick={this.handleClose} className="m-alert__close">
+      <Button type={type} icon="close" onClick={this.handleClose} className="m-alert__close a-button-transparent">
       </Button>
     ) : null;
 
@@ -69,7 +69,7 @@ class Alert extends Component<Props> {
           </div>
           : <div />}
       </div>
-     
+
     )
   }
 }
