@@ -68,7 +68,11 @@ class Flyout extends Component<Props> {
   closeFlyout = () => {
     const { onStateChange } = this.props;
 
-    document.addEventListener('click', this.handleOutsideClick, false);
+    if(!this.state.isOpen){
+      document.addEventListener('click', this.handleOutsideClick, false);
+    } else {
+      document.removeEventListener('click', this.handleOutsideClick, false);
+    }
     this.setState({ isOpen: false });
     onStateChange(false);
   }
