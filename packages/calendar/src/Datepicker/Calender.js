@@ -30,8 +30,10 @@ class Calendar extends Component {
 		const {viewType, displayedPeriod} = this.state;
 		const period = viewType === 'days' ? 'months' : 'years';
 
+		const diffTime = (viewType === 'years')?delta*12:delta;
+
 		this.setState({
-			displayedPeriod: displayedPeriod.clone().add(delta, period)
+			displayedPeriod: displayedPeriod.clone().add(diffTime, period)
 		});
 	}
 
