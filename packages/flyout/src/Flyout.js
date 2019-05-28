@@ -44,7 +44,17 @@ class Flyout extends Component<Props> {
   }
 
   componentDidMount() {
+    const { isOpen } = this.state;
+
+    if (isOpen) {
+      document.addEventListener('click', this.handleOutsideClick, false);
+    }
+
     this.props.triggerClose(this.closeFlyout);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.handleOutsideClick, false);
   }
 
   componentDidUpdate(prevProps) {
