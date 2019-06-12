@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - `TextField` add support for left and right icon
 - `Autocomplete` add support for loading state
 - `Autocomplete` add support for disabled state
+- `Select` add support for loading state
 
 ### Added
 - `Form/Select` Added support for defaultValue on select
