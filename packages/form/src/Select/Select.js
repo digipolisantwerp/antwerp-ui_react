@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import Option from './Option';
 import InputLabel from '../InputLabel';
 import Icon from '../../../icon/src/Icon';
+import Spinner from '../../../spinner/src/Spinner';
 
 type SelectOption = {
   label: string,
@@ -18,6 +19,7 @@ type Props = {
   className?: string,
   style?: object,
   required?: boolean,
+  loading?: boolean,
   placeholder?: string,
   options?: Array<SelectOption>,
   onChange?: (e: object) => void,
@@ -50,6 +52,7 @@ class Select extends Component<Props> {
       options,
       onChange,
       value,
+      loading,
     } = this.props;
     const selectClass = classNames(
       'a-input',
@@ -83,7 +86,7 @@ class Select extends Component<Props> {
               </Option>
             ))}
           </select>
-          <Icon name="angle-down" span />
+          {loading ? <Spinner size="small" className="fa" /> : <Icon name="angle-down" span />}
         </div>
       </div>
     )

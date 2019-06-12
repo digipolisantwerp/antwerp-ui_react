@@ -42,7 +42,7 @@ class Calendar extends Component<Prop> {
 	};
 
 	static getDerivedStateFromProps(nextProps, prevState) {
-		if (nextProps.activeDate !== '') {
+		if (nextProps.activeDate) {
 			return {
 				activeDate: Moment(nextProps.activeDate, nextProps.format)
 			};

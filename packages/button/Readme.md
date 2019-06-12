@@ -49,9 +49,17 @@
 ### Button Group
 ```
 const ButtonGroup = require('.').ButtonGroup;
+<div>
 <ButtonGroup>
   <Button type="primary" size="tiny">left</Button>
   <Button type="primary" size="tiny">middle</Button>
   <Button type="primary" size="tiny">right</Button>
 </ButtonGroup>
+<br />
+<ButtonGroup direction="vertical">
+  <Button type="primary" size="tiny">left</Button>
+  <Button type="primary" size="tiny">middle</Button>
+  <Button type="primary" size="tiny">right</Button>
+</ButtonGroup>
+</div>
 ```

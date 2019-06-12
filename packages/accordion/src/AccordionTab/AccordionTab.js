@@ -19,9 +19,14 @@ class AccordionTab extends React.Component<Props> {
     };
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.open !== prevProps.open) {
+      this.setState({isOpen: this.props.open});
+    }
+  }
+
   toggle() {
     const { isOpen } = this.state;
-
     this.setState({
       isOpen: !isOpen,
     });
