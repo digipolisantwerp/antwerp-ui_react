@@ -13,6 +13,8 @@ type
 	id: string,
 	/** The name for the text field. */
 	name: string,
+	/** If the field is required. */
+	required: string,
 	/** The date format used to render the date. */
 	format?: string,
 	/** The selected or predefined date. */
@@ -46,6 +48,7 @@ class Datepicker extends Component<Props> {
 	}
 
 	static defaultProps = {
+		required: false,
 		format: 'DD/MM/YYYY',
 		autoClose: true,
 		noWeekends: false
@@ -93,6 +96,7 @@ class Datepicker extends Component<Props> {
 		const {
 			label,
 			id,
+			required,
 			name,
 			format,
 			selectedDates,
@@ -106,7 +110,15 @@ class Datepicker extends Component<Props> {
 			open,
 		} = this.state;
 
-		const classNamesDatepicker = classNames(
+		const datepickerWrapperClass = classNames(
+			'a-input',
+			'has-icon-right',
+			{
+				'is-required': !!required,
+			}
+		);
+
+		const datepickerClass = classNames(
 			'm-datepicker',
 			'm-datepicker--fixed',
 			{
@@ -114,19 +126,20 @@ class Datepicker extends Component<Props> {
 			}
 		);
 
-		return <div className="a-input has-icon-right" ref={node => this.datepicker = node}>
+		return <div className={datepickerWrapperClass} ref={node => this.datepicker = node}>
 			{label && <InputLabel htmlFor={id}>{label}</InputLabel>}
 			<div className="a-input__wrapper">
 				<TextField
 					name={name}
 					id={id}
+					required={required}
 					value={activeDate ? Moment(activeDate).format(format) : ''}
 					onClick={this.toggleCalendar.bind(this)}
 					onChange={this.changeDate.bind(this)}
 					readOnly/>
 				<span onClick={this.toggleCalendar.bind(this)} className="fa fa-calendar is-clickable"></span>
 				{ open &&
-				<div className={classNamesDatepicker} aria-hidden="false">
+				<div className={datepickerClass} aria-hidden="false">
 					<div className="m-datepicker is-open">
 						<Calendar
 							format={format}
