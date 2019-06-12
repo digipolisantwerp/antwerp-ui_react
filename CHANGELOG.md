@@ -17,6 +17,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - `TextField` add support for left and right icon
 - `Autocomplete` add support for loading state
 - `Autocomplete` add support for disabled state
+- `Flyout` add support for outside close actions
+- `Flyout` handle outside click state better
+- `Autocomplete` Add support for handling autocomplete close
 - `Autocomplete` add support for error states
 - `Select` add support for loading state-
 

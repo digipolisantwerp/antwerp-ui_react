@@ -22,6 +22,7 @@ type Props = {
   className?: string,
   open?: boolean,
   onStateChange?: Function,
+  triggerClose?: Function,
   children?: any,
 };
 
@@ -38,7 +39,22 @@ class Flyout extends Component<Props> {
     hasPadding: false,
     open: false,
     onStateChange: () => {},
+    triggerClose: () => {},
     scrollable: false,
+  }
+
+  componentDidMount() {
+    const { isOpen } = this.state;
+
+    if (isOpen) {
+      document.addEventListener('click', this.handleOutsideClick, false);
+    }
+
+    this.props.triggerClose(this.closeFlyout);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.handleOutsideClick, false);
   }
 
   componentDidUpdate(prevProps) {
@@ -59,10 +75,22 @@ class Flyout extends Component<Props> {
     onStateChange(this.state.isOpen);
   }
 
+  closeFlyout = () => {
+    const { onStateChange } = this.props;
+
+    if(!this.state.isOpen){
+      document.addEventListener('click', this.handleOutsideClick, false);
+    } else {
+      document.removeEventListener('click', this.handleOutsideClick, false);
+    }
+    this.setState({ isOpen: false });
+    onStateChange(false);
+  }
+
   handleOutsideClick = (e) => {
     const area = ReactDOM.findDOMNode(this.flyoutRef.current);
     if (area && !area.contains(e.target)) {
-      this.toggleIsOpen();
+      this.closeFlyout();
     }
   }
 

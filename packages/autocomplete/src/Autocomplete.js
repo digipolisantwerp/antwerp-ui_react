@@ -153,6 +153,7 @@ class Autocomplete extends Component<Props> {
   }
 
   selectOption = (val) => {
+    this.closeTrigger();
     this.setState({
       inputValue: val,
       open: false
@@ -169,6 +170,10 @@ class Autocomplete extends Component<Props> {
         {item.label}
       </li>
     );
+  }
+
+  handleCloseTrigger = (closeTrigger) => {
+    this.closeTrigger = closeTrigger;
   }
 
   render() {
@@ -194,6 +199,7 @@ class Autocomplete extends Component<Props> {
                 state={state}
               />
             }
+            triggerClose={this.handleCloseTrigger}
             onStateChange={this.handleFlyoutState}
             open={open}
             >
