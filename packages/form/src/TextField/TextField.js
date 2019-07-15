@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
+import InputMask from 'react-input-mask';
 import classNames from 'classnames';
 import InputLabel from '../InputLabel';
 import Icon from '../../../icon';
-import Spinner from '../../../spinner';
-import InputMask from 'react-input-mask';
 
 const stateClasses = {
   success: 'has-success',
