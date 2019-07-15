@@ -44,8 +44,6 @@ type
 	minDate: string,
 	/** Validation state of input. */
 	state: InputStates,
-	/** Error message to be shown. */
-	error: string,
 	/** Description to be shown under input. */
 	description: string,
 	/** Every date greater than this date will be disabled. */
@@ -76,7 +74,6 @@ class Datepicker extends Component<Props> {
 		mask: '99/99/9999',
 		format: 'DD/MM/YYYY',
 		autoClose: true,
-		error: '',
 		noWeekends: false,
 		disabled: false,
 	};
