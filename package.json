@@ -19,6 +19,7 @@
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-jest": "^23.4.2",
+    "babel-loader": "~7.1.4",
     "babel-plugin-transform-react-jsx": "~6.24.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-flow": "~6.23.0",
@@ -79,7 +80,6 @@
     ]
   },
   "dependencies": {
-    "babel-loader": "~7.1.4",
     "classnames": "~2.2.6",
     "moment": "~2.22.1",
     "react": "^16.3.1",
