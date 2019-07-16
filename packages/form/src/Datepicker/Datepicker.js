@@ -50,6 +50,8 @@ type
 	maxDate: string,
 	/** Event for when the date changes. */
 	onChange?: (e: object) => void,
+	/** Event for onBlur. */
+	onBlur?: (e: object) => void,
 };
 
 class Datepicker extends Component<Props> {
@@ -160,6 +162,7 @@ class Datepicker extends Component<Props> {
 			minDate,
 			maxDate,
 			noWeekends,
+			onBlur,
 		} = this.props;
 
 		const {
@@ -195,7 +198,8 @@ class Datepicker extends Component<Props> {
 					required={required}
 					value={input}
 					disabled={disabled}
-					onChange={(e) => this.changeDate(e.target.value)}/>
+					onChange={(e) => this.changeDate(e.target.value)}
+					onBlur={onBlur} />
 				<span onClick={this.toggleCalendar.bind(this)} className="fa fa-calendar is-clickable"></span>
 				{open &&
 					<div className={datepickerClass} aria-hidden="false">
