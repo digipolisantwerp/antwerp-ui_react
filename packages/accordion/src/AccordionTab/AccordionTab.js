@@ -14,7 +14,6 @@ class AccordionTab extends React.Component<Props> {
 
   constructor(props) {
     super(props);
-    this.dataQa = props.dataQa;
     this.state = {
       isOpen: props.open,
     };
@@ -34,14 +33,14 @@ class AccordionTab extends React.Component<Props> {
   }
 
   render() {
-    const { children } = this.props;
+    const { children, "data-qa": dataQa } = this.props;
     const { isOpen } = this.state;
 
     return (
       <div
         role="button"
         tabIndex="0"
-        data-qa={this.dataQa}
+        data-qa={dataQa}
         onKeyPress={() => this.toggle()}
         onClick={() => this.toggle()}
         className={classNames('m-accordion__tab', { 'is-open': isOpen })}
