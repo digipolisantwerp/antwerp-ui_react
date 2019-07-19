@@ -20,7 +20,7 @@ const UserNavigation = (props: Props) => {
 			<li><a href={notificationsUrl(env)} title="Notificaties">Notificaties</a></li>
 			<li><a href={aProfileUrl(env)} title="A-profiel beheren">A-profiel beheren</a></li>
 			<li><a href={favoritesUrl(env)} title="Favorieten">Favorieten</a></li>
-			<li><a href={linkingUrl(env)} title="Koppeling">Koppeling</a></li>
+			<li><a href={linkingUrl(env)} title="Koppelingen">Koppelingen</a></li>
 			<li><a href={eloketUrl(env)} title="Mijn e-loket">Mijn e-loket</a></li>
 
 			{/* Uncomment when shoppingcart V2 is live */}
