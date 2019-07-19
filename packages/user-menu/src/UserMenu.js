@@ -6,7 +6,7 @@ import Flyout from '../../flyout/src/Flyout';
 import UserNavigation from './UserNavigation';
 
 type Props = {
-   a?: any,
+  children?: any,
   /** Login URL */
   loginUrl?: string,
   /** Is the user logged in? */
