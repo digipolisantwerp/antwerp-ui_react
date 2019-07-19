@@ -73,7 +73,7 @@ class Select extends Component<Props> {
       <div className={selectClass} name={name}>
         {label && <InputLabel inline={inline} htmlFor={id}>{label}</InputLabel>}
         <div className={wrapperClass}>
-          <select id={id} name={name} onChange={(e) => this.onChange(e)} value={value} defaultValue={placeholder}>
+          <select id={id} name={name} onChange={(e) => this.onChange(e)} value={value}>
             {placeholder && <option value={placeholder} disabled>{placeholder}</option>}
             {options.map(option => (
               <Option
