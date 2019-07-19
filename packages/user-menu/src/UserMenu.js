@@ -3,9 +3,10 @@ import React, { Component } from 'react';
 import Avatar from '../../avatar/src/Avatar';
 import Button from '../../button/src/Button';
 import Flyout from '../../flyout/src/Flyout';
+import UserNavigation from './UserNavigation';
 
 type Props = {
-  children?: any,
+   a?: any,
   /** Login URL */
   loginUrl?: string,
   /** Is the user logged in? */
@@ -85,6 +86,7 @@ class UserMenu extends Component<Props> {
 
   renderLoggedIn() {
     const { children, flyoutSize, logoutUrl } = this.props;
+
     return (
       <Flyout
         trigger={this.renderLoggedInButton()}
@@ -94,7 +96,7 @@ class UserMenu extends Component<Props> {
         >
         <div>
           {this.renderProfile()}
-          {children}
+          <UserNavigation children={children} />
           <Button
             onClick={() => window.location.href=logoutUrl}
             block
