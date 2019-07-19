@@ -1,4 +1,8 @@
-const notificationsUrl = (env) => {
+import {Environment} from '../../environment';
+
+const env = Environment.getEnvironment();
+
+const notificationsUrl = () => {
 	switch (env.toLowerCase()) {
 		case 'local': return 'https://www.dev.dcs.antwerpen.be/nl/voorkeuren/notificaties';
 		case 'dev': return 'https://www.dev.dcs.antwerpen.be/nl/voorkeuren/notificaties';
@@ -9,7 +13,7 @@ const notificationsUrl = (env) => {
 	}
 }
 
-const aProfileUrl = (env) => {
+const aProfileUrl = () => {
 	switch (env.toLowerCase()) {
 		case 'local': return 'https://www.dev.dcs.antwerpen.be/nl/voorkeuren/profiel';
 		case 'dev': return 'https://www.dev.dcs.antwerpen.be/nl/voorkeuren/profiel';
@@ -20,7 +24,7 @@ const aProfileUrl = (env) => {
 	}
 }
 
-const favoritesUrl = (env) => {
+const favoritesUrl = () => {
 	switch (env.toLowerCase()) {
 		case 'local': return 'https://www.dev.dcs.antwerpen.be/nl/overzicht';
 		case 'dev': return 'https://www.dev.dcs.antwerpen.be/nl/overzicht';
@@ -31,7 +35,7 @@ const favoritesUrl = (env) => {
 	}
 }
 
-const linkingUrl = (env) => {
+const linkingUrl = () => {
 	switch (env.toLowerCase()) {
 		case 'local': return 'https://www.dev.dcs.antwerpen.be/nl/voorkeuren/koppelingen';
 		case 'dev': return 'https://www.dev.dcs.antwerpen.be/nl/voorkeuren/koppelingen';
@@ -43,7 +47,7 @@ const linkingUrl = (env) => {
 }
 
 
-const myPaymentsUrl = (env) => {
+const myPaymentsUrl = () => {
 	switch (env.toLowerCase()) {
 		case 'local': return 'https://winkelmand-o.antwerpen.be/betalingen';
 		case 'dev': return 'https://winkelmand-o.antwerpen.be/betalingen';
@@ -54,7 +58,7 @@ const myPaymentsUrl = (env) => {
 	}
 }
 
-const shoppingCartUrl = (env) => {
+const shoppingCartUrl = () => {
 	switch (env.toLowerCase()) {
 		case 'local': return 'https://winkelmand-o.antwerpen.be/mand';
 		case 'dev': return 'https://winkelmand-o.antwerpen.be/mand';
@@ -65,7 +69,7 @@ const shoppingCartUrl = (env) => {
 	}
 }
 
-const eloketUrl = (env) => {
+const eloketUrl = () => {
 	switch (env.toLowerCase()) {
 		case 'local': return 'https://www.dev.dcs.antwerpen.be/nl/eloket/mijnloket/context/burger/aanvragen';
 		case 'dev': return 'https://www.dev.dcs.antwerpen.be/nl/eloket/mijnloket/context/burger/aanvragen';

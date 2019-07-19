@@ -1,6 +1,5 @@
 import React from 'react';
 
-import {Environment} from '../../environment';
 import {
 	notificationsUrl,
 	aProfileUrl,
@@ -13,15 +12,14 @@ import {
 
 const UserNavigation = (props: Props) => {
 	const {children } = props;
-	const env = Environment.getEnvironment();
 
 	return (
 		<ul className="m-nav-list u-margin-xs">
-			<li><a href={notificationsUrl(env)} title="Notificaties">Notificaties</a></li>
-			<li><a href={aProfileUrl(env)} title="A-profiel beheren">A-profiel beheren</a></li>
-			<li><a href={favoritesUrl(env)} title="Favorieten">Favorieten</a></li>
-			<li><a href={linkingUrl(env)} title="Koppelingen">Koppelingen</a></li>
-			<li><a href={eloketUrl(env)} title="Mijn e-loket">Mijn e-loket</a></li>
+			<li><a href={notificationsUrl()} title="Notificaties">Notificaties</a></li>
+			<li><a href={aProfileUrl()} title="A-profiel beheren">A-profiel beheren</a></li>
+			<li><a href={favoritesUrl()} title="Favorieten">Favorieten</a></li>
+			<li><a href={linkingUrl()} title="Koppelingen">Koppelingen</a></li>
+			<li><a href={eloketUrl()} title="Mijn e-loket">Mijn e-loket</a></li>
 
 			{/* Uncomment when shoppingcart V2 is live */}
 			{/*<li><a href={myPaymentsUrl(env)} title="Mijn betalingen">Mijn betalingen</a></li>
