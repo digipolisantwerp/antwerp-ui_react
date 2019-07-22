@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
 import Moment from 'moment';
-import TextField from '../TextField';
+import classNames from 'classnames';
+
 import InputLabel from '../InputLabel';
 import Calendar from '../../../calendar/src/Calendar';
-import classNames from 'classnames';
+import TextField from '../TextField';
+
+const stateClasses = {
+	success: 'has-success',
+	warning: 'has-warning',
+	error: 'has-error',
+};
+
+type InputStates = "success" | "warning" | "error";
 
 type
 	Props = {
@@ -15,43 +24,60 @@ type
 	name: string,
 	/** If the field is required. */
 	required: string,
+	/** The mask for input. */
+	mask: string,
 	/** The date format used to render the date. */
 	format?: string,
 	/** The selected or predefined date. */
 	activeDate?: string,
-	/** Every date in this prop will be selected and disabled */
+	/** Every date in this prop will be selected and disabled. */
 	selectedDates?: Array,
 	/** Toggle the calender open/closed. */
 	open?: boolean,
-	/** If the calender should open/close after datechange. */
+	/** If the calender should open/close after date change. */
 	autoClose?: boolean,
-	/** enable/disable the days during the weekend */
+	/** If the calender should allow manual input. */
+	disabled?: boolean,
+	/** enable/disable the days during the weekend. */
 	noWeekends?: boolean,
-	/** Every date less than this date will be disabled */
+	/** Every date less than this date will be disabled. */
 	minDate: string,
-	/** Every date greater than this date will be disabled */
+	/** Validation state of input. */
+	state: InputStates,
+	/** Description to be shown under input. */
+	description: string,
+	/** Every date greater than this date will be disabled. */
 	maxDate: string,
 	/** Event for when the date changes. */
 	onChange?: (e: object) => void,
+	/** Event for onBlur. */
+	onBlur?: (e: object) => void,
 };
 
 class Datepicker extends Component<Props> {
-
 	constructor(props) {
 		super(props);
-		const {activeDate, open, format} = this.props;
+		const {open} = this.props;
+
+		Moment.updateLocale('nl', {
+			months : ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December"],
+			monthsShort: ["Jan", "Feb", "Mrt", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"],
+			weekdaysShort: ["Ma", "Di", "Woe", "Do", "Vr", "Za", "Zo"]
+		});
 
 		this.state = {
-			activeDate: activeDate ? Moment(activeDate, format) : '',
+			input: '',
 			open: open || false
 		};
 	}
 
 	static defaultProps = {
 		required: false,
+		mask: '99/99/9999',
 		format: 'DD/MM/YYYY',
 		autoClose: true,
-		noWeekends: false
+		noWeekends: false,
+		disabled: false,
 	};
 
 	componentDidMount() {
@@ -76,36 +102,71 @@ class Datepicker extends Component<Props> {
 		this.setState({ open: false });
 	};
 
-	changeDate(day) {
-		const {onChange, format, autoClose} = this.props;
-		if (onChange) onChange(day);
+	static getDerivedStateFromProps(props, state) {
+		if (props.activeDate) {
+			const momentDate = Moment(props.activeDate, props.format, true);
+			if (momentDate.isValid()) {
+				return {
+					activeDate: momentDate,
+					input: props.activeDate
+				};
+			}
+		}
 
-		this.setState({
-			activeDate: Moment(day, format),
-			open: !autoClose || false
+		return null;
+	}
+
+	changeDate(date) {
+		const {onChange, format, autoClose} = this.props;
+		const momentDate = Moment(date, format, true);
+		const isValid = momentDate.isValid();
+
+		if (onChange) onChange(date, isValid);
+
+		this.setState(() => {
+			let updateDate = {};
+			if (isValid) {
+				updateDate =   {
+					activeDate: momentDate
+				};
+			}
+
+			return {
+				...updateDate,
+				input: date,
+				open: !autoClose || false
+			}
 		});
 	}
 
 	toggleCalendar() {
-		this.setState({
-			open: !this.state.open
-		});
+		if (!this.props.disabled) {
+			this.setState({
+				open: !this.state.open
+			});
+		}
 	}
 
 	render() {
 		const {
 			label,
 			id,
+			state,
+			description,
+			mask,
 			required,
+			disabled,
 			name,
 			format,
 			selectedDates,
 			minDate,
 			maxDate,
 			noWeekends,
+			onBlur,
 		} = this.props;
 
 		const {
+			input,
 			activeDate,
 			open,
 		} = this.state;
@@ -115,6 +176,7 @@ class Datepicker extends Component<Props> {
 			'has-icon-right',
 			{
 				'is-required': !!required,
+				[`${stateClasses[state]}`]: !!state,
 			}
 		);
 
@@ -130,30 +192,32 @@ class Datepicker extends Component<Props> {
 			{label && <InputLabel htmlFor={id}>{label}</InputLabel>}
 			<div className="a-input__wrapper">
 				<TextField
+					mask={mask}
 					name={name}
 					id={id}
 					required={required}
-					value={activeDate ? Moment(activeDate).format(format) : ''}
-					onClick={this.toggleCalendar.bind(this)}
-					onChange={this.changeDate.bind(this)}
-					readOnly/>
+					value={input}
+					disabled={disabled}
+					onChange={(e) => this.changeDate(e.target.value)}
+					onBlur={onBlur} />
 				<span onClick={this.toggleCalendar.bind(this)} className="fa fa-calendar is-clickable"></span>
-				{ open &&
-				<div className={datepickerClass} aria-hidden="false">
-					<div className="m-datepicker is-open">
-						<Calendar
-							format={format}
-							activeDate={activeDate}
-							selectedDates={selectedDates}
-							minDate={minDate}
-							maxDate={maxDate}
-							noWeekends={noWeekends}
-							onChange={this.changeDate.bind(this)}
-						/>
+				{open &&
+					<div className={datepickerClass} aria-hidden="false">
+						<div className="m-datepicker is-open">
+							<Calendar
+								format={format}
+								activeDate={activeDate}
+								selectedDates={selectedDates}
+								minDate={minDate}
+								maxDate={maxDate}
+								noWeekends={noWeekends}
+								onChange={this.changeDate.bind(this)}
+							/>
+						</div>
 					</div>
-				</div>
 				}
 			</div>
+			<small>{description}</small>
 		</div>
 		;
 	}

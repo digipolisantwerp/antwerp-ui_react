@@ -232,11 +232,16 @@ const Datepicker = require('./src').Datepicker;
     id={"datepicker-id"}
     name={"datepicker-name"}
     label={"Geboortedatum"}
-    required={true}
-    onChange={(date) => console.log('date is ' + date)}
     format={"DD/MM/YYYY"}
+    //activeDate={"19/01/2018"}
+    mask={"99/99/9999"}
+    required={true}
+    disabled={false}
+    onChange={(date, isValid) => console.log('date is ' + date + ', and is valid ' + isValid)}
+    //state={"error"}
+    //description={[<span className="u-text-danger">Dit is geen geldige geboortedatum</span>]}
     open={false}
-    autoClose={false} />
+    />
 </div>
 
 ```
