@@ -17,15 +17,15 @@ type InputStates = "success" | "warning" | "error";
 type
 	Props = {
 	/** The label to display above the text field. */
-	label: string,
+	label?: string,
 	/** The id for the text field. */
-	id: string,
+	id?: string,
 	/** The name for the text field. */
-	name: string,
+	name?: string,
 	/** If the field is required. */
-	required: string,
+	required?: string,
 	/** The mask for input. */
-	mask: string,
+	mask?: string,
 	/** The date format used to render the date. */
 	format?: string,
 	/** The selected or predefined date. */
@@ -43,13 +43,13 @@ type
 	/** enable/disable the days during the weekend. */
 	noWeekends?: boolean,
 	/** Every date less than this date will be disabled. */
-	minDate: string,
+	minDate?: string,
 	/** Validation state of input. */
-	state: InputStates,
+	state?: InputStates,
 	/** Description to be shown under input. */
-	description: string,
+	description?: string,
 	/** Every date greater than this date will be disabled. */
-	maxDate: string,
+	maxDate?: string,
 	/** Event for when the date changes. */
 	onChange?: (e: object) => void,
 	/** Event for onBlur. */
