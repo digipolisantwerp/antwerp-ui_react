@@ -23,6 +23,7 @@ type ButtonTypes = "primary" | "secondary" | "success" | "warning" | "danger";
 
 type Props = {
   title: string,
+  id?: string,
   negative?: boolean,
   outline?: boolean,
   transparent?: boolean,
@@ -44,6 +45,7 @@ type Props = {
 class Button extends Component<Props> {
   render() {
     const {
+      id,
       negative,
       outline,
       transparent,
@@ -61,6 +63,7 @@ class Button extends Component<Props> {
       disabled = false,
       htmlType,
     } = this.props;
+
     const btnClass = classNames(
       'a-button',
       className,
@@ -78,6 +81,7 @@ class Button extends Component<Props> {
 
     return (
       <button
+        id={id}
         className={btnClass}
         title={title || ''}
         onClick={onClick}

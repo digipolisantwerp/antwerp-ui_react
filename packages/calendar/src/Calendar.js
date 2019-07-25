@@ -47,6 +47,7 @@ class Calendar extends Component<Prop> {
 				activeDate: Moment(nextProps.activeDate, nextProps.format)
 			};
 		}
+
 		return null;
 	}
 
