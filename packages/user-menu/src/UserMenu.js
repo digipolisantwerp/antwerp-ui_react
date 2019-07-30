@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Avatar from '../../avatar/src/Avatar';
 import Button from '../../button/src/Button';
 import Flyout from '../../flyout/src/Flyout';
+import Switch from '../../switch'
 import UserNavigation from './UserNavigation';
 
 type Props = {
@@ -84,6 +85,19 @@ class UserMenu extends Component<Props> {
     )
   }
 
+  renderToggle() {
+    return (
+      <div style={{margin: 'auto', width: '50%'}}>
+        <Switch
+          label={"Ben je een medewerker?"}
+          id={"switch-user-menu"}
+          name={"switch-user-name"}
+          className={"switch-class"}
+          onClick={(value) => console.log('select value is:', value)} />
+      </div>
+    )
+  }
+
   renderLoggedIn() {
     const { children, flyoutSize, logoutUrl } = this.props;
 
@@ -96,6 +110,7 @@ class UserMenu extends Component<Props> {
         >
         <div>
           {this.renderProfile()}
+          {this.renderToggle()}
           <UserNavigation children={children} />
           <Button
             onClick={() => window.location.href=logoutUrl}
