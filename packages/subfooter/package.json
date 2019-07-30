@@ -1,0 +1,15 @@
+{
+  "name": "footer",
+  "version": "0.0.1-0",
+  "description": "",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1"
+  }
+}
