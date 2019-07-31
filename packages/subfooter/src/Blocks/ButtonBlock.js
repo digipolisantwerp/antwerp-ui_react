@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '.././../../Button';
 
 function redirect(url) {
-  window.location.href=url;
+  window.location.href = url;
 }
 
 const ButtonBlock = ({

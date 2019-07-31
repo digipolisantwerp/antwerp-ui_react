@@ -1,7 +1,7 @@
 import React from 'react';
 
 const generateSocialLinkFor = ({ name, handle }) => {
-  if (handle === "") {
+  if (handle === '') {
     return null;
   }
   return (
@@ -17,19 +17,19 @@ const generateSocialLinkFor = ({ name, handle }) => {
 
 const SocialBlock = ({
   title,
-  facebook = "",
-  twitter = "",
-  instagram = "",
-  linkedIn = ""
+  facebook = '',
+  twitter = '',
+  instagram = '',
+  linkedIn = '',
 }) => {
   return (
     <React.Fragment>
       <h5 className="u-margin-bottom-xs">{title}</h5>
       <div>
-        {generateSocialLinkFor({ name: "facebook", handle: facebook })}
-        {generateSocialLinkFor({ name: "twitter", handle: twitter })}
-        {generateSocialLinkFor({ name: "instagram", handle: instagram })}
-        {generateSocialLinkFor({ name: "linkedin", handle: linkedIn })}
+        {generateSocialLinkFor({ name: 'facebook', handle: facebook })}
+        {generateSocialLinkFor({ name: 'twitter', handle: twitter })}
+        {generateSocialLinkFor({ name: 'instagram', handle: instagram })}
+        {generateSocialLinkFor({ name: 'linkedin', handle: linkedIn })}
       </div>
     </React.Fragment>
   );
