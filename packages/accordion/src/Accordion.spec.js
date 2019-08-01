@@ -25,7 +25,7 @@ describe('Accordion', () => {
 
   test('Can contain a data-qa attribute', () => {
     const component = mount(
-      <Accordion data-qa="id-1234"/>
+      <Accordion qa="id-1234"/>
     );
 
     expect(component.prop('data-qa')).toBe('id-1234');
