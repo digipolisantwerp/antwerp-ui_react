@@ -5,7 +5,7 @@ type Props = {
   children?: React.Node,
 };
 
-const Accordion = ({ children, "data-qa": qa }: Props) => <div className="m-accordion" data-qa={qa}>{ children }</div>;
+const Accordion = ({ children, qa }: Props) => <div className="m-accordion" data-qa={qa}>{ children }</div>;
 
 Accordion.defaultProps = {
   children: null,

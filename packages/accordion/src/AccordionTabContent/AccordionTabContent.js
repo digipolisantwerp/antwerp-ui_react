@@ -5,7 +5,7 @@ type Props = {
   children: React.node
 };
 
-const AccordionTabContent = ({ children, "data-qa": qa }: Props) => (
+const AccordionTabContent = ({ children, qa }: Props) => (
   <div className="m-accordion__content" data-qa={qa}>
     <div className="u-margin">
       { children }

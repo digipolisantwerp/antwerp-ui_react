@@ -47,12 +47,12 @@ describe('AccordionTab', () => {
 
   test('Can contain a data-qa attribute', () => {
     const component = mount(
-      <AccordionTab data-qa="id-1234">
+      <AccordionTab qa="id-1234">
         <AccordionTabHeader />
         <AccordionTabContent />
       </AccordionTab>,
     );
 
-    expect(component.prop('data-qa')).toBe('id-1234');
+    expect(component.prop('qa')).toBe('id-1234');
   });
 });

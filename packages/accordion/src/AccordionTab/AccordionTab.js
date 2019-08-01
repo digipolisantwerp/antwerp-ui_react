@@ -33,7 +33,7 @@ class AccordionTab extends React.Component<Props> {
   }
 
   render() {
-    const { children, "data-qa": qa } = this.props;
+    const { children, qa } = this.props;
     const { isOpen } = this.state;
 
     return (
