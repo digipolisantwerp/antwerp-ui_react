@@ -16,6 +16,23 @@
     }
   }
 
+  .badge {
+    margin-left: .75rem;
+    width: 1.5rem;
+    font-size: .75rem;
+    min-width: .75rem;
+    min-height: .75rem;
+    background: #F18A00;
+    display: inline-block;
+    font-family: "Sun Regular","Helvetica Neue",Helvetica,Arial,Georgia,Sans-serif;
+    font-weight: 700;
+    line-height: 1.33rem;
+    padding: 0;
+    text-align: center;
+    z-index: 10;
+    color: #fff;
+  }
+
   .m-nav-list {
     li {
       text-align: left;

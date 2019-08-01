@@ -21,6 +21,8 @@ type Props = {
   },
   /** Logout URL */
   logoutUrl: string,
+	/** Amount of notifications */
+	notificationsCount: string,
   /** Flyout size */
   flyoutSize: 'small' | 'medium' | 'large' | 'full',
   /** Direction */
@@ -79,7 +81,7 @@ class UserMenu extends Component<Props> {
   }
 
   renderLoggedIn() {
-    const { children, flyoutSize, logoutUrl } = this.props;
+    const { children, flyoutSize, logoutUrl, notificationsCount } = this.props;
 
     return (
       <div id="astad-user-menu">
@@ -90,7 +92,7 @@ class UserMenu extends Component<Props> {
           size={flyoutSize}>
           <div>
             {this.renderProfile()}
-            <UserNavigation children={children} />
+            <UserNavigation notificationsCount={notificationsCount} children={children} />
             <Button
               className="btn-logout"
               onClick={() => window.location.href = logoutUrl}
