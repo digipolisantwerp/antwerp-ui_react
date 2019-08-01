@@ -1,7 +1,7 @@
 ```js
-initialState = { currentPage: 1};
+initialState = { currentPage: 5};
 const itemsPerPage = 4;
-const totalValues = 470;
+const totalValues = 180;
 
 <Pagination
   currentPage={state.currentPage}
