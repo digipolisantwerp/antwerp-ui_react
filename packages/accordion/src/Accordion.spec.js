@@ -28,6 +28,6 @@ describe('Accordion', () => {
       <Accordion qa="id-1234"/>
     );
 
-    expect(component.prop('data-qa')).toBe('id-1234');
+    expect(component.prop('qa')).toBe('id-1234');
   });
 });
