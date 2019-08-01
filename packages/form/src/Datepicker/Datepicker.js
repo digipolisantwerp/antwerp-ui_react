@@ -17,15 +17,15 @@ type InputStates = "success" | "warning" | "error";
 type
 	Props = {
 	/** The label to display above the text field. */
-	label: string,
+	label?: string,
 	/** The id for the text field. */
-	id: string,
+	id?: string,
 	/** The name for the text field. */
-	name: string,
+	name?: string,
 	/** If the field is required. */
-	required: string,
+	required?: string,
 	/** The mask for input. */
-	mask: string,
+	mask?: string,
 	/** The date format used to render the date. */
 	format?: string,
 	/** The selected or predefined date. */
@@ -38,16 +38,18 @@ type
 	autoClose?: boolean,
 	/** If the calender should allow manual input. */
 	disabled?: boolean,
+	/** If it should be free text input or click only */
+	readOnly?: boolean,
 	/** enable/disable the days during the weekend. */
 	noWeekends?: boolean,
 	/** Every date less than this date will be disabled. */
-	minDate: string,
+	minDate?: string,
 	/** Validation state of input. */
-	state: InputStates,
+	state?: InputStates,
 	/** Description to be shown under input. */
-	description: string,
+	description?: string,
 	/** Every date greater than this date will be disabled. */
-	maxDate: string,
+	maxDate?: string,
 	/** Event for when the date changes. */
 	onChange?: (e: object) => void,
 	/** Event for onBlur. */
@@ -73,10 +75,10 @@ class Datepicker extends Component<Props> {
 
 	static defaultProps = {
 		required: false,
-		mask: '99/99/9999',
 		format: 'DD/MM/YYYY',
 		autoClose: true,
 		noWeekends: false,
+		readOnly: false,
 		disabled: false,
 	};
 
@@ -116,11 +118,16 @@ class Datepicker extends Component<Props> {
 		return null;
 	}
 
+	onClickInput() {
+		if (this.props.readOnly) {
+			this.toggleCalendar()
+		}
+	}
+
 	changeDate(date) {
 		const {onChange, format, autoClose} = this.props;
 		const momentDate = Moment(date, format, true);
 		const isValid = momentDate.isValid();
-
 		if (onChange) onChange(date, isValid);
 
 		this.setState(() => {
@@ -156,6 +163,7 @@ class Datepicker extends Component<Props> {
 			mask,
 			required,
 			disabled,
+			readOnly,
 			name,
 			format,
 			selectedDates,
@@ -195,9 +203,11 @@ class Datepicker extends Component<Props> {
 					mask={mask}
 					name={name}
 					id={id}
-					required={required}
 					value={input}
+					required={required}
+					readOnly={readOnly}
 					disabled={disabled}
+					onClick={() => this.onClickInput()}
 					onChange={(e) => this.changeDate(e.target.value)}
 					onBlur={onBlur} />
 				<span onClick={this.toggleCalendar.bind(this)} className="fa fa-calendar is-clickable"></span>

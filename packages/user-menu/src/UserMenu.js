@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Avatar from '../../avatar/src/Avatar';
 import Button from '../../button/src/Button';
 import Flyout from '../../flyout/src/Flyout';
+import UserNavigation from './UserNavigation';
 
 type Props = {
   children?: any,
@@ -25,7 +26,6 @@ type Props = {
 }
 
 class UserMenu extends Component<Props> {
-
   static defaultProps = {
     direction: 'right',
     flyoutSize: 'small',
@@ -49,7 +49,7 @@ class UserMenu extends Component<Props> {
       lastName,
     } = this.props.user;
     return (
-      <Button style={{paddingTop: 0, paddingBottom: 0}}>
+      <Button style={{ paddingTop: 0, paddingBottom: 0 }}>
         <div style={{
           display: 'flex',
           alignItems: 'center',
@@ -75,28 +75,29 @@ class UserMenu extends Component<Props> {
           icon={avatarUrl ? null : 'user'}
           alt="avatar"
           width="48"
-          height="48" />
+          height="48"
+        />
         <p className="u-margin-top-xs u-margin-bottom h5">
           {`${firstName} ${lastName}`}
         </p>
       </div>
-    )
+    );
   }
 
   renderLoggedIn() {
     const { children, flyoutSize, logoutUrl } = this.props;
+
     return (
       <Flyout
         trigger={this.renderLoggedInButton()}
         direction="right"
         hasPadding={false}
-        size={flyoutSize}
-        >
+        size={flyoutSize}>
         <div>
           {this.renderProfile()}
-          {children}
+          <UserNavigation children={children} />
           <Button
-            onClick={() => window.location.href=logoutUrl}
+            onClick={() => window.location.href = logoutUrl}
             block
             type="danger"
             iconLeft="power-off">
@@ -109,7 +110,7 @@ class UserMenu extends Component<Props> {
 
   renderLoggedOut() {
     const { loginUrl } = this.props;
-    return (<Button onClick={() => window.location.href=loginUrl} iconLeft="user">Aanmelden</Button>);
+    return (<Button onClick={() => window.location.href = loginUrl} iconLeft="user">Aanmelden</Button>);
   }
 
   render() {
