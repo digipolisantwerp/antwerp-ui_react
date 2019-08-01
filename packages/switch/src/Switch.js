@@ -50,7 +50,9 @@ class Switch extends Component {
 			<div className={containerClass}>
 				{label && <InputLabel htmlFor={id}>{label}</InputLabel>}
 				<div className={switchWrapperClass}>
-					<label className="a-switch__label">{labelFalse ? labelFalse : 'Nee'}</label>
+					{labelFalse &&
+						<label className="a-switch__label">{labelFalse}</label>
+					}
 					<div className="a-switch__toggle">
 						<input
 							type="checkbox"
@@ -62,7 +64,9 @@ class Switch extends Component {
 						/>
 						<label htmlFor={id}></label>
 					</div>
-					<label className="a-switch__label">{labelTrue ? labelTrue : 'Ja'}</label>
+					{labelTrue &&
+						<label className="a-switch__label">{labelTrue}</label>
+					}
 				</div>
 			</div>
 		)
