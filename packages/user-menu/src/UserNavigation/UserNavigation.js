@@ -14,7 +14,7 @@ const UserNavigation = (props) => {
   const { children } = props;
 
   return (
-    <ul className="m-nav-list" style={{textAlign: 'left',}}>
+    <ul className="m-nav-list">
       <li><a href={notificationsUrl()} title="Notificaties">Notificaties</a></li>
       <li><a href={aProfileUrl()} title="A-profiel beheren">A-profiel beheren</a></li>
       <li><a href={favoritesUrl()} title="Favorieten">Favorieten</a></li>

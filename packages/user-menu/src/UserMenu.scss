@@ -1,0 +1,24 @@
+#astad-user-menu {
+  .avatar-wrapper {
+    padding-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-user-flyout {
+    padding-top: 0;
+    padding-bottom: 0;
+
+    .a-avatar-wrapper {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .m-nav-list {
+    li {
+      text-align: left;
+    }
+  }
+}

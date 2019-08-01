@@ -5,6 +5,8 @@ import Button from '../../button/src/Button';
 import Flyout from '../../flyout/src/Flyout';
 import UserNavigation from './UserNavigation';
 
+import './UserMenu.scss';
+
 type Props = {
   children?: any,
   /** Login URL */
@@ -49,11 +51,8 @@ class UserMenu extends Component<Props> {
       lastName,
     } = this.props.user;
     return (
-      <Button style={{ paddingTop: 0, paddingBottom: 0 }}>
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-        }}>
+      <Button className="btn-user-flyout" title="Hier krijgt u toegang tot uw A-profiel en uw persoonlijke instellingen.">
+        <div className="a-avatar-wrapper">
           {this.renderAvatar()}
           <p>{firstName} {lastName}</p>
         </div>
@@ -64,12 +63,7 @@ class UserMenu extends Component<Props> {
   renderProfile() {
     const { firstName, lastName, avatarUrl } = this.props.user;
     return (
-      <div style={{
-        paddingTop: '24px',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-      }}>
+      <div className="avatar-wrapper">
         <Avatar
           image={avatarUrl}
           icon={avatarUrl ? null : 'user'}
@@ -88,29 +82,40 @@ class UserMenu extends Component<Props> {
     const { children, flyoutSize, logoutUrl } = this.props;
 
     return (
-      <Flyout
-        trigger={this.renderLoggedInButton()}
-        direction="right"
-        hasPadding={false}
-        size={flyoutSize}>
-        <div>
-          {this.renderProfile()}
-          <UserNavigation children={children} />
-          <Button
-            onClick={() => window.location.href = logoutUrl}
-            block
-            type="danger"
-            iconLeft="power-off">
-            Afmelden
-          </Button>
-        </div>
-      </Flyout>
+      <div id="astad-user-menu">
+        <Flyout
+          trigger={this.renderLoggedInButton()}
+          direction="right"
+          hasPadding={false}
+          size={flyoutSize}>
+          <div>
+            {this.renderProfile()}
+            <UserNavigation children={children} />
+            <Button
+              className="btn-logout"
+              onClick={() => window.location.href = logoutUrl}
+              block
+              type="danger"
+              alt="Klik hier om u af te melden."
+              iconLeft="power-off">
+              Afmelden
+            </Button>
+          </div>
+        </Flyout>
+      </div>
     );
   }
 
   renderLoggedOut() {
     const { loginUrl } = this.props;
-    return (<Button onClick={() => window.location.href = loginUrl} iconLeft="user">Aanmelden</Button>);
+    return (
+      <Button
+        className="btn-login"
+        title="Aanmelden"
+        alt="Klik hier om u aan te melden met uw A-profiel."
+        onClick={() => window.location.href = loginUrl}
+        iconLeft="user">Aanmelden</Button>
+    );
   }
 
   render() {
