@@ -24,10 +24,10 @@ describe('Accordion', () => {
   });
 
   test('Can contain a data-qa attribute', () => {
-    const component = mount(
+    const component = shallow(
       <Accordion qa="id-1234"/>
     );
 
-    expect(component.prop('qa')).toBe('id-1234');
+    expect(component.find('[data-qa="id-1234"]').length).toEqual(1);
   });
 });

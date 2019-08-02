@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import AccordionTabHeader from './AccordionTabHeader';
 
 describe('AccordionTabHeader', () => {
@@ -10,10 +10,10 @@ describe('AccordionTabHeader', () => {
   });
 
   test('Can contain a data-qa attribute', () => {
-    const component = mount(
-      <AccordionTabHeader data-qa="id-1234"/>
+    const component = shallow(
+      <AccordionTabHeader qa="id-1234"/>
     );
 
-    expect(component.prop('qa')).toBe('id-1234');
+    expect(component.find('[data-qa="id-1234"]').length).toEqual(1);
   });
 });
