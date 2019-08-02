@@ -16,7 +16,7 @@ const UserNavigation = (props) => {
   return (
     <ul className="m-nav-list">
       <li>
-        <a href={notificationsUrl()} title="Notificaties" alt="Klikt hier om uw notificaties te bekijken.">
+        <a href={notificationsUrl()} title="Notificaties" alt="Klik hier om uw notificaties te bekijken.">
           Notificaties
           {notificationsCount &&
             <span className="badge">{notificationsCount}</span>
