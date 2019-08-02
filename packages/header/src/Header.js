@@ -12,10 +12,21 @@ type Props = {
   type?: string,
   /** Logo URL to redirect to */
   logoUrl: string,
+  /** Url of the logo img */
+  logoSrc: string,
+  /** Alt of the logo img */
+  logoAlt: string,
 };
 
 const Header = (props: Props) => {
-  const { children, style, className, logoUrl, type } = props;
+  const {
+    children,
+    style,
+    className,
+    logoUrl,
+    logoSrc,
+    logoAlt,
+    type } = props;
   const env = Environment.getEnvironment();
 
   const headerClass = classNames(
@@ -28,7 +39,7 @@ const Header = (props: Props) => {
   return (
     <header className={headerClass} style={style}>
       <a href={logoUrl} className="o-header__logo">
-        <img src="https://cdn.antwerpen.be/core_branding_scss/3.1.0/assets/images/a-logo.svg" alt="Official logo Antwerpen" />
+        <img src={logoSrc} alt={logoAlt} />
       </a>
       {children}
     </header>
@@ -37,6 +48,8 @@ const Header = (props: Props) => {
 
 Header.defaultProps = {
   logoUrl: '/',
+  logoSrc: 'https://cdn.antwerpen.be/core_branding_scss/3.1.0/assets/images/a-logo.svg',
+  logoAlt: 'Klik op de A om terug naar de startpagina van antwerpen.be te gaan.'
 };
 
 export default Header;
