@@ -4,7 +4,7 @@ import Avatar from '../../avatar/src/Avatar';
 import Button from '../../button/src/Button';
 import Flyout from '../../flyout/src/Flyout';
 import UserNavigation from './UserNavigation';
-
+import { notificationsUrl } from './UserNavigation/UserNavigationUrls';
 import './UserMenu.scss';
 
 type Props = {
@@ -33,6 +33,7 @@ class UserMenu extends Component<Props> {
   static defaultProps = {
     direction: 'right',
     flyoutSize: 'small',
+	  notificationsCount: 0
   }
 
   renderAvatar() {
@@ -47,6 +48,18 @@ class UserMenu extends Component<Props> {
         style={{ marginLeft: '-1.5rem', marginRight: '1.5rem' }}
       />);
   }
+
+  renderBadge() {
+    const { notificationsCount } = this.props;
+    return (
+      <a className="badge inner-badge"
+         href={notificationsUrl()}>
+        {notificationsCount}
+        <span className="sr-only" data-translate="">notificaties</span>
+      </a>
+    )
+  }
+
   renderLoggedInButton() {
     const {
       firstName,
@@ -85,6 +98,9 @@ class UserMenu extends Component<Props> {
 
     return (
       <div id="astad-user-menu">
+        {notificationsCount > 0 &&
+          this.renderBadge()
+        }
         <Flyout
           trigger={this.renderLoggedInButton()}
           direction="right"

@@ -1,4 +1,11 @@
 #astad-user-menu {
+  position: relative;
+
+  .inner-badge {
+    position: absolute;
+    bottom: -.5625rem;
+  }
+
   .avatar-wrapper {
     padding-top: 24px;
     display: flex;
