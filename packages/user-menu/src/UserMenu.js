@@ -33,7 +33,7 @@ class UserMenu extends Component<Props> {
   static defaultProps = {
     direction: 'right',
     flyoutSize: 'small',
-	  notificationsCount: 0
+		notificationsCount: 0
   }
 
   renderAvatar() {
