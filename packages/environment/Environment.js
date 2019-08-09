@@ -5,11 +5,6 @@ const ENV_IDENTIFIERS = {
 }
 
 function getEnvironment() {
-	const ENV_IDENTIFIERS = {
-		dev: '-o.',
-		acc: '-a',
-		local: 'local'
-	}
 	if (typeof window === 'undefined') {
 		return process.env.NODE_ENV;
 	}
@@ -23,6 +18,39 @@ function getEnvironment() {
 	return env || 'prod';
 }
 
+function getAstadUrl() {
+	switch (getEnvironment().toLowerCase()) {
+		case 'local': return 'https://www.dev.dcs.antwerpen.be';
+		case 'dev': return 'https://www.dev.dcs.antwerpen.be';
+		case 'acc': return 'https://www.acc.dcs.antwerpen.be';
+		default:
+			return 'https://www.antwerpen.be';
+	}
+}
+
+function getShoppingCartUrl() {
+	switch (getEnvironment().toLowerCase()) {
+		case 'local': return 'https://winkelmand-o.antwerpen.be';
+		case 'dev': return 'https://winkelmand-o.antwerpen.be';
+		case 'acc': return 'https://winkelmand-a.antwerpen.be';
+		default:
+			return 'https://winkelmand.antwerpen.be';
+	}
+}
+
+function getEloketUrl() {
+	switch (getEnvironment().toLowerCase()) {
+		case 'local': return 'https://eloket-o.antwerpen.be';
+		case 'dev': return 'https://eloket-o.antwerpen.be';
+		case 'acc': return 'https://eloket-a.antwerpen.be';
+		default:
+			return 'https://eloket.antwerpen.be';
+	}
+}
+
 export const Environment = {
-	getEnvironment
+	getEnvironment,
+	getAstadUrl,
+	getShoppingCartUrl,
+	getEloketUrl
 }
