@@ -1,2 +1,10 @@
 export { default } from './UserNavigation';
-export { default as UserNavigationUrls} from './UserNavigationUrls';
+export {
+	notificationsUrl,
+	aProfileUrl,
+	favoritesUrl,
+	linkingUrl,
+	myPaymentsUrl,
+	myShoppingCartUrl,
+	myEloketUrl,
+} from './UserNavigationUrls';
