@@ -33,6 +33,7 @@ export { default as FlyoutButton } from './packages/flyout-button';
 export { default as Footer } from './packages/footer';
 
 export { default as Form } from './packages/form';
+
 export {
   Checkbox,
   Fieldset,
@@ -84,6 +85,8 @@ export {
 export { default as Link } from './packages/link';
 
 export { default as Modal } from './packages/modal';
+
+export { Environment}  from './packages/environment';
 
 export {
   SubFooter,
