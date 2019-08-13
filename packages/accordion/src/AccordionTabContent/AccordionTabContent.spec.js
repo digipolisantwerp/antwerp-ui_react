@@ -14,6 +14,6 @@ describe('AccordionTabContent', () => {
       <AccordionTabContent qa="id-1234"/>
     );
 
-    expect(component.find('[data-qa="id-1234"]').length).toEqual(1);
+    expect(component.find('.m-accordion__content').props()).toHaveProperty('data-qa', 'id-1234');
   });
 });

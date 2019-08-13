@@ -53,6 +53,6 @@ describe('AccordionTab', () => {
       </AccordionTab>,
     );
 
-    expect(component.find('[data-qa="id-1234"]').length).toEqual(1);
+    expect(component.find('.m-accordion__tab').props()).toHaveProperty('data-qa', 'id-1234');
   });
 });
