@@ -85,3 +85,11 @@ export { default as Link } from './packages/link';
 
 export { default as Modal } from './packages/modal';
 
+export {
+  SubFooter,
+  ContentBlock,
+  NavBlock,
+  ButtonBlock,
+  SocialBlock,
+} from './packages/subfooter'
+
