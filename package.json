@@ -59,7 +59,7 @@
     ],
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-      "\\.(scss|css|less)$": "identity-obj-proxy"
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
     },
     "coverageThreshold": {
       "global": {
@@ -95,8 +95,8 @@
     "react-modal": "~3.5.1",
     "react-scripts": "^3.0.1",
     "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-sass": "^1.2.2",
     "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.1",
-    "rollup-plugin-sass": "^1.2.2"
+    "style-loader": "^0.23.1"
   }
 }

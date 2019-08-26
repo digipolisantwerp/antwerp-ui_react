@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import Icon from '../../icon/src/Icon';
 
-const defaultClass = 'a-button'
+const defaultClass = 'a-button';
 const sizeClasses = {
   tiny: 'a-button--tiny',
   small: 'a-button--small',
@@ -36,6 +36,7 @@ type Props = {
   iconLeft?: string,
   iconRight?: string,
   size?: ButtonSizes,
+  alt?: string,
   block?: boolean,
   disabled?: boolean,
   htmlType?: string,
@@ -56,6 +57,7 @@ class Button extends Component<Props> {
       iconRight,
       onClick,
       title = '',
+      alt = '',
       type,
       size,
       block = false,
@@ -86,6 +88,7 @@ class Button extends Component<Props> {
         title={title || ''}
         onClick={onClick}
         style={style}
+        alt={alt}
         disabled={disabled}
         type={htmlType}>
         {icon ? <Icon name={icon} /> : null}

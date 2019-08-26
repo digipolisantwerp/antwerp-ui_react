@@ -14,24 +14,14 @@ describe('Switch', () => {
 		expect(switchButton.getDOMNode().className).not.toContain("is-required");
 	});
 
-	it('should add the default Nee when labelFalse not provided', () => {
-		const switchButton = mount(<Switch />);
-		expect(switchButton.find('.a-switch__label').get(0).props.children).toContain('Nee');
-	});
-
 	it('should add labelFalse when labelFalse provided', () => {
 		const switchButton = mount(<Switch labelFalse={"Wrong"} />);
 		expect(switchButton.find('.a-switch__label').get(0).props.children).toContain('Wrong');
 	});
 
-	it('should add the default Ja when labelTrue not provided', () => {
-		const switchButton = mount(<Switch />);
-		expect(switchButton.find('.a-switch__label').get(1).props.children).toContain('Ja');
-	});
-
 	it('should add labelTrue when labelTrue provided', () => {
 		const switchButton = mount(<Switch labelTrue={"Right"} />);
-		expect(switchButton.find('.a-switch__label').get(1).props.children).toContain('Right');
+		expect(switchButton.find('.a-switch__label').get(0).props.children).toContain('Right');
 	});
 
 	it('should trigger the onClick', () => {
