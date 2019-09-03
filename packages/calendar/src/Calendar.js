@@ -26,7 +26,7 @@ class Calendar extends Component<Prop> {
 		const {activeDate, format} = this.props;
 
 		Moment.updateLocale('nl', {
-			months : ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December"],
+			months : ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"],
 			monthsShort: ["Jan", "Feb", "Mrt", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"],
 			weekdaysShort: ["Ma", "Di", "Woe", "Do", "Vr", "Za", "Zo"]
 		});
