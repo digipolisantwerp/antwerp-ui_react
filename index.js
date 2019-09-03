@@ -93,7 +93,7 @@ export {
   SocialBlock,
 } from './packages/subfooter';
 
-export {
+export { default as 
   Pagination,
 } from './packages/pagination';
 
