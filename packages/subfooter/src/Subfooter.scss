@@ -6,28 +6,30 @@
     padding-top: 3rem;
     padding-bottom: 2rem;
 
-    li {
-        padding: 0;
+    .a-list {
+      li {
+          padding: 0;
 
-        a {
-            display: block;
-            padding: 1rem;
+          a {
+              display: block;
+              padding: 1rem;
 
-            .fa {
-                font-size: .75rem;
-                float: right;
-            }
+              .fa {
+                  font-size: .75rem;
+                  float: right;
+              }
 
-            &:hover {
-                background: rgba(255,255,255,0.1);
-                text-decoration: none;
+              &:hover {
+                  background: rgba(255,255,255,0.1);
+                  text-decoration: none;
 
-                .fa {
-                    -ms-transform: scale(1.35) translateX(-3px);
-                    transform: scale(1.35) translateX(-3px);
-                }
-            }
-        }
+                  .fa {
+                      -ms-transform: scale(1.35) translateX(-3px);
+                      transform: scale(1.35) translateX(-3px);
+                  }
+              }
+          }
+      }
     }
 
     a {

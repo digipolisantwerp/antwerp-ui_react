@@ -91,5 +91,12 @@ export {
   NavBlock,
   ButtonBlock,
   SocialBlock,
-} from './packages/subfooter'
+} from './packages/subfooter';
 
+export { default as 
+  Pagination,
+} from './packages/pagination';
+
+export {
+  Environment
+} from './packages/environment';
