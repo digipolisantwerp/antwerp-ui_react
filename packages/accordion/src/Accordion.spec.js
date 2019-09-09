@@ -22,4 +22,12 @@ describe('Accordion', () => {
     expect(component.find('.m-accordion__tab')).toBeDefined();
     expect(component.find('.m-accordion__tab').length).toEqual(3);
   });
+
+  test('Can contain a data-qa attribute', () => {
+    const component = shallow(
+      <Accordion qa="id-1234"/>
+    );
+
+    expect(component.find('.m-accordion').props()).toHaveProperty('data-qa', 'id-1234');
+  });
 });

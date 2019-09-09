@@ -44,4 +44,15 @@ describe('AccordionTab', () => {
 
     expect(component.find('.m-accordion__content')).toBeDefined();
   });
+
+  test('Can contain a data-qa attribute', () => {
+    const component = shallow(
+      <AccordionTab qa="id-1234">
+        <AccordionTabHeader />
+        <AccordionTabContent />
+      </AccordionTab>,
+    );
+
+    expect(component.find('.m-accordion__tab').props()).toHaveProperty('data-qa', 'id-1234');
+  });
 });
