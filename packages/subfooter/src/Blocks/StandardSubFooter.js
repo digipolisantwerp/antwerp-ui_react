@@ -1,5 +1,4 @@
 import React from 'react';
-import SubFooter from '../SubFooter';
 import ContentBlock from './ContentBlock';
 import NavBlock from './NavBlock';
 import ButtonBlock from './ButtonBlock';
@@ -8,7 +7,7 @@ import {Environment} from '../../../environment';
 
 const AstadSubFooter = () => {
 	return (
-		<SubFooter>
+		<React.Fragment>
 			<ContentBlock xs={12} sm={4} md={4}>
 				<NavBlock title="Snel zelf regelen">
 					<li><a title="Vraag een document aan" href={`${Environment.getEloketUrl()}/nl/eloket/overzicht`}>Documenten aanvragen <i className="fa fa-chevron-right"></i></a></li>
@@ -44,7 +43,7 @@ const AstadSubFooter = () => {
 					linkedIn="https://www.linkedin.com/company/stad-antwerpen"
 				/>
 			</ContentBlock>
-		</SubFooter>
+		</React.Fragment>
 	)
 }
 

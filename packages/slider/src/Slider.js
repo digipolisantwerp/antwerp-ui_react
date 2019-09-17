@@ -3,8 +3,7 @@ import InputLabel from '../../form/src/InputLabel';
 import Bar from './Bar';
 import Handle from './Handle';
 
-type
-Props = {
+type Props = {
   /** The label to display above the field. */
   label: string,
   /** The id for the field. */
@@ -35,8 +34,7 @@ Props = {
   onChange? : void,
 };
 
-type
-State = {
+type State = {
   limit: number,
   start? : number,
   end? : number,
