@@ -10,7 +10,6 @@
     "flow",
     "react"
   ],
-  "plugins": ["external-helpers"],
   "env": {
     "test": {
       "presets": [
