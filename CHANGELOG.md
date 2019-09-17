@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [Unrelease - v4.0.0]
+
+All the following depend on Core Branding v4+.
+
+- `Button` Add contrast warning for negative toggle.
+- `Icon`[BREAKING] `<i>` is for italic, not for icons. Only `<span class="..."></span>` is allowed.
+
 ## [Unreleased]
 - `ButtonGroup` Added option for vertical button group (depends on core branding 3.2)
 - `Autocomplete` Fixed items not updating when searching, added defaultValue option, added empty state, fixed open state issue

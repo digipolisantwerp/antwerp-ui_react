@@ -5,7 +5,7 @@
   title="This is a success box!" 
   onClose={() => console.log('closed')}
   closable={true}> 
-  This is my child <i className="fa fa-bell"/>
+  This is my child <span className="fa fa-bell"></span>
   </Alert>
 ```
 
@@ -14,6 +14,6 @@
   type="warning" 
   title="This is a warning box!" 
   closable={true}> 
-  This is my child <i className="fa fa-exclamation"/>
+  This is my child <span className="fa fa-exclamation"></span>
   </Alert>
 ```

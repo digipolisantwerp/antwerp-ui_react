@@ -8,18 +8,18 @@ const SocialBlock = require('./src').SocialBlock;
 <SubFooter>
     <ContentBlock xs={12} sm={4} md={4}>
         <NavBlock title="Snel zelf regelen">
-            <li><a title="Vraag een document aan" href={`/nl/eloket/overzicht`}>Documenten aanvragen <i className="fa fa-chevron-right"></i></a></li>
-            <li><a title="Meld een sluikstort" href={`/nl/eloket/sluikstort`}>Sluikstort melden <i className="fa fa-chevron-right"></i></a></li>
-            <li><a title="Geef een adreswijziging door" href={`/nl/eloket/aangifte-adreswijziging-nieuw`}>Adreswijziging doorgeven <i className="fa fa-chevron-right"></i></a></li>
-            <li><a title="Regel een parkeerverbod" href={`/nl/e-loket/parkeerverbod`}>Parkeerverbod aanvragen <i className="fa fa-chevron-right"></i></a></li>
+            <li><a title="Vraag een document aan" href={`/nl/eloket/overzicht`}>Documenten aanvragen <span className="fa fa-chevron-right"></span></a></li>
+            <li><a title="Meld een sluikstort" href={`/nl/eloket/sluikstort`}>Sluikstort melden <span className="fa fa-chevron-right"></span></a></li>
+            <li><a title="Geef een adreswijziging door" href={`/nl/eloket/aangifte-adreswijziging-nieuw`}>Adreswijziging doorgeven <span className="fa fa-chevron-right"></span></a></li>
+            <li><a title="Regel een parkeerverbod" href={`/nl/e-loket/parkeerverbod`}>Parkeerverbod aanvragen <span className="fa fa-chevron-right"></span></a></li>
         </NavBlock>
     </ContentBlock>
     <ContentBlock xs={12} sm={4} md={4}>
         <NavBlock title="Dienstverlening">
-            <li><a title="Naar het e-loket" href={`/nl/eloket/overzicht/`}>E-loket <i className="fa fa-chevron-right"></i></a></li>
-            <li><a title="Maak een afspraak" href={`/nl/e-loket/afspraak-maken`}>Afspraak <i className="fa fa-chevron-right"></i></a></li>
-            <li><a title="Maak een melding" href={`/nl/melden`}>Melding maken <i className="fa fa-chevron-right"></i></a></li>
-            <li><a title="Naar openingsuren" href={`/nl/overzicht/adressen-en-openingsuren/stadsloketten`}>Openingsuren <i className="fa fa-chevron-right"></i></a></li>
+            <li><a title="Naar het e-loket" href={`/nl/eloket/overzicht/`}>E-loket <span className="fa fa-chevron-right"></span></a></li>
+            <li><a title="Maak een afspraak" href={`/nl/e-loket/afspraak-maken`}>Afspraak <span className="fa fa-chevron-right"></span></a></li>
+            <li><a title="Maak een melding" href={`/nl/melden`}>Melding maken <span className="fa fa-chevron-right"></span></a></li>
+            <li><a title="Naar openingsuren" href={`/nl/overzicht/adressen-en-openingsuren/stadsloketten`}>Openingsuren <span className="fa fa-chevron-right"></span></a></li>
         </NavBlock>
     </ContentBlock>
     <ContentBlock xs={12} sm={4} md={4}>

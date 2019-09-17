@@ -111,11 +111,11 @@ class Toggle extends Component<Props> {
         />
         <div className="a-toggle__labels">
           <label htmlFor={id} className={checkedClasses}>
-            <i className={"fa " + checkedIcon}></i>
+            <span className={"fa " + checkedIcon}></span>
               {checkedLabel}
           </label>
           <label htmlFor={id} className={uncheckedClasses}>
-            <i className={"fa " + uncheckedIcon}></i>
+            <span className={"fa " + uncheckedIcon}></span>
               {uncheckedLabel}
           </label>
         </div>
