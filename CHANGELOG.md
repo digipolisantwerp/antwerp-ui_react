@@ -8,7 +8,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 All the following depend on Core Branding v4+.
 
-- `FlyOut` [BREAKING] Pass `onClick` as argument to trigger.
 - `CardIcon` [BREAKING] Make `aria-label` required.
 - `Button` [BREAKING] Make `aria-label` required.
 - `Icon` [BREAKING] `<i>` is for italic, not for icons. Only `<span class="..."></span>` is allowed. [WCAG 2.1 AA - Identify purpose](https://www.w3.org/TR/WCAG21/#identify-purpose)
@@ -17,6 +16,7 @@ All the following depend on Core Branding v4+.
 - `Calendar` Add `aria-label` for navigation.
 - `Badge` Add `aria-label` and `title`.
 - `Alert` Add `aria-label`.
+- `Icon` Add `aria-label`.
 - `Avatar` Add `u-screen-reader-only` 'User Icon' info.
 - `Button` Add contrast warning for negative toggle. [WCAG 2.1 AA - Contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum)
 - `Tag`/`TagListItem` Add extra WVAG information for `aria-label`.

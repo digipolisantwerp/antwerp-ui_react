@@ -5,13 +5,19 @@ type Props = {
   /** Font Awesome icon name */
   name: string,
   style?: object,
-  className?: string
+  className?: string,
+  /** optional ariaLabel: check WCAG compliance for extra info when a label is needed. */
+  ariaLabel: string
 };
 
-const Icon = ({ name, style, className }: Props) => {
+const Icon = ({ name, style, className, ariaLabel }: Props) => {
   const iconClass = classNames(className, `fa fa-${name}`);
 
-  return <span className={iconClass} style={style}></span>;
+  return (
+    <span className={iconClass} style={style}>
+      {ariaLabel ? <span className="u-screen-reader-only">{ariaLabel}</span> : ''}
+    </span>
+  );
 };
 
 export default Icon;
