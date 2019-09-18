@@ -42,7 +42,7 @@ const Avatar = (props: Props) => {
       {letter && <LetterWrapper letter={letter} />}
       {image && <img src={image} alt={alt} />}
       {children}
-      <span class="u-screen-reader-only">{ariaLabel}</span>
+      <span className="u-screen-reader-only">{ariaLabel}</span>
     </div>
   )
 }

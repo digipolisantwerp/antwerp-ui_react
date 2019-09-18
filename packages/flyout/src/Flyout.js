@@ -104,11 +104,12 @@ class Flyout extends Component<Props> {
 
   render() {
     const { trigger, hasPadding, children } = this.props;
+    const { isOpen } = this.state;
     const flyoutClass = this.getClassNames();
     return (
       trigger && (
-        <div className={flyoutClass} ref={this.flyoutRef}>
-          {this.props.trigger({ onClick: this.toggleIsOpen })}
+        <div className={flyoutClass} ref={this.flyoutRef} aria-haspopup="true" aria-expanded={isOpen}>
+          {() => this.props.trigger({ onClick: this.toggleIsOpen })}
           <FlyoutContent hasPadding={hasPadding}>{children}</FlyoutContent>
         </div>
       )

@@ -12,7 +12,7 @@ type Props = {
 const CardIcon = ({ icon, className , ariaLabel }: Props) => (
   <div className={classNames('pull-left u-margin-right u-margin-bottom', className)}>
     <span className={classNames('fa fa-lg u-text-light', icon)}>
-      <span class="u-screen-reader-only">{ariaLabel}</span>
+      <span className="u-screen-reader-only">{ariaLabel}</span>
     </span>
   </div>
 );

@@ -63,9 +63,10 @@ class FlyoutButton extends Component<Props> {
       children,
       ...buttonProps
     } = this.props;
+    const { isOpen } = this.state;
     const flyoutClass = this.getClassNames();
     return (
-      <div className={flyoutClass} ref={(ref) => { this.containerRef = ref }}>
+      <div className={flyoutClass} ref={(ref) => { this.containerRef = ref }}  aria-haspopup="true" arai-expanded={isOpen}>
         <Button {...buttonProps} onClick={this.toggleIsOpen}>
           {label}
         </Button>

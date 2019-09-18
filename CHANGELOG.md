@@ -12,6 +12,8 @@ All the following depend on Core Branding v4+.
 - `CardIcon` [BREAKING] Make `aria-label` required.
 - `Button` [BREAKING] Make `aria-label` required.
 - `Icon` [BREAKING] `<i>` is for italic, not for icons. Only `<span class="..."></span>` is allowed. [WCAG 2.1 AA - Identify purpose](https://www.w3.org/TR/WCAG21/#identify-purpose)
+- `FlyoutButton` Add `aria-label` for toggle.
+- `Flyout` Add `aria-label` for toggle.
 - `Calendar` Add `aria-label` for navigation.
 - `Badge` Add `aria-label` and `title`.
 - `Alert` Add `aria-label`.
