@@ -28,7 +28,7 @@ class TagListItem extends Component<Props> {
       buttonClass = 'a-button--default',
       onClick,
       ariaLabelIcon,
-      ariaLabelClose
+      ariaLabelClose = 'Close'
     } = this.props;
 
     return (
@@ -38,7 +38,7 @@ class TagListItem extends Component<Props> {
         }
         <span className="m-tag__label">{value}</span>
         {closable &&
-          <Button transparent size="small" type="danger" icon="close" ariaLabel={ariaLabelClose || 'Close'} onClick={onClick} />
+          <Button transparent size="small" type="danger" icon="close" ariaLabel={ariaLabelClose} onClick={onClick} />
         }
       </li>
     )
