@@ -16,6 +16,7 @@ All the following depend on Core Branding v4+.
 - `Calendar` Add `aria-label` for navigation.
 - `Badge` Add `aria-label` and `title`.
 - `Alert` Add `aria-label`.
+- `Pagination` Add `aria-label`.
 - `Icon` Add `aria-label`.
 - `Avatar` Add `u-screen-reader-only` 'User Icon' info.
 - `Button` Add contrast warning for negative toggle. [WCAG 2.1 AA - Contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum)
