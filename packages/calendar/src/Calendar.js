@@ -18,6 +18,10 @@ type
 	noWeekends?: boolean,
 	/** Event for when the date changes. */
 	onChange?: (e: object) => void,
+	/** aria-label for previous month, defaults to 'Previous Month' */
+	ariaLabelPreviousMonth?: string,
+	/** aria-label for next month, defaults to 'Next Month' */
+	ariaLabelNextMonth?: string
 };
 class Calendar extends Component<Prop> {
 

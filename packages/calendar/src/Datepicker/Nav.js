@@ -22,7 +22,7 @@ class Nav extends Component {
 	}
 
 	render() {
-		const {onClickPrevious, onClickViewType, onClickNext} = this.props;
+		const {onClickPrevious, onClickViewType, onClickNext, ariaLabelPreviousMonth = 'Previous month', ariaLabelNextMonth = 'Next month'} = this.props;
 
 		return (
 			<React.Fragment>
@@ -30,7 +30,8 @@ class Nav extends Component {
 					htmlType="button"
 					onClick={onClickPrevious}
 					className={"a-button has-icon"}
-					icon={"angle-left"}/>
+					icon={"angle-left"}
+					aria-label={ariaLabelPreviousMonth}/>
 
 				<Button
 					htmlType="button"
@@ -43,7 +44,8 @@ class Nav extends Component {
 					htmlType="button"
 					onClick={onClickNext}
 					className={"a-button has-icon"}
-					icon={"angle-right"}/>
+					icon={"angle-right"}
+					aria-label={ariaLabelNextMonth}/>
 			</React.Fragment>
 		)
 	}
