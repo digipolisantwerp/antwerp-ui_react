@@ -18,6 +18,7 @@ type Props = {
   /** Alert body */
   children?: any,
   closable?: boolean,
+  ariaLabelClose?: string,
   className?: string,
   onClose?: Function,
 };
@@ -44,6 +45,7 @@ class Alert extends Component<Props> {
       title,
       children,
       closable,
+      ariaLabelClose = 'Close',
       className,
     } = this.props;
     const { closed } = this.state;
@@ -55,7 +57,7 @@ class Alert extends Component<Props> {
     );
 
     const closeButton = closable ? (
-      <Button type={type} icon="close" onClick={this.handleClose} className="m-alert__close a-button-transparent">
+      <Button type={type} icon="close" onClick={this.handleClose} className="m-alert__close a-button-transparent" aria-label={ariaLabelClose}>
       </Button>
     ) : null;
 
