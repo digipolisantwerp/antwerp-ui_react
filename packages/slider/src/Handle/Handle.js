@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 class Handle extends Component {
   state = {
     limit: 480,
-    grab: 5
+    grab: 5,
+    isFocus: false
   };
 
   componentWillReceiveProps(nextProps) {
@@ -69,16 +70,80 @@ class Handle extends Component {
     return value;
   };
 
+  handleKeyPress = e => {
+    if (e.defaultPrevented) {
+      return;
+    }
+    const { onChange, step, min, max, value } = this.props;
+    if (!onChange) {
+      return;
+    }
+
+    let newValue = value;
+    const key = e.keyCode;
+    // 39: right
+    // 38: up
+    // 37: left
+    // 40: down
+    // 35: end
+    // 36: home
+
+    switch (key) {
+      case 39:
+      case 38:
+        newValue = value + step;
+        e.preventDefault();
+        break;
+      case 37:
+      case 40:
+        newValue = value - step;
+        e.preventDefault();
+        break;
+      case 35:
+        newValue = max;
+        e.preventDefault();
+        break;
+      case 36:
+        newValue = min;
+        e.preventDefault();
+        break;
+    }
+
+    onChange(newValue);
+  };
+
+  onFocus = () => {
+    document.addEventListener('keydown', this.handleKeyPress);
+    this.setState({ isFocus: true });
+  };
+
+  onBlur = () => {
+    document.removeEventListener('keydown', this.handleKeyPress);
+    this.setState({ isFocus: false });
+  };
+
   render() {
-    let { value, handleNoop, getPositionFromValue, unit, fixed, tooltips, onDragEnd } = this.props;
+    let { value, handleNoop, getPositionFromValue, unit, fixed, tooltips, onDragEnd, min, max, label } = this.props;
+    const { isFocus } = this.state;
+
+    const valueNow = `${value.toFixed(fixed).replace(/[.]/, ',')} ${unit}`;
 
     return (
       <div
-        className="m-range-slider__handle"
+        className={`m-range-slider__handle ${isFocus ? 'focus' : ''}`}
+        tabIndex="0"
+        onFocus={this.onFocus}
+        onBlur={this.onBlur}
         onMouseDown={this.handleStart}
         onTouchEnd={handleNoop}
         onTouchMove={this.handleDrag}
         onDragExit={onDragEnd}
+        role="slider"
+        aria-orientation="horizontal"
+        aria-valuemax={max}
+        aria-valuemin={min}
+        aria-valuenow={valueNow}
+        aria-label={label}
         style={{
           left: getPositionFromValue(value) + 'px'
         }}
