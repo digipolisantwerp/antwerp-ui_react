@@ -1,3 +1,7 @@
+<div class="m-alert d-alert m-alert--wcag u-margin-bottom">
+    <p>It is important to provide the user with clean instructions on how to complete the form. You can provide these both overall or inline. Note that you can not use the placeholder attribute as a replacement for clean instructions or for the label.</p>
+</div>
+
 ### TextField
 ```
 const TextField = require('./src').TextField;
