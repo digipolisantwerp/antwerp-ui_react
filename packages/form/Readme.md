@@ -118,7 +118,7 @@ const Textarea = require('./src').Textarea;
 const Checkbox = require('./src').Checkbox;
 
 <Checkbox
-    label={"Verklaard en goedgekeurd"}
+    label={"<a href='google.be'>Verklaard en goedgekeurd</a>"}
     id={"checkbox-id"}
     name={"checkbox-name"}
     className={"checkbox-class"}

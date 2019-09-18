@@ -39,7 +39,7 @@ class Checkbox extends Component<Props> {
       <div className={inputClass}>
         <div className="a-input__checkbox">
           <input type="checkbox" id={id} name={name} onChange={this.handleChange} checked={checked} disabled={disabled}/>
-          <InputLabel htmlFor={id}>{label}{requiredLabel}</InputLabel>
+          <InputLabel htmlFor={id}><span dangerouslySetInnerHTML={{ __html: label }}></span>{requiredLabel}</InputLabel>
         </div>
       </div>
     )
