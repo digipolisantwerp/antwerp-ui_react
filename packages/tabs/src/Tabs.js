@@ -24,7 +24,7 @@ class Tabs extends React.Component<Props> {
   };
 
   renderItems() {
-    const { items, linkProps } = this.props;
+    const { items, linkProps, ariaLabelActive } = this.props;
 
     return items.map(item => (
       <li key={item.name}>
