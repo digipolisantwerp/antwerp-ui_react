@@ -41,6 +41,7 @@ type Props = {
   block?: boolean,
   disabled?: boolean,
   htmlType?: string,
+  role?: string,
   onClick?: (e: object) => void,
 }
 
@@ -66,6 +67,7 @@ class Button extends Component<Props> {
       style = {},
       disabled = false,
       htmlType,
+      role = 'button',
     } = this.props;
 
     const btnClass = classNames(
@@ -93,7 +95,8 @@ class Button extends Component<Props> {
         alt={alt}
         disabled={disabled}
         type={htmlType}
-        aria-label={ariaLabel}>
+        aria-label={ariaLabel}
+        role={role}>
         {icon ? <Icon name={icon} /> : null}
         {iconLeft ? <Icon name={iconLeft} /> : null}
         {iconRight ? <Icon name={iconRight} /> : null}

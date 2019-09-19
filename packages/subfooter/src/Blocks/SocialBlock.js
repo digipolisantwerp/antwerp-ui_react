@@ -9,6 +9,8 @@ const generateSocialLinkFor = ({ name, handle }) => {
       href={handle}
       className={`a-button a-button--${name} has-icon u-margin-right-xs`}
       target="_blank"
+      title={name}
+      aria-label={name}
       rel="external noopener noreferrer">
       <i className={`fa fa-${name}`} />
     </a>
