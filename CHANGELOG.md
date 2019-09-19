@@ -17,6 +17,7 @@ TODO: Form, Modal
 - `Steps` Add `aria-label`.
 - `Button` Add `role`.
 - `SocialBlock` ( SubFooter ) Add `title` and `aria-label`.
+- `Switch` Add `role` and `aria-checked`.
 - `Spinner` Add `aria-label`.
 - `FlyoutButton` Add `aria-label` for toggle.
 - `Flyout` Add `aria-label` for toggle.

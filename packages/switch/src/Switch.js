@@ -58,6 +58,8 @@ class Switch extends Component {
 							type="checkbox"
 							name={name}
 							id={id}
+							role="switch"
+							aria-checked={this.state.checked}
 							defaultChecked={this.state.checked}
 							disabled={disabled}
 							onChange={this.onClick}
