@@ -14,10 +14,11 @@ TODO: Form, Modal
 - `Button` [BREAKING] Make `aria-label` required.
 - `Icon` [BREAKING] `<i>` is for italic, not for icons. Only `<span class="..."></span>` is allowed. [WCAG 2.1 AA - Identify purpose](https://www.w3.org/TR/WCAG21/#identify-purpose)
 - `Handle` ( Slider ) [BREAKING] Add keyboard navigation for slider.
-- `Steps` Add `aria-label`.
+- `Steps` Add `aria-label` and screen-reader info.
 - `Button` Add `role`.
 - `SocialBlock` ( SubFooter ) Add `title` and `aria-label`.
 - `Switch` Add `role` and `aria-checked`.
+- `Tabs` Add screen-reader info..
 - `Spinner` Add `aria-label`.
 - `FlyoutButton` Add `aria-label` for toggle.
 - `Flyout` Add `aria-label` for toggle.

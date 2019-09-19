@@ -23,8 +23,8 @@ class Step extends Component<Props> {
 
     return (
       <li className={stepClass}>
-        {!!completed ? <span class="u-screen-reader-only">{ariaLabelCompleted}</span> : ''}
-        {!!active ? <span class="u-screen-reader-only">{ariaLabelCurrent}</span> : ''}
+        {!!completed ? <span className="u-screen-reader-only">{ariaLabelCompleted}</span> : ''}
+        {!!active ? <span className="u-screen-reader-only">{ariaLabelCurrent}</span> : ''}
         <span className="m-step-indicator__label">{title}</span>
       </li>
     );
