@@ -26,14 +26,14 @@ type Props = {
   /** Flyout size */
   flyoutSize: 'small' | 'medium' | 'large' | 'full',
   /** Direction */
-  direction: 'left' | 'right',
+  direction: 'left' | 'right'
 }
 
 class UserMenu extends Component<Props> {
   static defaultProps = {
     direction: 'right',
     flyoutSize: 'small',
-		notificationsCount: 0
+    notificationsCount: 0
   }
 
   renderAvatar() {
@@ -55,7 +55,7 @@ class UserMenu extends Component<Props> {
       <a className="badge inner-badge"
          href={notificationsUrl()}>
         {notificationsCount}
-        <span className="sr-only" data-translate="">notificaties</span>
+        <span className="u-screen-reader-only" data-translate="">notificaties</span>
       </a>
     )
   }
@@ -115,7 +115,8 @@ class UserMenu extends Component<Props> {
               block
               type="danger"
               alt="Klik hier om u af te melden."
-              iconLeft="power-off">
+              iconLeft="power-off"
+              ariaLabel="Afmelden">
               Afmelden
             </Button>
           </div>
@@ -130,6 +131,7 @@ class UserMenu extends Component<Props> {
       <Button
         className="btn-login"
         title="Aanmelden"
+        ariaLabel="Aanmelden"
         alt="Klik hier om u aan te melden met uw A-profiel."
         onClick={() => window.location.href = loginUrl}
         iconLeft="user">Aanmelden</Button>

@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 All the following depend on Core Branding v4+.
 
-TODO: Form, Modal, TagList
+TODO: Form, Modal, TagList, User-menu
 
 - `CardIcon` [BREAKING] Make `aria-label` required.
 - `Button` [BREAKING] Make `aria-label` required.
@@ -32,6 +32,7 @@ TODO: Form, Modal, TagList
 - `Avatar` Add `u-screen-reader-only` 'User Icon' info.
 - `Button` Add contrast warning for negative toggle. [WCAG 2.1 AA - Contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum)
 - `Tag`/`TagListItem` Add extra WVAG information for `aria-label`.
+- `UserMenu` Add `aria-label` and screen-reader info.
 
 ## [Unreleased]
 - `ButtonGroup` Added option for vertical button group (depends on core branding 3.2)
