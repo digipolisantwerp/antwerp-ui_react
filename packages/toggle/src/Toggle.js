@@ -107,6 +107,8 @@ class Toggle extends Component<Props> {
           name={name}
           checked={this.state.checked}
           type="checkbox"
+          role="switch"
+          aria-checked={this.state.checked}
           onClick={this.handleClick}
         />
         <div className="a-toggle__labels">

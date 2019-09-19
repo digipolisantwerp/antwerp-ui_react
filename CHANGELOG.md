@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 All the following depend on Core Branding v4+.
 
-TODO: Form, Modal
+TODO: Form, Modal, TagList
 
 - `CardIcon` [BREAKING] Make `aria-label` required.
 - `Button` [BREAKING] Make `aria-label` required.
@@ -18,6 +18,7 @@ TODO: Form, Modal
 - `Button` Add `role`.
 - `SocialBlock` ( SubFooter ) Add `title` and `aria-label`.
 - `Switch` Add `role` and `aria-checked`.
+- `Toggle` Add `role` and `aria-checked`.
 - `Tabs` Add screen-reader info..
 - `Spinner` Add `aria-label`.
 - `FlyoutButton` Add `aria-label` for toggle.
