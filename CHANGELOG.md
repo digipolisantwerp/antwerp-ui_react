@@ -12,6 +12,7 @@ All the following depend on Core Branding v4+.
 - `Button` [BREAKING] Make `aria-label` required.
 - `Icon` [BREAKING] `<i>` is for italic, not for icons. Only `<span class="..."></span>` is allowed. [WCAG 2.1 AA - Identify purpose](https://www.w3.org/TR/WCAG21/#identify-purpose)
 - `Handle` ( Slider ) [BREAKING] Add keyboard navigation for slider.
+- `Steps` Add `aria-label`.
 - `Spinner` Add `aria-label`.
 - `FlyoutButton` Add `aria-label` for toggle.
 - `Flyout` Add `aria-label` for toggle.
