@@ -21,7 +21,9 @@ type
 	/** aria-label for previous month, defaults to 'Previous Month' */
 	ariaLabelPreviousMonth?: string,
 	/** aria-label for next month, defaults to 'Next Month' */
-	ariaLabelNextMonth?: string
+	ariaLabelNextMonth?: string,
+	/** aria-label for the datepicker, defaults to 'Datepicker' */
+	ariaLabelDatePicker?: string
 };
 class Calendar extends Component<Prop> {
 
@@ -86,6 +88,7 @@ class Calendar extends Component<Prop> {
 				maxDate={Moment(maxDate, format)}
 				noWeekends={noWeekends}
 				clickOnDate={this.changeDate.bind(this)}
+				ariaLabelDatePicker={ariaLabelDatePicker}
 			/>
 		</div>
 			;

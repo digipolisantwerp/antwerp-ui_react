@@ -11,7 +11,7 @@ class DatePicker extends Component {
 			format,
 			selectedDates,
 			noWeekends,
-			clickOnDate
+			ariaLabelDatePicker,
 		} = this.props;
 
 		return <Calendar
@@ -21,7 +21,8 @@ class DatePicker extends Component {
 			format={format}
 			selectedDates={selectedDates}
 			noWeekends={noWeekends}
-			selectDay={clickOnDate.bind(this)}/>;
+			selectDay={clickOnDate.bind(this)}
+			ariaLabelDatePicker={ariaLabelDatePicker}/>;
 	}
 
 	render() {
