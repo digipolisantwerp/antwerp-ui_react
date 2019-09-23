@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Moment from 'moment';
+import { rotateArrayByPosition } from './../utils';
 
 class Head extends Component {
 
@@ -18,10 +19,13 @@ class Head extends Component {
 
 	renderNameOfDays() {
 		const nameOfDays = Moment.weekdaysShort();
+		const longNameDays = Moment.weekdays();
+		const orderedLongNameDays = rotateArrayByPosition(longNameDays, 2);
+
 		return (
 			<tr className="m-datepicker__days">
 				{
-					nameOfDays.map((day, i) => <th key={i}>{ day }</th>)
+					nameOfDays.map((day, i) => <th key={i} aria-label={orderedLongNameDays[i]}>{ day }</th>)
 				}
 			</tr>
 		);

@@ -14,7 +14,7 @@ import {
 class Body extends Component {
 
 	static defaultProps = {
-		selectedDates: []
+		selectedDates: [],
 	}
 
 	renderBody(displayedPeriod) {
@@ -61,7 +61,8 @@ class Body extends Component {
 			maxDate,
 			format,
 			noWeekends,
-			selectDay
+			selectDay,
+			ariaLabelButtonDateFormat
 		} = this.props;
 
 		return days.map((day, key) => {
@@ -102,7 +103,8 @@ class Body extends Component {
 					selected={selected}
 					dayPrevMonth={dayPrevMonth}
 					dayNextMonth={dayNextMonth}
-					activeDate={activeDate}/>
+					activeDate={activeDate}
+					ariaLabelButtonDateFormat={ariaLabelButtonDateFormat}/>
 			);
 		});
 	}

@@ -3,7 +3,7 @@ import Moment from 'moment';
 import Nav from './Nav';
 import Body from './Body';
 import Head from './Head';
-import { nextItemInArray } from '../utils';
+import { nextItemInArray, aria } from '../utils';
 
 class Calendar extends Component {
   state = {
@@ -44,19 +44,29 @@ class Calendar extends Component {
       maxDate,
       format,
       noWeekends,
-      ariaLabelDatePicker = 'DatePicker'
+      ariaLabelPrevious,
+      ariaLabelNext,
+      ariaLabelDatePicker = viewType => `Datumkiezer ${aria.mapViewType(viewType)}`,
+      ariaLabelButtonDateFormat
     } = this.props;
     const { viewType, displayedPeriod } = this.state;
 
     return (
       <React.Fragment>
-        <div className="m-datepicker__nav" role="application" aria-label={`${ariaLabelDatePicker} ${viewType}`} aria-hidden="false">
+        <div
+          className="m-datepicker__nav"
+          role="application"
+          aria-label={`${ariaLabelDatePicker(viewType)}`}
+          aria-hidden="false"
+        >
           <Nav
             viewType={viewType}
             displayedPeriod={displayedPeriod}
             onClickPrevious={this.moveDisplayedPeriod.bind(this, -1)}
             onClickViewType={this.changeViewType.bind(this)}
             onClickNext={this.moveDisplayedPeriod.bind(this, 1)}
+            ariaLabelPrevious={ariaLabelPrevious}
+            ariaLabelNext={ariaLabelNext}
           />
         </div>
         <table cellPadding="0" cellSpacing="0">
@@ -74,6 +84,7 @@ class Calendar extends Component {
               format={format}
               noWeekends={noWeekends}
               activeDate={activeDate}
+              ariaLabelButtonDateFormat={ariaLabelButtonDateFormat}
               goToViewType={this.goToViewType.bind(this)}
             />
           </tbody>
