@@ -157,7 +157,12 @@ class Slider extends Component<Props, State> {
           }}
         >
           <div className="m-range-slider__inner">
-            <Bar start={start} end={end} getPositionFromValue={this.getPositionFromValue} range={range} />
+            <Bar 
+              start={start}  
+              end={end} 
+              getPositionFromValue={this.getPositionFromValue} 
+              range={range} 
+            />
 
             <Handle
               value={start}
