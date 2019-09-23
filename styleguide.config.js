@@ -8,8 +8,8 @@ module.exports = {
   },
   skipComponentsWithoutExample: true,
   getComponentPathLine(componentPath) {
-    const name = path.basename(componentPath, '.js')
-    return `import { ${name} } from '@acpaas-ui/react-components';`
+    const name = path.basename(componentPath, '.js');
+    return `import { ${name} } from '@acpaas-ui/react-components';`;
   },
   styleguideDir: 'docs',
   title: 'ACPaaS UI React Components',
@@ -24,8 +24,8 @@ module.exports = {
           loader: 'babel-loader'
         },
         {
-          test:/\.(s*)css$/,
-          use:['style-loader','css-loader', 'sass-loader']
+          test: /\.(s*)css$/,
+          use: ['style-loader', 'css-loader', 'sass-loader']
         }
       ]
     }
@@ -36,8 +36,7 @@ module.exports = {
       links: [
         {
           rel: 'stylesheet',
-          href:
-          'https://cdn.antwerpen.be/core_branding_scss/3.2.0/main.min.css'
+          'https://cdn.antwerpen.be/core_branding_scss/3.2.2/main.min.css'
         }
       ]
     }
