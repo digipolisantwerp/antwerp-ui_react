@@ -45,7 +45,7 @@ class Alert extends Component<Props> {
       title,
       children,
       closable,
-      ariaLabelClose = 'Close',
+      ariaLabelClose = 'Sluiten',
       className,
     } = this.props;
     const { closed } = this.state;

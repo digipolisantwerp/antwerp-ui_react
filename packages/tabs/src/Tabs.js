@@ -12,7 +12,7 @@ type Props = {
     disabled?: boolean
   }>,
   linkProps?: Function,
-  /** Aria label for active tab, defaults to 'Active:' */
+  /** Aria label for active tab, defaults to 'Actief:' */
   ariaLabelActive?: string
 };
 
@@ -20,7 +20,7 @@ class Tabs extends React.Component<Props> {
   static defaultProps = {
     align: 'left',
     linkProps: src => src,
-    ariaLabelActive: 'Active:'
+    ariaLabelActive: 'Actief:'
   };
 
   renderItems() {

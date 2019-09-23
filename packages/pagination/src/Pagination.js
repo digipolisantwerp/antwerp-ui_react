@@ -18,13 +18,13 @@ type Props = {
   display?: 'text' | 'numbers',
   /** Which element to use as navigation element (NOTE: Corebranding only supports a-tags). Can be a string or React Element. */
   buttonType?: String | React.Node,
-  /** ariaLabel for navigation component, default to 'Pagination'. */
+  /** ariaLabel for navigation component, default to 'Paginering'. */
   ariaLabel?: String,
-  /** ariaLabel for next page, default to 'Next page'. */
+  /** ariaLabel for next page, default to 'Volgende pagina'. */
   ariaLabelNextPage?: String,
-  /** ariaLabel for previous page, default to 'Previous page'. */
+  /** ariaLabel for previous page, default to 'Vorige pagina'. */
   ariaLabelPreviousPage?: String,
-  /** ariaLabel for current page, default to 'Page'. */
+  /** ariaLabel for current page, default to 'Pagina'. */
   ariaLabelPage?: String
 };
 
@@ -142,10 +142,10 @@ export default class Pagination extends Component<Props, State> {
     const {
       styling,
       display,
-      ariaLabel = 'Pagination',
-      ariaLabelNextPage = 'Next page',
-      ariaLabelPreviousPage = 'Previous page',
-      ariaLabelPage = 'Page'
+      ariaLabel = 'Paginering',
+      ariaLabelNextPage = 'Volgende pagina',
+      ariaLabelPreviousPage = 'Vorige pagina',
+      ariaLabelPage = 'Pagina'
     } = this.props;
     // we render this, so it must be capitalized
     const ButtonType = this.props.buttonType;

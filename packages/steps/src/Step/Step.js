@@ -6,15 +6,15 @@ type Props = {
   title: string,
   active?: boolean,
   completed?: boolean,
-  /** Aria label for the current step, defaults to 'Current:' */
+  /** Aria label for the current step, defaults to 'Huidige:' */
   ariaLabelCurrent?: string,
-  /** Aria label for the completed steps, defaults to 'Completed:' */
+  /** Aria label for the completed steps, defaults to 'Compleet:' */
   ariaLabelCompleted?: string
 };
 
 class Step extends Component<Props> {
   render() {
-    const { title, active, completed, ariaLabelCompleted = "Current:", ariaLabelCompleted = "Completed:" } = this.props;
+    const { title, active, completed, ariaLabelCompleted = "Huidige:", ariaLabelCompleted = "Compleet:" } = this.props;
 
     const stepClass = classNames({
       'is-active': !!active,

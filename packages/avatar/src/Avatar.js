@@ -18,7 +18,7 @@ type Props = {
   letter?: string,
   image?: string,
   alt?: string,
-  /** aria-label, defaults to 'User Icon' */
+  /** aria-label, defaults to 'Gebruikers icoon' */
   ariaLabel?: string,
   className?: string,
   children?: any,
@@ -29,7 +29,7 @@ const IconWrapper = ({ icon }) => (<span className="a-avatar__icon"><Icon name={
 const LetterWrapper = ({ letter }) => (<span className="a-avatar__letter">{letter}</span>);
 
 const Avatar = (props: Props) => {
-  const { size, icon, children, style, letter, image, alt = '', className, ariaLabel = 'User icon' } = props
+  const { size, icon, children, style, letter, image, alt = '', className, ariaLabel = 'Gebruiker icoon' } = props
   const avatarClass = classNames(
     'a-avatar',
     { [`${sizeClasses[size]}`]: !!size },
