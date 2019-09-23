@@ -20,7 +20,7 @@ type Props = {
 };
 
 const Badge = (props: Props) => {
-  const { type, className, style = {}, children,  ariaLabel } = props
+  const { type, className, style = {}, children, ariaLabel } = props
   const badgeClass = classNames(
     'a-badge',
     className,

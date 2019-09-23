@@ -29,7 +29,7 @@ const IconWrapper = ({ icon }) => (<span className="a-avatar__icon"><Icon name={
 const LetterWrapper = ({ letter }) => (<span className="a-avatar__letter">{letter}</span>);
 
 const Avatar = (props: Props) => {
-  const { size, icon, children, style, letter, image, alt = '', className, ariaLabel = 'User Icon' } = props
+  const { size, icon, children, style, letter, image, alt = '', className, ariaLabel = 'User icon' } = props
   const avatarClass = classNames(
     'a-avatar',
     { [`${sizeClasses[size]}`]: !!size },

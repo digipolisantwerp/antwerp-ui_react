@@ -11,7 +11,7 @@
 ### Button modifiers
 
 <div class="m-alert d-alert m-alert--wcag u-margin-bottom">
-    <p>Due to [WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/) compliance only `primary` and `secondary` are available in combinatin with `negative`.
+    <p>Due to [WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/) compliance only `primary` and `secondary` are available in combination with `negative`.
       The fallback is `primary` for `success`, `warning` and `danger`. See the <a href="https://www.w3.org/TR/WCAG21/#contrast-minimum" title="Web Content Accessibility Guidelines (WCAG) 2.1 Success Criterion 1.4.3 Contrast (Minimum)" class="has-icon-right" target="_blank">Contrast criterion<span class="fa fa-external-link"></span></a>.</p>
 </div>
 
