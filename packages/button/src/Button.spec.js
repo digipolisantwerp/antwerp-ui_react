@@ -1,5 +1,5 @@
 import Button from './Button';
-import { mount } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import React from 'react';
 
 describe('Button', () => {
@@ -23,6 +23,11 @@ describe('Button', () => {
     it('should set the htmltype if provided', () => {
         const button = mount(<Button htmlType="submit" />);
         expect(button.getDOMNode().type).toBe('submit');
+    });
+
+    it('should set the data-qa attribute', () => {
+        const button = shallow(<Button qa="id-1234" />);
+        expect(button.props()).toHaveProperty('data-qa', 'id-1234');
     });
 
     describe('.negative', () => {

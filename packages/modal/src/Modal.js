@@ -46,6 +46,9 @@ type Props = {
 
   /** Open the modal on initial render. */
   openOnInit?: boolean,
+
+  /** Qa id */
+  qa?: string,
 };
 
 type State = {
@@ -170,6 +173,8 @@ export default class Modal extends React.Component<Props, State> {
       triggerText,
       size,
 
+      qa,
+
       ...restProps
     } = this.props;
 
@@ -192,6 +197,8 @@ export default class Modal extends React.Component<Props, State> {
 
           className={classNames('m-modal', sizeClass, className)}
           overlayClassName={classNames('m-overlay', 'is-active', overlayClassName)}
+
+          data-qa={qa}
 
           {...restProps}
         >

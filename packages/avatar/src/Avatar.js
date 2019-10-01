@@ -21,13 +21,15 @@ type Props = {
   className?: string,
   children?: any,
   style?: object,
+  /** Qa id */
+  qa?: string,
 };
 
 const IconWrapper = ({ icon }) => (<span className="a-avatar__icon"><Icon name={icon} /></span>);
 const LetterWrapper = ({ letter }) => (<span className="a-avatar__letter">{letter}</span>);
 
 const Avatar = (props: Props) => {
-  const { size, icon, children, style, letter, image, alt = '', className } = props
+  const { size, icon, children, style, letter, image, alt = '', className, qa } = props
   const avatarClass = classNames(
     'a-avatar',
     { [`${sizeClasses[size]}`]: !!size },
@@ -35,7 +37,7 @@ const Avatar = (props: Props) => {
   );
 
   return (
-    <div className={avatarClass} style={style}>
+    <div className={avatarClass} style={style} data-qa={qa}>
       {icon && <IconWrapper icon={icon} />}
       {letter && <LetterWrapper letter={letter} />}
       {image && <img src={image} alt={alt} />}

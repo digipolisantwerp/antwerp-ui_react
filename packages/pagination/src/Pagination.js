@@ -17,7 +17,9 @@ type Props = {
   /** Display as text or as numbers */
   display?: "text" | "numbers",
   /** Which element to use as navigation element (NOTE: Corebranding only supports a-tags). Can be a string or React Element. */
-  buttonType?: String | React.Node
+  buttonType?: String | React.Node,
+  /** Qa id */
+  qa?: string,
 };
 
 type State = {
@@ -131,7 +133,7 @@ export default class Pagination extends Component<Props, State> {
   }
 
   render() {
-    const { styling, display } = this.props;
+    const { styling, display, qa } = this.props;
     // we render this, so it must be capitalized
     const ButtonType = this.props.buttonType;
     const { numbers, currentPage, totalPages } = this.state;
@@ -149,7 +151,7 @@ export default class Pagination extends Component<Props, State> {
     }
 
     return (
-      <nav role="navigation" aria-label="Paginering">
+      <nav role="navigation" aria-label="Paginering" data-qa={qa}>
         <ul className={paginationClasses}>
           <li
             className="m-pagination__prev pagination-button"

@@ -16,6 +16,8 @@ type Props = {
   logoSrc: string,
   /** Alt of the logo img */
   logoAlt: string,
+  /** Qa id */
+  qa?: string,
 };
 
 const Header = (props: Props) => {
@@ -26,7 +28,8 @@ const Header = (props: Props) => {
     logoUrl,
     logoSrc,
     logoAlt,
-    type } = props;
+    type,
+    qa, } = props;
   const env = Environment.getEnvironment();
 
   const headerClass = classNames(
@@ -37,7 +40,7 @@ const Header = (props: Props) => {
     }
   );
   return (
-    <header className={headerClass} style={style}>
+    <header className={headerClass} style={style} data-qa={qa}>
       <a href={logoUrl} className="o-header__logo">
         <img src={logoSrc} alt={logoAlt} />
       </a>

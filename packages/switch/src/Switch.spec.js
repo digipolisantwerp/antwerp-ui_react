@@ -1,5 +1,5 @@
 import Switch from './Switch';
-import { mount } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import React from 'react';
 
 describe('Switch', () => {
@@ -36,5 +36,10 @@ describe('Switch', () => {
 		const switchButton = mount(<Switch onClick={mock} checked={false} />);
 		switchButton.find('[type="checkbox"]').simulate('change');
 		expect(switchButton.state('checked')).toBe(true);
+	});
+
+	it('should set the data-qa attribute', () => {
+		const switchButton = shallow(<Switch qa="id-1234" />);
+		expect(switchButton.props()).toHaveProperty('data-qa', 'id-1234');
 	});
 });

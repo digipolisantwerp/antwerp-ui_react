@@ -11,7 +11,9 @@ type Props = {
     active?: boolean,
     disabled?: boolean,
   }>,
-  linkProps?: Function
+  linkProps?: Function,
+  /** Qa id */
+  qa?: string,
 };
 
 class Tabs extends React.Component<Props> {
@@ -38,7 +40,7 @@ class Tabs extends React.Component<Props> {
   }
 
   render() {
-    const { align, items } = this.props;
+    const { align, items, qa } = this.props;
 
     const tabClasses = classNames('m-nav-tabs', {
       'm-nav-tabs--left': align === 'left',
@@ -47,7 +49,7 @@ class Tabs extends React.Component<Props> {
 
     return (
       items && items.length > 0 && (
-        <ul className={tabClasses}>
+        <ul className={tabClasses} data-qa={qa}>
           { this.renderItems() }
         </ul>
       )

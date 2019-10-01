@@ -14,4 +14,8 @@ describe('Content', () => {
         expect(content.find('span').parent().props().className).toContain('u-container');
     });
 
+    it('should set the data-qa attribute', () => {
+        const content = mount(<Content qa="id-1234"><span>test</span></Content>);
+        expect(content.find('span').parent().props()).toHaveProperty('data-qa', 'id-1234');
+    });
 });

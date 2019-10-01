@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import Label from './Label';
 
 describe('Label', () => {
@@ -44,5 +44,10 @@ describe('Label', () => {
     it('should insert the children', () => {
         const label = mount(<Label>test</Label>);
         expect(label.text()).toBe('test');
+    });
+
+    it('should set the data-qa attribute', () => {
+        const label = shallow(<Label qa="id-1234">test</Label>);
+        expect(label.props()).toHaveProperty('data-qa', 'id-1234');
     });
 });

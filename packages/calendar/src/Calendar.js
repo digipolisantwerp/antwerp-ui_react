@@ -18,6 +18,8 @@ type
 	noWeekends?: boolean,
 	/** Event for when the date changes. */
 	onChange?: (e: object) => void,
+  /** Qa id */
+  qa?: string,
 };
 class Calendar extends Component<Prop> {
 
@@ -66,14 +68,15 @@ class Calendar extends Component<Prop> {
 			selectedDates,
 			minDate,
 			maxDate,
-			noWeekends,
+      noWeekends,
+      qa,
 		} = this.props;
 
 		const {
 			activeDate,
 		} = this.state;
 
-		return <div className="m-datepicker is-open">
+		return <div className="m-datepicker is-open" data-qa={qa}>
 			<DatePicker
 				format={format}
 				activeDate={activeDate}
@@ -81,7 +84,7 @@ class Calendar extends Component<Prop> {
 				minDate={Moment(minDate, format)}
 				maxDate={Moment(maxDate, format)}
 				noWeekends={noWeekends}
-				clickOnDate={this.changeDate.bind(this)}
+        clickOnDate={this.changeDate.bind(this)}
 			/>
 		</div>
 			;

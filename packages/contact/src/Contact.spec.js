@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import Contact from './Contact';
 import Avatar from '../../avatar';
 
@@ -26,4 +26,8 @@ describe('Contact', () => {
         expect(contact.find('.contact-role').text()).toBe('Developer');
     });
 
+    it('should set the data-qa attribute', () => {
+        const contact = shallow(<Contact qa="id-1234" />);
+        expect(contact.props()).toHaveProperty('data-qa', 'id-1234');
+    });
 });

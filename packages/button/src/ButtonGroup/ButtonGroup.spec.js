@@ -1,5 +1,5 @@
 import ButtonGroup from './ButtonGroup';
-import { mount } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import React from 'react';
 
 describe('ButtonGroup', () => {
@@ -19,5 +19,10 @@ describe('ButtonGroup', () => {
         const buttonGroupStyle = { color: 'green' };
         const buttonGroup = mount(<ButtonGroup style={buttonGroupStyle} />);
         expect(buttonGroup.getDOMNode().style).toHaveProperty('color');
+    });
+
+    test('should set the data-qa attribute', () => {
+        const buttonGroup = shallow(<ButtonGroup qa="id-1234" />);
+        expect(buttonGroup.props()).toHaveProperty('data-qa', 'id-1234');
     });
 });

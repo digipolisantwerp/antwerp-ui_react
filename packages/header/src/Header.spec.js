@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import Header from './Header';
 
 describe('Header', () => {
@@ -22,5 +22,10 @@ describe('Header', () => {
     it('should return in a footer element', () => {
         const header = mount(<Header />);
         expect(header.getDOMNode().tagName).toBe('HEADER');
+    });
+
+    it('should set the data-qa attribute', () => {
+        const header = shallow(<Header qa="id-1234" />);
+        expect(header.props()).toHaveProperty('data-qa', 'id-1234');
     });
 });

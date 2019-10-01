@@ -8,10 +8,12 @@ type Props = {
   /** Use span tag instead of i */
   span?: boolean,
   className?: string,
+  /** Qa id */
+  qa?: string,
 };
 
 const Icon = (props: Props) => {
-  const { name, style, span, className } = props;
+  const { name, style, span, className, qa } = props;
   const iconClass = classNames(
     className,
     `fa fa-${name}`
@@ -19,11 +21,11 @@ const Icon = (props: Props) => {
 
   if (span) {
     return (
-      <span className={iconClass} style={style}></span>
+      <span className={iconClass} style={style} data-qa={qa}></span>
     )
   } else {
     return (
-      <i className={iconClass} style={style}></i>
+      <i className={iconClass} style={style} data-qa={qa}></i>
     )
   }
 }

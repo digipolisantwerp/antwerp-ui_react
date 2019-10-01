@@ -24,6 +24,8 @@ type Props = {
   onStateChange?: Function,
   triggerClose?: Function,
   children?: any,
+  /** Qa id */
+  qa?: string,
 };
 
 class Flyout extends Component<Props> {
@@ -108,12 +110,13 @@ class Flyout extends Component<Props> {
     const {
       trigger,
       hasPadding,
-      children
+      children,
+      qa
     } = this.props;
     const flyoutClass = this.getClassNames();
     return (
       trigger && (
-      <div className={flyoutClass} ref={this.flyoutRef}>
+      <div className={flyoutClass} ref={this.flyoutRef} data-qa={qa}>
           <div onClick={this.toggleIsOpen}>
             {this.props.trigger}
           </div>
