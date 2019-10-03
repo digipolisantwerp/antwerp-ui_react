@@ -21,8 +21,8 @@ type Props = {
   },
   /** Logout URL */
   logoutUrl: string,
-	/** Amount of notifications */
-	notificationsCount: string,
+  /** Amount of notifications */
+  notificationsCount: string,
   /** Flyout size */
   flyoutSize: 'small' | 'medium' | 'large' | 'full',
   /** Direction */
@@ -33,7 +33,7 @@ class UserMenu extends Component<Props> {
   static defaultProps = {
     direction: 'right',
     flyoutSize: 'small',
-		notificationsCount: 0
+    notificationsCount: 0
   }
 
   renderAvatar() {
@@ -53,7 +53,7 @@ class UserMenu extends Component<Props> {
     const { notificationsCount } = this.props;
     return (
       <a className="badge inner-badge"
-         href={notificationsUrl()}>
+        href={notificationsUrl()}>
         {notificationsCount}
         <span className="sr-only" data-translate="">notificaties</span>
       </a>
@@ -132,7 +132,7 @@ class UserMenu extends Component<Props> {
         title="Aanmelden"
         alt="Klik hier om u aan te melden met uw A-profiel."
         onClick={() => window.location.href = loginUrl}
-      ><span class="fa fa-user"></span> Aanmelden</a>
+      ><span className="fa fa-user"></span> Aanmelden</a>
     );
   }
 
@@ -146,3 +146,4 @@ class UserMenu extends Component<Props> {
 }
 
 export default UserMenu;
+

@@ -41,7 +41,7 @@ const TextField = require('./src').TextField;
     placeholder={"naam"}
     onChange={(value) => console.log('textfield value is:', value)}
     iconright="eye" />
-    
+
 <TextField
     label={"Naam"}
     id={"textfield-id"}
@@ -123,7 +123,6 @@ const Checkbox = require('./src').Checkbox;
     name={"checkbox-name"}
     className={"checkbox-class"}
     required={true}
-    checked={true}
     onChange={(value) => console.log('checkbox value is:', value)} />
 ```
 

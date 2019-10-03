@@ -25,7 +25,7 @@ const Radio = (props: Props) => {
   );
   return (
     <div className={radioClass}>
-      <input type="radio" value={value} id={id} name={name} defaultChecked={checked} checked={checked} disabled={disabled} required={required} />
+      <input type="radio" value={value} id={id} name={name} checked={checked} disabled={disabled} required={required} />
       <label htmlFor={id}>{children}</label>
     </div>
   )
