@@ -60,10 +60,12 @@ const Col = (props: Props) => {
     sm,
     md,
     lg,
+    xl,
     xsOffset,
     smOffset,
     mdOffset,
     lgOffset,
+    xlOffset,
   } = props;
 
   const columns = getColClassNames(props);
