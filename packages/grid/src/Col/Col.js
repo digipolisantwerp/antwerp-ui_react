@@ -67,7 +67,6 @@ const Col = (props: Props) => {
   } = props;
 
   const columns = getColClassNames(props);
-  console.log(columns);
 
   const containerClass = classNames(
     className,
