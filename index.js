@@ -19,8 +19,15 @@ export {
   CardTitle,
   CardActions,
   CardIcon,
-  CardImage
+  CardImage,
 } from './packages/card';
+
+export {
+  Wrapper,
+  Container,
+  Row,
+  Col,
+} from './packages/grid';
 
 export { default as Contact } from './packages/contact';
 
@@ -41,7 +48,7 @@ export {
   Textarea,
   RadioGroup,
   InputLabel,
-  Datepicker
+  Datepicker,
 } from './packages/form';
 
 export { default as Header } from './packages/header';
@@ -50,7 +57,7 @@ export { default as Hero } from './packages/hero';
 
 export { default as Icon } from './packages/icon';
 
-export { default as Label} from './packages/label';
+export { default as Label } from './packages/label';
 
 export { default as Steps } from './packages/steps';
 
@@ -93,8 +100,9 @@ export {
   SocialBlock,
 } from './packages/subfooter';
 
-export { default as 
-  Pagination,
+export {
+  default as
+    Pagination,
 } from './packages/pagination';
 
 export {

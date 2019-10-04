@@ -24,8 +24,8 @@ module.exports = {
           loader: 'babel-loader'
         },
         {
-          test:/\.(s*)css$/,
-          use:['style-loader','css-loader', 'sass-loader']
+          test: /\.(s*)css$/,
+          use: ['style-loader', 'css-loader', 'sass-loader']
         }
       ]
     }
@@ -38,6 +38,11 @@ module.exports = {
           rel: 'stylesheet',
           href:
             'https://cdn.antwerpen.be/core_branding_scss/3.2.0/main.min.css'
+        },
+        {
+          rel: 'stylesheet',
+          href:
+            'https://cdn.antwerpen.be/core_flexboxgrid_scss/1.0.1/flexboxgrid.min.css'
         }
       ]
     }
