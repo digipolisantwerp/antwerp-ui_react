@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import AccordionTabContent from './AccordionTabContent';
 
 describe('AccordionTabContent', () => {
@@ -7,5 +7,13 @@ describe('AccordionTabContent', () => {
     const component = shallow(<AccordionTabContent />);
 
     expect(component.find('.m-accordion__content')).toBeDefined();
+  });
+
+  test('Can contain a data-qa attribute', () => {
+    const component = shallow(
+      <AccordionTabContent qa="id-1234"/>
+    );
+
+    expect(component.find('.m-accordion__content').props()).toHaveProperty('data-qa', 'id-1234');
   });
 });
