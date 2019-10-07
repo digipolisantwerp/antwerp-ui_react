@@ -33,6 +33,8 @@ Props = {
   onDragEnd? : void,
   /** Function that is continuously triggered when a handler is being dragged */
   onChange? : void,
+  /** Qa id */
+  qa?: string,
 };
 
 type
@@ -165,6 +167,7 @@ class Slider extends Component<Props, State> {
       tooltips,
       range,
       fixed,
+      qa,
     } = this.props;
 
     let {
@@ -175,7 +178,7 @@ class Slider extends Component<Props, State> {
     } = this.state;
 
     return (
-      <div id={id}>
+      <div id={id} data-qa={qa}>
         {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
         <div className="m-range-slider" ref={(s) => {
           this.slider = s

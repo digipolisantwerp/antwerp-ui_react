@@ -2,8 +2,6 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import FlyoutButton from './FlyoutButton';
 
-import Button from '../../button/src/Button';
-
  describe('FlyoutButton', () => {
 
   test('FlyoutButton is rendered', () => {

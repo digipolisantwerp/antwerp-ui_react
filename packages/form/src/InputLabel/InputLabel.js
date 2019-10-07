@@ -6,6 +6,8 @@ type Props = {
   htmlFor?: string,
   children?: any,
   inline?: boolean,
+  /** Qa id */
+  qa?: string,
 };
 
 const InputLabel = (props: Props) => {
@@ -14,6 +16,7 @@ const InputLabel = (props: Props) => {
     htmlFor,
     children,
     inline,
+    qa,
   } = props;
   const labelClass = classNames(
     'a-input__label',
@@ -22,7 +25,7 @@ const InputLabel = (props: Props) => {
     }
   );
   return (
-    <label className={labelClass} htmlFor={htmlFor} style={style}>
+    <label className={labelClass} htmlFor={htmlFor} style={style} data-qa={qa}>
       {children}
     </label>
   )
