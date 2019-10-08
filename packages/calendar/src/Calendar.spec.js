@@ -1,6 +1,6 @@
 import Calendar from './Calendar';
 
-import { shallow, mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import React from 'react';
 
 describe('Calendar', () => {

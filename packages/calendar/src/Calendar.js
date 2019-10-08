@@ -64,10 +64,10 @@ class Calendar extends Component<Prop> {
 
 	render() {
 		const {
-			format,
-			selectedDates,
-			minDate,
-			maxDate,
+      format,
+      selectedDates,
+      minDate,
+      maxDate,
       noWeekends,
       qa,
 		} = this.props;

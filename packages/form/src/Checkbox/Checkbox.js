@@ -29,7 +29,7 @@ class Checkbox extends Component<Props> {
       checked = false,
       required,
       disabled = false,
-      qa
+      qa,
     } = this.props;
 
     const inputClass = classNames(

@@ -1,6 +1,6 @@
 import Datepicker from './Datepicker';
 
-import { shallow, mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import React from 'react';
 import Moment from 'moment';
 

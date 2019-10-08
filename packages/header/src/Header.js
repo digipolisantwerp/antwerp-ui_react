@@ -29,7 +29,8 @@ const Header = (props: Props) => {
     logoSrc,
     logoAlt,
     type,
-    qa, } = props;
+    qa,
+  } = props;
   const env = Environment.getEnvironment();
 
   const headerClass = classNames(

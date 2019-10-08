@@ -1,5 +1,5 @@
 import Switch from './Switch';
-import { shallow, mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import React from 'react';
 
 describe('Switch', () => {

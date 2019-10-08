@@ -1,5 +1,5 @@
 import Button from './Button';
-import { shallow, mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import React from 'react';
 
 describe('Button', () => {

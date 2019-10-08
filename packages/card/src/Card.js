@@ -15,7 +15,7 @@ class Card extends Component<Props> {
       className,
       style,
       children,
-      qa
+      qa,
     } = this.props;
 
     const cardClass = classNames(
