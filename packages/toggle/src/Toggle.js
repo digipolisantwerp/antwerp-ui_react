@@ -26,6 +26,8 @@ type Props = {
 	uncheckedIcon?: string,
 	uncheckedButtonClass?: string,
   checked?: boolean,
+  /** Qa id */
+  qa?: string,
   onChange?: (e: Object) => void,
   onClick?: (e: Object) => void,
 };
@@ -69,11 +71,12 @@ class Toggle extends Component<Props> {
       name,
       size,
       checkedLabel,
-	    checkedIcon,
-	    checkedButtonClass,
-	    uncheckedLabel,
-	    uncheckedIcon,
-	    uncheckedButtonClass,
+      checkedIcon,
+      checkedButtonClass,
+      uncheckedLabel,
+      uncheckedIcon,
+      uncheckedButtonClass,
+      qa,
     } = this.props;
 
     const toggleClass = classNames(
@@ -100,7 +103,7 @@ class Toggle extends Component<Props> {
 	  );
 
     return (
-      <div className={toggleClass}>
+      <div className={toggleClass} data-qa={qa}>
         <input
           className="a-toggle__checkbox"
           id={id}
