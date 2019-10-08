@@ -158,22 +158,22 @@ class Datepicker extends Component<Props> {
 
 	render() {
 		const {
-      label,
-      id,
-      state,
-      description,
-      mask,
-      required,
-      disabled,
-      readOnly,
-      name,
-      format,
-      selectedDates,
-      minDate,
-      maxDate,
-      noWeekends,
-      onBlur,
-      qa,
+			label,
+			id,
+			state,
+			description,
+			mask,
+			required,
+			disabled,
+			readOnly,
+			name,
+			format,
+			selectedDates,
+			minDate,
+			maxDate,
+			noWeekends,
+			onBlur,
+			qa,
 		} = this.props;
 
 		const {

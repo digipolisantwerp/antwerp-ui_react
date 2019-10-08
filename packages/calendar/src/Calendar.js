@@ -18,8 +18,8 @@ type
 	noWeekends?: boolean,
 	/** Event for when the date changes. */
 	onChange?: (e: object) => void,
-  /** Qa id */
-  qa?: string,
+	/** Qa id */
+	qa?: string,
 };
 class Calendar extends Component<Prop> {
 
@@ -64,12 +64,12 @@ class Calendar extends Component<Prop> {
 
 	render() {
 		const {
-      format,
-      selectedDates,
-      minDate,
-      maxDate,
-      noWeekends,
-      qa,
+			format,
+			selectedDates,
+			minDate,
+			maxDate,
+			noWeekends,
+			qa,
 		} = this.props;
 
 		const {
@@ -84,7 +84,7 @@ class Calendar extends Component<Prop> {
 				minDate={Moment(minDate, format)}
 				maxDate={Moment(maxDate, format)}
 				noWeekends={noWeekends}
-        clickOnDate={this.changeDate.bind(this)}
+				clickOnDate={this.changeDate.bind(this)}
 			/>
 		</div>
 			;

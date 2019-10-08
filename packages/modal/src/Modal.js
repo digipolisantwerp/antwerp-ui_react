@@ -158,23 +158,17 @@ export default class Modal extends React.Component<Props, State> {
     const {
       appElement,
       children,
-
       onRequestClose,
-
       title,
       hasCloseButton,
       confirmText,
       denyText,
-
       className,
       overlayClassName,
-
       triggerElm,
       triggerText,
       size,
-
       qa,
-
       ...restProps
     } = this.props;
 
@@ -194,12 +188,9 @@ export default class Modal extends React.Component<Props, State> {
           isOpen={showModal}
           onRequestClose={this.handleRequestClose}
           role="dialog"
-
           className={classNames('m-modal', sizeClass, className)}
           overlayClassName={classNames('m-overlay', 'is-active', overlayClassName)}
-
           data-qa={qa}
-
           {...restProps}
         >
           <div className="m-modal__content">

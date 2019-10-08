@@ -23,9 +23,9 @@ describe('Datepicker', () => {
 		appInstance.toggleCalendar();
 		expect(datepicker.state('open')).toBe(true);
 	});
-
+	
 	it('should set the data-qa attribute', () => {
-    const datepicker = shallow(<Datepicker qa="id-1234" />);
-    expect(datepicker.props()).toHaveProperty('data-qa', 'id-1234');
+		const datepicker = shallow(<Datepicker qa="id-1234" />);
+		expect(datepicker.props()).toHaveProperty('data-qa', 'id-1234');
 	});
 });
