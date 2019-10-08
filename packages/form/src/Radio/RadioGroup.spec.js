@@ -34,7 +34,7 @@ describe("RadioGroup", () => {
           options={atomicElements}
         ></RadioGroup>
       );
-      expect(component.find(".a-input")).toBeDefined();
+      expect(component.find('.a-input').exists()).toBe(true);
     });
 
     test('RadioGroup should contain a data-qa attribute', () => {

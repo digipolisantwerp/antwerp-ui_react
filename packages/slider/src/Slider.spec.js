@@ -5,7 +5,7 @@ import Slider from './Slider';
 describe('Slider', () => {
     test('Slider is rendered correctly', () => {
       const component = mount(<Slider />);
-      expect(component.find('.m-range-slider')).toBeDefined();
+      expect(component.find('.m-range-slider').exists()).toBe(true);
     });
 
     test('Slider should contain a data-qa attribute', () => {

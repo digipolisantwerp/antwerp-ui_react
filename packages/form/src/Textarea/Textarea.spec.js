@@ -5,7 +5,7 @@ import Textarea from './Textarea';
 describe('Textarea', () => {
     test('Textarea is rendered correctly', () => {
       const component = shallow(<Textarea />);
-      expect(component.find('.a-input')).toBeDefined();
+      expect(component.find('.a-input').exists()).toBe(true);
     });
 
     test('Textarea should contain a data-qa attribute', () => {

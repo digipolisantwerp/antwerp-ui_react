@@ -5,7 +5,7 @@ import TextField from './TextField';
 describe('TextField', () => {
     test('TextField is rendered correctly', () => {
       const component = shallow(<TextField />);
-      expect(component.find('.a-input')).toBeDefined();
+      expect(component.find('.a-input').exists()).toBe(true);
     });
 
     test('TextField should contain a data-qa attribute', () => {

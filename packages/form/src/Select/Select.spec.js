@@ -34,7 +34,7 @@ describe("Select", () => {
           options={atomicElements}
         ></Select>
       );
-      expect(component.find(".a-input")).toBeDefined();
+      expect(component.find('.a-input').exists()).toBe(true);
     });
 
     test('Select should contain a data-qa attribute', () => {

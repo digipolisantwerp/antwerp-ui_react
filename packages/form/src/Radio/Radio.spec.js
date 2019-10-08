@@ -5,7 +5,7 @@ import Radio from './Radio';
 describe('Radio', () => {
     test('Radio is rendered correctly', () => {
       const component = shallow(<Radio />);
-      expect(component.find('.a-input__radio')).toBeDefined();
+      expect(component.find('.a-input__radio').exists()).toBe(true);
     });
 
     test('Radio should contain a data-qa attribute', () => {
