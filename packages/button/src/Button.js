@@ -41,6 +41,8 @@ type Props = {
   disabled?: boolean,
   htmlType?: string,
   onClick?: (e: object) => void,
+  /** Qa id */
+  qa?: string,
 }
 
 class Button extends Component<Props> {
@@ -64,6 +66,7 @@ class Button extends Component<Props> {
       style = {},
       disabled = false,
       htmlType,
+      qa,
     } = this.props;
 
     const btnClass = classNames(
@@ -90,7 +93,8 @@ class Button extends Component<Props> {
         style={style}
         alt={alt}
         disabled={disabled}
-        type={htmlType}>
+        type={htmlType}
+        data-qa={qa}>
         {icon ? <Icon name={icon} /> : null}
         {iconLeft ? <Icon name={iconLeft} /> : null}
         {iconRight ? <Icon name={iconRight} /> : null}

@@ -12,6 +12,8 @@ type Props = {
   buttonClass?: string,
   /** Add a custom function that gets triggered when the tag gets closes. */
   onClick?: void,
+  /** Qa id */
+  qa?: string,
 };
 
 class TagListItem extends Component<Props> {
@@ -22,11 +24,12 @@ class TagListItem extends Component<Props> {
       icon = '',
       buttonClass = 'a-button--default',
       onClick,
+      qa,
 
     } = this.props;
 
     return (
-      <li className="m-tag">
+      <li className="m-tag" data-qa={qa}>
         {icon &&
           <Button size="small" icon={icon}></Button>
         }

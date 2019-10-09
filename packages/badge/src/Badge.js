@@ -15,18 +15,20 @@ type Props = {
   type?: BadgeTypes,
   className?: string,
   style?: object,
-  children?: any
+  children?: any,
+  /** Qa id */
+  qa?: string,
 };
 
 const Badge = (props: Props) => {
-  const { type, className, style = {}, children } = props
+  const { type, className, style = {}, children, qa } = props
   const badgeClass = classNames(
     'a-badge',
     className,
     { [`${typeClasses[type]}`]: !!type },
   );
 
-  return <span className={badgeClass} style={style}>{children}</span>
+  return <span className={badgeClass} style={style} data-qa={qa}>{children}</span>
 }
 
 export default Badge;

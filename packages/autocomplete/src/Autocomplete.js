@@ -18,7 +18,9 @@ type Props = {
   onChange?: Function,
   loading?: boolean,
   disabled?: boolean,
-  state?: InputStates
+  state?: InputStates,
+  /** Qa id */
+  qa?: string,
 };
 
 class Autocomplete extends Component<Props> {
@@ -177,7 +179,7 @@ class Autocomplete extends Component<Props> {
   }
 
   render() {
-    const { items, noResults, loading, disabled, state } = this.props;
+    const { items, noResults, loading, disabled, state, qa } = this.props;
     const { results, open } = this.state;
 
     return (
@@ -197,6 +199,7 @@ class Autocomplete extends Component<Props> {
                 loading={!!loading}
                 disabled={disabled}
                 state={state}
+                data-qa={qa}
               />
             }
             triggerClose={this.handleCloseTrigger}

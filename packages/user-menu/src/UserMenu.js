@@ -27,6 +27,8 @@ type Props = {
   flyoutSize: 'small' | 'medium' | 'large' | 'full',
   /** Direction */
   direction: 'left' | 'right',
+  /** Qa id */
+  qa?: string,
 }
 
 class UserMenu extends Component<Props> {
@@ -137,8 +139,9 @@ class UserMenu extends Component<Props> {
   }
 
   render() {
+    const { qa } = this.props;
     return (
-      <div style={{ textAlign: this.props.direction }}>
+      <div style={{ textAlign: this.props.direction }} data-qa={qa}>
         {this.props.loggedIn ? this.renderLoggedIn() : this.renderLoggedOut()}
       </div>
     );

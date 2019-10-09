@@ -1,6 +1,6 @@
 import Datepicker from './Datepicker';
 
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import React from 'react';
 import Moment from 'moment';
 
@@ -22,5 +22,10 @@ describe('Datepicker', () => {
 		const appInstance = datepicker.instance();
 		appInstance.toggleCalendar();
 		expect(datepicker.state('open')).toBe(true);
+	});
+	
+	it('should set the data-qa attribute', () => {
+		const datepicker = shallow(<Datepicker qa="id-1234" />);
+		expect(datepicker.props()).toHaveProperty('data-qa', 'id-1234');
 	});
 });

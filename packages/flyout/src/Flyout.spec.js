@@ -29,4 +29,8 @@ import Button from '../../button/src/Button';
     expect(flyoutWrapper.state('isOpen')).toBe(true)
   })
 
+  test('Flyout contains a data-qa attribute', () => {
+    const component = mount(<Flyout qa="id-1234" trigger={<Button type="primary">Click me!</Button>} hasPadding>this is the flyout</Flyout>);
+    expect(component.find('FlyoutContent').parent().props()).toHaveProperty('data-qa', 'id-1234');
+  });
  });

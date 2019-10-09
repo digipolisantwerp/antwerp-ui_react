@@ -8,6 +8,8 @@ type Props = {
   checked?: boolean,
   children?: any,
   disabled?: boolean,
+  /** Qa id */
+  qa?: string,
 };
 
 const Radio = (props: Props) => {
@@ -19,12 +21,13 @@ const Radio = (props: Props) => {
     children,
     disabled,
     required,
+    qa,
   } = props;
   const radioClass = classNames(
     'a-input__radio'
   );
   return (
-    <div className={radioClass}>
+    <div className={radioClass} data-qa={qa}>
       <input type="radio" value={value} id={id} name={name} checked={checked} disabled={disabled} required={required} />
       <label htmlFor={id}>{children}</label>
     </div>
