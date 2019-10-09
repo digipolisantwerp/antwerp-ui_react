@@ -33,8 +33,8 @@ class Switch extends Component {
 			labelTrue,
 			labelFalse,
 			required,
-      disabled,
-      qa,
+			disabled,
+			qa,
 		} = this.props;
 
 		const containerClass = classNames(
