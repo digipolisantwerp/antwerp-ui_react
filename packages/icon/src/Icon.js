@@ -25,7 +25,7 @@ const Icon = (props: Props) => {
     )
   } else {
     return (
-      <i className={iconClass} style={style} data-qa={qa}></i>
+      <span className={iconClass} style={style} data-qa={qa}></span>
     )
   }
 }
