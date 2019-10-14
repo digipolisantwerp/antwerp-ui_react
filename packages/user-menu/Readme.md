@@ -12,13 +12,9 @@
     lastName:'Doe',
     avatarUrl:'https://gravatar.com/avatar/66f865ee03bc019d2f06af6ec0c434ce?s=200'}}
   loggedIn={true}
+  notificationsCount="666"
   logoutUrl="/auth/logout/aprofiel"
   flyoutSize="medium">
-  <ul className="m-nav-list m-nav-list--left">
-    <li><a href="/" title="Notificaties">Notificaties</a></li>
-    <li><a href="/" title="A-profiel beheren">A-profiel beheren</a></li>
-    <li><a href="/" title="Favorieten">Favorieten</a></li>
-    <li><a href="/" title="Koppelingen">Koppelingen</a></li>
-  </ul>
+    <li><a href="/" title="Custom menu item">Custom menu item</a></li>
 </UserMenu>
 ```

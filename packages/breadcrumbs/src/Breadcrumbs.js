@@ -8,7 +8,9 @@ type Props = {
     name: string,
     target?: string
   }>,
-  linkProps?: Function
+  linkProps?: Function,
+  /** Qa id */
+  qa?: string,
 };
 
 class Breadcrumbs extends React.Component<Props> {
@@ -35,11 +37,11 @@ class Breadcrumbs extends React.Component<Props> {
   }
 
   render() {
-    const { items } = this.props;
+    const { items, qa } = this.props;
 
     return (
       items && items.length > 0 && (
-        <ul className="m-breadcrumbs">
+        <ul className="m-breadcrumbs" data-qa={qa}>
             { this.renderItems() }
         </ul>)
     );

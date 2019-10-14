@@ -1,4 +1,4 @@
-You can use the `open`-attribute on on `AccordionTab` to render it as open initially.
+You can use the `open`-attribute on an `AccordionTab` to render it as open initially.
 
 ```js
 const AccordionTab = require("./src").AccordionTab;

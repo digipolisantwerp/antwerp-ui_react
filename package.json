@@ -1,6 +1,6 @@
 {
   "name": "@acpaas-ui/react-components",
-  "version": "2.3.1",
+  "version": "3.2.2",
   "description": "Antwerp City Platform as a Service User Interface (ACPaas UI) is a **component interface library** for building user interfaces and responsive web apps.",
   "license": "MIT",
   "main": "dist/index.cjs.js",
@@ -19,6 +19,7 @@
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-jest": "^23.4.2",
+    "babel-loader": "~7.1.4",
     "babel-plugin-transform-react-jsx": "~6.24.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-flow": "~6.23.0",
@@ -33,6 +34,7 @@
     "eslint-plugin-jsx-a11y": "~6.0.3",
     "eslint-plugin-react": "~7.7.0",
     "flow-bin": "^0.69.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^22.4.4",
     "jest-cli": "^22.4.4",
     "lerna": "~2.10.1",
@@ -55,6 +57,10 @@
       "!**/node_modules/**",
       "!**/*.story.js"
     ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+    },
     "coverageThreshold": {
       "global": {
         "branches": 50,
@@ -79,12 +85,18 @@
     ]
   },
   "dependencies": {
-    "babel-loader": "~7.1.4",
     "classnames": "~2.2.6",
+    "css-loader": "^3.1.0",
     "moment": "~2.22.1",
+    "node-sass": "^4.12.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-input-mask": "~2.0.1",
-    "react-modal": "~3.5.1"
+    "react-modal": "~3.5.1",
+    "react-scripts": "^3.0.1",
+    "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-sass": "^1.2.2",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1"
   }
 }

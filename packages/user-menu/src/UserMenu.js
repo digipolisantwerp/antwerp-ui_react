@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import Avatar from '../../avatar/src/Avatar';
 import Button from '../../button/src/Button';
 import Flyout from '../../flyout/src/Flyout';
+import UserNavigation from './UserNavigation';
+import { notificationsUrl } from './UserNavigation/UserNavigationUrls';
+import './UserMenu.scss';
 
 type Props = {
   children?: any,
@@ -18,17 +21,21 @@ type Props = {
   },
   /** Logout URL */
   logoutUrl: string,
+  /** Amount of notifications */
+  notificationsCount: string,
   /** Flyout size */
   flyoutSize: 'small' | 'medium' | 'large' | 'full',
   /** Direction */
   direction: 'left' | 'right',
+  /** Qa id */
+  qa?: string,
 }
 
 class UserMenu extends Component<Props> {
-
   static defaultProps = {
     direction: 'right',
     flyoutSize: 'small',
+    notificationsCount: 0
   }
 
   renderAvatar() {
@@ -43,17 +50,26 @@ class UserMenu extends Component<Props> {
         style={{ marginLeft: '-1.5rem', marginRight: '1.5rem' }}
       />);
   }
+
+  renderBadge() {
+    const { notificationsCount } = this.props;
+    return (
+      <a className="badge inner-badge"
+        href={notificationsUrl()}>
+        {notificationsCount}
+        <span className="sr-only" data-translate="">notificaties</span>
+      </a>
+    )
+  }
+
   renderLoggedInButton() {
     const {
       firstName,
       lastName,
     } = this.props.user;
     return (
-      <Button style={{paddingTop: 0, paddingBottom: 0}}>
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-        }}>
+      <Button className="btn-user-flyout" title="Hier krijgt u toegang tot uw A-profiel en uw persoonlijke instellingen.">
+        <div className="a-avatar-wrapper">
           {this.renderAvatar()}
           <p>{firstName} {lastName}</p>
         </div>
@@ -64,57 +80,68 @@ class UserMenu extends Component<Props> {
   renderProfile() {
     const { firstName, lastName, avatarUrl } = this.props.user;
     return (
-      <div style={{
-        paddingTop: '24px',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-      }}>
+      <div className="avatar-wrapper">
         <Avatar
           image={avatarUrl}
           icon={avatarUrl ? null : 'user'}
           alt="avatar"
           width="48"
-          height="48" />
+          height="48"
+        />
         <p className="u-margin-top-xs u-margin-bottom h5">
           {`${firstName} ${lastName}`}
         </p>
       </div>
-    )
+    );
   }
 
   renderLoggedIn() {
-    const { children, flyoutSize, logoutUrl } = this.props;
+    const { children, flyoutSize, logoutUrl, notificationsCount } = this.props;
+
     return (
-      <Flyout
-        trigger={this.renderLoggedInButton()}
-        direction="right"
-        hasPadding={false}
-        size={flyoutSize}
-        >
-        <div>
-          {this.renderProfile()}
-          {children}
-          <Button
-            onClick={() => window.location.href=logoutUrl}
-            block
-            type="danger"
-            iconLeft="power-off">
-            Afmelden
-          </Button>
-        </div>
-      </Flyout>
+      <div id="astad-user-menu">
+        {notificationsCount > 0 &&
+          this.renderBadge()
+        }
+        <Flyout
+          trigger={this.renderLoggedInButton()}
+          direction="right"
+          hasPadding={false}
+          size={flyoutSize}>
+          <div>
+            {this.renderProfile()}
+            <UserNavigation notificationsCount={notificationsCount} children={children} />
+            <Button
+              className="btn-logout"
+              onClick={() => window.location.href = logoutUrl}
+              block
+              type="danger"
+              alt="Klik hier om u af te melden."
+              iconLeft="power-off">
+              Afmelden
+            </Button>
+          </div>
+        </Flyout>
+      </div>
     );
   }
 
   renderLoggedOut() {
     const { loginUrl } = this.props;
-    return (<Button onClick={() => window.location.href=loginUrl} iconLeft="user">Aanmelden</Button>);
+    return (
+      <a
+        className="a-button has-icon-left btn-login"
+        title="Aanmelden"
+        alt="Klik hier om u aan te melden met uw A-profiel."
+        onClick={() => window.location.href = loginUrl}
+      ><span className="fa fa-user"></span> Aanmelden</a>
+    );
   }
 
   render() {
+    const { qa } = this.props;
     return (
-      <div style={{ textAlign: this.props.direction }}>
+      <div style={{ textAlign: this.props.direction }} data-qa={qa}>
         {this.props.loggedIn ? this.renderLoggedIn() : this.renderLoggedOut()}
       </div>
     );
@@ -122,3 +149,4 @@ class UserMenu extends Component<Props> {
 }
 
 export default UserMenu;
+

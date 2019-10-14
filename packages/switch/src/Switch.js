@@ -34,6 +34,7 @@ class Switch extends Component {
 			labelFalse,
 			required,
 			disabled,
+			qa,
 		} = this.props;
 
 		const containerClass = classNames(
@@ -47,10 +48,12 @@ class Switch extends Component {
 		);
 
 		return (
-			<div className={containerClass}>
+			<div className={containerClass} data-qa={qa}>
 				{label && <InputLabel htmlFor={id}>{label}</InputLabel>}
 				<div className={switchWrapperClass}>
-					<label className="a-switch__label">{labelFalse ? labelFalse : 'Nee'}</label>
+					{labelFalse &&
+						<label className="a-switch__label">{labelFalse}</label>
+					}
 					<div className="a-switch__toggle">
 						<input
 							type="checkbox"
@@ -62,7 +65,9 @@ class Switch extends Component {
 						/>
 						<label htmlFor={id}></label>
 					</div>
-					<label className="a-switch__label">{labelTrue ? labelTrue : 'Ja'}</label>
+					{labelTrue &&
+						<label className="a-switch__label">{labelTrue}</label>
+					}
 				</div>
 			</div>
 		)

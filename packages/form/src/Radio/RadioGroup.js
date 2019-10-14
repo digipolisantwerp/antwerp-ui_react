@@ -21,6 +21,8 @@ type Props = {
   onChange?: (e: object) => void,
   inline?: boolean,
   options?: Array<Option>,
+  /** Qa id */
+  qa?: string,
 };
 
 const RadioGroup = (props: Props) => {
@@ -36,6 +38,7 @@ const RadioGroup = (props: Props) => {
     onChange,
     inline,
     options,
+    qa,
   } = props;
   const radioGroupClass = classNames(
     'a-input',
@@ -45,7 +48,7 @@ const RadioGroup = (props: Props) => {
     }
   );
   return (
-    <div className={radioGroupClass} style={style} onChange={onChange}>
+    <div className={radioGroupClass} style={style} onChange={onChange} data-qa={qa}>
       {label && <InputLabel inline={inline} htmlFor={id}>{label}</InputLabel>}
       <div className="a-input__wrapper">
         {options.map((option, index) => (

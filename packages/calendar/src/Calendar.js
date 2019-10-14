@@ -18,6 +18,8 @@ type
 	noWeekends?: boolean,
 	/** Event for when the date changes. */
 	onChange?: (e: object) => void,
+	/** Qa id */
+	qa?: string,
 };
 class Calendar extends Component<Prop> {
 
@@ -26,7 +28,7 @@ class Calendar extends Component<Prop> {
 		const {activeDate, format} = this.props;
 
 		Moment.updateLocale('nl', {
-			months : ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December"],
+			months : ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"],
 			monthsShort: ["Jan", "Feb", "Mrt", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"],
 			weekdaysShort: ["Ma", "Di", "Woe", "Do", "Vr", "Za", "Zo"]
 		});
@@ -47,6 +49,7 @@ class Calendar extends Component<Prop> {
 				activeDate: Moment(nextProps.activeDate, nextProps.format)
 			};
 		}
+
 		return null;
 	}
 
@@ -66,13 +69,14 @@ class Calendar extends Component<Prop> {
 			minDate,
 			maxDate,
 			noWeekends,
+			qa,
 		} = this.props;
 
 		const {
 			activeDate,
 		} = this.state;
 
-		return <div className="m-datepicker is-open">
+		return <div className="m-datepicker is-open" data-qa={qa}>
 			<DatePicker
 				format={format}
 				activeDate={activeDate}

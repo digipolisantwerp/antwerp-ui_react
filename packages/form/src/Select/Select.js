@@ -24,6 +24,8 @@ type Props = {
   options?: Array<SelectOption>,
   onChange?: (e: object) => void,
   value?: string,
+  /** Qa id */
+  qa?: string,
 };
 
 class Select extends Component<Props> {
@@ -53,6 +55,7 @@ class Select extends Component<Props> {
       onChange,
       value,
       loading,
+      qa,
     } = this.props;
     const selectClass = classNames(
       'a-input',
@@ -70,7 +73,7 @@ class Select extends Component<Props> {
       }
     );
     return (
-      <div className={selectClass} name={name}>
+      <div className={selectClass} name={name} data-qa={qa}>
         {label && <InputLabel inline={inline} htmlFor={id}>{label}</InputLabel>}
         <div className={wrapperClass}>
           <select id={id} name={name} onChange={(e) => this.onChange(e)} value={value} defaultValue={placeholder}>

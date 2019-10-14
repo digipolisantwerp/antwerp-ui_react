@@ -11,8 +11,7 @@ window.HTMLElement.prototype.scrollIntoView = function() {};
     { label: "Gent", value: "gent"},
     { label: "Brussel", value: "brussel"},
     { label: "Brugge", value: "brugge"}
-  ]
-
+  ];
 
   test('Autocomplete dropdown is not rendered when 0 items are passed', () => {
     const component = shallow(<Autocomplete />);
@@ -30,14 +29,13 @@ window.HTMLElement.prototype.scrollIntoView = function() {};
     expect(component.state('open')).toBe(false);
   });
 
-
   test('Autocomplete opens after ArrowDown in input field', () => {
     const autocompleteWrapper = mount(<Autocomplete items={data} label="Testlabel" />)
     const autocompleteInputWrapper = autocompleteWrapper.find('input')
     
     autocompleteInputWrapper.simulate('keyDown', { key : 'ArrowDown', keyCode: 40, which: 40 })
     expect(autocompleteWrapper.state('open')).toBe(true)
-  })
+  });
 
   test('Autocomplete closes after pressing Enter and correct value is assigned', () => {
     const autocompleteWrapper = mount(<Autocomplete items={data} label="Testlabel" />)
@@ -49,5 +47,10 @@ window.HTMLElement.prototype.scrollIntoView = function() {};
     autocompleteInputWrapper.simulate('keyDown', { key : 'Enter', keyCode: 13, which: 13 })
     expect(autocompleteWrapper.state('open')).toBe(false)
     expect(autocompleteWrapper.state('inputValue')).toBe("Brussel")
-  })
+  });
+
+  test('Autocomplete contains a data-qa attribute', () => {
+    const autocompleteWrapper = mount(<Autocomplete qa="id-1234" items={data} label="Testlabel" />).find('input');
+    expect(autocompleteWrapper.props()).toHaveProperty('data-qa', 'id-1234');
+  });
  });

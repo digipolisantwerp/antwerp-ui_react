@@ -5,6 +5,8 @@ type Props = {
   className?: string,
   style?: object,
   children?: any,
+  /** Qa id */
+  qa?: string,
 };
 
 class Card extends Component<Props> {
@@ -12,7 +14,8 @@ class Card extends Component<Props> {
     const {
       className,
       style,
-      children
+      children,
+      qa,
     } = this.props;
 
     const cardClass = classNames(
@@ -21,7 +24,7 @@ class Card extends Component<Props> {
     );
 
     return (
-      <div className={cardClass} style={style}>
+      <div className={cardClass} style={style} data-qa={qa}>
         {children}
       </div>
     )

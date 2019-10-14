@@ -20,6 +20,8 @@ type Props = {
   closable?: boolean,
   className?: string,
   onClose?: Function,
+  /** Qa id */
+  qa?: string,
 };
 
 class Alert extends Component<Props> {
@@ -45,6 +47,7 @@ class Alert extends Component<Props> {
       children,
       closable,
       className,
+      qa,
     } = this.props;
     const { closed } = this.state;
 
@@ -62,7 +65,7 @@ class Alert extends Component<Props> {
     return (
       <div>
         {!closed ?
-          <div className={alertClass}>
+          <div className={alertClass} data-qa={qa}>
             {closeButton}
             {title && <h5 className="u-margin-bottom-xs">{title}</h5>}
             {children}

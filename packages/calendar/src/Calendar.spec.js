@@ -1,6 +1,6 @@
 import Calendar from './Calendar';
 
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import React from 'react';
 
 describe('Calendar', () => {
@@ -24,4 +24,8 @@ describe('Calendar', () => {
 		expect(mock).toHaveBeenCalled();
 	});
 
+	it('should set the data-qa attribute', () => {
+    const calendar = shallow(<Calendar qa="id-1234" />);
+    expect(calendar.props()).toHaveProperty('data-qa', 'id-1234');
+	});
 });
