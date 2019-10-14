@@ -202,7 +202,7 @@ export default class Modal extends React.Component<Props, State> {
                   <h6>{title}</h6>
                 )}
                 {hasCloseButton && (
-                  <Button className="m-modal__close" icon="times" transparent onClick={() => this.handleRequestClose()} />
+                  <Button className="m-modal__close" icon="times" type="default" transparent onClick={() => this.handleRequestClose()} />
                 )}
               </div>
             )}
@@ -214,10 +214,10 @@ export default class Modal extends React.Component<Props, State> {
             {(confirmText || denyText) && (
               <div className="m-modal__footer">
                 {confirmText && (
-                  <Button className="m-modal__confirm" type="primary" onClick={this.handleConfirm}>{confirmText}</Button>
+                  <Button className="m-modal__confirm" onClick={this.handleConfirm}>{confirmText}</Button>
                 )}
                 {denyText && (
-                  <Button className="m-modal__deny" type="secondary" onClick={this.handleDeny}>{denyText}</Button>
+                  <Button className="m-modal__deny" outline onClick={this.handleDeny}>{denyText}</Button>
                 )}
               </div>
             )}
