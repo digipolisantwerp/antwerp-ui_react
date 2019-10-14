@@ -22,6 +22,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - `Autocomplete` Add support for handling autocomplete close
 - `Autocomplete` add support for error states
 - `Select` add support for loading state-
+- `Modal` updated to fit core_branding
+- `Button` support added for --default && fix transparant status
 
 ### Added
 - `Form/Select` Added support for defaultValue on select
