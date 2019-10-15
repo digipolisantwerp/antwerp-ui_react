@@ -14,9 +14,9 @@ Using [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howt
 
 ### Using unique data attributes with ACPaaS UI
 
-It's not possible to add unique data attributes to the ACPaaS UI component library for the simple reason that the attribute won't be unique anymore when you use the component multiple times on the same page.
+It's not possible to add unique attributes to the ACPaaS UI components for the simple reason that the attribute won't be unique anymore when you use the component multiple times on the same page.
 
-But in your app you can simply add a data attribute to each individual ACPaaS UI component so you can target the component that you want to test.
+We solve this problem by adding unique attributes to the individual ACPaaS UI components at app level.
 
 #### Example
 
@@ -37,14 +37,13 @@ Which will result in:
 </div>
 ```
 
-### Branding classes
+### Targeting nested elements
 
-Since you probably want to target a specific element or a subcomponent, selecting the parent component won't be enough.
-You can however target these elements and subcomponents based on their CSS classes in combination with the unique data attribute of the parent component.
+If you want to target a specific element within the component, use their CSS class in combination with the unique data attribute of the parent component.
 
 #### Example
 
-In this example the accordiontab can be opened or closed by toggling the `<div>` tag with the CSS class `m-accordion__tab`, which is nested in the accordion with data attribute `data-qa="id-1234"`.
+In the following example the accordion tab can be opened or closed by toggling the `<div>` tag with the CSS class `m-accordion__tab`, which is nested in the accordion with data attribute `data-qa="id-1234"`.
 
 ```html
 <div class="m-accordion" data-qa="id-1234">
