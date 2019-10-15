@@ -3,8 +3,6 @@
 When developing, testing is a major part of the work.
 We use [Jest](https://jestjs.io) in combination with [Enzyme](https://airbnb.io/enzyme) as our test suite.
 
-## VSCode testing
-
 To make life easier in Visual Studio Code for testing with Jest, we suggest that you install [this VS Code Jest extension](https://github.com/jest-community/vscode-jest).
 
 ## ACPaaS UI Test Automation Guide
@@ -44,6 +42,7 @@ If you want to target a specific element within the component, use their CSS cla
 #### Example
 
 In the following example the accordion tab can be opened or closed by toggling the `<div>` tag with the CSS class `m-accordion__tab`, which is nested in the accordion with data attribute `data-qa="id-1234"`.
+So the compiled code would look like this:
 
 ```html
 <div class="m-accordion" data-qa="id-1234">
