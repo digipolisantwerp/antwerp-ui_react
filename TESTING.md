@@ -51,7 +51,7 @@ So the compiled code would look like this:
 </div>
 ```
 
-#### Overview
+### Overview
 
 To help you locate a specific element of a component, we've made an overview of all ACPaaS UI components and the CSS classes they use. When an element doesn't have a class set, you can still target it by selecting the element type or its custom attribute.
 
