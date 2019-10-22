@@ -36,6 +36,26 @@ class UserMenu extends Component<Props> {
     notificationsCount: 0
   }
 
+  onLogin() {
+		const { loginUrl, onClickLogin } = this.props;
+		if (onClickLogin) {
+      onClickLogin();
+      return;
+    }
+
+    window.location.href = loginUrl;
+	}
+
+	onLogout() {
+		const { logoutUrl, onClickLogout } = this.props;
+		if (onClickLogout) {
+      onClickLogout();
+      return;
+    }
+
+    window.location.href = logoutUrl;
+	}
+
   renderAvatar() {
     const { avatarUrl } = this.props.user;
     return (
@@ -94,7 +114,7 @@ class UserMenu extends Component<Props> {
   }
 
   renderLoggedIn() {
-    const { children, flyoutSize, logoutUrl, notificationsCount } = this.props;
+    const { children, flyoutSize, notificationsCount } = this.props;
 
     return (
       <div id="astad-user-menu">
@@ -111,7 +131,7 @@ class UserMenu extends Component<Props> {
             <UserNavigation notificationsCount={notificationsCount} children={children} />
             <Button
               className="btn-logout"
-              onClick={() => window.location.href = logoutUrl}
+              onClick={(e) => this.onLogout()}
               block
               type="danger"
               alt="Klik hier om u af te melden."
@@ -125,14 +145,12 @@ class UserMenu extends Component<Props> {
   }
 
   renderLoggedOut() {
-    const { loginUrl } = this.props;
-
     return (
       <Button
         className="btn-login"
         title="Aanmelden"
         alt="Klik hier om u aan te melden met uw A-profiel."
-        onClick={() => window.location.href = loginUrl}
+        onClick={(e) => this.onLogin()}
         iconLeft="user">Aanmelden</Button>
     );
   }
