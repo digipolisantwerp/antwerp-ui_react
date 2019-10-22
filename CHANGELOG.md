@@ -21,6 +21,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - `Flyout` handle outside click state better
 - `Autocomplete` Add support for handling autocomplete close
 - `Autocomplete` add support for error states
+- `Modal` updated to fit core_branding
+- `Button` support added for --default && fix transparant status
 - `Select` add support for loading state
 - `Avatar` add option for className
 
