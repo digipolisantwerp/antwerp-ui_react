@@ -126,13 +126,14 @@ class UserMenu extends Component<Props> {
 
   renderLoggedOut() {
     const { loginUrl } = this.props;
+
     return (
-      <a
-        className="a-button has-icon-left btn-login"
+      <Button
+        className="btn-login"
         title="Aanmelden"
         alt="Klik hier om u aan te melden met uw A-profiel."
         onClick={() => window.location.href = loginUrl}
-      ><span className="fa fa-user"></span> Aanmelden</a>
+        iconLeft="user">Aanmelden</Button>
     );
   }
 
