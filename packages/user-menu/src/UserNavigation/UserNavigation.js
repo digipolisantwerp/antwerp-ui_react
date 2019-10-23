@@ -32,7 +32,7 @@ const UserNavigation = (props) => {
       {/* <li><a href={myPaymentsUrl()} title="Mijn betalingen">Mijn betalingen</a></li>
       <li><a href={myShoppingCartUrl()} title="Mijn winkelmand">Mijn winkelmand</a></li> */}
       {children}
-		</ul>
+    </ul>
   );
 };
 

@@ -1,6 +1,7 @@
 ```
  <UserMenu
   loggedIn={false}
+  onClickLogin={() => console.log('Custom login function')}
   logoutUrl="/auth/logout/aprofiel">
 </UserMenu>
 
