@@ -37,24 +37,24 @@ class UserMenu extends Component<Props> {
   }
 
   onLogin() {
-		const { loginUrl, onClickLogin } = this.props;
-		if (onClickLogin) {
+    const { loginUrl, onClickLogin } = this.props;
+    if (onClickLogin) {
       onClickLogin();
       return;
     }
 
     window.location.href = loginUrl;
-	}
+  }
 
-	onLogout() {
-		const { logoutUrl, onClickLogout } = this.props;
-		if (onClickLogout) {
+  onLogout() {
+    const { logoutUrl, onClickLogout } = this.props;
+    if (onClickLogout) {
       onClickLogout();
       return;
     }
 
     window.location.href = logoutUrl;
-	}
+  }
 
   renderAvatar() {
     const { avatarUrl } = this.props.user;
