@@ -23,6 +23,8 @@ type Props = {
   onChange?: (e: object) => void,
   onBlur?: (e: object) => void,
   state?: InputStates,
+  /** Qa id */
+  qa?: string,
 };
 
 const Textarea = (props: Props) => {
@@ -39,6 +41,7 @@ const Textarea = (props: Props) => {
     onChange,
     onBlur,
     state,
+    qa,
   } = props;
 
   const textareaClass = classNames(
@@ -51,7 +54,7 @@ const Textarea = (props: Props) => {
   );
 
   return (
-    <div className={textareaClass} style={style}>
+    <div className={textareaClass} style={style} data-qa={qa}>
       {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
       <textarea id={id} placeholder={placeholder} name={name} value={value} onChange={onChange} onBlur={onBlur} disabled={disabled}></textarea>
     </div>

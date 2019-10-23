@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { expect, assert } from 'chai';
 import UserMenu from './UserMenu';
 
 describe('UserMenu', () => {
@@ -16,7 +15,7 @@ describe('UserMenu', () => {
       logoutUrl="/auth/logout/aprofiel">
       <div>This is the content</div>
     </UserMenu>);
-    expect(component.find('Avatar')).to.have.lengthOf(0);
+    expect(component.find('Avatar').length).toBe(0);
   });
 
   it('should have a flyout component', () => {
@@ -30,8 +29,21 @@ describe('UserMenu', () => {
       logoutUrl="/auth/logout/aprofiel">
       <div>This is the content</div>
     </UserMenu>);
-    expect(component.find('Avatar')).to.have.lengthOf(1);
-    expect(component.find('Flyout')).to.have.lengthOf(1);
+    expect(component.find('Avatar').length).toBe(1);
+    expect(component.find('Flyout').length).toBe(1);
   });
 
-});
+  it('should contain a data-qa attribute', () => {
+    const component = shallow(<UserMenu
+      user={{
+        firstName:'John',
+        lastName:'Doe',
+        avatarUrl:'https://gravatar.com/avatar/66f865ee03bc019d2f06af6ec0c434ce?s=200'}}
+      loggedIn={false}
+      logoutUrl="/auth/logout/aprofiel"
+      qa="id-1234">
+      <div>This is the content</div>
+    </UserMenu>);
+    expect(component.props()).toHaveProperty('data-qa', 'id-1234');
+  });
+ });

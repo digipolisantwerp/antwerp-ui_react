@@ -30,6 +30,8 @@ type Props = {
   iconright?: string,
   iconleft?: string,
   loading?: boolean,
+  /** Qa id */
+  qa?: string,
 };
 
 class TextField extends Component<Props> {
@@ -51,7 +53,8 @@ class TextField extends Component<Props> {
       autoComplete,
       disabled,
       iconright,
-      iconleft
+      iconleft,
+      qa,
     } = this.props;
 
     const { loading, ...extraProps } = this.props;
@@ -67,7 +70,7 @@ class TextField extends Component<Props> {
     );
 
     return (
-      <div className={inputClass}>
+      <div className={inputClass} data-qa={qa}>
         {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
         <div className="a-input__wrapper">
           {iconleft ? <Icon name={iconleft} /> : null}

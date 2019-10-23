@@ -54,6 +54,8 @@ type
 	onChange?: (e: object) => void,
 	/** Event for onBlur. */
 	onBlur?: (e: object) => void,
+  /** Qa id */
+  qa?: string,
 };
 
 class Datepicker extends Component<Props> {
@@ -171,6 +173,7 @@ class Datepicker extends Component<Props> {
 			maxDate,
 			noWeekends,
 			onBlur,
+			qa,
 		} = this.props;
 
 		const {
@@ -196,7 +199,7 @@ class Datepicker extends Component<Props> {
 			}
 		);
 
-		return <div className={datepickerWrapperClass} ref={node => this.datepicker = node}>
+		return <div className={datepickerWrapperClass} ref={node => this.datepicker = node} data-qa={qa}>
 			{label && <InputLabel htmlFor={id}>{label}</InputLabel>}
 			<div className="a-input__wrapper">
 				<TextField

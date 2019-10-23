@@ -2,6 +2,8 @@ import React, { Component, cloneElement } from 'react';
 
 type Props = {
   className?: string,
+  /** Qa id */
+  qa?: string,
 };
 
 class Steps extends Component<Props> {
@@ -16,9 +18,9 @@ class Steps extends Component<Props> {
   }
 
   render() {
-    const { className } = this.props;
+    const { className, qa } = this.props;
     return (
-      <div className={className}>
+      <div className={className} data-qa={qa}>
         <ol className="m-step-indicator">
           { this.props.children.map((child, i) => this.renderStep(child, i)) }
         </ol>

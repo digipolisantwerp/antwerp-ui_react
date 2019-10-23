@@ -22,6 +22,8 @@ type Props = {
   /** Font Awesome icon name */
   icon?: string,
   children?: any,
+  /** Qa id */
+  qa?: string,
 };
 
 class FlyoutButton extends Component<Props> {
@@ -61,11 +63,12 @@ class FlyoutButton extends Component<Props> {
       label,
       flyoutHasPadding,
       children,
+      qa,
       ...buttonProps
     } = this.props;
     const flyoutClass = this.getClassNames();
     return (
-      <div className={flyoutClass} ref={(ref) => { this.containerRef = ref }}>
+      <div className={flyoutClass} ref={(ref) => { this.containerRef = ref }} data-qa={qa}>
         <Button {...buttonProps} onClick={this.toggleIsOpen}>
           {label}
         </Button>

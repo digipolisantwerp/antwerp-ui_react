@@ -3,6 +3,14 @@ import { shallow, mount } from 'enzyme';
 import Breadcrumbs from './Breadcrumbs';
 
 describe('Breadcrumbs', () => {
+
+  const breadcrumbs = [
+    { name: 'Organisms', target: '/organisms' },
+    { name: 'Molecules', target: '/molecules' },
+    { name: 'Atoms', target: '/atoms' },
+    { name: 'Quarks', target: '/quarks' },
+  ];
+
   test('Breadcrumbs are not rendered when 0 items are passed', () => {
     const component = shallow(<Breadcrumbs />);
 
@@ -10,17 +18,16 @@ describe('Breadcrumbs', () => {
   });
 
   test('Breadcrumbs are rendered when items are passed', () => {
-    const breadcrumbs = [
-      { name: 'Organisms', target: '/organisms' },
-      { name: 'Molecules', target: '/molecules' },
-      { name: 'Atoms', target: '/atoms' },
-      { name: 'Quarks', target: '/quarks' },
-    ];
-
     const component = shallow(<Breadcrumbs items={breadcrumbs} />);
 
     expect(component.find('.m-breadcrumbs').exists()).toEqual(true);
     expect(component.find('.m-breadcrumbs li')).toHaveLength(4);
+  });
+
+  test('Last breadcrumb is not rendered as a link', () => {
+    const component = shallow(<Breadcrumbs items={breadcrumbs} />);
+
+    expect(component.find('.m-breadcrumbs li:last-child').childAt(0).type()).not.toEqual('a');
   });
 
   test('Breadcrumbs with a `target` are rendered as a link', () => {
@@ -49,16 +56,9 @@ describe('Breadcrumbs', () => {
     expect(component.find('.m-breadcrumbs li a')).toHaveLength(1);
   });
 
-  test('Last breadcrumbs is not rendered as a link', () => {
-    const breadcrumbs = [
-      { name: 'Organisms', target: '/organisms' },
-      { name: 'Molecules', target: '/molecules' },
-      { name: 'Atoms', target: '/atoms' },
-      { name: 'Quarks', target: '/quarks' },
-    ];
+  test('Breadcrumbs contains a data-qa attribute', () => {
+    const component = mount(<Breadcrumbs items={breadcrumbs} qa="id-1234" />).find('.m-breadcrumbs');
 
-    const component = shallow(<Breadcrumbs items={breadcrumbs} />);
-
-    expect(component.find('.m-breadcrumbs li:last-child').childAt(0).type()).not.toEqual('a');
+    expect(component.props()).toHaveProperty('data-qa', 'id-1234');
   });
 });
