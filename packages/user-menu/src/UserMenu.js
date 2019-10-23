@@ -39,8 +39,7 @@ class UserMenu extends Component<Props> {
   onLogin() {
     const { loginUrl, onClickLogin } = this.props;
     if (onClickLogin) {
-      onClickLogin();
-      return;
+      return onClickLogin();
     }
 
     window.location.href = loginUrl;
@@ -49,8 +48,7 @@ class UserMenu extends Component<Props> {
   onLogout() {
     const { logoutUrl, onClickLogout } = this.props;
     if (onClickLogout) {
-      onClickLogout();
-      return;
+      return onClickLogout();
     }
 
     window.location.href = logoutUrl;
