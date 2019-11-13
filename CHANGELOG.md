@@ -25,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - `Button` support added for --default && fix transparant status
 - `Select` add support for loading state
 - `Avatar` add option for className
+- `Autocomplete` fix handling dynamic values for defaultValue
 
 ### Added
 - `Form/Select` Added support for defaultValue on select
