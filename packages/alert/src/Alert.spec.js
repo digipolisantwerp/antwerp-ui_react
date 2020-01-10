@@ -52,4 +52,9 @@ describe('Alert', () => {
       alert.find('Button').simulate('click', { preventDefault: cbMock });
       expect(alert.state('closed')).toBe(true)
     });
+
+    it('should set the data-qa attribute', () => {
+        const alert = mount(<Alert qa="id-1234">Test</Alert>).find('.m-alert');
+        expect(alert.props()).toHaveProperty('data-qa', 'id-1234');
+    });
 });

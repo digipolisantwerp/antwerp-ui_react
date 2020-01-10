@@ -23,7 +23,9 @@ type Props = {
   open?: boolean,
   onStateChange?: Function,
   triggerClose?: Function,
-  children?: any
+  children?: any,
+  /** Qa id */
+  qa?: string,
 };
 
 class Flyout extends Component<Props> {
@@ -95,21 +97,28 @@ class Flyout extends Component<Props> {
   };
 
   getClassNames = () => {
-    return classNames(this.props.className, 'm-flyout', `m-flyout--${this.props.direction}`, {
-      'is-open': this.state.isOpen,
-      'm-flyout--scrollable': this.props.scrollable,
-      [`m-flyout--${flyoutSizes[this.props.size]}`]: !!flyoutSizes[this.props.size]
-    });
-  };
+    return classNames(
+      this.props.className,
+      'm-flyout', `m-flyout--${this.props.direction}`, {
+        'is-open': this.state.isOpen,
+        'm-flyout--scrollable': this.props.scrollable,
+        [`m-flyout--${flyoutSizes[this.props.size]}`]: !!flyoutSizes[this.props.size]
+      });
+  }
 
   render() {
-    const { trigger, hasPadding, children } = this.props;
+    const {
+      trigger,
+      hasPadding,
+      children,
+      qa,
+    } = this.props;
     const { open } = this.state;
     const flyoutClass = this.getClassNames();
     return (
       trigger && (
-        <div className={flyoutClass} ref={this.flyoutRef} aria-haspopup="true" aria-expanded={open}>
-           <div onClick={this.toggleIsOpen}>
+      <div className={flyoutClass} ref={this.flyoutRef} aria-haspopup="true" aria-expanded={open} data-qa={qa}>
+          <div onClick={this.toggleIsOpen}>
             {this.props.trigger}
           </div>
           <FlyoutContent hasPadding={hasPadding}>{children}</FlyoutContent>

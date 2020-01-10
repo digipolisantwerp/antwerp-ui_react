@@ -31,7 +31,9 @@ type Props = {
   /** Function that is triggered when a handler is dropped after sliding */
   onDragEnd?: void,
   /** Function that is continuously triggered when a handler is being dragged */
-  onChange?: void
+  onChange? : void,
+  /** Qa id */
+  qa?: string,
 };
 
 type State = {
@@ -143,12 +145,29 @@ class Slider extends Component<Props, State> {
   };
 
   render() {
-    let { id, label, min, max, step, unit, minRange, tooltips, range, fixed } = this.props;
+    let {
+      id,
+      label,
+      min,
+      max,
+      step,
+      unit,
+      minRange,
+      tooltips,
+      range,
+      fixed,
+      qa,
+    } = this.props;
 
-    let { sliderPos, direction, start, end } = this.state;
+    let {
+      sliderPos,
+      direction,
+      start,
+      end
+    } = this.state;
 
     return (
-      <div id={id}>
+      <div id={id} data-qa={qa}>
         {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
         <div
           className="m-range-slider"

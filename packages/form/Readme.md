@@ -45,7 +45,7 @@ const TextField = require('./src').TextField;
     placeholder={"naam"}
     onChange={(value) => console.log('textfield value is:', value)}
     iconright="eye" />
-    
+
 <TextField
     label={"Naam"}
     id={"textfield-id"}
@@ -122,12 +122,11 @@ const Textarea = require('./src').Textarea;
 const Checkbox = require('./src').Checkbox;
 
 <Checkbox
-    label={"Verklaard en goedgekeurd"}
+    label={"<a href='google.be'>Verklaard en goedgekeurd</a>"}
     id={"checkbox-id"}
     name={"checkbox-name"}
     className={"checkbox-class"}
     required={true}
-    checked={true}
     onChange={(value) => console.log('checkbox value is:', value)} />
 ```
 

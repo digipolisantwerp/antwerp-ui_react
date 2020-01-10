@@ -34,6 +34,7 @@ class Switch extends Component {
 			labelFalse,
 			required,
 			disabled,
+			qa,
 		} = this.props;
 
 		const containerClass = classNames(
@@ -47,7 +48,7 @@ class Switch extends Component {
 		);
 
 		return (
-			<div className={containerClass}>
+			<div className={containerClass} data-qa={qa}>
 				{label && <InputLabel htmlFor={id}>{label}</InputLabel>}
 				<div className={switchWrapperClass}>
 					{labelFalse &&

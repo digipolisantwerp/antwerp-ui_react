@@ -7,14 +7,16 @@ type Props = {
   style?: object,
   className?: string,
   /** optional ariaLabel: check WCAG compliance for extra info when a label is needed. */
-  ariaLabel: string
+  ariaLabel: string,
+  /** Qa id */
+  qa?: string,
 };
 
-const Icon = ({ name, style, className, ariaLabel }: Props) => {
+const Icon = ({ name, style, className, ariaLabel, qa }: Props) => {
   const iconClass = classNames(className, `fa fa-${name}`);
 
   return (
-    <span className={iconClass} style={style}>
+    <span className={iconClass} style={style} data-qa={qa}>
       {ariaLabel ? <span className="u-screen-reader-only">{ariaLabel}</span> : ''}
     </span>
   );

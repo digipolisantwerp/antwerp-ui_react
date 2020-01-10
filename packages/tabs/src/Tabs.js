@@ -13,7 +13,10 @@ type Props = {
   }>,
   linkProps?: Function,
   /** Aria label for active tab, defaults to 'Actief:' */
-  ariaLabelActive?: string
+  ariaLabelActive?: string,
+  linkProps?: Function,
+  /** Qa id */
+  qa?: string,
 };
 
 class Tabs extends React.Component<Props> {
@@ -42,14 +45,20 @@ class Tabs extends React.Component<Props> {
   }
 
   render() {
-    const { align, items } = this.props;
+    const { align, items, qa } = this.props;
 
     const tabClasses = classNames('m-nav-tabs', {
       'm-nav-tabs--left': align === 'left',
-      'm-nav-tabs--right': align === 'right'
+      'm-nav-tabs--right': align === 'right',
     });
 
-    return items && items.length > 0 && <ul className={tabClasses}>{this.renderItems()}</ul>;
+    return (
+      items && items.length > 0 && (
+        <ul className={tabClasses} data-qa={qa}>
+          { this.renderItems() }
+        </ul>
+      )
+    );
   }
 }
 

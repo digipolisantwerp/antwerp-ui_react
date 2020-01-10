@@ -7,7 +7,7 @@ describe('Accordion', () => {
   test('Can render', () => {
     const component = shallow(<Accordion />);
 
-    expect(component.find('.m-accordion')).toBeDefined();
+    expect(component.find('.m-accordion').exists()).toBe(true);
   });
 
   test('Can contain one or more AccordionTab-components', () => {
@@ -19,7 +19,7 @@ describe('Accordion', () => {
       </Accordion>,
     );
 
-    expect(component.find('.m-accordion__tab')).toBeDefined();
+    expect(component.find('.m-accordion__tab').exists()).toBe(true);
     expect(component.find('.m-accordion__tab').length).toEqual(3);
   });
 

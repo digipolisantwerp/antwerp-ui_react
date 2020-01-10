@@ -6,13 +6,11 @@ describe('AccordionTabHeader', () => {
   test('Can render', () => {
     const component = shallow(<AccordionTabHeader />);
 
-    expect(component.find('.m-accordion__header')).toBeDefined();
+    expect(component.find('.m-accordion__header').exists()).toBe(true);
   });
 
   test('Can contain a data-qa attribute', () => {
-    const component = shallow(
-      <AccordionTabHeader qa="id-1234"/>
-    );
+    const component = shallow(<AccordionTabHeader qa="id-1234"/>);
 
     expect(component.find('.m-accordion__header').props()).toHaveProperty('data-qa', 'id-1234');
   });

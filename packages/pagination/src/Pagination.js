@@ -25,7 +25,9 @@ type Props = {
   /** ariaLabel for previous page, default to 'Vorige pagina'. */
   ariaLabelPreviousPage?: String,
   /** ariaLabel for current page, default to 'Pagina'. */
-  ariaLabelPage?: String
+  ariaLabelPage?: String,
+  /** Qa id */
+  qa?: string,
 };
 
 type State = {
@@ -145,7 +147,8 @@ export default class Pagination extends Component<Props, State> {
       ariaLabel = 'Paginering',
       ariaLabelNextPage = 'Volgende pagina',
       ariaLabelPreviousPage = 'Vorige pagina',
-      ariaLabelPage = 'Pagina'
+      ariaLabelPage = 'Pagina',
+      qa,
     } = this.props;
     // we render this, so it must be capitalized
     const ButtonType = this.props.buttonType;
@@ -164,7 +167,7 @@ export default class Pagination extends Component<Props, State> {
     }
 
     return (
-      <nav role="navigation" aria-label={ariaLabel}>
+      <nav role="navigation" aria-label={ariaLabel} data-qa={qa}>
         <ul className={paginationClasses}>
           <li className="m-pagination__prev pagination-button" key="pagination__prev">
             <ButtonType

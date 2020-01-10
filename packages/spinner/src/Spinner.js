@@ -8,7 +8,9 @@ type Props = {
   style?: object,
   className?: string,
   /** Aria label to indicate loading, defaults to 'Wordt geladen'. */
-  ariaLabel?: string
+  ariaLabel?: string,
+  /** Qa id */
+  qa?: string,
 };
 
 const spinnerSizes = {
@@ -17,7 +19,7 @@ const spinnerSizes = {
 };
 
 const Spinner = (props: Props) => {
-  const { size, style, className, ariaLabel = "Wordt geladen" } = props;
+  const { size, style, className, ariaLabel = "Wordt geladen", qa } = props;
   const spinnerClass = classNames(
     'a-spinner',
     className,
@@ -26,7 +28,7 @@ const Spinner = (props: Props) => {
     }
   )
 
-  return <div className={spinnerClass} style={style} role="status" aria-label={ariaLabel}></div>;
+  return <div className={spinnerClass} style={style} role="status" aria-label={ariaLabel} data-qa={qa}></div>;
 }
 
 export default Spinner;

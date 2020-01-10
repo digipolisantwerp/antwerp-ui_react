@@ -16,7 +16,7 @@
 </div>
 
 ```
-<Button type="warning" transparent>Transparent</Button>{' '}
+<Button type="default" transparent>Transparent</Button>{' '}
 <Button type="primary" negative>Negative</Button>{' '}
 <Button type="primary" outline>Outline</Button>
 ```

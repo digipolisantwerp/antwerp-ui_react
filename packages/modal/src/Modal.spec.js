@@ -64,4 +64,11 @@ describe('Modal', () => {
 
     expect(component.find(ReactModal).prop('contentLabel')).toEqual(contentLabel);
   });
+
+  test('Modal should contain a data-qa attribute', () => {
+
+    const component = shallow(<Modal qa="id-1234" isOpen ariaHideApp={false} />);
+
+    expect(component.find('.m-modal').props()).toHaveProperty('data-qa', 'id-1234');
+  });
 });

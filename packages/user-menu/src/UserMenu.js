@@ -21,12 +21,14 @@ type Props = {
   },
   /** Logout URL */
   logoutUrl: string,
-	/** Amount of notifications */
-	notificationsCount: string,
+  /** Amount of notifications */
+  notificationsCount: string,
   /** Flyout size */
   flyoutSize: 'small' | 'medium' | 'large' | 'full',
   /** Direction */
-  direction: 'left' | 'right'
+  direction: 'left' | 'right',
+  /** Qa id */
+  qa?: string,
 }
 
 class UserMenu extends Component<Props> {
@@ -34,6 +36,24 @@ class UserMenu extends Component<Props> {
     direction: 'right',
     flyoutSize: 'small',
     notificationsCount: 0
+  }
+
+  onLogin() {
+    const { loginUrl, onClickLogin } = this.props;
+    if (onClickLogin) {
+      return onClickLogin();
+    }
+
+    window.location.href = loginUrl;
+  }
+
+  onLogout() {
+    const { logoutUrl, onClickLogout } = this.props;
+    if (onClickLogout) {
+      return onClickLogout();
+    }
+
+    window.location.href = logoutUrl;
   }
 
   renderAvatar() {
@@ -53,7 +73,7 @@ class UserMenu extends Component<Props> {
     const { notificationsCount } = this.props;
     return (
       <a className="badge inner-badge"
-         href={notificationsUrl()}>
+        href={notificationsUrl()}>
         {notificationsCount}
         <span className="u-screen-reader-only" data-translate="">notificaties</span>
       </a>
@@ -94,7 +114,7 @@ class UserMenu extends Component<Props> {
   }
 
   renderLoggedIn() {
-    const { children, flyoutSize, logoutUrl, notificationsCount } = this.props;
+    const { children, flyoutSize, notificationsCount } = this.props;
 
     return (
       <div id="astad-user-menu">
@@ -111,7 +131,7 @@ class UserMenu extends Component<Props> {
             <UserNavigation notificationsCount={notificationsCount} children={children} />
             <Button
               className="btn-logout"
-              onClick={() => window.location.href = logoutUrl}
+              onClick={(e) => this.onLogout()}
               block
               type="danger"
               alt="Klik hier om u af te melden."
@@ -126,21 +146,21 @@ class UserMenu extends Component<Props> {
   }
 
   renderLoggedOut() {
-    const { loginUrl } = this.props;
     return (
       <Button
         className="btn-login"
         title="Aanmelden"
         ariaLabel="Aanmelden"
         alt="Klik hier om u aan te melden met uw A-profiel."
-        onClick={() => window.location.href = loginUrl}
+        onClick={(e) => this.onLogin()}
         iconLeft="user">Aanmelden</Button>
     );
   }
 
   render() {
+    const { qa } = this.props;
     return (
-      <div style={{ textAlign: this.props.direction }}>
+      <div style={{ textAlign: this.props.direction }} data-qa={qa}>
         {this.props.loggedIn ? this.renderLoggedIn() : this.renderLoggedOut()}
       </div>
     );
@@ -148,3 +168,4 @@ class UserMenu extends Component<Props> {
 }
 
 export default UserMenu;
+

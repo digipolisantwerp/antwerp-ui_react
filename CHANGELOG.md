@@ -49,8 +49,11 @@ All the following depend on Core Branding v4+.
 - `Flyout` handle outside click state better
 - `Autocomplete` Add support for handling autocomplete close
 - `Autocomplete` add support for error states
+- `Modal` updated to fit core_branding
+- `Button` support added for --default && fix transparant status
 - `Select` add support for loading state
 - `Avatar` add option for className
+- `Autocomplete` fix handling dynamic values for defaultValue
 
 ### Added
 - `Form/Select` Added support for defaultValue on select

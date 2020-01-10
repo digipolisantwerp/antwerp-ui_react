@@ -15,11 +15,12 @@ const typeClasses = {
   success: 'a-button--success',
   warning: 'a-button--warning',
   danger: 'a-button--danger',
-  transparent: 'a-button--transparent'
+  transparent: 'a-button--transparent',
+  default: 'a-button--default'
 };
 
 type ButtonSizes = "tiny" | "small" | "large";
-type ButtonTypes = "primary" | "secondary" | "success" | "warning" | "danger";
+type ButtonTypes = "primary" | "secondary" | "success" | "warning" | "danger" | "transparent" | "default";
 
 type Props = {
   title?: string,
@@ -43,6 +44,8 @@ type Props = {
   htmlType?: string,
   role?: string,
   onClick?: (e: object) => void,
+  /** Qa id */
+  qa?: string,
 }
 
 class Button extends Component<Props> {
@@ -68,6 +71,7 @@ class Button extends Component<Props> {
       disabled = false,
       htmlType,
       role = 'button',
+      qa,
     } = this.props;
 
     const btnClass = classNames(
@@ -81,7 +85,8 @@ class Button extends Component<Props> {
         'has-icon-right': !!iconRight,
         'a-button-negative': !!negative,
         'a-button-outline': !!outline,
-        'a-button--block': block
+        'a-button--transparent': !!transparent,
+        'a-button--block': block,
       }
     );
 
@@ -96,7 +101,8 @@ class Button extends Component<Props> {
         disabled={disabled}
         type={htmlType}
         aria-label={ariaLabel}
-        role={role}>
+        role={role}
+        data-qa={qa}>
         {icon ? <Icon name={icon} /> : null}
         {iconLeft ? <Icon name={iconLeft} /> : null}
         {iconRight ? <Icon name={iconRight} /> : null}

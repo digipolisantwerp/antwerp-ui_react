@@ -16,7 +16,9 @@ type Props = {
   /**  AriaLabel for your icon. */
   ariaLabelIcon?: string,
   /** AriaLabel for your close button. Defaults to 'Sluiten'. */
-  ariaLabelClose?: string
+  ariaLabelClose?: string,
+  /** Qa id */
+  qa?: string,
 };
 
 class TagListItem extends Component<Props> {
@@ -28,11 +30,12 @@ class TagListItem extends Component<Props> {
       buttonClass = 'a-button--default',
       onClick,
       ariaLabelIcon,
-      ariaLabelClose = 'Sluiten'
+      ariaLabelClose = 'Sluiten',
+      qa,
     } = this.props;
 
     return (
-      <li className="m-tag">
+      <li className="m-tag" data-qa={qa}>
         {icon &&
           <Button size="small" icon={icon} ariaLabel={ariaLabelIcon}></Button>
         }

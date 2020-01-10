@@ -18,7 +18,9 @@ type Props = {
   onChange?: Function,
   loading?: boolean,
   disabled?: boolean,
-  state?: InputStates
+  state?: InputStates,
+  /** Qa id */
+  qa?: string,
 };
 
 class Autocomplete extends Component<Props> {
@@ -44,6 +46,7 @@ class Autocomplete extends Component<Props> {
 
   componentDidMount() {
     const { defaultValue, items } = this.props;
+
     this.setState({
       results: items
     });
@@ -52,22 +55,33 @@ class Autocomplete extends Component<Props> {
       return;
     }
 
+    this.handleDefaultValue(defaultValue, items)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { searchVal, inputValue } = this.state;
+
+    // This is necessarry since it takes around 1/10th of a second before the props have propagated.
+    setTimeout(() => this.search(searchVal), 100);
+
+    if (inputValue === nextProps.defaultValue) {
+      this.handleDefaultValue(nextProps.defaultValue, nextProps.items)
+    }
+  }
+  
+  handleDefaultValue(defaultValue, items) {
     this.props.onSelection(defaultValue);
     this.props.onChange(defaultValue);
 
     const foundItems = items.filter(item => item.value === defaultValue);
     if (!foundItems.length > 0) {
       this.search(defaultValue);
-      return this.selectOption(defaultValue);
+      this.selectOption(defaultValue);
+      return;
     }
+
     this.search(foundItems[0].label);
     this.selectOption(foundItems[0].label);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const { searchVal } = this.state;
-    // This is necessarry since it takes around 1/10th of a second before the props have propagated.
-    setTimeout(() => this.search(searchVal), 100);
   }
 
   handleChange = ( e ) => {
@@ -177,7 +191,7 @@ class Autocomplete extends Component<Props> {
   }
 
   render() {
-    const { items, noResults, loading, disabled, state } = this.props;
+    const { items, noResults, loading, disabled, state, qa } = this.props;
     const { results, open } = this.state;
 
     return (
@@ -197,6 +211,7 @@ class Autocomplete extends Component<Props> {
                 loading={!!loading}
                 disabled={disabled}
                 state={state}
+                data-qa={qa}
               />
             }
             triggerClose={this.handleCloseTrigger}

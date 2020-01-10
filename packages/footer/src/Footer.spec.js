@@ -18,4 +18,9 @@ describe('Footer', () => {
         const footer = mount(<Footer />);
         expect(footer.getDOMNode().tagName).toBe('FOOTER');
     });
+
+    it('should set the data-qa attribute', () => {
+        const footer = mount(<Footer qa="id-1234" />).find('.o-footer');
+        expect(footer.props()).toHaveProperty('data-qa', 'id-1234');
+    });
 });

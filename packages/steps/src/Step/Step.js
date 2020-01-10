@@ -14,7 +14,7 @@ type Props = {
 
 class Step extends Component<Props> {
   render() {
-    const { title, active, completed, ariaLabelCompleted = "Huidige:", ariaLabelCompleted = "Compleet:" } = this.props;
+    const { title, active, completed, ariaLabelCurrent = "Huidige:", ariaLabelCompleted = "Compleet:" } = this.props;
 
     const stepClass = classNames({
       'is-active': !!active,

@@ -1,19 +1,25 @@
 import React from 'react';
 import StandardSubFooter from './Blocks/StandardSubFooter';
 
-import './Subfooter.scss';
+import './SubFooter.scss';
 
 type Props = {
   /** Get standard subfooter such as for type 'antwerpen' */
   type?: string,
-  children?: any
-};
+  children?: any,
+  /** Qa id */
+  qa?: string,
+}
 
-const SubFooter = ({ type, children }: Props) => {
+const SubFooter = ({ type, children, qa }: Props) => {
+  if (type) {
+    return <StandardSubFooter type={type} data-qa={qa} />;
+  }
+
   return (
-    <div className="aui-footer">
+    <div className="aui-footer" data-qa={qa}>
       <div className="u-container">
-        <div className="row u-margin-bottom-xs">{type ? <StandardSubFooter type={type} /> : children}</div>
+        <div className="row u-margin-bottom-xs">{children}</div>
       </div>
     </div>
   );

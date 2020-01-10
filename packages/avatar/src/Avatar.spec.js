@@ -39,4 +39,9 @@ describe('Avatar', () => {
         expect(avatar.find('img').props().src).toBe('http://www.google.be');
         expect(avatar.find('img').props().alt).toBe('google');
     });
+
+    it('should set the data-qa attribute', () => {
+        const avatar = mount(<Avatar qa="id-1234">test</Avatar>).find('.a-avatar');
+        expect(avatar.props()).toHaveProperty('data-qa', 'id-1234');
+    });
 });

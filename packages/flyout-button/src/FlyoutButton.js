@@ -22,6 +22,8 @@ type Props = {
   /** Font Awesome icon name */
   icon?: string,
   children?: any,
+  /** Qa id */
+  qa?: string,
 };
 
 class FlyoutButton extends Component<Props> {
@@ -61,12 +63,13 @@ class FlyoutButton extends Component<Props> {
       label,
       flyoutHasPadding,
       children,
+      qa,
       ...buttonProps
     } = this.props;
     const { isOpen } = this.state;
     const flyoutClass = this.getClassNames();
     return (
-      <div className={flyoutClass} ref={(ref) => { this.containerRef = ref }}  aria-haspopup="true" aria-expanded={isOpen}>
+      <div className={flyoutClass} ref={(ref) => { this.containerRef = ref }} aria-haspopup="true" aria-expanded={isOpen} data-qa={qa}>
         <Button {...buttonProps} onClick={this.toggleIsOpen}>
           {label}
         </Button>

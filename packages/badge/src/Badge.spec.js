@@ -38,4 +38,9 @@ describe('Badge', () => {
         const badge = mount(<Badge className="bleh" />);
         expect(badge.getDOMNode().className).toContain('bleh');
     });
+
+    it('should set the data-qa attribute', () => {
+        const badge = mount(<Badge qa="id-1234" />).find('.a-badge');
+        expect(badge.props()).toHaveProperty('data-qa', 'id-1234');
+    });
 });
