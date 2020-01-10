@@ -112,7 +112,7 @@ class Calendar extends Component<Prop> {
             maxDate,
             noWeekends,
             qa,
-            ...restProps,
+            ...restProps
         } = this.props;
 
         const {
