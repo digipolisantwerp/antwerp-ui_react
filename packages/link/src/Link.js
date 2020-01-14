@@ -1,11 +1,11 @@
 // @flow
-import { createElement as create } from 'react';
+import * as React from 'react'
 
 type Props = {
   component?: string | Function,
 };
 
-const Link = ({ component, children, ...props }: Props) => create(component, props, children);
+const Link = ({ component, children, ...props }: Props) => React.createElement(component, props, children);
 
 Link.defaultProps = { component: 'a' };
 
