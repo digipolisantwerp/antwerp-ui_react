@@ -19,12 +19,13 @@ type Props = {
   id?: string,
   name?: string,
   size?: Sizes,
-	checkedLabel?: string,
+	checkedLabel: string,
 	checkedIcon?: string,
 	checkedButtonClass?: string,
-	uncheckedLabel?: string,
+	uncheckedLabel: string,
 	uncheckedIcon?: string,
 	uncheckedButtonClass?: string,
+  showLabels?: boolean,
   checked?: boolean,
   /** Qa id */
   qa?: string,
@@ -43,6 +44,7 @@ class Toggle extends Component<Props> {
   	checkedLabel: '',
 		checkedIcon: 'fa-bars',
 		checkedButtonClass: '',
+    showLabels: true,
 		uncheckedLabel: '',
 		uncheckedIcon: 'fa-close',
 		uncheckedButtonClass: 'a-button--danger'
@@ -76,6 +78,7 @@ class Toggle extends Component<Props> {
       uncheckedLabel,
       uncheckedIcon,
       uncheckedButtonClass,
+      showLabels,
       qa,
     } = this.props;
 
@@ -88,7 +91,7 @@ class Toggle extends Component<Props> {
 
     const checkedClasses = classNames(
       'a-toggle__on a-button',
-	    (checkedLabel === '' ? 'has-icon' : 'has-icon-left'), {
+	    (showLabels ? 'has-icon-left' : 'has-icon'), {
 		    [`${checkedButtonClass}`]: checkedButtonClass,
 		    [`${sizeBtnClasses[size]}`]: !!size
 	    }
@@ -96,7 +99,7 @@ class Toggle extends Component<Props> {
 
 	  const uncheckedClasses = classNames(
 		  'a-toggle__off a-button',
-		  uncheckedLabel === '' ? 'has-icon' : 'has-icon-left', {
+		  (showLabels ? 'has-icon-left' : 'has-icon'), {
 			  [`${uncheckedButtonClass}`]: uncheckedButtonClass,
 			  [`${sizeBtnClasses[size]}`]: !!size
 		  }
@@ -117,11 +120,11 @@ class Toggle extends Component<Props> {
         <div className="a-toggle__labels">
           <label htmlFor={id} className={checkedClasses}>
             <span className={"fa " + checkedIcon}></span>
-              {checkedLabel}
+              <span className={showLabels ? '' : 'u-screen-reader-only'}>{checkedLabel}</span>
           </label>
           <label htmlFor={id} className={uncheckedClasses}>
             <span className={"fa " + uncheckedIcon}></span>
-              {uncheckedLabel}
+              <span className={showLabels ? '' : 'u-screen-reader-only'}>{uncheckedLabel}</span>
           </label>
         </div>
       </div>

@@ -8,7 +8,7 @@ const TextField = require('./src').TextField;
 
 <TextField
     label={"Naam"}
-    id={"textfield-id"}
+    id={"textfield-id-1"}
     name={"textfield-name"}
     className={"textfield-class"}
     required={true}
@@ -22,7 +22,7 @@ const TextField = require('./src').TextField;
 
 <TextField
     label={"Naam"}
-    id={"textfield-id"}
+    id={"textfield-id-2"}
     name={"textfield-name"}
     className={"textfield-class"}
     required={true}
@@ -38,7 +38,7 @@ const TextField = require('./src').TextField;
 <div>
 <TextField
     label={"Naam"}
-    id={"textfield-id"}
+    id={"textfield-id-3"}
     name={"textfield-name"}
     className={"textfield-class"}
     required={true}
@@ -48,7 +48,7 @@ const TextField = require('./src').TextField;
 
 <TextField
     label={"Naam"}
-    id={"textfield-id"}
+    id={"textfield-id-4"}
     name={"textfield-name"}
     className={"textfield-class"}
     required={true}
@@ -64,7 +64,7 @@ const TextField = require('./src').TextField;
 
 <TextField
     label={"Naam"}
-    id={"textfield-id"}
+    id={"textfield-id-5"}
     name={"textfield-name"}
     className={"textfield-class"}
     required={true}
@@ -79,7 +79,7 @@ const TextField = require('./src').TextField;
 
 <TextField
     label={"Naam"}
-    id={"textfield-id"}
+    id={"textfield-id-6"}
     name={"textfield-name"}
     className={"textfield-class"}
     required={true}
@@ -94,7 +94,7 @@ const Textarea = require('./src').Textarea;
 
 <Textarea
     label={"Beschrijving"}
-    id={"textarea-id"}
+    id={"textarea-1"}
     name={"textarea-name"}
     className={"textarea-class"}
     required={true}
@@ -107,7 +107,7 @@ const Textarea = require('./src').Textarea;
 
 <Textarea
     label={"Beschrijving"}
-    id={"textarea-id"}
+    id={"textarea-2"}
     name={"textarea-name"}
     className={"textarea-class"}
     required={true}
@@ -199,7 +199,7 @@ const optionsDistrict = [
 
 <div>
     <Select label="District"
-        id={"select-id"}
+        id={"select-1"}
         label={"Districten"}
         name={"select-name"}
         className={"select-class"}
@@ -210,7 +210,7 @@ const optionsDistrict = [
         onChange={(value) => console.log('select value is:', value)}
     />
     <Select label="District"
-        id={"select-id"}
+        id={"select-2"}
         label={"Districten loading"}
         name={"select-name"}
         className={"select-class u-margin-top"}
@@ -231,21 +231,21 @@ const optionsDistrict = [
 const Datepicker = require('./src').Datepicker;
 
 <div>
-<Datepicker
-    id={"datepicker-id"}
-    name={"datepicker-name"}
-    label={"Datepicker met vrije input/mask"}
-    format={"DD/MM/YYYY"}
-    mask={"99/99/9999"}
-    required={true}
-    onChange={(date, isValid) => console.log('date is ' + date + ', and is valid ' + isValid)}
-    //state={"error"}
-    //description={[<span className="u-text-danger">Dit is geen geldige geboortedatum</span>]}
-    open={false}
-    />
-    
     <Datepicker
-        id={"datepicker-id"}
+        id={"datepicker-id-1"}
+        name={"datepicker-name"}
+        label={"Datepicker met vrije input/mask"}
+        format={"DD/MM/YYYY"}
+        mask={"99/99/9999"}
+        required={true}
+        onChange={(date, isValid) => console.log('date is ' + date + ', and is valid ' + isValid)}
+        //state={"error"}
+        //description={[<span className="u-text-danger">Dit is geen geldige geboortedatum</span>]}
+        open={false}
+        />
+
+    <Datepicker
+        id={"datepicker-id-2"}
         name={"datepicker-name"}
         label={"Datepicker zonder vrije input/mask"}
         format={"DD/MM/YYYY"}

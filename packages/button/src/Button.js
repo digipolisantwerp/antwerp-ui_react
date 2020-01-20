@@ -75,9 +75,9 @@ class Button extends Component<Props> {
     } = this.props;
 
     const btnClass = classNames(
-      'a-button',
       className,
       {
+        'a-button': !outline && !negative,
         [`${typeClasses[type]}`]: !!type,
         [`${sizeClasses[size]}`]: !!size,
         'has-icon': !!icon,

@@ -1,15 +1,36 @@
 ### Toggle
 
 ```
-<Toggle id="toggle-tiny" size="tiny" /> <br/><br/>
-  <Toggle id="toggle-small" size="small" /> <br/><br/>
-  <Toggle id="toggle-large" size="large" /> <br/><br/>
-  <Toggle 
-    id="toggle-with-labels" 
-    checkedLabel="Lijstweergave"
-    checkedIcon="fa-bars"
-    uncheckedButtonClass=""
-    uncheckedLabel="Kaartweergave"
-    uncheckedIcon="fa-map-marker"
-    uncheckedButtonClass="" />
+<Toggle
+  id="toggle-tiny"
+  size="tiny"
+  checkedLabel="Open menu"
+  uncheckedLabel="Close menu"
+  showLabels={false}
+  />
+<br/><br/>
+<Toggle
+  id="toggle-small"
+  size="small"
+  checkedLabel="Open menu"
+  uncheckedLabel="Close menu"
+  showLabels={false}
+  />
+<br/><br/>
+<Toggle
+  id="toggle-large"
+  size="large"
+  checkedLabel="Open menu"
+  uncheckedLabel="Close menu"
+  showLabels={false}
+  />
+<br/><br/>
+<Toggle
+  id="toggle-with-labels"
+  checkedLabel="List view"
+  checkedIcon="fa-bars"
+  uncheckedButtonClass=""
+  uncheckedLabel="Card view"
+  uncheckedIcon="fa-map-marker"
+  uncheckedButtonClass="" />
 ```

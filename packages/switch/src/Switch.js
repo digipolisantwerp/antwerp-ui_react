@@ -49,7 +49,7 @@ class Switch extends Component {
 
 		return (
 			<div className={containerClass} data-qa={qa}>
-				{label && <InputLabel htmlFor={id}>{label}</InputLabel>}
+				{label && <InputLabel>{label}</InputLabel>}
 				<div className={switchWrapperClass}>
 					{labelFalse &&
 						<label className="a-switch__label">{labelFalse}</label>
@@ -65,7 +65,7 @@ class Switch extends Component {
 							disabled={disabled}
 							onChange={this.onClick}
 						/>
-						<label htmlFor={id}></label>
+						<label htmlFor={id}><span className="u-screen-reader-only">Toggle "{label}"</span></label>
 					</div>
 					{labelTrue &&
 						<label className="a-switch__label">{labelTrue}</label>

@@ -14,6 +14,7 @@
     { label: "Aalst", value: "aalst"},
     { label: "Genk", value: "genk"}
   ]}
+  id="autocomplete-1"
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
   label="Selecteer een stad">
@@ -38,6 +39,7 @@ The prop `defaultValue` can be used to show a default value when the component g
     { label: "Aalst", value: "aalst"},
     { label: "Genk", value: "genk"}
   ]}
+  id="autocomplete-2"
   defaultValue="oostende"
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
@@ -62,6 +64,7 @@ The prop `loading` can be used to show a loading indication.
     { label: "Aalst", value: "aalst"},
     { label: "Genk", value: "genk"}
   ]}
+  id="autocomplete-3"
   defaultValue="oostende"
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
@@ -87,6 +90,7 @@ The prop `disabled` can be used to disabled the autocomplete.
     { label: "Aalst", value: "aalst"},
     { label: "Genk", value: "genk"}
   ]}
+  id="autocomplete-4"
   defaultValue="oostende"
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
@@ -113,6 +117,7 @@ The prop `state` can be used to set error states
     { label: "Aalst", value: "aalst"},
     { label: "Genk", value: "genk"}
   ]}
+  id="autocomplete-5"
   defaultValue="oostende"
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
@@ -134,6 +139,7 @@ The prop `state` can be used to set error states
     { label: "Aalst", value: "aalst"},
     { label: "Genk", value: "genk"}
   ]}
+  id="autocomplete-6"
   defaultValue="oostende"
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
@@ -155,6 +161,7 @@ The prop `state` can be used to set error states
     { label: "Aalst", value: "aalst"},
     { label: "Genk", value: "genk"}
   ]}
+  id="autocomplete-7"
   defaultValue="oostende"
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}

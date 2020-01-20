@@ -74,12 +74,11 @@ class TextField extends Component<Props> {
         {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
         <div className="a-input__wrapper">
           {iconleft ? <Icon name={iconleft} /> : null}
-          {mask ?  <InputMask {...this.props} /> : <input type="text" autoComplete={autoComplete} disabled={disabled} {...extraProps} />}
+          {mask ?  <InputMask {...this.props} /> : <input id={id} type="text" autoComplete={autoComplete} disabled={disabled} {...extraProps} />}
           {iconright ? <Icon name={iconright} /> : null}
           {loading ? <span className="fa a-spinner a-spinner--sm" /> : null}
         </div>
-
-        <small>{description}</small>
+        {description ? <small>{description}</small> : null}
       </div>
     )
   }
