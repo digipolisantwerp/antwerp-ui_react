@@ -37,18 +37,18 @@ class Calendar extends Component<Prop> {
 
         Moment.updateLocale('nl', {
                             months : [
-                                      "januari",
-                                      "februari",
-                                      "maart",
-                                      "april",
-                                      "mei",
-                                      "juni",
-                                      "juli",
-                                      "augustus",
-                                      "september",
-                                      "oktober",
-                                      "november",
-                                      "december"
+                                      "Januari",
+                                      "Februari",
+                                      "Maart",
+                                      "April",
+                                      "Mei",
+                                      "Juni",
+                                      "Juli",
+                                      "Augustus",
+                                      "September",
+                                      "Oktober",
+                                      "November",
+                                      "December"
                                       ],
                             monthsShort: [
                                           "Jan",

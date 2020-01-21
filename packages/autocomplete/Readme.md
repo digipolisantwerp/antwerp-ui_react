@@ -123,7 +123,8 @@ The prop `state` can be used to set error states
   onChange={(value) => {console.log(`Typed ${value}`)}}
   label="Selecteer een stad"
   state="error">
-  </Autocomplete>
+</Autocomplete>
+<br />
 <Autocomplete
   items={[
     { label: "Antwerpen", value: "antwerpen"},
@@ -145,7 +146,8 @@ The prop `state` can be used to set error states
   onChange={(value) => {console.log(`Typed ${value}`)}}
   label="Selecteer een stad"
   state="success">
-  </Autocomplete>
+</Autocomplete>
+<br />
 <Autocomplete
   items={[
     { label: "Antwerpen", value: "antwerpen"},

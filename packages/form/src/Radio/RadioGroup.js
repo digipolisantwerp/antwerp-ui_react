@@ -64,7 +64,7 @@ const RadioGroup = (props: Props) => {
           </Radio>
         ))}
       </div>
-      <small>{description}</small>
+      {description ? <small>{description}</small> : null}
     </div>
   )
 }

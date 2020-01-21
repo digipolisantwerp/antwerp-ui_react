@@ -35,12 +35,27 @@ type Props = {
 
 
 class Toggle extends Component<Props> {
-  state = {
-    checked: this.props.checked || false
+  constructor(props) {
+    super(props);
+    this.state = {
+      checked: props.checked || false
+    }
+    console.log(this.state.checked);
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.checked !== prevState.checked) {
+      return {
+        checked: nextProps.checked
+      };
+    }
+
+    return null;
   }
 
 	static defaultProps = {
   	id: 'toggle-normal',
+    checked: false,
   	checkedLabel: '',
 		checkedIcon: 'fa-bars',
 		checkedButtonClass: '',
@@ -48,16 +63,6 @@ class Toggle extends Component<Props> {
 		uncheckedLabel: '',
 		uncheckedIcon: 'fa-close',
 		uncheckedButtonClass: 'a-button--danger'
-	}
-
-	static getDerivedStateFromProps(nextProps, prevState) {
-		if (nextProps.checked !== prevState.checked) {
-			return {
-				checked: nextProps.checked
-			};
-		}
-
-		return null;
 	}
 
   handleClick = (e) => {
@@ -111,11 +116,11 @@ class Toggle extends Component<Props> {
           className="a-toggle__checkbox"
           id={id}
           name={name}
-          checked={this.state.checked}
+          aria-checked={this.state.checked}
+          defaultChecked={this.state.checked}
           type="checkbox"
           role="switch"
-          aria-checked={this.state.checked}
-          onClick={this.handleClick}
+          onChange={this.handleClick}
         />
         <div className="a-toggle__labels">
           <label htmlFor={id} className={checkedClasses}>

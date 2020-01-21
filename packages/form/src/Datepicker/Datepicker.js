@@ -64,7 +64,7 @@ class Datepicker extends Component<Props> {
 		const {open} = this.props;
 
 		Moment.updateLocale('nl', {
-			months : ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"],
+			months : ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December"],
 			monthsShort: ["Jan", "Feb", "Mrt", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"],
 			weekdaysShort: ["Ma", "Di", "Woe", "Do", "Vr", "Za", "Zo"]
 		});
@@ -230,7 +230,7 @@ class Datepicker extends Component<Props> {
 					</div>
 				}
 			</div>
-			<small>{description}</small>
+			{description ? <small>{description}</small> : null}
 		</div>
 		;
 	}
