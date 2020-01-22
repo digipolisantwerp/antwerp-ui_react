@@ -123,7 +123,6 @@ class Autocomplete extends Component<Props> {
 
   handleClick = ( e ) => {
     this.props.onSelection(e.target.dataset.value);
-    this.props.onChange(e.target.dataset.value);
     this.selectOption(e.target.innerText);
   }
 
@@ -140,7 +139,6 @@ class Autocomplete extends Component<Props> {
   }
 
   handleFlyoutState = (isOpen) => {
-    console.log('HANDLE')
     this.setState({ open: isOpen });
   }
 
@@ -163,6 +161,7 @@ class Autocomplete extends Component<Props> {
        });
     }
     if (e.key === "Enter") {
+      this.props.onSelection(results[cursor].value);
       this.selectOption(results[cursor].label)
     }
     if (e.key === "Backspace") {
@@ -209,6 +208,7 @@ class Autocomplete extends Component<Props> {
 
     return (
       items && (
+        <div>
           <div className={flyoutClasses}>
             <TextField
               name="autocomplete"
@@ -235,6 +235,7 @@ class Autocomplete extends Component<Props> {
               )}
             </FlyoutContent>
           </div>
+        </div>
       )
     )
   }
