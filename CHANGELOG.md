@@ -26,6 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - `Select` add support for loading state
 - `Avatar` add option for className
 - `Autocomplete` fix handling dynamic values for defaultValue
+- `Autocomplete` fixes for OCAPIO-831; OCAPIO-814; OCAPIO-815; OCAPIO-818
 
 ### Added
 - `Form/Select` Added support for defaultValue on select
