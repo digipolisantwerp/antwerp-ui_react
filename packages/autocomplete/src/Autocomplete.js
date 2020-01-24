@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import ReactDOM from 'react-dom';
 
-import Flyout from '../../flyout/src/Flyout';
 import FlyoutContent from '../../flyout-button/src/FlyoutContent';
 import TextField from '../../form/src/TextField';
 
