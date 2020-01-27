@@ -13,21 +13,13 @@ type Props = {
 };
 
 const Icon = (props: Props) => {
-  const { name, style, span, className, qa } = props;
+  const { name, style, className, qa } = props;
   const iconClass = classNames(
     className,
     `fa fa-${name}`
   );
 
-  if (span) {
-    return (
-      <span className={iconClass} style={style} data-qa={qa}></span>
-    )
-  } else {
-    return (
-      <span className={iconClass} style={style} data-qa={qa}></span>
-    )
-  }
+  return (<span className={iconClass} style={style} data-qa={qa}></span>);
 }
 
 export default Icon;
