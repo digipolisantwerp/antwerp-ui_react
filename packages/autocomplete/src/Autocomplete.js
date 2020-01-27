@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import ReactDOM from 'react-dom';
 
-import Flyout from '../../flyout/src/Flyout';
+import FlyoutContent from '../../flyout-button/src/FlyoutContent';
 import TextField from '../../form/src/TextField';
 
 type InputStates = "success" | "warning" | "error";
@@ -124,12 +124,19 @@ class Autocomplete extends Component<Props> {
 
   handleClick = ( e ) => {
     this.props.onSelection(e.target.dataset.value);
-    this.props.onChange(e.target.dataset.value);
     this.selectOption(e.target.innerText);
   }
 
-  toggleOpen = () => {
-    this.setState({ open: !this.state.open })
+  closePane = () => {
+    this.setState({
+      open: false,
+    });
+  }
+
+  openPane = () => {
+    this.setState({
+      open: true,
+    });
   }
 
   handleFlyoutState = (isOpen) => {
@@ -155,6 +162,7 @@ class Autocomplete extends Component<Props> {
        });
     }
     if (e.key === "Enter") {
+      this.props.onSelection(results[cursor].value);
       this.selectOption(results[cursor].label)
     }
     if (e.key === "Backspace") {
@@ -168,7 +176,7 @@ class Autocomplete extends Component<Props> {
   }
 
   selectOption = (val) => {
-    this.closeTrigger();
+    this.closePane();
     this.setState({
       inputValue: val,
       open: false
@@ -187,39 +195,39 @@ class Autocomplete extends Component<Props> {
     );
   }
 
-  handleCloseTrigger = (closeTrigger) => {
-    this.closeTrigger = closeTrigger;
-  }
-
   render() {
     const { items, noResults, loading, disabled, state, qa } = this.props;
     const { results, open } = this.state;
 
+    const flyoutClasses = classNames(
+      'm-flyout',
+      'm-flyout--full',
+      {
+        'is-open': open,
+      }
+    );
+
     return (
       items && (
         <div>
-          <Flyout
-            trigger={
-              <TextField
-                name="autocomplete"
-                className="autocomplete"
-                id={this.props.id}
-                label={this.props.label}
-                value={this.state.inputValue}
-                onChange={this.handleChange}
-                onClick={this.toggleOpen}
-                onKeyDown={this.handleKeyPress}
-                autoComplete="off"
-                loading={!!loading}
-                disabled={disabled}
-                state={state}
-                data-qa={qa}
-              />
-            }
-            triggerClose={this.handleCloseTrigger}
-            onStateChange={this.handleFlyoutState}
-            open={open}
-            >
+          <div className={flyoutClasses}>
+            <TextField
+              name="autocomplete"
+              className="autocomplete"
+              id={this.props.id}
+              label={this.props.label}
+              value={this.state.inputValue}
+              onChange={this.handleChange}
+              onKeyDown={this.handleKeyPress}
+              onBlur={this.closePane}
+              onFocus={this.openPane}
+              autoComplete="off"
+              loading={!!loading}
+              disabled={disabled}
+              state={state}
+              data-qa={qa}
+            />
+            <FlyoutContent hasPadding={false}>
               {results.length == 0 ? (
                 <p className="u-margin-xs u-text-light u-text-center">{noResults}</p>
               ): (
@@ -227,7 +235,8 @@ class Autocomplete extends Component<Props> {
                   {results.map((item, index) => this.renderItems(item, index))}
                 </ul>
               )}
-          </Flyout>
+            </FlyoutContent>
+          </div>
         </div>
       )
     )
