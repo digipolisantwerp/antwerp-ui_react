@@ -3,17 +3,16 @@ import React, { Component } from 'react';
 class Handle extends Component {
   state = {
     limit: 480,
-    grab: 5,
-    isFocus: false
+    grab: 5
   };
 
   componentWillReceiveProps(nextProps) {
-    let { sliderPos } = nextProps;
+    let {sliderPos} = nextProps;
     const handlePos = 30; // Fills the bar up correctly on the right side
 
     this.setState({
       limit: sliderPos - handlePos
-    });
+    })
   }
 
   handleNoop = e => {
@@ -50,7 +49,9 @@ class Handle extends Component {
     const { direction } = this.props;
 
     const clientCoordinateStyle = 'clientX';
-    const coordinate = !e.touches ? e[clientCoordinateStyle] : e.touches[0][clientCoordinateStyle];
+    const coordinate = !e.touches
+      ? e[clientCoordinateStyle]
+      : e.touches[0][clientCoordinateStyle];
 
     const pos = coordinate - direction - grab;
     return this.getValueFromPosition(pos);
@@ -74,41 +75,47 @@ class Handle extends Component {
     if (e.defaultPrevented) {
       return;
     }
-    const { onChange, step, min, max, value } = this.props;
+
+    const {
+      onChange,
+      step,
+      min,
+      max,
+      value,
+    } = this.props;
+
     if (!onChange) {
       return;
     }
 
     let newValue = value;
     const key = e.keyCode;
-    // 39: right
-    // 38: up
-    // 37: left
-    // 40: down
-    // 35: end
-    // 36: home
 
     switch (key) {
-      case 39:
-      case 38:
+      case 39: // right
+      case 38: // up
         newValue = value + step;
         e.preventDefault();
         break;
-      case 37:
-      case 40:
+      case 37: // left
+      case 40: // down
         newValue = value - step;
         e.preventDefault();
         break;
-      case 35:
+      case 35: // end
         newValue = max;
         e.preventDefault();
         break;
-      case 36:
+      case 36: // home
         newValue = min;
         e.preventDefault();
         break;
     }
 
+    // Make sure the slider doesn't get out of bounds
+    if (newValue < min || newValue > max) {
+      return;
+    }
     onChange(newValue);
   };
 
@@ -123,26 +130,38 @@ class Handle extends Component {
   };
 
   render() {
-    let { value, handleNoop, getPositionFromValue, unit, fixed, tooltips, onDragEnd, min, max, label } = this.props;
-    const { isFocus } = this.state;
 
-    const valueNow = `${value.toFixed(fixed).replace(/[.]/, ',')} ${unit}`;
+    let {
+      value,
+      handleNoop,
+      getPositionFromValue,
+      unit,
+      fixed,
+      tooltips,
+      onDragEnd,
+      min,
+      max,
+      label,
+    } = this.props;
+
+    const fixedValue = value.toFixed(fixed);
+    const valueNow = `${fixedValue.replace(/[.]/, ',')} ${unit}`;
 
     return (
       <div
-        className={`m-range-slider__handle ${isFocus ? 'focus' : ''}`}
+        className="m-range-slider__handle"
         tabIndex="0"
-        onFocus={this.onFocus}
-        onBlur={this.onBlur}
         onMouseDown={this.handleStart}
         onTouchEnd={handleNoop}
         onTouchMove={this.handleDrag}
         onDragExit={onDragEnd}
+        onFocus={this.onFocus}
+        onBlur={this.onBlur}
         role="slider"
         aria-orientation="horizontal"
         aria-valuemax={max}
         aria-valuemin={min}
-        aria-valuenow={valueNow}
+        aria-valuenow={fixedValue}
         aria-label={label}
         style={{
           left: getPositionFromValue(value) + 'px'
@@ -150,17 +169,13 @@ class Handle extends Component {
       >
         {tooltips ? (
           <div className="m-range-slider__tooltip a-tooltip a-tooltip--primary a-tooltip--top">
-            <p>
-              {value.toFixed(fixed).replace(/[.]/, ',')}&nbsp;{unit}
-            </p>
+            <p>{fixedValue.replace(/[.]/, ',')}{unit}</p>
           </div>
         ) : (
-          <span className="m-range-slider__value">
-            {value.toFixed(fixed).replace(/[.]/, ',')}&nbsp;{unit}
-          </span>
+          <span className="m-range-slider__value">{fixedValue.replace(/[.]/, ',')}{unit}</span>
         )}
       </div>
-    );
+    )
   }
 }
 

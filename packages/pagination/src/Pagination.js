@@ -16,7 +16,7 @@ type Props = {
   styling?: String,
   /** Display as text or as numbers */
   display?: 'text' | 'numbers',
-  /** Which element to use as navigation element (NOTE: Corebranding only supports a-tags). Can be a string or React Element. */
+  /** Which element to use as navigation element (Note: Core Branding only supports a-tags). Can be a string or React Element. */
   buttonType?: String | React.Node,
   /** ariaLabel for navigation component, default to 'Paginering'. */
   ariaLabel?: String,
@@ -170,7 +170,7 @@ export default class Pagination extends Component<Props, State> {
       <nav role="navigation" aria-label={ariaLabel} data-qa={qa}>
         <ul className={paginationClasses}>
           <li className="m-pagination__prev pagination-button" key="pagination__prev">
-            <ButtonType
+            <Button
               className={previousDisabledClasses}
               id="pagination-prev-page"
               onClick={() => this.onPrev()}
@@ -178,7 +178,7 @@ export default class Pagination extends Component<Props, State> {
             >
               <i aria-hidden="true" className="fa fa-angle-left" />
               <span className="u-screen-reader-only">{ariaLabelPreviousPage}</span>
-            </ButtonType>
+            </Button>
           </li>
           {display === 'text' && (
             <li className="m-pagination__label" key="pagination__label">{`${currentPage} - ${totalPages}`}</li>
@@ -186,7 +186,7 @@ export default class Pagination extends Component<Props, State> {
           {display === 'numbers' &&
             numbers.map((number, i) => (
               <li key={i}>
-                <ButtonType
+                <Button
                   className={classNames({ 'is-active': number === `${currentPage}` }, 'pagination-button')}
                   id={`pagination-button-${i}`}
                   onClick={() => this.onChange(number)}
@@ -194,11 +194,11 @@ export default class Pagination extends Component<Props, State> {
                   aria-current={number === `${currentPage}` ? 'page' : null}
                 >
                   {number}
-                </ButtonType>
+                </Button>
               </li>
             ))}
           <li className="m-pagination__next pagination-button" key="pagination__next">
-            <ButtonType
+            <Button
               className={nextDisabledClasses}
               id="pagination-next-page"
               onClick={() => this.onNext()}
@@ -206,7 +206,7 @@ export default class Pagination extends Component<Props, State> {
             >
               <i aria-hidden="true" className="fa fa-angle-right" />
               <span className="u-screen-reader-only">{ariaLabelNextPage}</span>
-            </ButtonType>
+            </Button>
           </li>
         </ul>
       </nav>

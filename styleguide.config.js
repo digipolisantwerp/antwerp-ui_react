@@ -67,7 +67,8 @@ module.exports = {
           textDecoration: 'none'
         },
         '&:focus': {
-          boxShadow: '0 0 0 3px rgb(192, 223, 254)'
+          boxShadow: '0 0 0 3px rgb(192, 223, 254)',
+          textDecoration: 'none'
         }
       }
     }

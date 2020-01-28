@@ -69,7 +69,7 @@ class Calendar extends Component {
             ariaLabelNext={ariaLabelNext}
           />
         </div>
-        <table cellPadding="0" cellSpacing="0">
+        <table>
           <thead>
             <Head displayedPeriod={displayedPeriod} viewType={viewType} />
           </thead>

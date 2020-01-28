@@ -42,7 +42,6 @@ type Props = {
   block?: boolean,
   disabled?: boolean,
   htmlType?: string,
-  role?: string,
   onClick?: (e: object) => void,
   /** Qa id */
   qa?: string,
@@ -70,7 +69,6 @@ class Button extends Component<Props> {
       style = {},
       disabled = false,
       htmlType,
-      role = 'button',
       qa,
     } = this.props;
 
@@ -101,7 +99,6 @@ class Button extends Component<Props> {
         disabled={disabled}
         type={htmlType}
         aria-label={ariaLabel}
-        role={role}
         data-qa={qa}>
         {icon ? <Icon name={icon} /> : null}
         {iconLeft ? <Icon name={iconLeft} /> : null}
