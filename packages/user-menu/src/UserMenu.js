@@ -72,10 +72,10 @@ class UserMenu extends Component<Props> {
   renderBadge() {
     const { notificationsCount } = this.props;
     return (
-      <a className="badge inner-badge"
+      <a
+        className="a-badge a-badge--warning"
         href={notificationsUrl()}>
-        {notificationsCount}
-        <span className="u-screen-reader-only" data-translate="">notificaties</span>
+        {notificationsCount}<span className="u-screen-reader-only" data-translate=""> notificaties</span>
       </a>
     )
   }
@@ -117,7 +117,7 @@ class UserMenu extends Component<Props> {
     const { children, flyoutSize, notificationsCount } = this.props;
 
     return (
-      <div id="astad-user-menu">
+      <div className="m-user-menu-flyout">
         {notificationsCount > 0 &&
           this.renderBadge()
         }

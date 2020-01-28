@@ -41,12 +41,35 @@ module.exports = {
         {
           rel: 'stylesheet',
           href: 'https://cdn.antwerpen.be/core_branding_scss/4.0.0/main.min.css'
-        },
-        {
-          rel: 'stylesheet',
-          href: 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/a11y-light.min.css'
         }
       ]
+    }
+  },
+  styles: {
+    Code: {
+      code: {
+        '& .hljs-string': {
+          color: 'rgb(43, 132, 13)'
+        }
+      }
+    },
+    ComponentsList: {
+      item: {
+        lineHeight: '1.3'
+      }
+    },
+    Link: {
+      link: {
+        '&, &:link, &:visited': {
+          textDecoration: 'underline'
+        },
+        '&:hover, &:active': {
+          textDecoration: 'none'
+        },
+        '&:focus': {
+          boxShadow: '0 0 0 3px rgb(192, 223, 254)'
+        }
+      }
     }
   },
   theme: {
@@ -88,6 +111,9 @@ module.exports = {
       h4: 28,
       h5: 23,
       h6: 19
+    },
+    mq: {
+      small: '@media (max-width: 719px)'
     },
     borderRadius: 0,
     spaceFactor: 12
