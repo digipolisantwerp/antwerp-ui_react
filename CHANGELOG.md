@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - `Button` [BREAKING] Make `aria-label` required.
 - `Icon` [BREAKING] `<i>` is for italic, not for icons. Only `<span class="..."></span>` is allowed. [WCAG 2.1 AA - Identify purpose](https://www.w3.org/TR/WCAG21/#identify-purpose)
 - `Handle` [BREAKING] Added keyboard navigation for slider.
+- `Slider` [BREAKING] Changed the way units are displayed.
 - `Steps` Added `aria-label` and screen-reader info.
 - `Button` Fixed an unnecessary class in some cases.
 - `SubFooter` Added `title` and `aria-label` to subfooter.
