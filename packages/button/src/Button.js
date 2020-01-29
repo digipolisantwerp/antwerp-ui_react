@@ -83,7 +83,7 @@ class Button extends Component<Props> {
         'has-icon-right': !!iconRight,
         'a-button-negative': !!negative,
         'a-button-outline': !!outline,
-        'a-button--transparent': !!transparent,
+        'a-button-transparent': !!transparent,
         'a-button--block': block,
       }
     );

@@ -83,7 +83,7 @@ describe("Pagination", () => {
       <Pagination itemsPerPage={4} totalValues={60} currentPage={5} />
     );
     // 3 because["1","...","4", "5", "6", "...","15"]
-    expect(component.find("#pagination-button-3.is-active").exists()).toEqual(
+    expect(component.find(".pagination-button-3.is-active").exists()).toEqual(
       true
     );
   });
@@ -104,7 +104,7 @@ describe("Pagination", () => {
       <Pagination itemsPerPage={4} totalValues={60} onUpdate={cb} />
     );
     // numbers = ["1","2","3","4"] => button index 3
-    component.find("#pagination-button-3").simulate("click");
+    component.find("a.pagination-button-3").simulate("click");
     expect(number).toEqual(4);
   });
 
@@ -121,7 +121,7 @@ describe("Pagination", () => {
         onUpdate={cb}
       />
     );
-    component.find("#pagination-prev-page").simulate("click");
+    component.find("a.pagination-prev-page").simulate("click");
     expect(number).toEqual(4);
   });
 
@@ -138,7 +138,7 @@ describe("Pagination", () => {
         onUpdate={cb}
       />
     );
-    component.find("#pagination-next-page").simulate("click");
+    component.find("a.pagination-next-page").simulate("click");
     expect(number).toEqual(6);
   });
 

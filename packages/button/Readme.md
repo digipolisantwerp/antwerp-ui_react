@@ -6,6 +6,7 @@
 <Button type="success">Success</Button>{' '}
 <Button type="warning">Warning</Button>{' '}
 <Button type="danger">Danger</Button>{' '}
+<Button type="transparent">Transparent</Button>{' '}
 ```
 
 ### Button modifiers
@@ -16,9 +17,9 @@
 </div>
 
 ```
-<Button type="default" transparent>Transparent</Button>{' '}
 <Button type="primary" negative>Negative</Button>{' '}
-<Button type="primary" outline>Outline</Button>
+<Button type="primary" outline>Outline</Button>{' '}
+<Button icon="close" ariaLabel="Close" transparent></Button>
 ```
 
 ### Button sizes
@@ -49,10 +50,10 @@
 <Button iconRight="arrow-right" type="primary" size="small">Icon right</Button>{' '}
 <Button iconRight="arrow-right" type="primary" size="tiny">Icon right</Button>
 <br /><br />
-<Button icon="download" type="primary" size="large"></Button>{' '}
-<Button icon="download" type="primary"></Button>{' '}
-<Button icon="download" type="primary" size="small"></Button>{' '}
-<Button icon="download" type="primary" size="tiny"></Button>
+<Button icon="download" ariaLabel="Download" type="primary" size="large"></Button>{' '}
+<Button icon="download" ariaLabel="Download" type="primary"></Button>{' '}
+<Button icon="download" ariaLabel="Download" type="primary" size="small"></Button>{' '}
+<Button icon="download" ariaLabel="Download" type="primary" size="tiny"></Button>
 ```
 
 ### Button Group

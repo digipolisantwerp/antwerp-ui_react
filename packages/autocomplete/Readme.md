@@ -18,8 +18,7 @@
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
   label="Selecteer een stad">
-  </Autocomplete>
-
+</Autocomplete>
 ```
 
 The prop `defaultValue` can be used to show a default value when the component gets loaded.
@@ -44,7 +43,7 @@ The prop `defaultValue` can be used to show a default value when the component g
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
   label="Selecteer een stad">
-  </Autocomplete>
+</Autocomplete>
 ```
 
 The prop `loading` can be used to show a loading indication.
@@ -70,7 +69,7 @@ The prop `loading` can be used to show a loading indication.
   onChange={(value) => {console.log(`Typed ${value}`)}}
   label="Selecteer een stad"
   loading={true}>
-  </Autocomplete>
+</Autocomplete>
 ```
 
 The prop `disabled` can be used to disabled the autocomplete.
@@ -96,7 +95,7 @@ The prop `disabled` can be used to disabled the autocomplete.
   onChange={(value) => {console.log(`Typed ${value}`)}}
   label="Selecteer een stad"
   disabled={true}>
-  </Autocomplete>
+</Autocomplete>
 ```
 
 The prop `state` can be used to set error states
