@@ -41,7 +41,7 @@ class Nav extends Component {
           ariaLabel={ariaLabelPrevious(viewType, displayedPeriod)}
         />
 
-        <Button htmlType="button" onClick={onClickViewType} className={'m-datepicker__title a-button'}>
+        <Button htmlType="button" onClick={onClickViewType} className={'m-datepicker__title a-button u-text-capitalize'}>
           {this.renderNav()}
         </Button>
 

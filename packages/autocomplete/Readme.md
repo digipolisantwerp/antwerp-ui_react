@@ -17,7 +17,7 @@
   id="autocomplete-1"
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
-  label="Selecteer een stad">
+  label="Select a city">
 </Autocomplete>
 ```
 
@@ -42,7 +42,7 @@ The prop `defaultValue` can be used to show a default value when the component g
   defaultValue="oostende"
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
-  label="Selecteer een stad">
+  label="Select a city">
 </Autocomplete>
 ```
 
@@ -67,7 +67,7 @@ The prop `loading` can be used to show a loading indication.
   defaultValue="oostende"
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
-  label="Selecteer een stad"
+  label="Select a city"
   loading={true}>
 </Autocomplete>
 ```
@@ -93,7 +93,7 @@ The prop `disabled` can be used to disabled the autocomplete.
   defaultValue="oostende"
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
-  label="Selecteer een stad"
+  label="Select a city"
   disabled={true}>
 </Autocomplete>
 ```
@@ -120,7 +120,7 @@ The prop `state` can be used to set error states
   defaultValue="oostende"
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
-  label="Selecteer een stad"
+  label="Select a city"
   state="error">
 </Autocomplete>
 <br />
@@ -143,7 +143,7 @@ The prop `state` can be used to set error states
   defaultValue="oostende"
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
-  label="Selecteer een stad"
+  label="Select a city"
   state="success">
 </Autocomplete>
 <br />
@@ -166,7 +166,7 @@ The prop `state` can be used to set error states
   defaultValue="oostende"
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
-  label="Selecteer een stad"
+  label="Select a city"
   state="warning">
   </Autocomplete>
 </div>

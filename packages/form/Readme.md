@@ -7,12 +7,12 @@
 const TextField = require('./src').TextField;
 
 <TextField
-  label={"Naam"}
+  label={"Name"}
   id={"textfield-id-1"}
   name={"textfield-name"}
   className={"textfield-class"}
   required={true}
-  placeholder={"naam"}
+  placeholder={"Your name"}
   onChange={(value) => console.log('textfield value is:', value)} />
 ```
 
@@ -21,12 +21,12 @@ The prop `autoComplete` can be used to disable the prefill that some browsers sh
 const TextField = require('./src').TextField;
 
 <TextField
-  label={"Naam"}
+  label={"Name"}
   id={"textfield-id-2"}
   name={"textfield-name"}
   className={"textfield-class"}
   required={true}
-  placeholder={"naam"}
+  placeholder={"Your name"}
   onChange={(value) => console.log('textfield value is:', value)}
   autoComplete="off" />
 ```
@@ -37,24 +37,24 @@ const TextField = require('./src').TextField;
 
 <div>
 <TextField
-  label={"Naam"}
+  label={"Name"}
   id={"textfield-id-3"}
   name={"textfield-name"}
   className={"textfield-class"}
   required={true}
-  placeholder={"naam"}
+  placeholder={"Your name"}
   onChange={(value) => console.log('textfield value is:', value)}
   iconright="eye" />
 
 <br />
 
 <TextField
-  label={"Naam"}
+  label={"Name"}
   id={"textfield-id-4"}
   name={"textfield-name"}
   className={"textfield-class"}
   required={true}
-  placeholder={"naam"}
+  placeholder={"Your name"}
   onChange={(value) => console.log('textfield value is:', value)}
   iconleft="user" />
 </div>
@@ -65,12 +65,12 @@ A spinner can be added using the `spinner` prop
 const TextField = require('./src').TextField;
 
 <TextField
-  label={"Naam"}
+  label={"Name"}
   id={"textfield-id-5"}
   name={"textfield-name"}
   className={"textfield-class"}
   required={true}
-  placeholder={"naam"}
+  placeholder={"Your name"}
   onChange={(value) => console.log('textfield value is:', value)}
   loading={true} />
 ```
@@ -80,12 +80,12 @@ The text field can be disabled using the `disabled` prop
 const TextField = require('./src').TextField;
 
 <TextField
-  label={"Naam"}
+  label={"Name"}
   id={"textfield-id-6"}
   name={"textfield-name"}
   className={"textfield-class"}
   required={true}
-  placeholder={"naam"}
+  placeholder={"Your name"}
   onChange={(value) => console.log('textfield value is:', value)}
   disabled />
 ```
@@ -95,12 +95,12 @@ const TextField = require('./src').TextField;
 const Textarea = require('./src').Textarea;
 
 <Textarea
-  label={"Beschrijving"}
+  label={"Description"}
   id={"textarea-1"}
   name={"textarea-name"}
   className={"textarea-class"}
   required={true}
-  placeholder={"beschrijving"}
+  placeholder={"Give a description"}
   onChange={(value) => console.log('textarea value is:', value)} />
 ```
 
@@ -108,12 +108,12 @@ const Textarea = require('./src').Textarea;
 const Textarea = require('./src').Textarea;
 
 <Textarea
-  label={"Beschrijving"}
+  label={"Description"}
   id={"textarea-2"}
   name={"textarea-name"}
   className={"textarea-class"}
   required={true}
-  placeholder={"beschrijving"}
+  placeholder={"Give a description"}
   disabled
   onChange={(value) => console.log('textarea value is:', value)} />
 ```
@@ -124,7 +124,7 @@ const Textarea = require('./src').Textarea;
 const Checkbox = require('./src').Checkbox;
 
 <Checkbox
-  label={"Verklaard en goedgekeurd"}
+  label={"Declared and approved"}
   id={"checkbox-id"}
   name={"checkbox-name"}
   className={"checkbox-class"}
@@ -140,35 +140,35 @@ const Radio = require('./src').Radio;
 const optionsAges = [
   {
     key: '0',
-    value: '1-5 jaar',
-    label: '1-5 jaar',
+    value: '1-5 years',
+    label: '1-5 years',
   },
   {
     key: '1',
-    value:'6-7 jaar',
-    label: '6-7 jaar',
+    value:'6-7 years',
+    label: '6-7 years',
   },
   {
     key: '2',
-    value: '8-10 jaar',
-    label: '8-10 jaar',
+    value: '8-10 years',
+    label: '8-10 years',
   },
   {
     key: '3',
-    value: '11-12 jaar',
-    label: '11-12 jaar',
+    value: '11-12 years',
+    label: '11-12 years',
   }
 ];
 
-<RadioGroup label="District"
+<RadioGroup
   id={"radio-id"}
-  label={"Leeftijden"}
+  label={"Ages"}
   name={"radio-name"}
   className={"radio-class"}
   required={true}
   inline={false}
   options={optionsAges}
-  value={"8-10 jaar"}
+  value={"8-10 years"}
   onChange={(value) => console.log('radiogroup value is:', value)} >
 </RadioGroup>
 ```
@@ -202,12 +202,12 @@ const optionsDistrict = [
 <div>
   <Select label="District"
     id={"select-1"}
-    label={"Districten"}
+    label={"Districts"}
     name={"select-name"}
     className={"select-class"}
     required={true}
     inline={false}
-    placeholder={"----Select-----"}
+    placeholder={"Choose a district"}
     options={optionsDistrict}
     onChange={(value) => console.log('select value is:', value)}
   />
@@ -216,12 +216,12 @@ const optionsDistrict = [
 
   <Select label="District"
     id={"select-2"}
-    label={"Districten loading"}
+    label={"Districts loading"}
     name={"select-name"}
     className={"select-class u-margin-top"}
     required={true}
     inline={false}
-    placeholder={"----Select-----"}
+    placeholder={"Choose a district"}
     options={optionsDistrict}
     loading={true}
     onChange={(value) => console.log('select value is:', value)}
@@ -237,9 +237,10 @@ const Datepicker = require('./src').Datepicker;
 
 <div>
   <Datepicker
+    locale={"en"}
     id={"datepicker-id-1"}
     name={"datepicker-name"}
-    label={"Datepicker met vrije input/mask"}
+    label={"Datepicker with input mask"}
     format={"DD/MM/YYYY"}
     mask={"99/99/9999"}
     required={true}
@@ -252,9 +253,10 @@ const Datepicker = require('./src').Datepicker;
   <br />
 
   <Datepicker
+    locale={"en"}
     id={"datepicker-id-2"}
     name={"datepicker-name"}
-    label={"Datepicker zonder vrije input/mask"}
+    label={"Datepicker without input mask"}
     format={"DD/MM/YYYY"}
     readOnly={true}
   />

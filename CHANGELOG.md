@@ -8,10 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 - `CardIcon` [BREAKING] Make `aria-label` required.
 - `Button` [BREAKING] Make `aria-label` required.
-- `Icon` [BREAKING] `<i>` is for italic, not for icons. Only `<span class="..."></span>` is allowed. [WCAG 2.1 AA - Identify purpose](https://www.w3.org/TR/WCAG21/#identify-purpose)
+- `Icon` [BREAKING] Changed all `<i>` references to `<span>`
 - `Handle` [BREAKING] Added keyboard navigation for slider.
 - `Slider` [BREAKING] Changed the way units are displayed.
-- `Pagination` [BREAKING] Changed API in order to not allow buttons.
+- `Pagination` [BREAKING] Changed API in order to disallow buttons.
 - `Steps` Added `aria-label` and screen-reader info.
 - `SubFooter` Added `title` and `aria-label` to subfooter.
 - `Switch` Added `role` and `aria-checked`.
@@ -28,13 +28,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - `Icon` Added `aria-label`.
 - `Avatar` Added `u-screen-reader-only` 'User Icon' info.
 - `Button` Added contrast warning for negative toggle. [WCAG 2.1 AA - Contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum)
-- `Tag`/`TagListItem` Added extra WVAG information for `aria-label`.
+- `Tag`/`TagListItem` Added extra WCAG information for `aria-label`.
 - `UserMenu` Added `aria-label` and screen-reader info.
 - `ButtonGroup` Added option for vertical button group (depends on core branding 3.2)
 - `Flyout` Added an option to handle state change
-- `Datepicker` Fixed an issue where the datepicker spams console when it is not loaded correctly
-- `TextField` Added the option to disable autocomplete
-- `TextField` Added disabled option
+- `Form/Datepicker` Fixed an issue where the datepicker spams console when it is not loaded correctly
+- `Autocomplete` Added the option to disable autocomplete
+- `Form/TextField` Added disabled option
 - `Autocomplete` Removed console log
 - `Autocomplete` Took propegation delay into account when triggering search from componentWillReceiveProps
 - `TextField` Added support for left and right icon
@@ -52,6 +52,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Added
 - `Form/Select` Added support for defaultValue on select
+- `Form/Datepicker` Added an option to set locale
 
 ### Fixed
 - `Form/Checkbox` Fixed checking of checkboxes

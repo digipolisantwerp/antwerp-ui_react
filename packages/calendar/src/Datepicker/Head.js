@@ -18,14 +18,14 @@ class Head extends Component {
 	}
 
 	renderNameOfDays() {
-		const nameOfDays = Moment.weekdaysShort();
+		const nameOfDays = Moment.weekdaysMin();
 		const longNameDays = Moment.weekdays();
 		const orderedLongNameDays = rotateArrayByPosition(longNameDays, 2);
 
 		return (
 			<tr className="m-datepicker__days">
 				{
-					nameOfDays.map((day, i) => <th key={i} aria-label={orderedLongNameDays[i]}>{ day }</th>)
+					nameOfDays.map((day, i) => <th key={i} className="u-text-capitalize" aria-label={orderedLongNameDays[i]}>{ day }</th>)
 				}
 			</tr>
 		);

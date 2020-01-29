@@ -28,6 +28,8 @@ type
 	mask?: string,
 	/** The date format used to render the date. */
 	format?: string,
+  /** Which locale you want to use. Defaults to 'nl' */
+  locale?: string,
 	/** The selected or predefined date. */
 	activeDate?: string,
 	/** Every date in this prop will be selected and disabled. */
@@ -62,12 +64,6 @@ class Datepicker extends Component<Props> {
 	constructor(props) {
 		super(props);
 		const {open} = this.props;
-
-		Moment.updateLocale('nl', {
-			months : ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December"],
-			monthsShort: ["Jan", "Feb", "Mrt", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"],
-			weekdaysShort: ["Ma", "Di", "Woe", "Do", "Vr", "Za", "Zo"]
-		});
 
 		this.state = {
 			input: '',
@@ -168,6 +164,7 @@ class Datepicker extends Component<Props> {
 			readOnly,
 			name,
 			format,
+      locale = 'nl',
 			selectedDates,
 			minDate,
 			maxDate,
@@ -218,6 +215,7 @@ class Datepicker extends Component<Props> {
 					<div className={datepickerClass} aria-hidden="false">
 						<div className="m-datepicker is-open">
 							<Calendar
+                locale={locale}
 								format={format}
 								activeDate={activeDate}
 								selectedDates={selectedDates}
