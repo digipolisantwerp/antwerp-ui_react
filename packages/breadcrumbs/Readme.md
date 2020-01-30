@@ -11,6 +11,19 @@ The last item in the list will be rendered without a link.
 />
 ```
 
+You may also specify an `onClick` callback instead of a target. The callback will get called when clicking on the link.
+
+```js
+<Breadcrumbs
+  items={[
+    { name: "Organisms", onClick: function() { console.log('Organisms')} },
+    { name: "Molecules", onClick: function() { console.log('Molecules')} },
+    { name: "Atoms", onClick: function() { console.log('Atoms')} },
+    { name: "Quarks", target: "/quarks" }
+  ]}
+/>
+```
+
 Any items that are passed without a `target`-property will also be rendered without a link.
 
 ```js
