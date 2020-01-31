@@ -40,7 +40,6 @@ class Toggle extends Component<Props> {
     this.state = {
       checked: props.checked || false
     }
-    console.log(this.state.checked);
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {

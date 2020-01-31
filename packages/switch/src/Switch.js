@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import InputLabel from '../../form/src/InputLabel';
 

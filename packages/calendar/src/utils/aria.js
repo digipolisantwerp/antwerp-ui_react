@@ -42,7 +42,6 @@ const mapNav = (direction, viewType, value) => {
 
   return `Ga naar ${directionDisplay}${multi} ${viewTypeDisplay}, ${valueDisplay}`;
 };
-const mapNext = (viewType, value) => {};
 
 export default {
   mapViewType,

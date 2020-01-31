@@ -24,7 +24,7 @@ type ButtonTypes = "primary" | "secondary" | "success" | "warning" | "danger" | 
 
 type Props = {
   title?: string,
-  ariaLabel: string,
+  ariaLabel?: string,
   id?: string,
   negative?: boolean,
   outline?: boolean,
@@ -61,7 +61,7 @@ class Button extends Component<Props> {
       iconRight,
       onClick,
       title = '',
-      ariaLabel,
+      ariaLabel = '',
       alt = '',
       type,
       size,

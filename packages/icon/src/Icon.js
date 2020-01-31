@@ -7,7 +7,7 @@ type Props = {
   style?: object,
   className?: string,
   /** optional ariaLabel: check WCAG compliance for extra info when a label is needed. */
-  ariaLabel: string,
+  ariaLabel?: string,
   /** Qa id */
   qa?: string,
 };

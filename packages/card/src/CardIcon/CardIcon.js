@@ -6,7 +6,7 @@ import classNames from 'classnames';
 type Props = {
   icon: string,
   className?: string,
-  ariaLabel: string,
+  ariaLabel?: string,
 }
 
 const CardIcon = ({ icon, className , ariaLabel }: Props) => (
@@ -18,7 +18,9 @@ const CardIcon = ({ icon, className , ariaLabel }: Props) => (
 );
 
 CardIcon.defaultProps = {
-  className: ''
+  icon: '',
+  className: '',
+  ariaLabel: ''
 };
 
 export default CardIcon;

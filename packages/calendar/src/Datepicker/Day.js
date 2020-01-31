@@ -38,7 +38,7 @@ class Day extends Component {
       buttonClasses.push(selectedClassName);
     }
 
-    if (day.isSame(new Date(activeDate), 'day')) {
+    if (day.isSame(activeDate, 'day')) {
       buttonClasses.push(dayActiveClassName);
     }
 
