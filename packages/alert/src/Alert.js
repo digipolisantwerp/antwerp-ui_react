@@ -26,12 +26,13 @@ type Props = {
 };
 
 class Alert extends Component<Props> {
+  state = {
+    closing: true,
+    closed: false
+  };
+
   constructor(props) {
     super(props);
-    this.state = {
-      closing: true,
-      closed: false
-    };
   }
 
   handleClose = (e) => {

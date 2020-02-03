@@ -35,11 +35,12 @@ type Props = {
 
 
 class Toggle extends Component<Props> {
+  state = {
+    checked: this.props.checked || false
+  }
+
   constructor(props) {
     super(props);
-    this.state = {
-      checked: props.checked || false
-    }
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {

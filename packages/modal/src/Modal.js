@@ -168,8 +168,12 @@ export default class Modal extends React.Component<Props, State> {
       triggerElm,
       triggerText,
       size,
-      qa,
-      ...restProps
+      ariaHideApp,
+      onConfirm,
+      onDeny,
+      onAfterOpen,
+      openOnInit,
+      qa
     } = this.props;
 
     const modalTrigger = triggerElm ? this.addProps(triggerElm, {
@@ -191,7 +195,11 @@ export default class Modal extends React.Component<Props, State> {
           className={classNames('m-modal', sizeClass, className)}
           overlayClassName={classNames('m-overlay', 'is-active', overlayClassName)}
           data-qa={qa}
-          {...restProps}
+          ariaHideApp={ariaHideApp}
+          onConfirm={onConfirm}
+          onDeny={onDeny}
+          onAfterOpen={onAfterOpen}
+          openOnInit={openOnInit}
         >
           <div className="m-modal__content">
             {(title || hasCloseButton) && (

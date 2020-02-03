@@ -70,12 +70,16 @@ class Calendar extends Component<Prop> {
     render() {
       const {
         format,
+        locale,
         selectedDates,
         minDate,
         maxDate,
         noWeekends,
+        ariaLabelPrevious,
+        ariaLabelNext,
+        ariaLabelDatePicker,
+        ariaLabelButtonDateFormat,
         qa,
-        ...restProps
       } = this.props;
 
       const {
@@ -85,13 +89,18 @@ class Calendar extends Component<Prop> {
       return <div className="m-datepicker is-open" data-qa={qa}>
         <DatePicker
           format={format}
+          locale={locale}
           activeDate={activeDate}
           selectedDates={selectedDates}
           minDate={Moment(minDate, format)}
           maxDate={Moment(maxDate, format)}
           noWeekends={noWeekends}
+          ariaLabelPrevious={ariaLabelPrevious}
+          ariaLabelNext={ariaLabelNext}
+          ariaLabelDatePicker={ariaLabelDatePicker}
+          ariaLabelButtonDateFormat={ariaLabelButtonDateFormat}
+          qa={qa}
           clickOnDate={this.changeDate.bind(this)}
-          {...restProps}
         />
       </div>;
   }

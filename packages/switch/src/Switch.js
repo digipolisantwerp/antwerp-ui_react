@@ -3,11 +3,12 @@ import classNames from 'classnames';
 import InputLabel from '../../form/src/InputLabel';
 
 class Switch extends Component {
+  state = {
+    checked: this.props.checked || false
+  }
+
   constructor(props) {
     super(props);
-	  this.state = {
-  		checked: props.checked || false
-  	}
   }
 
 	static getDerivedStateFromProps(nextProps, prevState) {

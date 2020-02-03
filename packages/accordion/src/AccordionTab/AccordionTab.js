@@ -12,11 +12,12 @@ class AccordionTab extends React.Component<Props> {
     open: false,
   };
 
+  state = {
+    isOpen: this.props.open,
+  };
+
   constructor(props) {
     super(props);
-    this.state = {
-      isOpen: props.open,
-    };
   }
 
   componentDidUpdate(prevProps) {
