@@ -178,7 +178,7 @@ export default class Pagination extends Component<Props, State> {
               onClick={(e) => this.onPrev(e)}
               aria-label={ariaLabelPreviousPage}
             >
-              <i aria-hidden="true" className="fa fa-angle-left" />
+              <span aria-hidden="true" className="fa fa-angle-left" />
               <span className="u-screen-reader-only">{ariaLabelPreviousPage}</span>
             </Link>
           </li>
@@ -210,7 +210,7 @@ export default class Pagination extends Component<Props, State> {
               onClick={(e) => this.onNext(e)}
               aria-label={ariaLabelNextPage}
             >
-              <i aria-hidden="true" className="fa fa-angle-right" />
+              <span aria-hidden="true" className="fa fa-angle-right" />
               <span className="u-screen-reader-only">{ariaLabelNextPage}</span>
             </Link>
           </li>

@@ -12,7 +12,7 @@ const generateSocialLinkFor = ({ name, handle }) => {
       title={name}
       aria-label={name}
       rel="external noopener noreferrer">
-      <i className={`fa fa-${name}`} />
+      <span className={`fa fa-${name}`} />
     </a>
   );
 };
