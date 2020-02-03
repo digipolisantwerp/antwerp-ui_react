@@ -31,10 +31,6 @@ class Alert extends Component<Props> {
     closed: false
   };
 
-  constructor(props) {
-    super(props);
-  }
-
   handleClose = (e) => {
     const {onClose} = this.props;
     e.preventDefault();

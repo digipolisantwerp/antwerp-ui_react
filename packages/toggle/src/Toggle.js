@@ -39,10 +39,6 @@ class Toggle extends Component<Props> {
     checked: this.props.checked || false
   }
 
-  constructor(props) {
-    super(props);
-  }
-
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.checked !== prevState.checked) {
       return {

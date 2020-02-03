@@ -7,11 +7,7 @@ class Switch extends Component {
     checked: this.props.checked || false
   }
 
-  constructor(props) {
-    super(props);
-  }
-
-	static getDerivedStateFromProps(nextProps, prevState) {
+  static getDerivedStateFromProps(nextProps, prevState) {
 		if (nextProps.checked !== prevState.checked) {
 			return {
 				checked: nextProps.checked

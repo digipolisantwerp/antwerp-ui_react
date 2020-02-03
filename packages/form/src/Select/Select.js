@@ -31,9 +31,6 @@ type Props = {
 class Select extends Component<Props> {
   state = {}
 
-  constructor(props) {
-    super(props);
-  }
   onChange(e) {
     const value = e.currentTarget.value;
     this.setState({ value });

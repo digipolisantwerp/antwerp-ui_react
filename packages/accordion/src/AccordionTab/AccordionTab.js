@@ -16,10 +16,6 @@ class AccordionTab extends React.Component<Props> {
     isOpen: this.props.open,
   };
 
-  constructor(props) {
-    super(props);
-  }
-
   componentDidUpdate(prevProps) {
     if (this.props.open !== prevProps.open) {
       this.setState({isOpen: this.props.open});
