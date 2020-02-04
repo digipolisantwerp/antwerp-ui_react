@@ -1,7 +1,8 @@
-import React, { Component } from "react";
-import classNames from "classnames";
+import React, { Component } from 'react';
+import classNames from 'classnames';
+import Link from '../../link/src/Link';
 
-import "./Pagination.scss";
+import './Pagination.scss';
 
 type Props = {
   /** The current page */
@@ -15,9 +16,15 @@ type Props = {
   /**  m-pagination--large, m-pagination--small, m-pagination--outline or sensible combination of these. */
   styling?: String,
   /** Display as text or as numbers */
-  display?: "text" | "numbers",
-  /** Which element to use as navigation element (NOTE: Corebranding only supports a-tags). Can be a string or React Element. */
-  buttonType?: String | React.Node,
+  display?: 'text' | 'numbers',
+  /** ariaLabel for navigation component, default to 'Paginering'. */
+  ariaLabel?: String,
+  /** ariaLabel for next page, default to 'Volgende pagina'. */
+  ariaLabelNextPage?: String,
+  /** ariaLabel for previous page, default to 'Vorige pagina'. */
+  ariaLabelPreviousPage?: String,
+  /** ariaLabel for current page, default to 'Pagina'. */
+  ariaLabelPage?: String,
   /** Qa id */
   qa?: string,
 };
@@ -31,9 +38,8 @@ type State = {
 export default class Pagination extends Component<Props, State> {
   static defaultProps = {
     currentPage: 1,
-    styling: "basic",
-    display: "numbers",
-    buttonType: "a"
+    styling: 'basic',
+    display: 'numbers'
   };
 
   constructor(props) {
@@ -47,7 +53,8 @@ export default class Pagination extends Component<Props, State> {
     }
   }
 
-  onPrev = () => {
+  onPrev = e => {
+    e.preventDefault();
     const { currentPage } = this.state;
     if (currentPage > 1) {
       this.onChange(currentPage - 1);
@@ -55,7 +62,8 @@ export default class Pagination extends Component<Props, State> {
     return false;
   };
 
-  onNext = () => {
+  onNext = e => {
+    e.preventDefault();
     const { currentPage, totalPages } = this.state;
     if (currentPage < totalPages) {
       this.onChange(currentPage + 1);
@@ -63,7 +71,10 @@ export default class Pagination extends Component<Props, State> {
     return false;
   };
 
-  onChange(i) {
+  onChange(i, e) {
+    if (e) {
+      e.preventDefault();
+    }
     const { onUpdate } = this.props;
     const parsedValue = parseInt(i, 10); // input from numbers array is a string
     if (parsedValue && onUpdate) {
@@ -85,7 +96,7 @@ export default class Pagination extends Component<Props, State> {
       _totalPages = Math.ceil(totalValues / itemsPerPage);
 
       const generateNumbers = Array(_totalPages)
-        .fill("")
+        .fill('')
         .map((e, i) => String(i + 1));
 
       if (generateNumbers.length < 8) {
@@ -105,8 +116,8 @@ export default class Pagination extends Component<Props, State> {
       }
 
       // First page
-      if (_numbers.indexOf("1") === -1) {
-        _numbers.unshift("1");
+      if (_numbers.indexOf('1') === -1) {
+        _numbers.unshift('1');
       }
 
       // Last Page
@@ -115,13 +126,13 @@ export default class Pagination extends Component<Props, State> {
       }
 
       // Add dots at the beginning
-      if (_numbers.indexOf("2") === -1) {
-        _numbers.splice(1, 0, "...");
+      if (_numbers.indexOf('2') === -1) {
+        _numbers.splice(1, 0, '...');
       }
 
       // Add dots at the end
       if (_numbers.indexOf(String(_totalPages - 1)) === -1) {
-        _numbers.splice(_numbers.length - 1, 0, "...");
+        _numbers.splice(_numbers.length - 1, 0, '...');
       }
     }
 
@@ -133,17 +144,24 @@ export default class Pagination extends Component<Props, State> {
   }
 
   render() {
-    const { styling, display, qa } = this.props;
+    const {
+      styling,
+      display,
+      ariaLabel = 'Paginering',
+      ariaLabelNextPage = 'Volgende pagina',
+      ariaLabelPreviousPage = 'Vorige pagina',
+      ariaLabelPage = 'Pagina',
+      qa,
+    } = this.props;
     // we render this, so it must be capitalized
-    const ButtonType = this.props.buttonType;
     const { numbers, currentPage, totalPages } = this.state;
 
-    const paginationClasses = classNames("m-pagination", styling);
-    const previousDisabledClasses = classNames("pagination-button", {
-      "is-disabled": currentPage <= 1
+    const paginationClasses = classNames('m-pagination', styling);
+    const previousDisabledClasses = classNames('pagination-button', 'pagination-prev-page', {
+      'is-disabled': currentPage <= 1
     });
-    const nextDisabledClasses = classNames("pagination-button", {
-      "is-disabled": currentPage >= totalPages
+    const nextDisabledClasses = classNames('pagination-button', 'pagination-next-page', {
+      'is-disabled': currentPage >= totalPages
     });
 
     if (totalPages < 1) {
@@ -151,55 +169,50 @@ export default class Pagination extends Component<Props, State> {
     }
 
     return (
-      <nav role="navigation" aria-label="Paginering" data-qa={qa}>
+      <nav role="navigation" aria-label={ariaLabel} data-qa={qa}>
         <ul className={paginationClasses}>
-          <li
-            className="m-pagination__prev pagination-button"
-            key="pagination__prev"
-          >
-            <ButtonType
+          <li className="m-pagination__prev pagination-button" key="pagination__prev">
+            <Link
               className={previousDisabledClasses}
-              id="pagination-prev-page"
-              onClick={() => this.onPrev()}
-              aria-label="Ga naar de vorige pagina"
+              href={currentPage > 1 ? '#' : null}
+              onClick={(e) => this.onPrev(e)}
+              aria-label={ariaLabelPreviousPage}
             >
-              <i aria-hidden="true" className="fa fa-angle-left" />
-              <span className="u-screen-reader-only">Previous</span>
-            </ButtonType>
+              <span aria-hidden="true" className="fa fa-angle-left" />
+              <span className="u-screen-reader-only">{ariaLabelPreviousPage}</span>
+            </Link>
           </li>
-          {display === "text" && (
-            <li
-              className="m-pagination__label"
-              key="pagination__label"
-            >{`${currentPage} - ${totalPages}`}</li>
+          {display === 'text' && (
+            <li className="m-pagination__label" key="pagination__label">{`${currentPage} - ${totalPages}`}</li>
           )}
-          {display === "numbers" &&
-            numbers.map((number, i) => (
-              <li key={i}>
-                <ButtonType
-                  className={classNames(
-                    { "is-active": number === `${currentPage}` },
-                    "pagination-button"
-                  )}
-                  id={`pagination-button-${i}`}
-                  onClick={() => this.onChange(number)}
-                  aria-label={`Pagina ${number}`}
-                  aria-current={number === `${currentPage}` ? "page" : null}
-                >
-                  {number}
-                </ButtonType>
-              </li>
-            ))}
+          {display === 'numbers' &&
+            numbers.map((number, i) => {
+              if (number === '...') {
+                return (<li key={i}>...</li>);
+              } else {
+                return (<li key={i}>
+                  <Link
+                    className={classNames({ 'is-active': number === `${currentPage}` }, 'pagination-button', `pagination-button-${i}`)}
+                    href={'#'}
+                    onClick={(e) => this.onChange(number, e)}
+                    aria-label={`${ariaLabelPage} ${number}`}
+                    aria-current={number === `${currentPage}` ? 'page' : null}
+                  >
+                    {number}
+                  </Link>
+                </li>);
+              }
+            })}
           <li className="m-pagination__next pagination-button" key="pagination__next">
-            <ButtonType
+            <Link
               className={nextDisabledClasses}
-              id="pagination-next-page"
-              onClick={() => this.onNext()}
-              aria-label="Ga naar de volgende pagina"
+              href={currentPage < totalPages ? '#' : null}
+              onClick={(e) => this.onNext(e)}
+              aria-label={ariaLabelNextPage}
             >
-              <i aria-hidden="true" className="fa fa-angle-right" />
-              <span className="u-screen-reader-only">Next</span>
-            </ButtonType>
+              <span aria-hidden="true" className="fa fa-angle-right" />
+              <span className="u-screen-reader-only">{ariaLabelNextPage}</span>
+            </Link>
           </li>
         </ul>
       </nav>

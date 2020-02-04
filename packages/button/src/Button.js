@@ -15,14 +15,16 @@ const typeClasses = {
   success: 'a-button--success',
   warning: 'a-button--warning',
   danger: 'a-button--danger',
+  transparent: 'a-button--transparent',
   default: 'a-button--default'
 };
 
 type ButtonSizes = "tiny" | "small" | "large";
-type ButtonTypes = "primary" | "secondary" | "success" | "warning" | "danger" | "default";
+type ButtonTypes = "primary" | "secondary" | "success" | "warning" | "danger" | "transparent" | "default";
 
 type Props = {
-  title: string,
+  title?: string,
+  ariaLabel?: string,
   id?: string,
   negative?: boolean,
   outline?: boolean,
@@ -59,6 +61,7 @@ class Button extends Component<Props> {
       iconRight,
       onClick,
       title = '',
+      ariaLabel = '',
       alt = '',
       type,
       size,
@@ -70,9 +73,9 @@ class Button extends Component<Props> {
     } = this.props;
 
     const btnClass = classNames(
-      'a-button',
       className,
       {
+        'a-button': !outline && !negative,
         [`${typeClasses[type]}`]: !!type,
         [`${sizeClasses[size]}`]: !!size,
         'has-icon': !!icon,
@@ -80,7 +83,7 @@ class Button extends Component<Props> {
         'has-icon-right': !!iconRight,
         'a-button-negative': !!negative,
         'a-button-outline': !!outline,
-        'a-button--transparent': !!transparent,
+        'a-button-transparent': !!transparent,
         'a-button--block': block,
       }
     );
@@ -95,6 +98,7 @@ class Button extends Component<Props> {
         alt={alt}
         disabled={disabled}
         type={htmlType}
+        aria-label={ariaLabel}
         data-qa={qa}>
         {icon ? <Icon name={icon} /> : null}
         {iconLeft ? <Icon name={iconLeft} /> : null}

@@ -5,19 +5,22 @@ import classNames from 'classnames';
 
 type Props = {
   icon: string,
-  className?: string
-};
+  className?: string,
+  ariaLabel?: string,
+}
 
-const CardIcon = ({
-  icon, className,
-}: Props) => (
+const CardIcon = ({ icon, className , ariaLabel }: Props) => (
   <div className={classNames('pull-left u-margin-right u-margin-bottom', className)}>
-    <i className={classNames('fa fa-lg u-text-light', icon)} />
+    <span className={classNames('fa fa-lg u-text-light', icon)}>
+      <span className="u-screen-reader-only">{ariaLabel}</span>
+    </span>
   </div>
 );
 
 CardIcon.defaultProps = {
+  icon: '',
   className: '',
+  ariaLabel: ''
 };
 
 export default CardIcon;

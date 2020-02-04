@@ -26,12 +26,12 @@ describe('Avatar', () => {
 
     it('should show the icon when provided', () => {
         const avatar = mount(<Avatar icon="bell" />);
-        expect(avatar.find('i').props().className).toContain('fa-bell');
+        expect(avatar.find('.a-avatar__icon span.fa').hasClass('fa-bell')).toEqual(true);
     });
 
     it('should show the letters when provided', () => {
         const avatar = mount(<Avatar letter="SP" />);
-        expect(avatar.find('span').text()).toBe('SP');
+        expect(avatar.find('span.a-avatar__letter').text()).toBe('SP');
     });
 
     it('should show the image and alt text when provided', () => {

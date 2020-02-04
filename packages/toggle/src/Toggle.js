@@ -19,12 +19,13 @@ type Props = {
   id?: string,
   name?: string,
   size?: Sizes,
-	checkedLabel?: string,
+	checkedLabel: string,
 	checkedIcon?: string,
 	checkedButtonClass?: string,
-	uncheckedLabel?: string,
+	uncheckedLabel: string,
 	uncheckedIcon?: string,
 	uncheckedButtonClass?: string,
+  showLabels?: boolean,
   checked?: boolean,
   /** Qa id */
   qa?: string,
@@ -38,24 +39,26 @@ class Toggle extends Component<Props> {
     checked: this.props.checked || false
   }
 
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.checked !== prevState.checked) {
+      return {
+        checked: nextProps.checked
+      };
+    }
+
+    return null;
+  }
+
 	static defaultProps = {
   	id: 'toggle-normal',
+    checked: false,
   	checkedLabel: '',
 		checkedIcon: 'fa-bars',
 		checkedButtonClass: '',
+    showLabels: true,
 		uncheckedLabel: '',
 		uncheckedIcon: 'fa-close',
 		uncheckedButtonClass: 'a-button--danger'
-	}
-
-	static getDerivedStateFromProps(nextProps, prevState) {
-		if (nextProps.checked !== prevState.checked) {
-			return {
-				checked: nextProps.checked
-			};
-		}
-
-		return null;
 	}
 
   handleClick = (e) => {
@@ -76,6 +79,7 @@ class Toggle extends Component<Props> {
       uncheckedLabel,
       uncheckedIcon,
       uncheckedButtonClass,
+      showLabels,
       qa,
     } = this.props;
 
@@ -88,7 +92,7 @@ class Toggle extends Component<Props> {
 
     const checkedClasses = classNames(
       'a-toggle__on a-button',
-	    (checkedLabel === '' ? 'has-icon' : 'has-icon-left'), {
+	    (showLabels ? 'has-icon-left' : 'has-icon'), {
 		    [`${checkedButtonClass}`]: checkedButtonClass,
 		    [`${sizeBtnClasses[size]}`]: !!size
 	    }
@@ -96,7 +100,7 @@ class Toggle extends Component<Props> {
 
 	  const uncheckedClasses = classNames(
 		  'a-toggle__off a-button',
-		  uncheckedLabel === '' ? 'has-icon' : 'has-icon-left', {
+		  (showLabels ? 'has-icon-left' : 'has-icon'), {
 			  [`${uncheckedButtonClass}`]: uncheckedButtonClass,
 			  [`${sizeBtnClasses[size]}`]: !!size
 		  }
@@ -108,18 +112,20 @@ class Toggle extends Component<Props> {
           className="a-toggle__checkbox"
           id={id}
           name={name}
-          checked={this.state.checked}
+          aria-checked={this.state.checked}
+          defaultChecked={this.state.checked}
           type="checkbox"
-          onClick={this.handleClick}
+          role="switch"
+          onChange={this.handleClick}
         />
         <div className="a-toggle__labels">
           <label htmlFor={id} className={checkedClasses}>
-            <i className={"fa " + checkedIcon}></i>
-              {checkedLabel}
+            <span className={"fa " + checkedIcon}></span>
+              <span className={showLabels ? '' : 'u-screen-reader-only'}>{checkedLabel}</span>
           </label>
           <label htmlFor={id} className={uncheckedClasses}>
-            <i className={"fa " + uncheckedIcon}></i>
-              {uncheckedLabel}
+            <span className={"fa " + uncheckedIcon}></span>
+              <span className={showLabels ? '' : 'u-screen-reader-only'}>{uncheckedLabel}</span>
           </label>
         </div>
       </div>

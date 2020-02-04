@@ -14,11 +14,11 @@
     { label: "Aalst", value: "aalst"},
     { label: "Genk", value: "genk"}
   ]}
+  id="autocomplete-1"
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
-  label="Selecteer een stad">
-  </Autocomplete>
-
+  label="Select a city">
+</Autocomplete>
 ```
 
 The prop `defaultValue` can be used to show a default value when the component gets loaded.
@@ -38,11 +38,12 @@ The prop `defaultValue` can be used to show a default value when the component g
     { label: "Aalst", value: "aalst"},
     { label: "Genk", value: "genk"}
   ]}
+  id="autocomplete-2"
   defaultValue="oostende"
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
-  label="Selecteer een stad">
-  </Autocomplete>
+  label="Select a city">
+</Autocomplete>
 ```
 
 The prop `loading` can be used to show a loading indication.
@@ -62,12 +63,13 @@ The prop `loading` can be used to show a loading indication.
     { label: "Aalst", value: "aalst"},
     { label: "Genk", value: "genk"}
   ]}
+  id="autocomplete-3"
   defaultValue="oostende"
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
-  label="Selecteer een stad"
+  label="Select a city"
   loading={true}>
-  </Autocomplete>
+</Autocomplete>
 ```
 
 The prop `disabled` can be used to disabled the autocomplete.
@@ -87,12 +89,13 @@ The prop `disabled` can be used to disabled the autocomplete.
     { label: "Aalst", value: "aalst"},
     { label: "Genk", value: "genk"}
   ]}
+  id="autocomplete-4"
   defaultValue="oostende"
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
-  label="Selecteer een stad"
+  label="Select a city"
   disabled={true}>
-  </Autocomplete>
+</Autocomplete>
 ```
 
 The prop `state` can be used to set error states
@@ -113,12 +116,14 @@ The prop `state` can be used to set error states
     { label: "Aalst", value: "aalst"},
     { label: "Genk", value: "genk"}
   ]}
+  id="autocomplete-5"
   defaultValue="oostende"
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
-  label="Selecteer een stad"
+  label="Select a city"
   state="error">
-  </Autocomplete>
+</Autocomplete>
+<br />
 <Autocomplete
   items={[
     { label: "Antwerpen", value: "antwerpen"},
@@ -134,12 +139,14 @@ The prop `state` can be used to set error states
     { label: "Aalst", value: "aalst"},
     { label: "Genk", value: "genk"}
   ]}
+  id="autocomplete-6"
   defaultValue="oostende"
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
-  label="Selecteer een stad"
+  label="Select a city"
   state="success">
-  </Autocomplete>
+</Autocomplete>
+<br />
 <Autocomplete
   items={[
     { label: "Antwerpen", value: "antwerpen"},
@@ -155,10 +162,11 @@ The prop `state` can be used to set error states
     { label: "Aalst", value: "aalst"},
     { label: "Genk", value: "genk"}
   ]}
+  id="autocomplete-7"
   defaultValue="oostende"
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
-  label="Selecteer een stad"
+  label="Select a city"
   state="warning">
   </Autocomplete>
 </div>

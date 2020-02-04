@@ -9,7 +9,7 @@ const flyoutSizes = {
   medium: 'md',
   large: 'lg',
   full: 'full'
-}
+};
 
 type Props = {
   /** Component which triggers the flyout to open */
@@ -17,7 +17,7 @@ type Props = {
   /** Direction */
   direction?: 'left' | 'right',
   /** Size */
-  size?: 'small' | 'medium' | 'large' | 'full',
+  size?: 'small' | 'medium' | 'large' | 'full',
   hasPadding?: boolean,
   className?: string,
   open?: boolean,
@@ -31,9 +31,9 @@ type Props = {
 class Flyout extends Component<Props> {
   state = {
     isOpen: this.props.open
-  }
+  };
 
-  flyoutRef = React.createRef()
+  flyoutRef = React.createRef();
 
   static defaultProps = {
     direction: 'left',
@@ -42,8 +42,8 @@ class Flyout extends Component<Props> {
     open: false,
     onStateChange: () => {},
     triggerClose: () => {},
-    scrollable: false,
-  }
+    scrollable: false
+  };
 
   componentDidMount() {
     const { isOpen } = this.state;
@@ -68,33 +68,33 @@ class Flyout extends Component<Props> {
   toggleIsOpen = () => {
     const { onStateChange } = this.props;
 
-    if(!this.state.isOpen){
+    if (!this.state.isOpen) {
       document.addEventListener('click', this.handleOutsideClick, false);
     } else {
       document.removeEventListener('click', this.handleOutsideClick, false);
     }
     this.setState({ isOpen: !this.state.isOpen });
     onStateChange(this.state.isOpen);
-  }
+  };
 
   closeFlyout = () => {
     const { onStateChange } = this.props;
 
-    if(!this.state.isOpen){
+    if (!this.state.isOpen) {
       document.addEventListener('click', this.handleOutsideClick, false);
     } else {
       document.removeEventListener('click', this.handleOutsideClick, false);
     }
     this.setState({ isOpen: false });
     onStateChange(false);
-  }
+  };
 
-  handleOutsideClick = (e) => {
+  handleOutsideClick = e => {
     const area = ReactDOM.findDOMNode(this.flyoutRef.current);
     if (area && !area.contains(e.target)) {
       this.closeFlyout();
     }
-  }
+  };
 
   getClassNames = () => {
     return classNames(
@@ -113,21 +113,19 @@ class Flyout extends Component<Props> {
       children,
       qa,
     } = this.props;
+    const { open } = this.state;
     const flyoutClass = this.getClassNames();
     return (
       trigger && (
-      <div className={flyoutClass} ref={this.flyoutRef} data-qa={qa}>
+      <div className={flyoutClass} ref={this.flyoutRef} aria-haspopup="true" aria-expanded={open} data-qa={qa}>
           <div onClick={this.toggleIsOpen}>
             {this.props.trigger}
           </div>
-        <FlyoutContent hasPadding={hasPadding}>
-          {children}
-        </FlyoutContent>
-      </div>
+          <FlyoutContent hasPadding={hasPadding}>{children}</FlyoutContent>
+        </div>
       )
     );
   }
-
 }
 
 export default Flyout;

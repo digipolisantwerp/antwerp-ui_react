@@ -136,7 +136,7 @@ describe('Button', () => {
             expect(button.getDOMNode().className).toContain('a-button--danger');
         });
 
-        it('should add the correct button type - danger', () => {
+        it('should add the correct button type - transparent', () => {
             const button = mount(<Button type="transparent" />);
             expect(button.getDOMNode().className).toContain('a-button--transparent');
         });
@@ -150,7 +150,7 @@ describe('Button', () => {
 
         it('should add the icon if an icon is provided', () => {
             const button = mount(<Button icon="bell" />);
-            expect(button.find('i').props().className).toContain('fa-bell');
+            expect(button.find('span').props().className).toContain('fa-bell');
         });
     });
 
@@ -162,7 +162,7 @@ describe('Button', () => {
 
         it('should add the icon if an icon is provided', () => {
             const button = mount(<Button iconLeft="bell" />);
-            expect(button.find('i').props().className).toContain('fa-bell');
+            expect(button.find('span').props().className).toContain('fa-bell');
         });
     });
 
@@ -174,7 +174,7 @@ describe('Button', () => {
 
         it('should add the icon if an icon is provided', () => {
             const button = mount(<Button iconRight="bell" />);
-            expect(button.find('i').props().className).toContain('fa-bell');
+            expect(button.find('span').props().className).toContain('fa-bell');
         });
     });
 

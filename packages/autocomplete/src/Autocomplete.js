@@ -12,6 +12,7 @@ type Props = {
   children?: any,
   open?: boolean,
   label: string,
+  id: string,
   defaultValue?: string,
   noResults?: string,
   onSelection?: Function,
@@ -68,7 +69,7 @@ class Autocomplete extends Component<Props> {
       this.handleDefaultValue(nextProps.defaultValue, nextProps.items)
     }
   }
-  
+
   handleDefaultValue(defaultValue, items) {
     this.props.onSelection(defaultValue);
     this.props.onChange(defaultValue);
@@ -213,6 +214,7 @@ class Autocomplete extends Component<Props> {
             <TextField
               name="autocomplete"
               className="autocomplete"
+              id={this.props.id}
               label={this.props.label}
               value={this.state.inputValue}
               onChange={this.handleChange}

@@ -6,8 +6,8 @@ class Rows extends Component {
 		const {list, rowLength, onClick} = this.props;
 		return list.map(function (content, index) {
 			return <td key={index}>
-				<button tabIndex={index} value={content} onClick={onClick} type="button">
-					{content}
+				<button className="u-text-capitalize" tabIndex={index} value={content} onClick={onClick} type="button">
+					{content.replace(/\./g,' ')}
 				</button>
 			</td>;
 		}).reduce(function (r, element, index) {

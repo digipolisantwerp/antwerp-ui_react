@@ -1,13 +1,13 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import InputLabel from '../../form/src/InputLabel';
 
 class Switch extends Component {
-	state = {
-		checked: this.props.checked || false
-	}
+  state = {
+    checked: this.props.checked || false
+  }
 
-	static getDerivedStateFromProps(nextProps, prevState) {
+  static getDerivedStateFromProps(nextProps, prevState) {
 		if (nextProps.checked !== prevState.checked) {
 			return {
 				checked: nextProps.checked
@@ -49,7 +49,7 @@ class Switch extends Component {
 
 		return (
 			<div className={containerClass} data-qa={qa}>
-				{label && <InputLabel htmlFor={id}>{label}</InputLabel>}
+				{label && <InputLabel>{label}</InputLabel>}
 				<div className={switchWrapperClass}>
 					{labelFalse &&
 						<label className="a-switch__label">{labelFalse}</label>
@@ -59,11 +59,13 @@ class Switch extends Component {
 							type="checkbox"
 							name={name}
 							id={id}
+							role="switch"
+							aria-checked={this.state.checked}
 							defaultChecked={this.state.checked}
 							disabled={disabled}
 							onChange={this.onClick}
 						/>
-						<label htmlFor={id}></label>
+						<label htmlFor={id}><span className="u-screen-reader-only">Toggle "{label}"</span></label>
 					</div>
 					{labelTrue &&
 						<label className="a-switch__label">{labelTrue}</label>

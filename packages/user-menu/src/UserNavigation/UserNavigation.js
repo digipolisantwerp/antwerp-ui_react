@@ -19,7 +19,7 @@ const UserNavigation = (props) => {
         <a href={notificationsUrl()} title="Notificaties" alt="Klik hier om uw notificaties te bekijken.">
           Notificaties
           {notificationsCount > 0 &&
-            <span className="badge">{notificationsCount}</span>
+            <span> ({notificationsCount})</span>
           }
         </a>
       </li>

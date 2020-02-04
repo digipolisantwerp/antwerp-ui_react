@@ -87,12 +87,12 @@ export default class Modal extends React.Component<Props, State> {
     openOnInit: false,
   };
 
+  state = {
+    showModal: false,
+  };
+
   constructor(props) {
     super(props);
-
-    this.state = {
-      showModal: false,
-    };
 
     this.handleToggleModal = this.handleToggleModal.bind(this);
     this.handleConfirm = this.handleConfirm.bind(this);
@@ -168,8 +168,12 @@ export default class Modal extends React.Component<Props, State> {
       triggerElm,
       triggerText,
       size,
-      qa,
-      ...restProps
+      ariaHideApp,
+      onConfirm,
+      onDeny,
+      onAfterOpen,
+      openOnInit,
+      qa
     } = this.props;
 
     const modalTrigger = triggerElm ? this.addProps(triggerElm, {
@@ -191,7 +195,11 @@ export default class Modal extends React.Component<Props, State> {
           className={classNames('m-modal', sizeClass, className)}
           overlayClassName={classNames('m-overlay', 'is-active', overlayClassName)}
           data-qa={qa}
-          {...restProps}
+          ariaHideApp={ariaHideApp}
+          onConfirm={onConfirm}
+          onDeny={onDeny}
+          onAfterOpen={onAfterOpen}
+          openOnInit={openOnInit}
         >
           <div className="m-modal__content">
             {(title || hasCloseButton) && (

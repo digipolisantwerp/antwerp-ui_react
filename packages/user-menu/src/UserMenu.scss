@@ -1,13 +1,9 @@
-#astad-user-menu {
+.m-user-menu-flyout {
+  display: inline-block;
   position: relative;
 
-  .inner-badge {
-    position: absolute;
-    bottom: -.5625rem;
-  }
-
   .avatar-wrapper {
-    padding-top: 24px;
+    padding-top: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,21 +19,12 @@
     }
   }
 
-  .badge {
-    margin-left: .75rem;
-    width: 1.5rem;
-    font-size: .75rem;
-    min-width: .75rem;
-    min-height: .75rem;
-    background: #F18A00;
-    display: inline-block;
-    font-family: "Sun Regular","Helvetica Neue",Helvetica,Arial,Georgia,Sans-serif;
-    font-weight: 700;
-    line-height: 1.33rem;
-    padding: 0;
-    text-align: center;
+  .a-badge {
+    bottom: -.5625rem;
+    left: 1.5rem;
+    position: absolute;
+    transform: translateX(-50%);
     z-index: 10;
-    color: #fff;
   }
 
   .m-nav-list {

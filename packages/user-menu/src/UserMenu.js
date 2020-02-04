@@ -27,6 +27,10 @@ type Props = {
   flyoutSize: 'small' | 'medium' | 'large' | 'full',
   /** Direction */
   direction: 'left' | 'right',
+  /** ARIA string to login, defaults to 'Aanmelden' */
+  ariaLogin: string,
+  /** ARIA string to logout, defaults to 'Afmelden' */
+  ariaLogout: string,
   /** Qa id */
   qa?: string,
 }
@@ -35,7 +39,9 @@ class UserMenu extends Component<Props> {
   static defaultProps = {
     direction: 'right',
     flyoutSize: 'small',
-    notificationsCount: 0
+    notificationsCount: 0,
+    ariaLogin: 'Aanmelden',
+    ariaLogout: 'Afmelden'
   }
 
   onLogin() {
@@ -72,10 +78,10 @@ class UserMenu extends Component<Props> {
   renderBadge() {
     const { notificationsCount } = this.props;
     return (
-      <a className="badge inner-badge"
+      <a
+        className="a-badge a-badge--warning"
         href={notificationsUrl()}>
-        {notificationsCount}
-        <span className="sr-only" data-translate="">notificaties</span>
+        {notificationsCount}<span className="u-screen-reader-only" data-translate=""> notificaties</span>
       </a>
     )
   }
@@ -86,7 +92,7 @@ class UserMenu extends Component<Props> {
       lastName,
     } = this.props.user;
     return (
-      <Button className="btn-user-flyout" title="Hier krijgt u toegang tot uw A-profiel en uw persoonlijke instellingen.">
+      <Button className="btn-user-flyout">
         <div className="a-avatar-wrapper">
           {this.renderAvatar()}
           <p>{firstName} {lastName}</p>
@@ -114,10 +120,10 @@ class UserMenu extends Component<Props> {
   }
 
   renderLoggedIn() {
-    const { children, flyoutSize, notificationsCount } = this.props;
+    const { children, flyoutSize, notificationsCount, ariaLogout } = this.props;
 
     return (
-      <div id="astad-user-menu">
+      <div className="m-user-menu-flyout">
         {notificationsCount > 0 &&
           this.renderBadge()
         }
@@ -134,9 +140,8 @@ class UserMenu extends Component<Props> {
               onClick={(e) => this.onLogout()}
               block
               type="danger"
-              alt="Klik hier om u af te melden."
               iconLeft="power-off">
-              Afmelden
+              {ariaLogout}
             </Button>
           </div>
         </Flyout>
@@ -145,18 +150,19 @@ class UserMenu extends Component<Props> {
   }
 
   renderLoggedOut() {
+    const { children, flyoutSize, notificationsCount, ariaLogin } = this.props;
+
     return (
       <Button
         className="btn-login"
-        title="Aanmelden"
-        alt="Klik hier om u aan te melden met uw A-profiel."
         onClick={(e) => this.onLogin()}
-        iconLeft="user">Aanmelden</Button>
+        iconLeft="user">{ariaLogin}</Button>
     );
   }
 
   render() {
     const { qa } = this.props;
+
     return (
       <div style={{ textAlign: this.props.direction }} data-qa={qa}>
         {this.props.loggedIn ? this.renderLoggedIn() : this.renderLoggedOut()}
