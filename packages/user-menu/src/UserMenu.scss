@@ -2,21 +2,14 @@
   display: inline-block;
   position: relative;
 
-  .avatar-wrapper {
-    padding-top: 1rem;
-    display: flex;
-    flex-direction: column;
+  .a-avatar-wrapper {
     align-items: center;
+    display: flex;
   }
 
-  .btn-user-flyout {
-    padding-top: 0;
+  .a-button__avatar {
     padding-bottom: 0;
-
-    .a-avatar-wrapper {
-      display: flex;
-      align-items: center;
-    }
+    padding-top: 0;
   }
 
   .a-badge {
@@ -25,11 +18,5 @@
     position: absolute;
     transform: translateX(-50%);
     z-index: 10;
-  }
-
-  .m-nav-list {
-    li {
-      text-align: left;
-    }
   }
 }

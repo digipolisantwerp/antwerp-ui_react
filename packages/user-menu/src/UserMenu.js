@@ -92,7 +92,7 @@ class UserMenu extends Component<Props> {
       lastName,
     } = this.props.user;
     return (
-      <Button className="btn-user-flyout">
+      <Button className="a-button-negative a-button__avatar o-header__button">
         <div className="a-avatar-wrapper">
           {this.renderAvatar()}
           <p>{firstName} {lastName}</p>
@@ -104,7 +104,7 @@ class UserMenu extends Component<Props> {
   renderProfile() {
     const { firstName, lastName, avatarUrl } = this.props.user;
     return (
-      <div className="avatar-wrapper">
+      <div className="u-text-center u-margin-top">
         <Avatar
           image={avatarUrl}
           icon={avatarUrl ? null : 'user'}
@@ -132,11 +132,11 @@ class UserMenu extends Component<Props> {
           direction="right"
           hasPadding={false}
           size={flyoutSize}>
-          <div>
+          <div className="u-margin">
             {this.renderProfile()}
             <UserNavigation notificationsCount={notificationsCount} children={children} />
             <Button
-              className="btn-logout"
+              className="u-margin-top"
               onClick={(e) => this.onLogout()}
               block
               type="danger"
@@ -154,7 +154,7 @@ class UserMenu extends Component<Props> {
 
     return (
       <Button
-        className="btn-login"
+        className="a-button-negative o-header__button"
         onClick={(e) => this.onLogin()}
         iconLeft="user">{ariaLogin}</Button>
     );

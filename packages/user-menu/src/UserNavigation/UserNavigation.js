@@ -14,7 +14,7 @@ const UserNavigation = (props) => {
   const { children, notificationsCount = '' } = props;
 
   return (
-    <ul className="m-nav-list">
+    <ul className="m-nav-list m-nav-list--left">
       <li>
         <a href={notificationsUrl()} title="Notificaties" alt="Klik hier om uw notificaties te bekijken.">
           Notificaties
