@@ -6,7 +6,8 @@ import Link from '../../link/src/Link';
 type Props = {
   items: Array<{
     name: string,
-    target?: string
+    target?: string,
+    onClick?: () => void
   }>,
   linkProps?: Function,
   /** Qa id */
@@ -18,16 +19,24 @@ class Breadcrumbs extends React.Component<Props> {
     linkProps: src => src,
   };
 
+  onClick(event, item) {
+    event.preventDefault();
+    item.onClick();
+  }
+
   renderItems() {
-    const { items, linkProps } = this.props;
+    const {items, linkProps} = this.props;
 
     return items.map((item, index) => (
       <li key={item.name}>
         {
-          (index >= items.length - 1 || !item.target)
+          (index >= items.length - 1 || (!item.target && !item.onClick))
             ? item.name
             : (
-              <Link {...linkProps({ href: item.target })}>
+              <Link {...linkProps({
+                href: item.target || '#',
+                onClick: item.onClick ? (event) => this.onClick(event, item) : null
+              })}>
                 {item.name}
               </Link>
             )
@@ -37,12 +46,12 @@ class Breadcrumbs extends React.Component<Props> {
   }
 
   render() {
-    const { items, qa } = this.props;
+    const {items, qa} = this.props;
 
     return (
       items && items.length > 0 && (
         <ul className="m-breadcrumbs" data-qa={qa}>
-            { this.renderItems() }
+          {this.renderItems()}
         </ul>)
     );
   }
