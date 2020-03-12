@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
+### Changed
+- Allow for passing a reactive handler to the checkbox input
 
 
 ## v4.0.0

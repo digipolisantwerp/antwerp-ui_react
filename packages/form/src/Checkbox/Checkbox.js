@@ -12,6 +12,7 @@ type Props = {
   onChange?: (e: Object) => void,
   /** Qa id */
   qa?: string,
+  handler?
 };
 
 class Checkbox extends Component<Props> {
@@ -49,6 +50,7 @@ class Checkbox extends Component<Props> {
             aria-checked={this.props.checked}
             defaultChecked={this.props.checked}
             disabled={disabled}
+            {...this.props.handler}
             />
           <InputLabel htmlFor={id}>{label}{requiredLabel}</InputLabel>
         </div>
