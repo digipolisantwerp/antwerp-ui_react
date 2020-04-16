@@ -15,6 +15,7 @@
     { label: "Genk", value: "genk"}
   ]}
   id="autocomplete-1"
+  showSearchIcon={true}
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
   label="Select a city">
