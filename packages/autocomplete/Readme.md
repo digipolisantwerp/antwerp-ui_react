@@ -17,6 +17,7 @@
   id="autocomplete-1"
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
+  showSearchIcon={true}
   label="Select a city">
 </Autocomplete>
 ```

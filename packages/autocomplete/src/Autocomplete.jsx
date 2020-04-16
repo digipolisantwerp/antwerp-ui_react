@@ -22,6 +22,7 @@ type Props = {
   state?: InputStates,
   /** Qa id */
   qa?: string,
+  showSearchIcon?: boolean
 };
 
 class Autocomplete extends Component<Props> {
@@ -226,9 +227,10 @@ class Autocomplete extends Component<Props> {
               disabled={disabled}
               state={state}
               data-qa={qa}
+              iconright={this.props.showSearchIcon && 'search'}
             />
             <FlyoutContent hasPadding={false}>
-              {results.length == 0 ? (
+              {results.length === 0 ? (
                 <p className="u-margin-xs u-text-light u-text-center">{noResults}</p>
               ): (
                 <ul className="m-selectable-list m-selectable-list--no-border">

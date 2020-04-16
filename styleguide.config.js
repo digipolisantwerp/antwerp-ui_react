@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  components: 'packages/*/src/!(index).js',
+  components: 'packages/*/src/**/!(index)*.{js,jsx}',
   getExampleFilename(componentPath) {
     const basePath = componentPath.split('src/')[0];
     return basePath + 'Readme.md';
@@ -40,7 +40,7 @@ module.exports = {
       links: [
         {
           rel: 'stylesheet',
-          href: 'https://cdn.antwerpen.be/core_branding_scss/4.0.0/main.min.css'
+          href: 'https://cdn.antwerpen.be/core_branding_scss/4.1.1/main.min.css'
         }
       ]
     }

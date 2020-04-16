@@ -10,11 +10,11 @@
   "scripts": {
     "start": "npx styleguidist server",
     "test": "jest --coverage --verbose",
-    "bootstrap": "./node_modules/bin/lerna bootstrap",
+    "bootstrap": "lerna bootstrap",
     "build": "lerna exec --parallel -- rollup -c",
     "postbuild": "rollup -c",
     "publish": "lerna publish --skip-git --skip-npm",
-    "prepublish": "npm run build && ./node_modules/react-styleguidist/bin/styleguidist.js build"
+    "prepublish": "npm run build && styleguidist build"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -42,7 +42,7 @@
     "lerna": "~2.10.1",
     "react-addons-test-utils": "^15.6.2",
     "react-styleguidist": "~7.2.5",
-    "rollup": "^0.65.0",
+    "rollup": "^2.6.1",
     "rollup-plugin-babel": "^3.0.7",
     "rollup-plugin-node-resolve": "^3.3.0",
     "webpack": "^4.41.5"
