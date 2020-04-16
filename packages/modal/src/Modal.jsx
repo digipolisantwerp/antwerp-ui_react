@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import ReactModal from 'react-modal';
 import classNames from 'classnames';
 
@@ -12,7 +12,7 @@ type Props = {
   /** Hide/Show the appElement (for screenreaders). */
   ariaHideApp: boolean,
   /** Modal contents. */
-  children: React.Node,
+  children: React.ReactNode,
 
   /** Hide/show the close button. */
   hasCloseButton?: boolean,
@@ -23,7 +23,7 @@ type Props = {
   /** Deny button text. */
   denyText?: string,
   /** Custom trigger element (will trigger on click). */
-  triggerElm?: React.Node,
+  triggerElm?: React.ReactNode,
   /** Trigger button text (default triggerElm). */
   triggerText?: string,
 
@@ -79,10 +79,14 @@ export default class Modal extends React.Component<Props, State> {
     overlayClassName: '',
     size: 'normal',
 
-    onConfirm: () => {},
-    onDeny: () => {},
-    onRequestClose: () => {},
-    onAfterOpen: () => {},
+    onConfirm: () => {
+    },
+    onDeny: () => {
+    },
+    onRequestClose: () => {
+    },
+    onAfterOpen: () => {
+    },
 
     openOnInit: false,
   };
@@ -99,7 +103,7 @@ export default class Modal extends React.Component<Props, State> {
     this.handleDeny = this.handleDeny.bind(this);
     this.handleRequestClose = this.handleRequestClose.bind(this);
 
-    const { appElement, ariaHideApp } = props;
+    const {appElement, ariaHideApp} = props;
 
     if (!Modal.appElement && ariaHideApp) {
       Modal.appElement = appElement;
@@ -109,14 +113,14 @@ export default class Modal extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    const { openOnInit } = this.props;
+    const {openOnInit} = this.props;
 
     this.handleToggleModal(!!openOnInit);
   }
 
   componentDidUpdate() {
-    const { showModal } = this.state;
-    const { onAfterOpen } = this.props;
+    const {showModal} = this.state;
+    const {onAfterOpen} = this.props;
 
     if (showModal) {
       Promise.resolve(onAfterOpen());
@@ -124,7 +128,7 @@ export default class Modal extends React.Component<Props, State> {
   }
 
   handleToggleModal(show?: boolean) {
-    const { showModal } = this.state;
+    const {showModal} = this.state;
 
     this.setState({
       showModal: show !== undefined ? show : !showModal,
@@ -132,19 +136,19 @@ export default class Modal extends React.Component<Props, State> {
   }
 
   handleConfirm() {
-    const { onConfirm } = this.props;
+    const {onConfirm} = this.props;
 
     Promise.resolve(onConfirm()).then(() => this.handleToggleModal(false));
   }
 
   handleDeny() {
-    const { onDeny } = this.props;
+    const {onDeny} = this.props;
 
     Promise.resolve(onDeny()).then(() => this.handleToggleModal(false));
   }
 
   handleRequestClose() {
-    const { onRequestClose } = this.props;
+    const {onRequestClose} = this.props;
 
     Promise.resolve(onRequestClose()).then(() => this.handleToggleModal(false));
   }
@@ -154,11 +158,9 @@ export default class Modal extends React.Component<Props, State> {
   }
 
   render() {
-    const { showModal } = this.state;
+    const {showModal} = this.state;
     const {
-      appElement,
       children,
-      onRequestClose,
       title,
       hasCloseButton,
       confirmText,
@@ -208,7 +210,8 @@ export default class Modal extends React.Component<Props, State> {
                   <h6>{title}</h6>
                 )}
                 {hasCloseButton && (
-                  <Button className="m-modal__close" icon="times" type="default" transparent onClick={() => this.handleRequestClose()} />
+                  <Button className="m-modal__close" icon="times" type="default" transparent
+                          onClick={() => this.handleRequestClose()}/>
                 )}
               </div>
             )}

@@ -7,3 +7,5 @@ dist
 /.idea
 coverage
 yarn.lock
+lerna-debug.log
+packages/*/dist

@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  components: 'packages/*/src/!(index).js',
+  components: path.resolve(__dirname, 'packages/*/src/**/!(index)*.{js,jsx}'),
   getExampleFilename(componentPath) {
     const basePath = componentPath.split('src/')[0];
     return basePath + 'Readme.md';
@@ -12,27 +12,12 @@ module.exports = {
     return `import { ${name} } from '@acpaas-ui/react-components';`;
   },
   editorConfig: {
-    theme: 'xq-light',
+    theme: 'xq-light'
   },
   styleguideDir: 'docs',
   title: 'ACPaaS UI React Components',
   usageMode: 'expand',
-  webpackConfig: {
-    module: {
-      rules: [
-        // Babel loader, will use your project’s .babelrc
-        {
-          test: /\.jsx?$/,
-          exclude: /node_modules/,
-          loader: 'babel-loader'
-        },
-        {
-          test: /\.(s*)css$/,
-          use: ['style-loader', 'css-loader', 'sass-loader']
-        }
-      ]
-    }
-  },
+  webpackConfig: require('./webpack.config'),
   template: {
     favicon: 'https://cdn.antwerpen.be/core_branding_favicons/citizens/favicon.ico',
     lang: 'en',
