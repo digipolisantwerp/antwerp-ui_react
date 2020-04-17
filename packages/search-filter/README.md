@@ -9,5 +9,8 @@ const choices = [
         value: "b"
     }
 ];
-<SearchFilter choices={choices}/>
+const translations = {
+    btnOpen: 'Find stuff'
+};
+<SearchFilter choices={choices} onSelection={s => console.log(s)} translations={translations}/>
 ```

@@ -33,15 +33,23 @@ export class SearchFilter extends React.Component<IProps> {
     });
   }
 
+  onSelection(s): void {
+    if (this.props.onSelection) {
+      this.props.onSelection(s);
+    }
+  }
+
   checked(value: string, isChecked: boolean) {
     if (!value)
       return;
     if (isChecked && !this.state.selection.some(v => v === value)) {
+      const selection =  [...this.state.selection, value];
       this.setState({
           ...this.state,
-          selection: [...this.state.selection, value]
+          selection
         }
       );
+      this.onSelection(selection);
     } else {
       const index = this.state.selection.findIndex(v => v === value);
       if (index > -1) {
@@ -51,11 +59,8 @@ export class SearchFilter extends React.Component<IProps> {
           ...this.state,
           selection
         })
+        this.onSelection(selection);
       }
-    }
-
-    if (this.props.onSelection) {
-      this.props.onSelection(this.state.selection);
     }
   }
 
