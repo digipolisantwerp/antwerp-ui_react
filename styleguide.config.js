@@ -7,8 +7,8 @@ module.exports = {
     return basePath + 'Readme.md';
   },
   skipComponentsWithoutExample: true,
-  getComponentPathLine(componentPath) {
-    const name = path.basename(componentPath, '.js');
+  getComponentPathLine: (componentPath) => {
+    const name = path.basename(componentPath).replace(/.jsx?$/g, '');
     return `import { ${name} } from '@acpaas-ui/react-components';`;
   },
   editorConfig: {

@@ -1,4 +1,9 @@
 .m-search-filter {
+  .m-flyout__content {
+    border-bottom: none;
+    border-top: none;
+  }
+
   .a-input__label {
     margin-bottom: 0;
     width: 100%;

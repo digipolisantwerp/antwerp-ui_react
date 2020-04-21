@@ -6,9 +6,19 @@ import {Checkbox} from "../../form";
 import './SearchFilter.scss';
 import {FormControl} from "react-reactive-form";
 
-interface IProps {
+type IProps = {
+  /**
+   * Array of label, value pairs that will be available to multi-select.
+   */
   choices: Array<{ label: string, value: string }>;
+  /**
+   * Callback that is called whenever a selection is made by the user. The callback receives an
+   * array as parameter, containing the values of the selected items.
+   */
   onSelection: (Array<string>) => void;
+  /**
+   * Translations for labels. As of now only supports one parameter: btnOpen
+   */
   translations: {
     btnOpen: string
   }
@@ -43,7 +53,7 @@ export class SearchFilter extends React.Component<IProps> {
     if (!value)
       return;
     if (isChecked && !this.state.selection.some(v => v === value)) {
-      const selection =  [...this.state.selection, value];
+      const selection = [...this.state.selection, value];
       this.setState({
           ...this.state,
           selection
@@ -84,7 +94,7 @@ export class SearchFilter extends React.Component<IProps> {
           <ul className="m-selectable-list">
             {this.props.choices && this.controls && this.controls.length && this.props.choices.map((choice, index) => {
               return (
-                <li className="m-selectable-list__item">
+                <li key={index} className="m-selectable-list__item">
                   <Checkbox
                     label={choice.label}
                     id={"search-filter-checkbox-" + choice.value}
