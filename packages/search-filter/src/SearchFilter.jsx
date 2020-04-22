@@ -91,7 +91,7 @@ export class SearchFilter extends React.Component<IProps> {
             {this.state.selection && this.state.selection.length > 0 && ('(' + this.state.selection.length + ')')}
           </Button>
         } onStateChange={(e) => this.flyoutStateUpdate(e)}>
-          <ul className="m-selectable-list">
+          <ul className="m-selectable-list m-selectable-list--no-border">
             {this.props.choices && this.controls && this.controls.length && this.props.choices.map((choice, index) => {
               return (
                 <li key={index} className="m-selectable-list__item">
