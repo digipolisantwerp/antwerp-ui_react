@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ### Changed
 - Allow for passing a reactive handler to the checkbox input
 
+### Fixed
+- Fixed modal styling issues
+
 
 ## v4.0.0
 
