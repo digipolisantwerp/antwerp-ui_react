@@ -29,7 +29,6 @@ export class MultiSelect extends React.Component<IProps> {
   }
 
   setTheme(theme) {
-    console.log(theme);
     return {
       ...theme,
       borderRadius: 0,
