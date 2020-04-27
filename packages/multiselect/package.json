@@ -1,0 +1,13 @@
+{
+  "name": "multiselect",
+  "version": "0.0.1-0",
+  "description": "",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react-select": "^3.1.0"
+  }
+}

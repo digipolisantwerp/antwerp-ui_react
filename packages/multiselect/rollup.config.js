@@ -6,22 +6,15 @@ import sass from "rollup-plugin-sass";
 export default {
   input: "src/index.js",
   output: [
-    {file: pkg.main, format: "cjs"},
-    {file: pkg.module, format: "es"}
+    { file: pkg.main, format: "cjs" },
+    { file: pkg.module, format: "es" }
   ],
   plugins: [
     resolve(),
-    sass({insert: true}),
+    sass({ insert: true }),
     babel({
       exclude: ["node_modules/**"]
     })
   ],
-  external: [
-    'react',
-    'react-dom',
-    'classnames',
-    'react-input-mask',
-    'moment',
-    'react-reactive-form'
-  ]
+  external: ["react", "classnames", "react-modal"]
 };
