@@ -208,6 +208,9 @@ export default class Modal extends React.Component<Props, State> {
                 {title && (
                   <h6>{title}</h6>
                 )}
+                // TODO:
+                // Because of a hyate in Core Branding v1-v4 there is a problem with the `a-button-transparent`
+                // and `a-button--transparent` classes that needs to be addressed in the future.
                 {hasCloseButton && (
                   <Button className="m-modal__close a-button-transparent" icon="times" type="default" onClick={() => this.handleRequestClose()} />
                 )}
