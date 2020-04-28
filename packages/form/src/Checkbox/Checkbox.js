@@ -12,7 +12,7 @@ type Props = {
   onChange?: (e: Object) => void,
   /** Qa id */
   qa?: string,
-  handler?
+  handler?: any
 };
 
 class Checkbox extends Component<Props> {
@@ -27,7 +27,6 @@ class Checkbox extends Component<Props> {
       id,
       label,
       name,
-      checked = false,
       required,
       disabled = false,
       qa,

@@ -1,8 +1,9 @@
 // @flow
-
 import React from 'react';
 import ReactModal from 'react-modal';
 import classNames from 'classnames';
+
+import './Modal.scss';
 
 import Button from '../../button/src/Button';
 
@@ -13,7 +14,6 @@ type Props = {
   ariaHideApp: boolean,
   /** Modal contents. */
   children: React.Node,
-
   /** Hide/show the close button. */
   hasCloseButton?: boolean,
   /** Modal title text. */
@@ -192,6 +192,7 @@ export default class Modal extends React.Component<Props, State> {
           isOpen={showModal}
           onRequestClose={this.handleRequestClose}
           role="dialog"
+          aria-modal="true"
           className={classNames('m-modal', sizeClass, className)}
           overlayClassName={classNames('m-overlay', 'is-active', overlayClassName)}
           data-qa={qa}
