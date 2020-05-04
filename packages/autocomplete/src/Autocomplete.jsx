@@ -38,14 +38,15 @@ type IState = {
   open: boolean;
   results: Array<Item>;
   cursor: number;
-  searchVal: string;
+  selection: Array<Item>;
 }
 
 class Autocomplete extends Component<Props, IState> {
   state = {
     open: this.props.open || false,
     results: this.props.items || [],
-    cursor: 0
+    cursor: 0,
+    selection: []
   }
 
   formControl = new FormControl(this.props.defaultValue || '');
@@ -99,6 +100,7 @@ class Autocomplete extends Component<Props, IState> {
     const {results, cursor} = this.state
     if (e.key === "ArrowDown" && cursor < results.length - 1) {
       this.setState({
+        ...this.state,
         open: true,
         cursor: cursor + 1
       }, () => {
@@ -107,6 +109,7 @@ class Autocomplete extends Component<Props, IState> {
     }
     if (e.key === "ArrowUp" && cursor > 0) {
       this.setState({
+        ...this.state,
         open: true,
         cursor: cursor - 1
       }, () => {
@@ -114,8 +117,7 @@ class Autocomplete extends Component<Props, IState> {
       });
     }
     if (e.key === "Enter") {
-      this.props.onSelection(results[cursor].value);
-      this.selectOption(results[cursor].label)
+      this.selectOption(results[cursor])
     }
     if (e.key === "Backspace") {
       this.search(this.state.inputValue);
@@ -128,7 +130,19 @@ class Autocomplete extends Component<Props, IState> {
   }
 
   selectOption(item: Item) {
-    this.props.onSelection && this.props.onSelection(item.value);
+    // Did we select this option already?
+    if (this.state.selection.findIndex(s => s.value === item.value) > -1)
+      return;
+
+    if (this.props.multipleSelect) {
+      const selection = this.state.selection;
+      selection.push(item);
+      this.setState({
+        ...this.state,
+        selection
+      });
+    }
+    this.props.onSelection && this.props.onSelection(this.props.multipleSelect ? this.state.selection.map(i => i.value) : item.value);
     this.formControl.setValue(item.label);
     this.closePane();
   }
