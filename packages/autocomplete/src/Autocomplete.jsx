@@ -1,151 +1,102 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import classNames from 'classnames';
 import ReactDOM from 'react-dom';
 
 import FlyoutContent from '../../flyout-button/src/FlyoutContent';
 import TextField from '../../form/src/TextField';
+import {FormControl} from "react-reactive-form";
 
 type InputStates = "success" | "warning" | "error";
-
+type Item = { label: string; value: string };
 type Props = {
-  items?: array,
-  children?: any,
-  open?: boolean,
-  label: string,
-  id: string,
-  defaultValue?: string,
-  noResults?: string,
-  onSelection?: Function,
-  onChange?: Function,
-  loading?: boolean,
-  disabled?: boolean,
-  state?: InputStates,
+  items?: Array<Item>;
+  children?: any;
+  /**
+   * If true, the options flyout will be open by default
+   */
+  open?: boolean;
+  label: string;
+  id: string;
+  defaultValue?: string;
+  noResults?: string;
+  onSelection?: (selection: Item | Array<Item>) => void;
+  onChange?: Function;
+  loading?: boolean;
+  disabled?: boolean;
+  state?: InputStates;
   /** Qa id */
-  qa?: string,
-  showSearchIcon?: boolean
+  qa?: string;
+  showSearchIcon?: boolean;
+  /**
+   * If true, this control will allow selection of multiple items,
+   * listing them as tags in the control.
+   */
+  multipleSelect?: boolean;
 };
 
-class Autocomplete extends Component<Props> {
-  constructor(props) {
-    super(props);
-    const {open} = this.props;
+type IState = {
+  open: boolean;
+  results: Array<Item>;
+  cursor: number;
+  searchVal: string;
+}
 
-    this.state = {
-      open: open || false,
-      inputValue: '',
-      results: [],
-      cursor: 0,
-      searchVal: ''
-    };
+class Autocomplete extends Component<Props, IState> {
+  state = {
+    open: this.props.open || false,
+    results: this.props.items || [],
+    cursor: 0
   }
 
-  static defaultProps = {
-    open: false,
-    onSelection: () => {},
-    onChange: () => {},
-    noResults: 'No results were found'
-  }
+  formControl = new FormControl(this.props.defaultValue || '');
 
   componentDidMount() {
-    const { defaultValue, items } = this.props;
-
-    this.setState({
-      results: items
+    this.formControl.valueChanges.subscribe(value => {
+      this.props.onChange(value);
+      this.search(value);
     });
-
-    if (!defaultValue) {
-      return;
-    }
-
-    this.handleDefaultValue(defaultValue, items)
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const { searchVal, inputValue } = this.state;
-
-    // This is necessarry since it takes around 1/10th of a second before the props have propagated.
-    setTimeout(() => this.search(searchVal), 100);
-
-    if (inputValue === nextProps.defaultValue) {
-      this.handleDefaultValue(nextProps.defaultValue, nextProps.items)
+    if (this.props.defaultValue) {
+      const item = this.props.items.find(i => i.value === this.props.defaultValue);
+      this.formControl.setValue((item && item.label) || this.props.defaultValue);
     }
   }
 
-  handleDefaultValue(defaultValue, items) {
-    this.props.onSelection(defaultValue);
-    this.props.onChange(defaultValue);
-
-    const foundItems = items.filter(item => item.value === defaultValue);
-    if (!foundItems.length > 0) {
-      this.search(defaultValue);
-      this.selectOption(defaultValue);
-      return;
-    }
-
-    this.search(foundItems[0].label);
-    this.selectOption(foundItems[0].label);
-  }
-
-  handleChange = ( e ) => {
-    this.setState({
-      open: true,
-      searchVal: e.target.value
-    });
-    this.updateInputValue(e);
-    this.props.onChange(e.target.value);
-    this.search(e.target.value);
-  }
-
-  updateInputValue(e) {
-    this.setState({
-      inputValue: e.target.value
-    });
-    if (e.target.value === "") {
-      this.setState({
-        results: this.props.items
-      });
-    }
-  }
-
-  search = (val) => {
-    const { items } = this.props;
-    if (!val) {
+  search(value: string) {
+    const {items} = this.props;
+    if (!value) {
       return this.setState({
         results: items,
         cursor: 0
       });
     }
 
-    let matches = items.filter(item => item.label.toLowerCase().includes(val.toLowerCase()));
+    let matches = items.filter(item => item.label.toLowerCase().includes(value.toLowerCase()));
     this.setState({
       results: matches,
       cursor: 0
     });
   }
 
-  handleClick = ( e ) => {
-    this.props.onSelection(e.target.dataset.value);
-    this.selectOption(e.target.innerText);
-  }
-
-  closePane = () => {
+  closePane() {
     this.setState({
+      ...this.state,
       open: false,
     });
   }
 
-  openPane = () => {
+  openPane() {
     this.setState({
+      ...this.state,
       open: true,
     });
   }
 
   handleFlyoutState = (isOpen) => {
-    this.setState({ open: isOpen });
+    this.setState({open: isOpen});
   }
 
   handleKeyPress = (e) => {
-    const { results, cursor } = this.state
+    const {results, cursor} = this.state
     if (e.key === "ArrowDown" && cursor < results.length - 1) {
       this.setState({
         open: true,
@@ -160,7 +111,7 @@ class Autocomplete extends Component<Props> {
         cursor: cursor - 1
       }, () => {
         this.scrollToItem()
-       });
+      });
     }
     if (e.key === "Enter") {
       this.props.onSelection(results[cursor].value);
@@ -176,29 +127,30 @@ class Autocomplete extends Component<Props> {
     domNode.scrollIntoView(false)
   }
 
-  selectOption = (val) => {
+  selectOption(item: Item) {
+    this.props.onSelection && this.props.onSelection(item.value);
+    this.formControl.setValue(item.label);
     this.closePane();
-    this.setState({
-      inputValue: val,
-      open: false
-    });
   }
 
   renderItems = (item, index) => {
-    var liClasses = classNames({
+    const liClasses = classNames({
       'm-selectable-list__item': true,
       'm-selectable-list__item--active': this.state.cursor === index
     });
     return (
-      <li key={item.value} data-value={item.value} data-label={item.label} className={liClasses} onClick={this.handleClick} ref={(item) => { this['item_' + index] = item }}>
+      <li key={item.value} data-value={item.value} data-label={item.label} className={liClasses}
+          onClick={() => this.selectOption(item)} ref={(item) => {
+        this['item_' + index] = item
+      }}>
         {item.label}
       </li>
     );
   }
 
   render() {
-    const { items, noResults, loading, disabled, state, qa } = this.props;
-    const { results, open } = this.state;
+    const {items, noResults, loading, disabled, state, qa} = this.props;
+    const {results, open} = this.state;
 
     const flyoutClasses = classNames(
       'm-flyout',
@@ -213,15 +165,14 @@ class Autocomplete extends Component<Props> {
         <div>
           <div className={flyoutClasses}>
             <TextField
+              {...this.formControl.handler()}
               name="autocomplete"
               className="autocomplete"
               id={this.props.id}
               label={this.props.label}
-              value={this.state.inputValue}
-              onChange={this.handleChange}
               onKeyDown={this.handleKeyPress}
-              onBlur={this.closePane}
-              onFocus={this.openPane}
+              onBlur={() => this.closePane()}
+              onFocus={() => this.openPane()}
               autoComplete="off"
               loading={!!loading}
               disabled={disabled}
@@ -232,7 +183,7 @@ class Autocomplete extends Component<Props> {
             <FlyoutContent hasPadding={false}>
               {results.length === 0 ? (
                 <p className="u-margin-xs u-text-light u-text-center">{noResults}</p>
-              ): (
+              ) : (
                 <ul className="m-selectable-list m-selectable-list--no-border">
                   {results.map((item, index) => this.renderItems(item, index))}
                 </ul>
