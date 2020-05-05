@@ -5,6 +5,9 @@ import ReactDOM from 'react-dom';
 import FlyoutContent from '../../flyout-button/src/FlyoutContent';
 import TextField from '../../form/src/TextField';
 import {FormControl} from "react-reactive-form";
+import {MultipleSelectionMode} from "./MultipleSelectionMode";
+import {SingleSelectionMode} from "./SingleSelectionMode";
+import TagList, {TagListItem} from "../../taglist";
 
 type InputStates = "success" | "warning" | "error";
 type Item = { label: string; value: string };
@@ -50,10 +53,11 @@ class Autocomplete extends Component<Props, IState> {
   }
 
   formControl = new FormControl(this.props.defaultValue || '');
+  mode = this.props.multipleSelect ? new MultipleSelectionMode(this) : new SingleSelectionMode(this);
 
   componentDidMount() {
     this.formControl.valueChanges.subscribe(value => {
-      this.props.onChange(value);
+      this.props.onChange && this.props.onChange(value);
       this.search(value);
     });
     if (this.props.defaultValue) {
@@ -92,11 +96,7 @@ class Autocomplete extends Component<Props, IState> {
     });
   }
 
-  handleFlyoutState = (isOpen) => {
-    this.setState({open: isOpen});
-  }
-
-  handleKeyPress = (e) => {
+  handleKeyPress(e) {
     const {results, cursor} = this.state
     if (e.key === "ArrowDown" && cursor < results.length - 1) {
       this.setState({
@@ -130,21 +130,7 @@ class Autocomplete extends Component<Props, IState> {
   }
 
   selectOption(item: Item) {
-    // Did we select this option already?
-    if (this.state.selection.findIndex(s => s.value === item.value) > -1)
-      return;
-
-    if (this.props.multipleSelect) {
-      const selection = this.state.selection;
-      selection.push(item);
-      this.setState({
-        ...this.state,
-        selection
-      });
-    }
-    this.props.onSelection && this.props.onSelection(this.props.multipleSelect ? this.state.selection.map(i => i.value) : item.value);
-    this.formControl.setValue(item.label);
-    this.closePane();
+    this.mode.select(item);
   }
 
   renderItems = (item, index) => {
@@ -178,13 +164,19 @@ class Autocomplete extends Component<Props, IState> {
       items && (
         <div>
           <div className={flyoutClasses}>
+            <TagList>
+              {this.state.selection.map(s => {
+                return (
+                  <TagListItem closable={true} onClick={() => this.mode.unselect(s)} key={s.value} value={s.label}/>)
+              })}
+            </TagList>
             <TextField
               {...this.formControl.handler()}
               name="autocomplete"
               className="autocomplete"
               id={this.props.id}
               label={this.props.label}
-              onKeyDown={this.handleKeyPress}
+              onKeyDown={(e) => this.handleKeyPress(e)}
               onBlur={() => this.closePane()}
               onFocus={() => this.openPane()}
               autoComplete="off"
