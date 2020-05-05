@@ -58,28 +58,12 @@ class Autocomplete extends Component<Props, IState> {
   componentDidMount() {
     this.formControl.valueChanges.subscribe(value => {
       this.props.onChange && this.props.onChange(value);
-      this.search(value);
+      this.mode.search(value);
     });
     if (this.props.defaultValue) {
       const item = this.props.items.find(i => i.value === this.props.defaultValue);
       this.formControl.setValue((item && item.label) || this.props.defaultValue);
     }
-  }
-
-  search(value: string) {
-    const {items} = this.props;
-    if (!value) {
-      return this.setState({
-        results: items,
-        cursor: 0
-      });
-    }
-
-    let matches = items.filter(item => item.label.toLowerCase().includes(value.toLowerCase()));
-    this.setState({
-      results: matches,
-      cursor: 0
-    });
   }
 
   closePane() {
@@ -120,7 +104,7 @@ class Autocomplete extends Component<Props, IState> {
       this.selectOption(results[cursor])
     }
     if (e.key === "Backspace") {
-      this.search(this.state.inputValue);
+      this.mode.search(this.state.inputValue);
     }
   }
 
@@ -188,7 +172,7 @@ class Autocomplete extends Component<Props, IState> {
             />
             <FlyoutContent hasPadding={false}>
               {results.length === 0 ? (
-                <p className="u-margin-xs u-text-light u-text-center">{noResults}</p>
+                <p className="u-margin-xs u-text-light u-text-center">{noResults || "No Results"}</p>
               ) : (
                 <ul className="m-selectable-list m-selectable-list--no-border">
                   {results.map((item, index) => this.renderItems(item, index))}

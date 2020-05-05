@@ -4,4 +4,6 @@ export interface IMode {
   select(item: Item): void;
 
   unselect(item: Item): void;
+
+  search(value: string): void;
 }
