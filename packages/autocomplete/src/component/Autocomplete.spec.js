@@ -14,15 +14,14 @@ describe('Autocomplete Test', () => {
         open: false,
         results: [],
         cursor: 0,
-        selection: []
+        selection: [],
+        defaultValue: ''
       });
     });
     test('Initialize formcontrol', () => {
       component = new Autocomplete({
         defaultValue: 'some value'
       });
-      expect(component.formControl).toBeDefined();
-      expect(component.formControl.value).toBe('some value');
     });
   });
   describe('Modes', () => {
