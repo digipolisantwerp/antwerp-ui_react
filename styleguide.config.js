@@ -6,6 +6,11 @@ module.exports = {
     const basePath = componentPath.split('src/')[0];
     return basePath + 'Readme.md';
   },
+  ignore: [
+    path.resolve(__dirname, 'packages/**/models/*.js'),
+    path.resolve(__dirname, 'packages/**/types.js'),
+    '**/*.spec.js'
+  ],
   skipComponentsWithoutExample: true,
   getComponentPathLine: (componentPath) => {
     const name = path.basename(componentPath).replace(/.jsx?$/g, '');

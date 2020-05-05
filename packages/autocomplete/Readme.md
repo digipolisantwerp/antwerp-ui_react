@@ -197,3 +197,33 @@ The prop `multipleSelect` can be used to allow multi selecting items.
   label="Select a city">
 </Autocomplete>
 ```
+
+The prop `asyncItems` can be used to lazy load the select items.
+```
+const items=[
+          { label: "Antwerpen", value: "antwerpen"},
+          { label: "Gent", value: "gent"},
+          { label: "Brussel", value: "brussel"},
+          { label: "Brugge", value: "brugge"},
+          { label: "Hasselt", value: "hasselt"},
+          { label: "Luik", value: "luik"},
+          { label: "Oostende", value: "oostende"},
+          { label: "Namen", value: "namen"},
+          { label: "Mechelen", value: "mechelen"},
+          { label: "Sint-Niklaas", value: "sint-niklaas"},
+          { label: "Aalst", value: "aalst"},
+          { label: "Genk", value: "genk"}
+        ];
+function load(query, clbk) {
+    const results = items.filter(item => item.label.toLowerCase().includes(query));
+    clbk(results);
+}
+<Autocomplete
+  asyncItems={load}
+  id="autocomplete-2"
+  multipleSelect="true"
+  onSelection={(selected) => {console.log(`Selected ${selected}`)}}
+  onChange={(value) => {console.log(`Typed ${value}`)}}
+  label="Select a city">
+</Autocomplete>
+```

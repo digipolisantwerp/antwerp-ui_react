@@ -1,7 +1,7 @@
-import type {IMode, Item} from "./types";
+import type {ISelectionMode, Item} from "../types";
 import * as React from 'react';
 
-export class MultipleSelectionMode implements IMode {
+export class MultipleSelectionMode implements ISelectionMode {
   component;
 
   constructor(component: React.Component) {
@@ -30,28 +30,9 @@ export class MultipleSelectionMode implements IMode {
       selection.splice(index, 1);
     }
     this.component.setState({
-      ...this.component.state,
       selection
     });
     this.component.props.onSelection && this.component.props.onSelection(selection.map(i => i.value));
-  }
-
-  search(value: string): void {
-    let {items} = this.component.props;
-    const selection = this.component.state.selection;
-    // Remove the items that are already in our selection
-    items = items.filter(item => !selection.find(s => s.value === item.value));
-    if (!value) {
-      return this.component.setState({
-        results: items,
-        cursor: 0
-      });
-    }
-
-    let matches = items.filter(item => item.label.toLowerCase().includes(value.toLowerCase()));
-    this.component.setState({
-      results: matches,
-      cursor: 0
-    });
+    this.component.searchMode.reset();
   }
 }
