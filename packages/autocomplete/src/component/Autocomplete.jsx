@@ -10,7 +10,6 @@ import {SyncSearchMode} from "../models/SyncSearchMode";
 import {AsyncSearchMode} from "../models/AsyncSearchMode";
 import {fromEvent, Subject} from "rxjs";
 import {debounceTime, map, tap} from 'rxjs/operators';
-import Spinner from "../../../spinner";
 
 type InputStates = "success" | "warning" | "error";
 type Item = { label: string; value: string };
@@ -55,8 +54,7 @@ class Autocomplete extends Component<Props, IState> {
     results: this.props.items || [],
     cursor: 0,
     selection: [],
-    defaultValue: this.props.defaultValue || '',
-    isLoading: false
+    defaultValue: this.props.defaultValue || ''
   }
 
   inputField: React.RefObject;
@@ -185,7 +183,7 @@ class Autocomplete extends Component<Props, IState> {
             onBlur={() => this.closePane()}
             onFocus={() => this.openPane()}
             autoComplete="off"
-            loading={!!loading}
+            loading={!!loading || !!isLoading}
             disabled={disabled}
             state={state}
             data-qa={qa}
@@ -193,18 +191,13 @@ class Autocomplete extends Component<Props, IState> {
             iconright={this.props.showSearchIcon && 'search'}
           />
           <FlyoutContent hasPadding={false}>
-            {isLoading && (
-              <div className="u-margin-xs u-text-light u-text-center">
-                <Spinner/>
-              </div>
-            )}
-            {!isLoading && (results.length === 0 ? (
+            {results.length === 0 ? (
               <p className="u-margin-xs u-text-light u-text-center">{noResults || "No Results"}</p>
             ) : (
               <ul className="m-selectable-list m-selectable-list--no-border">
                 {results.map((item, index) => this.renderItems(item, index))}
               </ul>
-            ))}
+            )}
           </FlyoutContent>
         </div>
       </div>
