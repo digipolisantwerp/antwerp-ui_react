@@ -216,7 +216,7 @@ const items=[
         ];
 function load(query, clbk) {
     const results = items.filter(item => item.label.toLowerCase().includes(query));
-    clbk(results);
+    setTimeout(() => clbk(results), 2000);
 }
 <Autocomplete
   asyncItems={load}

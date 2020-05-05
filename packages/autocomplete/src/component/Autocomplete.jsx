@@ -1,15 +1,16 @@
 import React, {Component} from 'react';
 import classNames from 'classnames';
 import ReactDOM from 'react-dom';
-
 import FlyoutContent from '../../../flyout-button/src/FlyoutContent';
 import TextField from '../../../form/src/TextField';
-import {FormControl} from "react-reactive-form";
 import {MultipleSelectionMode} from "../models/MultipleSelectionMode";
 import {SingleSelectionMode} from "../models/SingleSelectionMode";
 import TagList, {TagListItem} from "../../../taglist";
 import {SyncSearchMode} from "../models/SyncSearchMode";
 import {AsyncSearchMode} from "../models/AsyncSearchMode";
+import {fromEvent, Subject} from "rxjs";
+import {debounceTime, map, tap} from 'rxjs/operators';
+import Spinner from "../../../spinner";
 
 type InputStates = "success" | "warning" | "error";
 type Item = { label: string; value: string };
@@ -45,6 +46,7 @@ type IState = {
   results: Array<Item>;
   cursor: number;
   selection: Array<Item>;
+  isLoading: boolean;
 }
 
 class Autocomplete extends Component<Props, IState> {
@@ -52,22 +54,27 @@ class Autocomplete extends Component<Props, IState> {
     open: this.props.open || false,
     results: this.props.items || [],
     cursor: 0,
-    selection: []
+    selection: [],
+    defaultValue: this.props.defaultValue || '',
+    isLoading: false
   }
 
-  formControl = new FormControl(this.props.defaultValue || '');
+  inputField: React.RefObject;
   selectionMode = this.props.multipleSelect ? new MultipleSelectionMode(this) : new SingleSelectionMode(this);
-  searchMode = this.props.asyncItems ? new AsyncSearchMode(this.props.asyncItems) : new SyncSearchMode(this);
+  searchMode = this.props.asyncItems ? new AsyncSearchMode(this) : new SyncSearchMode(this);
+
+  destroy$ = new Subject();
 
   componentDidMount() {
-    this.formControl.valueChanges.subscribe(value => {
-      this.props.onChange && this.props.onChange(value);
-      this.search(value);
-    });
-    if (this.props.defaultValue) {
-      const item = this.props.items.find(i => i.value === this.props.defaultValue);
-      this.formControl.setValue((item && item.label) || this.props.defaultValue);
-    }
+    const change$ = fromEvent(this.inputField, 'keyup').pipe(
+      map(() => this.inputField.value),
+      debounceTime(200),
+      tap(value => {
+        this.props.onChange && this.props.onChange(value);
+        this.search(value);
+      })
+    );
+    change$.subscribe();
   }
 
   closePane() {
@@ -141,9 +148,14 @@ class Autocomplete extends Component<Props, IState> {
     );
   }
 
+  componentWillUnmount() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
   render() {
     const {noResults, loading, disabled, state, qa} = this.props;
-    const {results, open} = this.state;
+    const {results, open, isLoading} = this.state;
 
     const flyoutClasses = classNames(
       'm-flyout',
@@ -164,7 +176,7 @@ class Autocomplete extends Component<Props, IState> {
             })}
           </TagList>
           <TextField
-            {...this.formControl.handler()}
+            inputRef={ref => this.inputField = ref}
             name="autocomplete"
             className="autocomplete"
             id={this.props.id}
@@ -177,16 +189,22 @@ class Autocomplete extends Component<Props, IState> {
             disabled={disabled}
             state={state}
             data-qa={qa}
+            defaultValue={this.state.defaultValue}
             iconright={this.props.showSearchIcon && 'search'}
           />
           <FlyoutContent hasPadding={false}>
-            {results.length === 0 ? (
+            {isLoading && (
+              <div className="u-margin-xs u-text-light u-text-center">
+                <Spinner/>
+              </div>
+            )}
+            {!isLoading && (results.length === 0 ? (
               <p className="u-margin-xs u-text-light u-text-center">{noResults || "No Results"}</p>
             ) : (
               <ul className="m-selectable-list m-selectable-list--no-border">
                 {results.map((item, index) => this.renderItems(item, index))}
               </ul>
-            )}
+            ))}
           </FlyoutContent>
         </div>
       </div>

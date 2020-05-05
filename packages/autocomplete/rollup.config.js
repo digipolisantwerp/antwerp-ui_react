@@ -14,5 +14,5 @@ export default {
       exclude: ['node_modules/**']
     })
   ],
-  external: ['react', 'react-dom', 'classnames', 'react-reactive-form', 'react-input-mask'],
+  external: ['react', 'react-dom', 'classnames', 'react-input-mask'],
 };

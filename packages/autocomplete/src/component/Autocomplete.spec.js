@@ -1,56 +1,50 @@
-import React from 'react';
-import { shallow, mount } from 'enzyme';
-import Autocomplete from './Autocomplete';
-//scrollIntoView not supported by Jest...
-window.HTMLElement.prototype.scrollIntoView = function() {};
+import Autocomplete from "./Autocomplete.jsx";
+import * as sinon from 'sinon';
 
- describe('Autocomplete', () => {
-
-  const data = [
-    { label: "Antwerpen", value: "antwerpen"},
-    { label: "Gent", value: "gent"},
-    { label: "Brussel", value: "brussel"},
-    { label: "Brugge", value: "brugge"}
-  ];
-
-  test('Autocomplete dropdown is not rendered when 0 items are passed', () => {
-    const component = shallow(<Autocomplete />);
-     expect(component.find('.m-flyout__content ul')[0]).toBeUndefined();
+describe('Autocomplete Test', () => {
+  let component: Autocomplete;
+  describe('Setup and Teardown', () => {
+    test('should create a valid component', () => {
+      component = new Autocomplete({});
+      expect(component).toBeDefined();
+    });
+    test('Should set an initial state', () => {
+      component = new Autocomplete({});
+      expect(component.state).toEqual({
+        open: false,
+        results: [],
+        cursor: 0,
+        selection: []
+      });
+    });
+    test('Initialize formcontrol', () => {
+      component = new Autocomplete({
+        defaultValue: 'some value'
+      });
+      expect(component.formControl).toBeDefined();
+      expect(component.formControl.value).toBe('some value');
+    });
   });
-
-  test('Autocomplete dropdown is rendered when items are passed', () => {
-    const component = shallow(<Autocomplete items={data} />);
-    expect(component.exists('.m-flyout__content'));
-    expect(component.find('.m-selectable-list li')).toHaveLength(data.length);
-  });
-
-  test('Autocomplete is closed by default', () => {
-    const component = shallow(<Autocomplete items={data} />);
-    expect(component.state('open')).toBe(false);
-  });
-
-  test('Autocomplete opens after ArrowDown in input field', () => {
-    const autocompleteWrapper = mount(<Autocomplete items={data} label="Testlabel" />)
-    const autocompleteInputWrapper = autocompleteWrapper.find('input')
-    
-    autocompleteInputWrapper.simulate('keyDown', { key : 'ArrowDown', keyCode: 40, which: 40 })
-    expect(autocompleteWrapper.state('open')).toBe(true)
-  });
-
-  test('Autocomplete closes after pressing Enter and correct value is assigned', () => {
-    const autocompleteWrapper = mount(<Autocomplete items={data} label="Testlabel" />)
-    const autocompleteInputWrapper = autocompleteWrapper.find('input')
-
-    autocompleteWrapper.setState({ open: true })
-    autocompleteInputWrapper.simulate('keyDown', { key : 'ArrowDown', keyCode: 40, which: 40 })
-    autocompleteInputWrapper.simulate('keyDown', { key : 'ArrowDown', keyCode: 40, which: 40 })
-    autocompleteInputWrapper.simulate('keyDown', { key : 'Enter', keyCode: 13, which: 13 })
-    expect(autocompleteWrapper.state('open')).toBe(false)
-    expect(autocompleteWrapper.state('inputValue')).toBe("Brussel")
-  });
-
-  test('Autocomplete contains a data-qa attribute', () => {
-    const autocompleteWrapper = mount(<Autocomplete qa="id-1234" items={data} label="Testlabel" />).find('input');
-    expect(autocompleteWrapper.props()).toHaveProperty('data-qa', 'id-1234');
-  });
- });
+  describe('Modes', () => {
+    test('Setup multi select mode', () => {
+      component = new Autocomplete({});
+      expect(component.selectionMode.constructor.name).toBe('SingleSelectionMode');
+    });
+    test('Setup single select mode', () => {
+      component = new Autocomplete({
+        multipleSelect: true
+      });
+      expect(component.selectionMode.constructor.name).toBe('MultipleSelectionMode');
+    });
+    test('Setup Sync Search mode', () => {
+      component = new Autocomplete({});
+      expect(component.searchMode.constructor.name).toBe('SyncSearchMode');
+    });
+    test('Setup Async test mode', () => {
+      component = new Autocomplete({
+        asyncItems: sinon.stub()
+      });
+      expect(component.searchMode.constructor.name).toBe('AsyncSearchMode');
+    });
+  })
+});

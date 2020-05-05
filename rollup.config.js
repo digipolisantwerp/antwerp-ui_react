@@ -15,5 +15,5 @@ export default {
       plugins: ['external-helpers']
     })
   ],
-  external: ['react', 'classnames', 'moment', 'react-reactive-form', 'react-dom', 'react-input-mask', 'react-modal'],
+  external: ['react', 'classnames', 'moment', 'react-dom', 'react-input-mask', 'react-modal'],
 };

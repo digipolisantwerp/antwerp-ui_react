@@ -19,7 +19,8 @@ export class MultipleSelectionMode implements ISelectionMode {
       selection
     });
     this.component.props.onSelection && this.component.props.onSelection(selection.map(i => i.value));
-    this.component.formControl.setValue('');
+    if (this.component.inputField)
+      this.component.inputField.value = '';
     this.component.closePane();
   }
 

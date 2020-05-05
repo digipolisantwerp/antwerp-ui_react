@@ -10,7 +10,8 @@ export class SingleSelectionMode implements ISelectionMode {
 
   select(item: Item): void {
     this.component.props.onSelection && this.component.props.onSelection(item.value);
-    this.component.formControl.setValue(item.label);
+    if (this.component.inputField)
+      this.component.inputField.value = item.label;
     this.component.closePane();
   }
 }
