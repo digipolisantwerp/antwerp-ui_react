@@ -9,10 +9,11 @@ import {SyncSearchMode} from "../models/SyncSearchMode";
 import {AsyncSearchMode} from "../models/AsyncSearchMode";
 import {fromEvent, Subject} from "rxjs";
 import {debounceTime, map, tap} from 'rxjs/operators';
-import './Autocomplete.scss';
 import InputLabel from "../../../form/src/InputLabel";
 import Icon from "../../../icon";
 import {stateClasses} from "../../../form/src/TextField/TextField";
+
+import 'Autocomplete.scss';
 
 type InputStates = "success" | "warning" | "error";
 type Item = { label: string; value: string };
