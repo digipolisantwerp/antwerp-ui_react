@@ -71,6 +71,9 @@ class Autocomplete extends Component<Props, IState> {
       map(() => this.inputField.value),
       debounceTime(200),
       tap(value => {
+        if (!this.state.open && value && value.length > 0) {
+          this.openPane();
+        }
         this.props.onChange && this.props.onChange(value);
         this.search(value);
       })
@@ -132,7 +135,8 @@ class Autocomplete extends Component<Props, IState> {
   }
 
   selectOption(item: Item) {
-    this.selectionMode.select(item);
+    if (!!item)
+      this.selectionMode.select(item);
   }
 
   renderItems = (item, index) => {

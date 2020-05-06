@@ -16,7 +16,7 @@
 
       .m-tag {
         &:not(.has-input) {
-          margin: $spacer-xs / 2;
+          margin: $spacer-xs / 2 0 0 $spacer-xs / 2;
         }
 
         &.has-input {
