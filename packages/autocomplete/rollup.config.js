@@ -11,10 +11,10 @@ export default {
   ],
   plugins: [
     resolve(),
-    sass({
-      insert: true
-    }),
-    babel(),
+    sass(),
+    babel({
+      exclude: ['node_modules/**']
+    })
   ],
   external: ['react', 'react-dom', 'classnames', 'react-input-mask'],
 };
