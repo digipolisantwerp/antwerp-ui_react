@@ -13,7 +13,7 @@ import InputLabel from "../../../form/src/InputLabel";
 import Icon from "../../../icon";
 import {stateClasses} from "../../../form/src/TextField/TextField";
 
-import 'Autocomplete.scss';
+import './Autocomplete.scss';
 
 type InputStates = "success" | "warning" | "error";
 type Item = { label: string; value: string };
