@@ -14,9 +14,7 @@ export default {
     sass({
       insert: true
     }),
-    babel({
-      exclude: ['node_modules/**']
-    })
+    babel(),
   ],
   external: ['react', 'react-dom', 'classnames', 'react-input-mask'],
 };
