@@ -4,6 +4,8 @@ export interface ISelectionMode {
   select(item: Item): void;
 
   unselect(item: Item): void;
+
+  getSelection(): Array<Item>;
 }
 
 export interface ISearchMode {

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import InputLabel from '../InputLabel';
 import Icon from '../../../icon';
 
-const stateClasses = {
+export const stateClasses = {
   success: 'has-success',
   warning: 'has-warning',
   error: 'has-error',
@@ -41,16 +41,8 @@ class TextField extends Component<Props> {
     const {
       id,
       label,
-      value,
-      name,
       description,
       required,
-      placeholder,
-      onChange,
-      onClick,
-      onBlur,
-      onFocus,
-      onKeyDown,
       mask,
       state,
       autoComplete,

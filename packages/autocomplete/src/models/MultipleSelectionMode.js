@@ -36,4 +36,8 @@ export class MultipleSelectionMode implements ISelectionMode {
     this.component.props.onSelection && this.component.props.onSelection(selection.map(i => i.value));
     this.component.searchMode.reset();
   }
+
+  getSelection() {
+    return this.component.state.selection;
+  }
 }

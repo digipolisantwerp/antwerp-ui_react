@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import classNames from 'classnames';
 import ReactDOM from 'react-dom';
 import FlyoutContent from '../../../flyout-button/src/FlyoutContent';
-import TextField from '../../../form/src/TextField';
 import {MultipleSelectionMode} from "../models/MultipleSelectionMode";
 import {SingleSelectionMode} from "../models/SingleSelectionMode";
 import TagList, {TagListItem} from "../../../taglist";
@@ -10,6 +9,10 @@ import {SyncSearchMode} from "../models/SyncSearchMode";
 import {AsyncSearchMode} from "../models/AsyncSearchMode";
 import {fromEvent, Subject} from "rxjs";
 import {debounceTime, map, tap} from 'rxjs/operators';
+import './Autocomplete.scss';
+import InputLabel from "../../../form/src/InputLabel";
+import Icon from "../../../icon";
+import {stateClasses} from "../../../form/src/TextField/TextField";
 
 type InputStates = "success" | "warning" | "error";
 type Item = { label: string; value: string };
@@ -85,6 +88,7 @@ class Autocomplete extends Component<Props, IState> {
     this.setState({
       open: true
     });
+    this.search('');
   }
 
   handleKeyPress(e) {
@@ -151,45 +155,67 @@ class Autocomplete extends Component<Props, IState> {
     this.destroy$.complete();
   }
 
+  getInput() {
+    return (
+      <input id={this.props.id}
+             type="text"
+             autoComplete="off"
+             disabled={this.props.disabled}
+             ref={ref => this.inputField = ref}
+             defaultValue={this.state.defaultValue}
+             data-qa={this.props.qa}
+             {...this.props.state}
+             onBlur={() => this.closePane()}
+             onFocus={() => this.openPane()}
+             onKeyDown={(e) => this.handleKeyPress(e)}
+      />
+    );
+  }
+
   render() {
-    const {noResults, loading, disabled, state, qa} = this.props;
+    const {noResults, loading, state, qa} = this.props;
     const {results, open, isLoading} = this.state;
 
     const flyoutClasses = classNames(
       'm-flyout',
       'm-flyout--full',
+      'm-autocomplete',
       {
         'is-open': open,
+        'is-multiple-select': !!this.props.multipleSelect
+      }
+    );
+
+    const inputClass = classNames(
+      'a-input',
+      {
+        'has-icon-right': this.props.loading || this.state.isLoading,
+        'has-icon-left': this.props.showSearchIcon,
+        [`${stateClasses[state]}`]: !!state,
       }
     );
 
     return (
       <div>
         <div className={flyoutClasses}>
-          <TagList>
-            {this.state.selection.map(s => {
-              return (
-                <TagListItem closable={true} onClick={() => this.selectionMode.unselect(s)} key={s.value}
-                             value={s.label}/>)
-            })}
-          </TagList>
-          <TextField
-            inputRef={ref => this.inputField = ref}
-            name="autocomplete"
-            className="autocomplete"
-            id={this.props.id}
-            label={this.props.label}
-            onKeyDown={(e) => this.handleKeyPress(e)}
-            onBlur={() => this.closePane()}
-            onFocus={() => this.openPane()}
-            autoComplete="off"
-            loading={!!loading || !!isLoading}
-            disabled={disabled}
-            state={state}
-            data-qa={qa}
-            defaultValue={this.state.defaultValue}
-            iconright={this.props.showSearchIcon && 'search'}
-          />
+          <div className={inputClass} data-qa={qa}>
+            <InputLabel htmlFor={this.props.id}>{this.props.label}</InputLabel>
+            <div className="a-input__wrapper">
+              {this.props.multipleSelect && <TagList>
+                {this.state.selection.map(s => {
+                  return (
+                    <TagListItem closable={true} onClick={() => this.selectionMode.unselect(s)} key={s.value}
+                                 value={s.label}/>)
+                })}
+                <li className="m-tag has-input">
+                  {this.props.multipleSelect && this.getInput()}
+                </li>
+              </TagList>}
+              {!this.props.multipleSelect && this.getInput()}
+              {this.props.showSearchIcon && <Icon name="search"/>}
+              {(loading || isLoading) && <span className="fa a-spinner a-spinner--sm"/>}
+            </div>
+          </div>
           <FlyoutContent hasPadding={false}>
             {results.length === 0 ? (
               <p className="u-margin-xs u-text-light u-text-center">{noResults || "No Results"}</p>

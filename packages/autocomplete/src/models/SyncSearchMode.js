@@ -9,7 +9,7 @@ export class SyncSearchMode implements ISearchMode {
 
   search(value: string): Promise<Array<Item>> {
     let items = this.component.props.items;
-    const selection = this.component.state.selection || [];
+    const selection = this.component.selectionMode.getSelection();
     items = items.filter(item => !selection.find(s => s.value === item.value))
     if (!value) {
       return Promise.resolve(items);

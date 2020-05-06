@@ -1,0 +1,35 @@
+@import "~@a-ui/core/src/styles/quarks";
+
+.m-autocomplete.is-multiple-select {
+  max-width: 100%;
+
+  .a-input__wrapper {
+    min-height: $input-height;
+    border: 1px solid $border-color;
+    display: flex;
+    flex-direction: row;
+
+    .o-tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0;
+
+      .m-tag {
+        &:not(.has-input) {
+          margin: $spacer-xs / 2;
+        }
+
+        &.has-input {
+          height: auto;
+          flex-grow: 1;
+        }
+      }
+    }
+
+    input {
+      border: none !important;
+      padding-left: $spacer-xs;
+      min-width: 10em;
+    }
+  }
+}
