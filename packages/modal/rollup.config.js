@@ -1,8 +1,7 @@
-
-
 import resolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
 import pkg from './package.json';
+import sass from 'rollup-plugin-sass';
 
 export default {
 	input: 'src/index.js',
@@ -12,9 +11,10 @@ export default {
 	],
 	plugins: [
 		resolve(),
+    sass(),
 		babel({
 			exclude: ['node_modules/**']
-		})
+		}),
 	],
 	external: ['react', 'classnames', 'react-modal'],
 };

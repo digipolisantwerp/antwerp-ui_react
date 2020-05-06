@@ -5,8 +5,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
+
+
+## v4.1.0
+
 ### Changed
 - Allow for passing a reactive handler to the checkbox input
+
+### Fixed
+- Fixed modal styling issues
 
 
 ## v4.0.0
@@ -75,7 +82,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 
 
-## [1.0.1-16] - 2018-07-02
+## v1.0.1-16 - 2018-07-02
 ### Added
 - `Alert`
 - `Avatar`
