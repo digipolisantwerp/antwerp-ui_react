@@ -8,13 +8,14 @@ import TagList, {TagListItem} from "../../../taglist";
 import {SyncSearchMode} from "../models/SyncSearchMode";
 import {AsyncSearchMode} from "../models/AsyncSearchMode";
 import {fromEvent, Subject} from "rxjs";
-import {debounceTime, map, tap} from 'rxjs/operators';
+import {debounceTime, filter, map, takeUntil, tap} from 'rxjs/operators';
 import InputLabel from "../../../form/src/InputLabel";
 import Icon from "../../../icon";
 import {stateClasses} from "../../../form/src/TextField/TextField";
 
 import './Autocomplete.scss';
 
+const ARROW_KEYS = ["ArrowUp", "ArrowDown", "Enter"];
 type InputStates = "success" | "warning" | "error";
 type Item = { label: string; value: string };
 type Props = {
@@ -61,7 +62,7 @@ class Autocomplete extends Component<Props, IState> {
     defaultValue: this.props.defaultValue || ''
   }
 
-  inputField: React.RefObject;
+  inputField: HTMLInputElement;
   selectionMode = this.props.multipleSelect ? new MultipleSelectionMode(this) : new SingleSelectionMode(this);
   searchMode = this.props.asyncItems ? new AsyncSearchMode(this) : new SyncSearchMode(this);
 
@@ -69,6 +70,8 @@ class Autocomplete extends Component<Props, IState> {
 
   componentDidMount() {
     const change$ = fromEvent(this.inputField, 'keyup').pipe(
+      takeUntil(this.destroy$),
+      filter(e => !ARROW_KEYS.some(k => k === e.key)),
       map(() => this.inputField.value),
       debounceTime(200),
       tap(value => {
@@ -79,6 +82,35 @@ class Autocomplete extends Component<Props, IState> {
         this.search(value);
       })
     );
+    const handleArrowKeys$ = fromEvent(this.inputField, 'keyup').pipe(
+      filter(e => ARROW_KEYS.some(k => e.key === k)),
+      takeUntil(this.destroy$),
+      tap(e => {
+        const {results, cursor} = this.state
+        if (e.key === "ArrowDown" && cursor < results.length - 1) {
+          this.setState({
+            open: true,
+            cursor: cursor + 1
+          }, () => {
+            this.scrollToItem()
+          });
+        }
+        if (e.key === "ArrowUp" && cursor > 0) {
+          this.setState({
+            open: true,
+            cursor: cursor - 1
+          }, () => {
+            this.scrollToItem()
+          });
+        }
+        if (e.key === "Enter") {
+          this.selectOption(results[cursor])
+        }
+      })
+    );
+
+    // Start the show!
+    handleArrowKeys$.subscribe();
     change$.subscribe();
   }
 
@@ -95,31 +127,6 @@ class Autocomplete extends Component<Props, IState> {
     this.search('');
   }
 
-  handleKeyPress(e) {
-    const {results, cursor} = this.state
-    if (e.key === "ArrowDown" && cursor < results.length - 1) {
-      this.setState({
-        open: true,
-        cursor: cursor + 1
-      }, () => {
-        this.scrollToItem()
-      });
-    }
-    if (e.key === "ArrowUp" && cursor > 0) {
-      this.setState({
-        open: true,
-        cursor: cursor - 1
-      }, () => {
-        this.scrollToItem()
-      });
-    }
-    if (e.key === "Enter") {
-      this.selectOption(results[cursor])
-    }
-    if (e.key === "Backspace") {
-      this.search(this.state.inputValue);
-    }
-  }
 
   search(value: string): void {
     this.searchMode.search(value).then((results: Array<Item>) => {
@@ -172,9 +179,15 @@ class Autocomplete extends Component<Props, IState> {
              {...this.props.state}
              onBlur={() => this.closePane()}
              onFocus={() => this.openPane()}
-             onKeyDown={(e) => this.handleKeyPress(e)}
       />
     );
+  }
+
+  focusOnInput() {
+    if (!this.inputField)
+      return;
+
+    this.inputField.focus();
   }
 
   render() {
@@ -200,12 +213,19 @@ class Autocomplete extends Component<Props, IState> {
       }
     );
 
+    const wrapperClasses = classNames(
+      'a-input__wrapper',
+      {
+        'has-focus': !!this.inputField && this.inputField === document.activeElement && !!this.props.multipleSelect
+      }
+    )
+
     return (
       <div>
         <div className={flyoutClasses}>
           <div className={inputClass} data-qa={qa}>
             <InputLabel htmlFor={this.props.id}>{this.props.label}</InputLabel>
-            <div className="a-input__wrapper">
+            <div className={wrapperClasses} onClick={() => this.focusOnInput()}>
               {this.props.multipleSelect && <TagList>
                 {this.state.selection.map(s => {
                   return (

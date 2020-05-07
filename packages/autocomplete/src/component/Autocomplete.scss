@@ -1,13 +1,16 @@
 @import "../../node_modules/@a-ui/core/src/styles/quarks";
 
 .m-autocomplete.is-multiple-select {
-  max-width: 100%;
 
   .a-input__wrapper {
-    min-height: $input-height;
     border: 1px solid $border-color;
     display: flex;
     flex-direction: row;
+
+    &.has-focus {
+      border-color: $input-border-focus;
+      box-shadow: 0 0 0 1px $input-border-focus;
+    }
 
     .o-tag-list {
       display: flex;
@@ -29,7 +32,7 @@
     input {
       border: none !important;
       padding-left: $spacer-xs;
-      min-width: 10em;
+      box-shadow: none !important;
     }
   }
 }
