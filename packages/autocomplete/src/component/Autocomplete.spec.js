@@ -45,5 +45,14 @@ describe('Autocomplete Test', () => {
       });
       expect(component.searchMode.constructor.name).toBe('AsyncSearchMode');
     });
+  });
+
+  describe('Selection', () => {
+    test('selecting item ', () => {
+      component = new Autocomplete({});
+      const spyOnSelect = sinon.stub(component.selectionMode, 'select');
+      component.selectOption({label: 'hi', value: 'hi'});
+      expect(spyOnSelect.calledOnce).toBe(true);
+    })
   })
 });
