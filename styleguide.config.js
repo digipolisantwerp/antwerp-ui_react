@@ -1,14 +1,19 @@
 const path = require('path');
 
 module.exports = {
-  components: 'packages/*/src/!(index).js',
+  components: 'packages/*/src/**/!(index)*.{js,jsx}',
   getExampleFilename(componentPath) {
     const basePath = componentPath.split('src/')[0];
     return basePath + 'Readme.md';
   },
+  ignore: [
+    path.resolve(__dirname, 'packages/**/models/*.js'),
+    path.resolve(__dirname, 'packages/**/types.js'),
+    '**/*.spec.js'
+  ],
   skipComponentsWithoutExample: true,
-  getComponentPathLine(componentPath) {
-    const name = path.basename(componentPath, '.js');
+  getComponentPathLine: (componentPath) => {
+    const name = path.basename(componentPath).replace(/.jsx?$/g, '');
     return `import { ${name} } from '@acpaas-ui/react-components';`;
   },
   editorConfig: {
@@ -17,22 +22,7 @@ module.exports = {
   styleguideDir: 'docs',
   title: 'ACPaaS UI React Components',
   usageMode: 'expand',
-  webpackConfig: {
-    module: {
-      rules: [
-        // Babel loader, will use your project’s .babelrc
-        {
-          test: /\.jsx?$/,
-          exclude: /node_modules/,
-          loader: 'babel-loader'
-        },
-        {
-          test: /\.(s*)css$/,
-          use: ['style-loader', 'css-loader', 'sass-loader']
-        }
-      ]
-    }
-  },
+  webpackConfig: require('./webpack.config'),
   template: {
     favicon: 'https://cdn.antwerpen.be/core_branding_favicons/citizens/favicon.ico',
     lang: 'en',
@@ -40,7 +30,7 @@ module.exports = {
       links: [
         {
           rel: 'stylesheet',
-          href: 'https://cdn.antwerpen.be/core_branding_scss/4.0.0/main.min.css'
+          href: 'https://cdn.antwerpen.be/core_branding_scss/4.1.1/main.min.css'
         }
       ]
     }

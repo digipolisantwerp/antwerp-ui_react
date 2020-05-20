@@ -1,0 +1,38 @@
+@import "../../node_modules/@a-ui/core/src/styles/quarks";
+
+.m-autocomplete.is-multiple-select {
+
+  .a-input__wrapper {
+    border: 1px solid $border-color;
+    display: flex;
+    flex-direction: row;
+
+    &.has-focus {
+      border-color: $input-border-focus;
+      box-shadow: 0 0 0 1px $input-border-focus;
+    }
+
+    .o-tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0;
+
+      .m-tag {
+        &:not(.has-input) {
+          margin: $spacer-xs / 2 0 0 $spacer-xs / 2;
+        }
+
+        &.has-input {
+          height: auto;
+          flex-grow: 1;
+        }
+      }
+    }
+
+    input {
+      border: none !important;
+      padding-left: $spacer-xs;
+      box-shadow: none !important;
+    }
+  }
+}
