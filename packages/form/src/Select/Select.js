@@ -5,7 +5,7 @@ import InputLabel from '../InputLabel';
 import Icon from '../../../icon/src/Icon';
 import Spinner from '../../../spinner/src/Spinner';
 
-type InputTypes = "small" | "normal";
+type InputTypes = "small" | "normal" | "large";
 
 type SelectOption = {
   label: string,
@@ -66,7 +66,7 @@ class Select extends Component<Props> {
       {
         'a-input--inline': !!inline,
         'is-required': !!required,
-        'a-input--small': type === "small",
+        [`a-input--${type}`]: !!type,
       },
       className
     );

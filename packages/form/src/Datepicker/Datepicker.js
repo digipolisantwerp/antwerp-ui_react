@@ -13,7 +13,7 @@ const stateClasses = {
 };
 
 type InputStates = "success" | "warning" | "error";
-type InputTypes = "small" | "normal";
+type InputTypes = "small" | "normal" | "large";
 
 type
   Props = {
@@ -189,7 +189,7 @@ class Datepicker extends Component<Props> {
       {
         'is-required': !!required,
         [`${stateClasses[state]}`]: !!state,
-        'a-input--small': type === "small"
+        [`a-input--${type}`]: !!type,
       }
     );
 

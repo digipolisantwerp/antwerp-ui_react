@@ -11,7 +11,7 @@ export const stateClasses = {
 };
 
 type InputStates = "success" | "warning" | "error";
-type InputTypes = "small" | "normal";
+type InputTypes = "small" | "normal" | "large";
 
 type Props = {
   id?: string,
@@ -64,7 +64,7 @@ class TextField extends Component<Props> {
         'has-icon-left': iconleft,
         'is-required': !!required,
         [`${stateClasses[state]}`]: !!state,
-        'a-input--small': type === "small"
+        [`a-input--${type}`]: !!type,
       }
     );
 
