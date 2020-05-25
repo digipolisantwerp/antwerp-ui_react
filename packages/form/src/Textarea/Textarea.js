@@ -9,6 +9,7 @@ const stateClasses = {
 };
 
 type InputStates = "success" | "warning" | "error";
+type InputTypes = "small" | "normal";
 
 type Props = {
   id?: string,
@@ -23,6 +24,7 @@ type Props = {
   onChange?: (e: object) => void,
   onBlur?: (e: object) => void,
   state?: InputStates,
+  type?: InputTypes,
   /** Qa id */
   qa?: string,
 };
@@ -42,6 +44,7 @@ const Textarea = (props: Props) => {
     onBlur,
     state,
     qa,
+    type
   } = props;
 
   const textareaClass = classNames(
@@ -49,6 +52,7 @@ const Textarea = (props: Props) => {
     {
       'is-required': !!required,
       [`${stateClasses[state]}`]: !!state,
+      'a-input--small': type === "small"
     },
     className,
   );

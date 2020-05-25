@@ -90,6 +90,21 @@ const TextField = require('./src').TextField;
   disabled />
 ```
 
+The text field can be small using the `style` prop
+```
+const TextField = require('./src').TextField;
+
+<TextField
+  label={"Name"}
+  id={"textfield-id-6"}
+  name={"textfield-name"}
+  className={"textfield-class"}
+  required={true}
+  placeholder={"Your name"}
+  onChange={(value) => console.log('textfield value is:', value)}
+  type="small" />
+```
+
 ### Textarea
 ```
 const Textarea = require('./src').Textarea;
@@ -115,6 +130,21 @@ const Textarea = require('./src').Textarea;
   required={true}
   placeholder={"Give a description"}
   disabled
+  onChange={(value) => console.log('textarea value is:', value)} />
+```
+
+Small variant:
+```
+const Textarea = require('./src').Textarea;
+
+<Textarea
+  label={"Description"}
+  id={"textarea-2"}
+  name={"textarea-name"}
+  className={"textarea-class"}
+  required={true}
+  placeholder={"Give a description"}
+  type="small"
   onChange={(value) => console.log('textarea value is:', value)} />
 ```
 
@@ -229,6 +259,48 @@ const optionsDistrict = [
 </div>
 ```
 
+Small variant:
+```
+const Select = require('./src').Select;
+const optionsDistrict = [
+  {
+    key: '0',
+    value: '2100 Deurne',
+    label: '2100 Deurne',
+  },
+  {
+    key: '1',
+    value: '2030 Antwerpen',
+    label: '2030 Antwerpen',
+  },
+  {
+    key: '2',
+    value: '2200 Merksem',
+    label: '2200 Merksem',
+  },
+  {
+    key: '3',
+    value: '2040 Brasschaat',
+    label: '2040 Brasschaat',
+  }
+];
+
+<div>
+  <Select label="District"
+    id={"select-1"}
+    label={"Districts"}
+    name={"select-name"}
+    className={"select-class"}
+    required={true}
+    inline={false}
+    placeholder={"Choose a district"}
+    options={optionsDistrict}
+    type="small"
+    onChange={(value) => console.log('select value is:', value)}
+  />
+</div>
+```
+
 
 ### Datepicker
 
@@ -261,5 +333,21 @@ const Datepicker = require('./src').Datepicker;
     readOnly={true}
   />
 </div>
+
+```
+
+Small variant
+```
+const Datepicker = require('./src').Datepicker;
+
+<Datepicker
+  type="small"
+  locale={"en"}
+  id={"datepicker-id-2"}
+  name={"datepicker-name"}
+  label={"Datepicker without input mask and small"}
+  format={"DD/MM/YYYY"}
+  readOnly={true}
+/>
 
 ```
