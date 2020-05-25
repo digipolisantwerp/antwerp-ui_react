@@ -5,7 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
-
+- Added small variants to input fields
 
 ## v4.1.0
 
