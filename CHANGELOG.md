@@ -7,16 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ## [Unreleased]
 
 
-## v4.1.0
+## v4.2.0 - 25-05-2020
+
+### Added
+- `Autocomplete` Added an option for multiple selection
+
+
+## v4.1.0 - 28-04-2020
 
 ### Changed
-- Allow for passing a reactive handler to the checkbox input
+- `Form/Checkbox` Allow for passing a reactive handler to the checkbox input
 
 ### Fixed
-- Fixed modal styling issues
+- `Modal` Fixed modal styling issues
 
 
-## v4.0.0
+## v4.0.0 - 04-02-2020
 
 ### Added
 - `Icon` [BREAKING] Changed all `<i>` references to `<span>`
