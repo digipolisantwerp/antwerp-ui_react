@@ -5,7 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
-- Added small variants to input fields
+
+
+## v4.3.0 - 02-06-2020
+
+### Added
+- `Form` Added small and large variants to form fields
+
 
 ## v4.2.0 - 25-05-2020
 
