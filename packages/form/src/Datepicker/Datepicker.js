@@ -13,6 +13,7 @@ const stateClasses = {
 };
 
 type InputStates = "success" | "warning" | "error";
+type InputTypes = "small" | "normal" | "large";
 
 type
   Props = {
@@ -58,6 +59,8 @@ type
   onBlur?: (e: object) => void,
   /** Qa id */
   qa?: string,
+  /** Input type */
+  type?: InputTypes,
 };
 
 class Datepicker extends Component<Props> {
@@ -171,6 +174,7 @@ class Datepicker extends Component<Props> {
       noWeekends,
       onBlur,
       qa,
+      type,
     } = this.props;
 
     const {
@@ -185,6 +189,7 @@ class Datepicker extends Component<Props> {
       {
         'is-required': !!required,
         [`${stateClasses[state]}`]: !!state,
+        [`a-input--${type}`]: !!type,
       }
     );
 

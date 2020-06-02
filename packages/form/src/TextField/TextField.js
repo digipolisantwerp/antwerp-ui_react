@@ -11,6 +11,7 @@ export const stateClasses = {
 };
 
 type InputStates = "success" | "warning" | "error";
+type InputTypes = "small" | "normal" | "large";
 
 type Props = {
   id?: string,
@@ -31,6 +32,7 @@ type Props = {
   iconright?: string,
   iconleft?: string,
   loading?: boolean,
+  type?: InputTypes;
   /** Qa id */
   qa?: string,
   inputRef?: (ref: React.Ref) => void;
@@ -50,6 +52,7 @@ class TextField extends Component<Props> {
       iconright,
       iconleft,
       qa,
+      type,
     } = this.props;
 
     const {loading, ...extraProps} = this.props;
@@ -61,6 +64,7 @@ class TextField extends Component<Props> {
         'has-icon-left': iconleft,
         'is-required': !!required,
         [`${stateClasses[state]}`]: !!state,
+        [`a-input--${type}`]: !!type,
       }
     );
 

@@ -5,6 +5,8 @@ import InputLabel from '../InputLabel';
 import Icon from '../../../icon/src/Icon';
 import Spinner from '../../../spinner/src/Spinner';
 
+type InputTypes = "small" | "normal" | "large";
+
 type SelectOption = {
   label: string,
   value: string,
@@ -24,6 +26,7 @@ type Props = {
   options?: Array<SelectOption>,
   onChange?: (e: object) => void,
   value?: string,
+  type?: InputTypes,
   /** Qa id */
   qa?: string,
 };
@@ -54,13 +57,16 @@ class Select extends Component<Props> {
       value,
       loading,
       qa,
+      type,
     } = this.props;
+
     const selectClass = classNames(
       'a-input',
       'has-icon-right',
       {
         'a-input--inline': !!inline,
         'is-required': !!required,
+        [`a-input--${type}`]: !!type,
       },
       className
     );
