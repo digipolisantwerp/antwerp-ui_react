@@ -51,8 +51,19 @@ describe('Autocomplete Test', () => {
     test('selecting item ', () => {
       component = new Autocomplete({});
       const spyOnSelect = sinon.stub(component.selectionMode, 'select');
-      component.selectOption({label: 'hi', value: 'hi'});
+      component.selectOption({ label: 'hi', value: 'hi' });
       expect(spyOnSelect.calledOnce).toBe(true);
+    })
+    test('should add selected item to already selected items passed by props', () => {
+      component = new Autocomplete({
+        multipleSelect: true,
+        selection: [{ label: 'hello', value: 'hello' }]
+      });
+      component.selectOption({ label: 'hi', value: 'hi' });
+      expect(component.state.selection).toEqual([
+        { label: 'hello', value: 'hello' },
+        { label: 'hi', value: 'hi' }
+      ]);
     })
   })
 });

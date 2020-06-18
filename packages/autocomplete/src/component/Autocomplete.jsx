@@ -28,6 +28,7 @@ type Props = {
   open?: boolean;
   label: string;
   id: string;
+  selection?: Array<Item>;
   defaultValue?: string;
   noResults?: string;
   onSelection?: (selection: Item | Array<Item>) => void;
@@ -58,7 +59,7 @@ class Autocomplete extends Component<Props, IState> {
     open: this.props.open || false,
     results: this.props.items || [],
     cursor: 0,
-    selection: [],
+    selection: this.props.selection || [],
     defaultValue: this.props.defaultValue || ''
   }
 

@@ -198,6 +198,35 @@ The prop `multipleSelect` can be used to allow multi selecting items.
 </Autocomplete>
 ```
 
+The prop `selection` can be used to show selected items when the component gets loaded.
+```
+<Autocomplete
+  items={[
+    { label: "Antwerpen", value: "antwerpen"},
+    { label: "Gent", value: "gent"},
+    { label: "Brussel", value: "brussel"},
+    { label: "Brugge", value: "brugge"},
+    { label: "Hasselt", value: "hasselt"},
+    { label: "Luik", value: "luik"},
+    { label: "Oostende", value: "oostende"},
+    { label: "Namen", value: "namen"},
+    { label: "Mechelen", value: "mechelen"},
+    { label: "Sint-Niklaas", value: "sint-niklaas"},
+    { label: "Aalst", value: "aalst"},
+    { label: "Genk", value: "genk"}
+  ]}
+  selection={[
+    { label: "Aalst", value: "aalst"},
+    { label: "Genk", value: "genk"}
+  ]}
+  id="autocomplete-2"
+  multipleSelect="true"
+  onSelection={(selected) => {console.log(`Selected ${selected}`)}}
+  onChange={(value) => {console.log(`Typed ${value}`)}}
+  label="Select a city">
+</Autocomplete>
+```
+
 The prop `asyncItems` can be used to lazy load the select items.
 ```
 const items=[
