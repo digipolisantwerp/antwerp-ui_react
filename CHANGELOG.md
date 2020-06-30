@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+- `Autocomplete` Support for defaultValue
+
 
 ## v4.3.0 - 02-06-2020
 
