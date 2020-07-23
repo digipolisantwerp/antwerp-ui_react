@@ -6,6 +6,8 @@ export interface ISelectionMode {
   unselect(item: Item): void;
 
   getSelection(): Array<Item>;
+
+  handleDefaultValue(defaultValue: string): void;
 }
 
 export interface ISearchMode {

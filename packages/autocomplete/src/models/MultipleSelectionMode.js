@@ -8,6 +8,23 @@ export class MultipleSelectionMode implements ISelectionMode {
     this.component = component;
   }
 
+  handleDefaultValue(defaultValues: Array): void {
+    if (!defaultValues || !Array.isArray(defaultValues)) {
+      return;
+    }
+
+    const selection = defaultValues.map((defaultValue) => (this.component.state.results || []).find((result) => result.value === defaultValue));
+
+    if (!selection || !Array.isArray(selection) || selection.length === 0) {
+      return;
+    }
+
+    this.component.setState({
+      selection
+    });
+    this.component.inputField.value = '';
+  }
+
   select(item: Item): void {
     if (this.component.state.selection.findIndex(s => s.value === item.value) > -1)
       return;

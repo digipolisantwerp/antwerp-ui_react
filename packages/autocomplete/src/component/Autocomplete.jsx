@@ -82,6 +82,7 @@ class Autocomplete extends Component<Props, IState> {
         this.search(value);
       })
     );
+
     const handleArrowKeys$ = fromEvent(this.inputField, 'keyup').pipe(
       filter(e => ARROW_KEYS.some(k => e.key === k)),
       takeUntil(this.destroy$),
@@ -110,6 +111,7 @@ class Autocomplete extends Component<Props, IState> {
     );
 
     // Start the show!
+    this.selectionMode.handleDefaultValue(this.props.defaultValue)
     handleArrowKeys$.subscribe();
     change$.subscribe();
   }
