@@ -306,6 +306,15 @@ Leave out the `onNewEntry` prop to create items with the same value and key as s
   onChange={(value) => {console.log(`Typed ${value}`)}}
   label="Select a city">
 </Autocomplete>
+<Autocomplete
+  items={[]}
+  id="autocomplete-5"
+  multipleSelect="true"
+  allowNewEntry={true}
+  onSelection={(selected) => {console.log(`Selected ${selected}`)}}
+  onChange={(value) => {console.log(`Typed ${value}`)}}
+  label="Select a city">
+</Autocomplete>
 
 <Autocomplete
   items={[

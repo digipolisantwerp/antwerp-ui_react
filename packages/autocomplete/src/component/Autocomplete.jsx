@@ -270,7 +270,7 @@ class Autocomplete extends Component<Props, IState> {
             </div>
           </div>
           <FlyoutContent hasPadding={false}>
-            {(results.length === 0 && !allowNewEntry) ? (
+            {(results.length === 0 && !allowNewEntry) || (results.length === 0 && allowNewEntry && (this.inputField && !this.inputField.value)) ? (
               <p className="u-margin-xs u-text-light u-text-center">{noResults || "No Results"}</p>
             ) : (
               <ul className="m-selectable-list m-selectable-list--no-border">
