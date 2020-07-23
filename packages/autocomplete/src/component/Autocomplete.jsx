@@ -58,8 +58,8 @@ class Autocomplete extends Component<Props, IState> {
     open: this.props.open || false,
     results: this.props.items || [],
     cursor: 0,
-    selection: this.props.multipleSelect && Array.isArray(this.props.defaultValue) ? this.props.defaultValue.map((value) => (this.props.items || []).find(item => item.value === value)) : [],
-    defaultValue: !this.props.multipleSelect && this.props.defaultValue || ''
+    selection: [],
+    defaultValue: this.props.defaultValue || ''
   }
 
   inputField: HTMLInputElement;
