@@ -75,7 +75,7 @@ class Autocomplete extends Component<Props, IState> {
   destroy$ = new Subject();
 
   componentDidMount() {
-    const change$ = fromEvent(this.inputField, 'keyup').pipe(
+    const change$ = fromEvent(this.inputField, 'keydown').pipe(
       takeUntil(this.destroy$),
       filter(e => !ARROW_KEYS.some(k => k === e.key)),
       map(() => this.inputField.value),
@@ -89,10 +89,11 @@ class Autocomplete extends Component<Props, IState> {
       })
     );
 
-    const handleArrowKeys$ = fromEvent(this.inputField, 'keyup').pipe(
+    const handleArrowKeys$ = fromEvent(this.inputField, 'keydown').pipe(
       filter(e => ARROW_KEYS.some(k => e.key === k)),
       takeUntil(this.destroy$),
       tap(e => {
+        e.preventDefault();
         const {results, cursor} = this.state
         if (e.key === "ArrowDown" && cursor < results.length - 1) {
           this.setState({
