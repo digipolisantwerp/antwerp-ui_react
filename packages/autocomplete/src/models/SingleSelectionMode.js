@@ -19,7 +19,9 @@ export class SingleSelectionMode implements ISelectionMode {
       return;
     }
 
-    this.component.inputField.value = item.label;
+    if (this.component.inputField) {
+      this.component.inputField.value = item.label;
+    }
   }
 
   select(item: Item): void {

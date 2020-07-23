@@ -18,6 +18,14 @@ describe('Multiple Selection Mode', () => {
     mode.select({label: "A", value: "a"});
     expect(component.setState.withArgs({selection: [{label: "A", value: 'a'}]}).calledOnce).toBe(true);
   });
+
+  test('handle defaultValue', () => {
+    beforeEach();
+    component.state.results = [{label: "A", value: 'a'}]
+    mode.handleDefaultValue(['a']);
+    expect(component.setState.withArgs({selection: [{label: "A", value: 'a'}]}).calledOnce).toBe(true);
+  });
+
   test('select item with filled selection', () => {
     beforeEach();
     component.state = {selection: [{label: 'A', value: 'a'}]};
@@ -32,11 +40,13 @@ describe('Multiple Selection Mode', () => {
       }]
     }).calledOnce).toBe(true);
   });
+
   test('unselect item with empty selection', () => {
     beforeEach();
     mode.unselect({label: 'A', value: 'a'});
     expect(component.setState.called).toBe(false);
   });
+
   test('unselect item with filled selection', () => {
     beforeEach();
     component.state = {selection: [{label: 'A', value: 'a'}, {label: 'B', value: 'b'}]};

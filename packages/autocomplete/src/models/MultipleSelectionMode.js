@@ -22,7 +22,11 @@ export class MultipleSelectionMode implements ISelectionMode {
     this.component.setState({
       selection
     });
-    this.component.inputField.value = '';
+
+
+    if (this.component.inputField) {
+      this.component.inputField.value = ''
+    }
   }
 
   select(item: Item): void {
