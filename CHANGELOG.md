@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Fixed
 - `Autocomplete` Put back the mapping on defaultValue -> Labels
+- `Autocomplete` Support for defaultValue
 
 
 ## v4.3.0 - 02-06-2020

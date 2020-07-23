@@ -224,7 +224,6 @@ The prop `defaultValue` can also be used with the multipleSelect variant
 </Autocomplete>
 ```
 
-
 The prop `asyncItems` can be used to lazy load the select items.
 ```
 const items=[
