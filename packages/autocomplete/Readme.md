@@ -302,7 +302,6 @@ Leave out the `onNewEntry` prop to create items with the same value and key as s
   multipleSelect="true"
   defaultValue={["luik", "oostende", "namen"]}
   allowNewEntry={true}
-  onNewEntry={(label) => { console.log('Handle new value', label); return { label, value: label } }}
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
   label="Select a city">

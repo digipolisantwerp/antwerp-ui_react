@@ -47,6 +47,7 @@ type Props = {
    * Allows the user to create their own values on the fly
    */
   allowNewEntry?: boolean;
+  newEntryText?: string;
   onNewEntry?: (label: string) => Promise<Item>;
 };
 
@@ -213,7 +214,7 @@ class Autocomplete extends Component<Props, IState> {
   }
 
   render() {
-    const {noResults, loading, state, qa, allowNewEntry} = this.props;
+    const {noResults, loading, state, qa, allowNewEntry, newEntryText} = this.props;
     const {results, open, isLoading} = this.state;
 
     const flyoutClasses = classNames(
@@ -277,7 +278,7 @@ class Autocomplete extends Component<Props, IState> {
                   <li className={newEntryClasses} onClick={() => this.handleNewEntry(this.inputField.value)} ref={(item) => {
                     this['item_' + 0] = item
                   }}>
-                    Create new entry "{this.inputField.value}"
+                    {newEntryText || "Create new entry for:"} {this.inputField.value}
                   </li>
                 )}
                 {results.map((item, index) => this.renderItems(item, index + 1))}
