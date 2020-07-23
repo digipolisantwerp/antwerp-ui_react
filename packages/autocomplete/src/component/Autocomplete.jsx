@@ -43,6 +43,11 @@ type Props = {
    * listing them as tags in the control.
    */
   multipleSelect?: boolean;
+  /**
+   * Allows the user to create their own values on the fly
+   */
+  allowNewEntry?: boolean;
+  onNewEntry?: (label: string) => Promise<Item>;
 };
 
 type IState = {
@@ -105,7 +110,11 @@ class Autocomplete extends Component<Props, IState> {
           });
         }
         if (e.key === "Enter") {
-          this.selectOption(results[cursor])
+          if (cursor === 0) {
+            this.handleNewEntry(this.inputField.value)
+          }
+
+          this.selectOption(results[cursor - 1])
         }
       })
     );
@@ -134,9 +143,20 @@ class Autocomplete extends Component<Props, IState> {
     this.searchMode.search(value).then((results: Array<Item>) => {
       this.setState({
         results,
-        cursor: 0
+        cursor: this.props.allowNewEntry ? 0 : 1
       });
     });
+  }
+
+  handleNewEntry = (label: string): void => {
+    if (!this.props.onNewEntry) {
+      return this.selectionMode.select({ label, value: label });
+    }
+
+    this.props.onNewEntry(label)
+      .then((newItem) => {
+        this.selectionMode.select(newItem);
+      });
   }
 
   scrollToItem = () => {
@@ -193,7 +213,7 @@ class Autocomplete extends Component<Props, IState> {
   }
 
   render() {
-    const {noResults, loading, state, qa} = this.props;
+    const {noResults, loading, state, qa, allowNewEntry} = this.props;
     const {results, open, isLoading} = this.state;
 
     const flyoutClasses = classNames(
@@ -222,6 +242,11 @@ class Autocomplete extends Component<Props, IState> {
       }
     )
 
+    const newEntryClasses = classNames({
+      'm-selectable-list__item': true,
+      'm-selectable-list__item--active': this.state.cursor === 0
+    });
+
     return (
       <div>
         <div className={flyoutClasses}>
@@ -244,11 +269,18 @@ class Autocomplete extends Component<Props, IState> {
             </div>
           </div>
           <FlyoutContent hasPadding={false}>
-            {results.length === 0 ? (
+            {(results.length === 0 && !allowNewEntry) ? (
               <p className="u-margin-xs u-text-light u-text-center">{noResults || "No Results"}</p>
             ) : (
               <ul className="m-selectable-list m-selectable-list--no-border">
-                {results.map((item, index) => this.renderItems(item, index))}
+                {allowNewEntry && this.inputField && this.inputField.value && (
+                  <li className={newEntryClasses} onClick={() => this.handleNewEntry(this.inputField.value)} ref={(item) => {
+                    this['item_' + 0] = item
+                  }}>
+                    Create new entry "{this.inputField.value}"
+                  </li>
+                )}
+                {results.map((item, index) => this.renderItems(item, index + 1))}
               </ul>
             )}
           </FlyoutContent>

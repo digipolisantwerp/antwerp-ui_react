@@ -224,6 +224,114 @@ The prop `defaultValue` can also be used with the multipleSelect variant
 </Autocomplete>
 ```
 
+The prop `allowNewEntry` & `onNewEntry` is used for allowing new entries to be created on the fly
+```
+<Autocomplete
+  items={[
+    { label: "Antwerpen", value: "antwerpen"},
+    { label: "Gent", value: "gent"},
+    { label: "Brussel", value: "brussel"},
+    { label: "Brugge", value: "brugge"},
+    { label: "Hasselt", value: "hasselt"},
+    { label: "Luik", value: "luik"},
+    { label: "Oostende", value: "oostende"},
+    { label: "Namen", value: "namen"},
+    { label: "Mechelen", value: "mechelen"},
+    { label: "Sint-Niklaas", value: "sint-niklaas"},
+    { label: "Aalst", value: "aalst"},
+    { label: "Genk", value: "genk"}
+  ]}
+  id="autocomplete-5"
+  multipleSelect="true"
+  defaultValue={["luik", "oostende", "namen"]}
+  allowNewEntry={true}
+  onNewEntry={(label) => new Promise((resolve, reject) => {
+    console.log('Handle new value', label);
+    resolve({ label, value: label.toLowerCase() });
+  })}
+  onSelection={(selected) => {console.log(`Selected ${selected}`)}}
+  onChange={(value) => {console.log(`Typed ${value}`)}}
+  label="Select a city">
+</Autocomplete>
+<Autocomplete
+  items={[
+    { label: "Antwerpen", value: "antwerpen"},
+    { label: "Gent", value: "gent"},
+    { label: "Brussel", value: "brussel"},
+    { label: "Brugge", value: "brugge"},
+    { label: "Hasselt", value: "hasselt"},
+    { label: "Luik", value: "luik"},
+    { label: "Oostende", value: "oostende"},
+    { label: "Namen", value: "namen"},
+    { label: "Mechelen", value: "mechelen"},
+    { label: "Sint-Niklaas", value: "sint-niklaas"},
+    { label: "Aalst", value: "aalst"},
+    { label: "Genk", value: "genk"}
+  ]}
+  id="autocomplete-9"
+  defaultValue="mechelen"
+  allowNewEntry={true}
+  onNewEntry={(label) => new Promise((resolve, reject) => {
+    console.log('Handle new value', label);
+    resolve({ label, value: label.toLowerCase() });
+  })}
+  onSelection={(selected) => {console.log(`Selected ${selected}`)}}
+  onChange={(value) => {console.log(`Typed ${value}`)}}
+  label="Select a city">
+</Autocomplete>
+```
+
+Leave out the `onNewEntry` prop to create items with the same value and key as selected
+```
+<Autocomplete
+  items={[
+    { label: "Antwerpen", value: "antwerpen"},
+    { label: "Gent", value: "gent"},
+    { label: "Brussel", value: "brussel"},
+    { label: "Brugge", value: "brugge"},
+    { label: "Hasselt", value: "hasselt"},
+    { label: "Luik", value: "luik"},
+    { label: "Oostende", value: "oostende"},
+    { label: "Namen", value: "namen"},
+    { label: "Mechelen", value: "mechelen"},
+    { label: "Sint-Niklaas", value: "sint-niklaas"},
+    { label: "Aalst", value: "aalst"},
+    { label: "Genk", value: "genk"}
+  ]}
+  id="autocomplete-5"
+  multipleSelect="true"
+  defaultValue={["luik", "oostende", "namen"]}
+  allowNewEntry={true}
+  onNewEntry={(label) => { console.log('Handle new value', label); return { label, value: label } }}
+  onSelection={(selected) => {console.log(`Selected ${selected}`)}}
+  onChange={(value) => {console.log(`Typed ${value}`)}}
+  label="Select a city">
+</Autocomplete>
+
+<Autocomplete
+  items={[
+    { label: "Antwerpen", value: "antwerpen"},
+    { label: "Gent", value: "gent"},
+    { label: "Brussel", value: "brussel"},
+    { label: "Brugge", value: "brugge"},
+    { label: "Hasselt", value: "hasselt"},
+    { label: "Luik", value: "luik"},
+    { label: "Oostende", value: "oostende"},
+    { label: "Namen", value: "namen"},
+    { label: "Mechelen", value: "mechelen"},
+    { label: "Sint-Niklaas", value: "sint-niklaas"},
+    { label: "Aalst", value: "aalst"},
+    { label: "Genk", value: "genk"}
+  ]}
+  id="autocomplete-9"
+  defaultValue="mechelen"
+  allowNewEntry={true}
+  onSelection={(selected) => {console.log(`Selected ${selected}`)}}
+  onChange={(value) => {console.log(`Typed ${value}`)}}
+  label="Select a city">
+</Autocomplete>
+```
+
 The prop `asyncItems` can be used to lazy load the select items.
 ```
 const items=[
