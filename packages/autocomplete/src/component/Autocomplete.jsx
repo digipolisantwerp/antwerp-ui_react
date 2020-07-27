@@ -150,7 +150,7 @@ class Autocomplete extends Component<Props, IState> {
     });
   }
 
-  handleNewEntry = (label: string): void => {
+  handleNewEntry(label: string): void {
     if (!this.props.onNewEntry) {
       return this.selectionMode.select({ label, value: label });
     }
