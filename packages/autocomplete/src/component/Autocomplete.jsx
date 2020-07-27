@@ -48,7 +48,7 @@ type Props = {
    */
   allowNewEntry?: boolean;
   newEntryText?: string;
-  onNewEntry?: (label: string) => Promise<Item>;
+  onNewEntry?: (label: string, callback: Function) => Promise<Item>;
 };
 
 type IState = {
@@ -155,10 +155,9 @@ class Autocomplete extends Component<Props, IState> {
       return this.selectionMode.select({ label, value: label });
     }
 
-    this.props.onNewEntry(label)
-      .then((newItem) => {
-        this.selectionMode.select(newItem);
-      });
+    this.props.onNewEntry(label, (newItem) => {
+      this.selectionMode.select(newItem);
+    })
   }
 
   scrollToItem = () => {

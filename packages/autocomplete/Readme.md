@@ -245,10 +245,10 @@ The prop `allowNewEntry` & `onNewEntry` is used for allowing new entries to be c
   multipleSelect="true"
   defaultValue={["luik", "oostende", "namen"]}
   allowNewEntry={true}
-  onNewEntry={(label) => new Promise((resolve, reject) => {
+  onNewEntry={(label, callback) => {
     console.log('Handle new value', label);
-    resolve({ label, value: label.toLowerCase() });
-  })}
+    callback({ label, value: label.toLowerCase() });
+  }}
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
   label="Select a city">
