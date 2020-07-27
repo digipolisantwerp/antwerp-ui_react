@@ -28,7 +28,7 @@ type Props = {
   open?: boolean;
   label: string;
   id: string;
-  defaultValue?: string;
+  defaultValue?: string | string[];
   noResults?: string;
   onSelection?: (selection: Item | Array<Item>) => void;
   onChange?: Function;
@@ -43,6 +43,12 @@ type Props = {
    * listing them as tags in the control.
    */
   multipleSelect?: boolean;
+  /**
+   * Allows the user to create their own values on the fly
+   */
+  allowNewEntry?: boolean;
+  newEntryText?: string;
+  onNewEntry?: (label: string, callback: Function) => Promise<Item>;
 };
 
 type IState = {
@@ -69,7 +75,7 @@ class Autocomplete extends Component<Props, IState> {
   destroy$ = new Subject();
 
   componentDidMount() {
-    const change$ = fromEvent(this.inputField, 'keyup').pipe(
+    const change$ = fromEvent(this.inputField, 'keydown').pipe(
       takeUntil(this.destroy$),
       filter(e => !ARROW_KEYS.some(k => k === e.key)),
       map(() => this.inputField.value),
@@ -82,10 +88,12 @@ class Autocomplete extends Component<Props, IState> {
         this.search(value);
       })
     );
-    const handleArrowKeys$ = fromEvent(this.inputField, 'keyup').pipe(
+
+    const handleArrowKeys$ = fromEvent(this.inputField, 'keydown').pipe(
       filter(e => ARROW_KEYS.some(k => e.key === k)),
       takeUntil(this.destroy$),
       tap(e => {
+        e.preventDefault();
         const {results, cursor} = this.state
         if (e.key === "ArrowDown" && cursor < results.length - 1) {
           this.setState({
@@ -104,12 +112,17 @@ class Autocomplete extends Component<Props, IState> {
           });
         }
         if (e.key === "Enter") {
-          this.selectOption(results[cursor])
+          if (cursor === 0) {
+            this.handleNewEntry(this.inputField.value)
+          }
+
+          this.selectOption(results[cursor - 1])
         }
       })
     );
 
     // Start the show!
+    this.selectionMode.handleDefaultValue(this.props.defaultValue)
     handleArrowKeys$.subscribe();
     change$.subscribe();
   }
@@ -132,9 +145,19 @@ class Autocomplete extends Component<Props, IState> {
     this.searchMode.search(value).then((results: Array<Item>) => {
       this.setState({
         results,
-        cursor: 0
+        cursor: this.props.allowNewEntry ? 0 : 1
       });
     });
+  }
+
+  handleNewEntry(label: string): void {
+    if (!this.props.onNewEntry) {
+      return this.selectionMode.select({ label, value: label });
+    }
+
+    this.props.onNewEntry(label, (newItem) => {
+      this.selectionMode.select(newItem);
+    })
   }
 
   scrollToItem = () => {
@@ -191,7 +214,7 @@ class Autocomplete extends Component<Props, IState> {
   }
 
   render() {
-    const {noResults, loading, state, qa} = this.props;
+    const {noResults, loading, state, qa, allowNewEntry, newEntryText} = this.props;
     const {results, open, isLoading} = this.state;
 
     const flyoutClasses = classNames(
@@ -220,6 +243,11 @@ class Autocomplete extends Component<Props, IState> {
       }
     )
 
+    const newEntryClasses = classNames({
+      'm-selectable-list__item': true,
+      'm-selectable-list__item--active': this.state.cursor === 0
+    });
+
     return (
       <div>
         <div className={flyoutClasses}>
@@ -242,11 +270,18 @@ class Autocomplete extends Component<Props, IState> {
             </div>
           </div>
           <FlyoutContent hasPadding={false}>
-            {results.length === 0 ? (
+            {(results.length === 0 && !allowNewEntry) || (results.length === 0 && allowNewEntry && (this.inputField && !this.inputField.value)) ? (
               <p className="u-margin-xs u-text-light u-text-center">{noResults || "No Results"}</p>
             ) : (
               <ul className="m-selectable-list m-selectable-list--no-border">
-                {results.map((item, index) => this.renderItems(item, index))}
+                {allowNewEntry && this.inputField && this.inputField.value && (
+                  <li className={newEntryClasses} onClick={() => this.handleNewEntry(this.inputField.value)} ref={(item) => {
+                    this['item_' + 0] = item
+                  }}>
+                    {newEntryText || "Create new entry for:"} {this.inputField.value}
+                  </li>
+                )}
+                {results.map((item, index) => this.renderItems(item, index + 1))}
               </ul>
             )}
           </FlyoutContent>
