@@ -9,8 +9,12 @@ export class MultipleSelectionMode implements ISelectionMode {
   }
 
   handleDefaultValue(defaultValues: Array<String>): void {
-    if (!defaultValues || !Array.isArray(defaultValues)) {
+    if (!defaultValues) {
       return;
+    }
+
+    if (!Array.isArray(defaultValues)) {
+      defaultValues = [defaultValues];
     }
 
     const selection = defaultValues.map((defaultValue) => (this.component.state.results || []).find((result) => result.value === defaultValue));

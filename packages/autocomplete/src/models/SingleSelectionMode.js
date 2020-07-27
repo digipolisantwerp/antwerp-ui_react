@@ -14,7 +14,7 @@ export class SingleSelectionMode implements ISelectionMode {
       return;
     }
 
-    const item = (this.component.state.results || []).find((result) => result.value === defaultValue);
+    const item = (this.component.state.results || []).find((result) => result.value === defaultValue[0] || defaultValue);
     if (!item) {
       return;
     }

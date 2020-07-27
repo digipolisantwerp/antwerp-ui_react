@@ -26,6 +26,13 @@ describe('Multiple Selection Mode', () => {
     expect(component.setState.withArgs({selection: [{label: "A", value: 'a'}]}).calledOnce).toBe(true);
   });
 
+  test('handle wrong defaultValue', () => {
+    beforeEach();
+    component.state.results = [{label: "A", value: 'a'}]
+    mode.handleDefaultValue('a');
+    expect(component.setState.withArgs({selection: [{label: "A", value: 'a'}]}).calledOnce).toBe(true);
+  });
+
   test('select item with filled selection', () => {
     beforeEach();
     component.state = {selection: [{label: 'A', value: 'a'}]};
