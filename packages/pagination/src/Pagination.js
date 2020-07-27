@@ -14,17 +14,17 @@ type Props = {
   /** Callback when a page, next or previouse button is clicked. Passes the selected page. */
   onUpdate: Function,
   /**  m-pagination--large, m-pagination--small, m-pagination--outline or sensible combination of these. */
-  styling?: String,
+  styling?: string,
   /** Display as text or as numbers */
   display?: 'text' | 'numbers',
   /** ariaLabel for navigation component, default to 'Paginering'. */
-  ariaLabel?: String,
+  ariaLabel?: string,
   /** ariaLabel for next page, default to 'Volgende pagina'. */
-  ariaLabelNextPage?: String,
+  ariaLabelNextPage?: string,
   /** ariaLabel for previous page, default to 'Vorige pagina'. */
-  ariaLabelPreviousPage?: String,
+  ariaLabelPreviousPage?: string,
   /** ariaLabel for current page, default to 'Pagina'. */
-  ariaLabelPage?: String,
+  ariaLabelPage?: string,
   /** Qa id */
   qa?: string,
 };
