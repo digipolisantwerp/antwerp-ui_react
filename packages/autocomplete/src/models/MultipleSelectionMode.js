@@ -25,7 +25,7 @@ export class MultipleSelectionMode implements ISelectionMode {
 
 
     if (this.component.inputField) {
-      this.component.inputField.value = ''
+      this.component.inputField.value = '';
     }
   }
 
