@@ -8,7 +8,7 @@ export class MultipleSelectionMode implements ISelectionMode {
     this.component = component;
   }
 
-  handleDefaultValue(defaultValues: Array<String> | String): void {
+  handleDefaultValue(defaultValues: Array<string> | string): void {
     if (!defaultValues) {
       return;
     }
