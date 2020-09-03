@@ -80,8 +80,8 @@ class Autocomplete extends Component<Props, IState> {
     const change$ = fromEvent(this.inputField, 'keydown').pipe(
       takeUntil(this.destroy$),
       filter(e => !ARROW_KEYS.some(k => k === e.key)),
-      map(() => this.inputField.value),
       debounceTime(200),
+      map(() => this.inputField.value),
       tap(value => {
         if (!this.state.open && value && value.length > 0) {
           this.openPane();
@@ -139,7 +139,7 @@ class Autocomplete extends Component<Props, IState> {
     this.setState({
       open: true
     });
-    this.search('');
+    this.search(this.inputField.value);
   }
 
 

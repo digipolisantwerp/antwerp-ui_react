@@ -190,7 +190,7 @@ The prop `multipleSelect` can be used to allow multi selecting items.
     { label: "Aalst", value: "aalst"},
     { label: "Genk", value: "genk"}
   ]}
-  id="autocomplete-2"
+  id="autocomplete-8"
   multipleSelect="true"
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
@@ -215,7 +215,7 @@ The prop `defaultValue` can also be used with the multipleSelect variant
     { label: "Aalst", value: "aalst"},
     { label: "Genk", value: "genk"}
   ]}
-  id="autocomplete-2"
+  id="autocomplete-9"
   multipleSelect="true"
   defaultValue={["luik", "oostende", "namen"]}
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
@@ -241,7 +241,7 @@ The prop `allowNewEntry` & `onNewEntry` is used for allowing new entries to be c
     { label: "Aalst", value: "aalst"},
     { label: "Genk", value: "genk"}
   ]}
-  id="autocomplete-5"
+  id="autocomplete-10"
   multipleSelect="true"
   defaultValue={["luik", "oostende", "namen"]}
   allowNewEntry={true}
@@ -268,7 +268,7 @@ The prop `allowNewEntry` & `onNewEntry` is used for allowing new entries to be c
     { label: "Aalst", value: "aalst"},
     { label: "Genk", value: "genk"}
   ]}
-  id="autocomplete-9"
+  id="autocomplete-11"
   defaultValue="mechelen"
   allowNewEntry={true}
   onNewEntry={(label) => new Promise((resolve, reject) => {
@@ -298,7 +298,7 @@ Leave out the `onNewEntry` prop to create items with the same value and key as s
     { label: "Aalst", value: "aalst"},
     { label: "Genk", value: "genk"}
   ]}
-  id="autocomplete-5"
+  id="autocomplete-12"
   multipleSelect="true"
   defaultValue={["luik", "oostende", "namen"]}
   allowNewEntry={true}
@@ -308,7 +308,7 @@ Leave out the `onNewEntry` prop to create items with the same value and key as s
 </Autocomplete>
 <Autocomplete
   items={[]}
-  id="autocomplete-5"
+  id="autocomplete-13"
   multipleSelect="true"
   allowNewEntry={true}
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
@@ -331,7 +331,7 @@ Leave out the `onNewEntry` prop to create items with the same value and key as s
     { label: "Aalst", value: "aalst"},
     { label: "Genk", value: "genk"}
   ]}
-  id="autocomplete-9"
+  id="autocomplete-14"
   defaultValue="mechelen"
   allowNewEntry={true}
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
@@ -362,7 +362,7 @@ function load(query, clbk) {
 }
 <Autocomplete
   asyncItems={load}
-  id="autocomplete-2"
+  id="autocomplete-15"
   multipleSelect="true"
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}

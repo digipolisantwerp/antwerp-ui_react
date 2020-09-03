@@ -13,7 +13,6 @@ type Props = {
 }
 const ButtonGroup = (props: Props) => {
   const { children, style, direction = 'horizontal', qa } = props;
-  console.log('direction', direction);
   const className = classNames('m-button-group', {
     'm-button-group--vertical': direction === 'vertical'
   })
