@@ -226,7 +226,7 @@ class Autocomplete extends Component<Props, IState> {
       {
         'is-open': open,
         'is-multiple-select': !!this.props.multipleSelect,
-        'm-flyout--left': !this.props.direction || this.props.direction === "left",
+        'm-flyout--left': !this.props.direction || this.props.direction !== "right",
         'm-flyout--right': this.props.direction === "right"
       }
     );
