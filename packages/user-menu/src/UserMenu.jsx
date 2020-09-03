@@ -33,6 +33,8 @@ type Props = {
   ariaLogout: string,
   /** Qa id */
   qa?: string,
+  /** If true, will hide external links */
+  hideExternalLinks?: boolean
 }
 
 class UserMenu extends Component<Props> {
@@ -134,7 +136,7 @@ class UserMenu extends Component<Props> {
           size={flyoutSize}>
           <div className="u-margin">
             {this.renderProfile()}
-            <UserNavigation notificationsCount={notificationsCount} children={children} />
+            {!this.props.hideExternalLinks && <UserNavigation notificationsCount={notificationsCount} children={children} />}
             <Button
               className="u-margin-top"
               onClick={(e) => this.onLogout()}

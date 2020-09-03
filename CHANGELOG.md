@@ -6,8 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+- `Autocomplete` Added an option to define the position of the flyout menu position for the Autocomplete component
+- `UserMenu` Added an option to hide the default external links
+
+### Fixed
 - `Autocomplete` Fixed an issue where re-entering the autocomplete field would trigger an async search with empty query
 - `Autocomplete` Fixed an issue where debounce was using old query values
+
 
 ## v4.4.0 - 27-07-2020
 

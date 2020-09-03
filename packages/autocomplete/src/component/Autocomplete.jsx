@@ -49,6 +49,8 @@ type Props = {
   allowNewEntry?: boolean;
   newEntryText?: string;
   onNewEntry?: (label: string, callback: Function) => Promise<Item>;
+  /** Flyout direction */
+  direction?: "left" | "right"
 };
 
 type IState = {
@@ -152,7 +154,7 @@ class Autocomplete extends Component<Props, IState> {
 
   handleNewEntry(label: string): void {
     if (!this.props.onNewEntry) {
-      return this.selectionMode.select({ label, value: label });
+      return this.selectionMode.select({label, value: label});
     }
 
     this.props.onNewEntry(label, (newItem) => {
@@ -223,7 +225,9 @@ class Autocomplete extends Component<Props, IState> {
       'm-autocomplete',
       {
         'is-open': open,
-        'is-multiple-select': !!this.props.multipleSelect
+        'is-multiple-select': !!this.props.multipleSelect,
+        'm-flyout--left': !this.props.direction || this.props.direction === "left",
+        'm-flyout--right': this.props.direction === "right"
       }
     );
 
@@ -275,9 +279,10 @@ class Autocomplete extends Component<Props, IState> {
             ) : (
               <ul className="m-selectable-list m-selectable-list--no-border">
                 {allowNewEntry && this.inputField && this.inputField.value && (
-                  <li className={newEntryClasses} onClick={() => this.handleNewEntry(this.inputField.value)} ref={(item) => {
-                    this['item_' + 0] = item
-                  }}>
+                  <li className={newEntryClasses} onClick={() => this.handleNewEntry(this.inputField.value)}
+                      ref={(item) => {
+                        this['item_' + 0] = item
+                      }}>
                     {newEntryText || "Create new entry for:"} {this.inputField.value}
                   </li>
                 )}
