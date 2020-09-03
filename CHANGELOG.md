@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+
+## v4.5.0 - 03-09-2020
+
 ### Added
 - `Autocomplete` Added an option to define the position of the flyout menu position for the Autocomplete component
 - `UserMenu` Added an option to hide the default external links
