@@ -403,7 +403,6 @@ const optionsDistrict = [
   inline={false}
   placeholder={"Choose a district"}
   options={optionsDistrict}
-  type="large"
   onChange={(value) => console.log('select value is:', value)}
 />
 ```
