@@ -5,6 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
+- `Select` add type
 
 
 ## v4.5.0 - 03-09-2020
