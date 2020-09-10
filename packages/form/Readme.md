@@ -313,43 +313,48 @@ const optionsDistrict = [
 ];
 
 <div>
-<Select label="District"
-  id={"select-1"}
-  label={"Districts"}
-  name={"select-name"}
-  className={"select-class"}
-  required={true}
-  inline={false}
-  placeholder={"Choose a district"}
-  options={optionsDistrict}
-  state="success"
-  onChange={(value) => console.log('select value is:', value)}
-/>
-<Select label="District"
-  id={"select-1"}
-  label={"Districts"}
-  name={"select-name"}
-  className={"select-class"}
-  required={true}
-  inline={false}
-  placeholder={"Choose a district"}
-  options={optionsDistrict}
-  state="warning"
-  onChange={(value) => console.log('select value is:', value)}
-/>
+  <Select label="District"
+    id={"select-1"}
+    label={"Districts"}
+    name={"select-name"}
+    className={"select-class"}
+    required={true}
+    inline={false}
+    placeholder={"Choose a district"}
+    options={optionsDistrict}
+    state="success"
+    onChange={(value) => console.log('select value is:', value)}
+  />
 
-<Select label="District"
-  id={"select-1"}
-  label={"Districts"}
-  name={"select-name"}
-  className={"select-class"}
-  required={true}
-  inline={false}
-  placeholder={"Choose a district"}
-  options={optionsDistrict}
-  state="error"
-  onChange={(value) => console.log('select value is:', value)}
-/>
+  <br />
+
+  <Select label="District"
+    id={"select-1"}
+    label={"Districts"}
+    name={"select-name"}
+    className={"select-class"}
+    required={true}
+    inline={false}
+    placeholder={"Choose a district"}
+    options={optionsDistrict}
+    state="warning"
+    onChange={(value) => console.log('select value is:', value)}
+  />
+
+  <br />
+
+  <Select label="District"
+    id={"select-1"}
+    label={"Districts"}
+    name={"select-name"}
+    className={"select-class"}
+    required={true}
+    inline={false}
+    placeholder={"Choose a district"}
+    options={optionsDistrict}
+    state="error"
+    onChange={(value) => console.log('select value is:', value)}
+  />
 </div>
 ```
 

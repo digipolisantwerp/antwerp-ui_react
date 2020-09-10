@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ### Added
 - `Select` add type
 - Added select disabled state
+- `Select` add type
 
 
 ## v4.5.0 - 03-09-2020
