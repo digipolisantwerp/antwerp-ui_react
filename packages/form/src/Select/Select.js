@@ -61,6 +61,7 @@ class Select extends Component<Props> {
       state,
       style,
       required,
+      disabled,
       placeholder,
       options,
       onChange,
