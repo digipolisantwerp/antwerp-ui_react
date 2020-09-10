@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Fixed
+- `Select` Fix select elements must be either controlled or uncontrolled react warning
 
 ## v4.5.0 - 03-09-2020
 
