@@ -67,7 +67,6 @@ class Select extends Component<Props> {
       onChange,
       value,
       loading,
-      boolean,
       qa,
       type,
     } = this.props;
