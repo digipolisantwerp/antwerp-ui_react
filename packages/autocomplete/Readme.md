@@ -18,7 +18,9 @@
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
   showSearchIcon={true}
-  label="Select a city">
+  label="Select a city"
+  required={true}
+  placeholder="Zoek...">
 </Autocomplete>
 ```
 

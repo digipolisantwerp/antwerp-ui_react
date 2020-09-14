@@ -50,7 +50,9 @@ type Props = {
   newEntryText?: string;
   onNewEntry?: (label: string, callback: Function) => Promise<Item>;
   /** Flyout direction */
-  direction?: "left" | "right"
+  direction?: "left" | "right";
+  required?: boolean;
+  placeholder?: string;
 };
 
 type IState = {
@@ -204,6 +206,7 @@ class Autocomplete extends Component<Props, IState> {
              {...this.props.state}
              onBlur={() => this.closePane()}
              onFocus={() => this.openPane()}
+             placeholder={this.props.placeholder || ''}
       />
     );
   }
@@ -237,6 +240,7 @@ class Autocomplete extends Component<Props, IState> {
         'has-icon-right': this.props.loading || this.state.isLoading,
         'has-icon-left': this.props.showSearchIcon,
         [`${stateClasses[state]}`]: !!state,
+        'is-required': !!this.props.required
       }
     );
 
