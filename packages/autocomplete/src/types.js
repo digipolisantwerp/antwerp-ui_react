@@ -11,6 +11,9 @@ export interface ISelectionMode {
 }
 
 export interface ISearchMode {
+
+  initialize(): void;
+
   search(value: string): Promise<Array<Item>>;
 
   reset(): void;

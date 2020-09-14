@@ -10,7 +10,7 @@ export class SingleSelectionMode implements ISelectionMode {
   }
 
   handleDefaultValue(defaultValue: string): void {
-    if (!defaultValue || !this.component.inputField) {
+    if (!defaultValue) {
       return;
     }
 

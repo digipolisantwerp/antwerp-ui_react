@@ -306,6 +306,7 @@ Leave out the `onNewEntry` prop to create items with the same value and key as s
   onChange={(value) => {console.log(`Typed ${value}`)}}
   label="Select a city">
 </Autocomplete>
+<br/>
 <Autocomplete
   items={[]}
   id="autocomplete-13"
@@ -315,7 +316,7 @@ Leave out the `onNewEntry` prop to create items with the same value and key as s
   onChange={(value) => {console.log(`Typed ${value}`)}}
   label="Select a city">
 </Autocomplete>
-
+<br/>
 <Autocomplete
   items={[
     { label: "Antwerpen", value: "antwerpen"},
@@ -360,6 +361,7 @@ function load(query, clbk) {
     const results = items.filter(item => item.label.toLowerCase().includes(query));
     setTimeout(() => clbk(results), 2000);
 }
+const defaultValues = ["mechelen", "antwerpen"];
 <Autocomplete
   asyncItems={load}
   id="autocomplete-15"
@@ -367,6 +369,6 @@ function load(query, clbk) {
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
   label="Select a city"
-  defaultValue="mechelen">
+  defaultValue={defaultValues}>
 </Autocomplete>
 ```

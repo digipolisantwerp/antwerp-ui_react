@@ -5,17 +5,22 @@ export class AsyncSearchMode implements ISearchMode {
 
   constructor(component) {
     this.component = component;
+  }
+
+  initialize(): void {
     if (this.component.state.defaultValue && this.component.state.defaultValue.length > 0) {
-      this.search(this.component.state.defaultValue)
-        .then((results: Array<Item>) => {
+      const defaultValues = Array.isArray(this.component.state.defaultValue) ? [...this.component.state.defaultValue] : [this.component.state.defaultValue];
+      Promise.all(defaultValues.map(v => this.search(v)))
+        .then((results) => {
           if (!results.length) {
             return;
           }
+          results = results.map(r => r[0]); // flatten the array
           this.component.setState({
             results
           });
-          this.component.selectionMode.handleDefaultValue(this.component.state.defaultValue);
-        })
+          this.component.selectionMode.handleDefaultValue(defaultValues);
+        });
     }
   }
 

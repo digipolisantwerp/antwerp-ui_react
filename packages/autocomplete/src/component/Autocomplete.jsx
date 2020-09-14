@@ -124,7 +124,8 @@ class Autocomplete extends Component<Props, IState> {
     );
 
     // Start the show!
-    this.selectionMode.handleDefaultValue(this.props.defaultValue);
+    this.searchMode.initialize();
+
     handleArrowKeys$.subscribe();
     change$.subscribe();
   }
@@ -199,7 +200,6 @@ class Autocomplete extends Component<Props, IState> {
              autoComplete="off"
              disabled={this.props.disabled}
              ref={ref => this.inputField = ref}
-             defaultValue={this.state.defaultValue}
              data-qa={this.props.qa}
              {...this.props.state}
              onBlur={() => this.closePane()}
