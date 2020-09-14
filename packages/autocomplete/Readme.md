@@ -366,6 +366,7 @@ function load(query, clbk) {
   multipleSelect="true"
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
-  label="Select a city">
+  label="Select a city"
+  defaultValue="mechelen">
 </Autocomplete>
 ```

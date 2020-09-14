@@ -68,7 +68,7 @@ class Autocomplete extends Component<Props, IState> {
     cursor: 0,
     selection: [],
     defaultValue: this.props.defaultValue || ''
-  }
+  };
 
   inputField: HTMLInputElement;
   selectionMode = this.props.multipleSelect ? new MultipleSelectionMode(this) : new SingleSelectionMode(this);
@@ -96,7 +96,7 @@ class Autocomplete extends Component<Props, IState> {
       takeUntil(this.destroy$),
       tap(e => {
         e.preventDefault();
-        const {results, cursor} = this.state
+        const {results, cursor} = this.state;
         if (e.key === "ArrowDown" && cursor < results.length - 1) {
           this.setState({
             open: true,
@@ -124,7 +124,7 @@ class Autocomplete extends Component<Props, IState> {
     );
 
     // Start the show!
-    this.selectionMode.handleDefaultValue(this.props.defaultValue)
+    this.selectionMode.handleDefaultValue(this.props.defaultValue);
     handleArrowKeys$.subscribe();
     change$.subscribe();
   }
@@ -165,7 +165,7 @@ class Autocomplete extends Component<Props, IState> {
   scrollToItem = () => {
     const domNode = ReactDOM.findDOMNode(this['item_' + this.state.cursor]);
     domNode.scrollIntoView(false)
-  }
+  };
 
   selectOption(item: Item) {
     if (!!item)
@@ -185,7 +185,7 @@ class Autocomplete extends Component<Props, IState> {
         {item.label}
       </li>
     );
-  }
+  };
 
   componentWillUnmount() {
     this.destroy$.next();
@@ -245,7 +245,7 @@ class Autocomplete extends Component<Props, IState> {
       {
         'has-focus': !!this.inputField && this.inputField === document.activeElement && !!this.props.multipleSelect
       }
-    )
+    );
 
     const newEntryClasses = classNames({
       'm-selectable-list__item': true,
@@ -259,7 +259,7 @@ class Autocomplete extends Component<Props, IState> {
             <InputLabel htmlFor={this.props.id}>{this.props.label}</InputLabel>
             <div className={wrapperClasses} onClick={() => this.focusOnInput()}>
               {this.props.multipleSelect && <TagList>
-                {this.state.selection.map(s => {
+                {this.state.selection.filter(s => !!s).map(s => {
                   return (
                     <TagListItem closable={true} onClick={() => this.selectionMode.unselect(s)} key={s.value}
                                  value={s.label}/>)
