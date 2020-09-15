@@ -20,7 +20,7 @@
   showSearchIcon={true}
   label="Select a city"
   required={true}
-  placeholder="Zoek...">
+  placeholder="Search...">
 </Autocomplete>
 ```
 
