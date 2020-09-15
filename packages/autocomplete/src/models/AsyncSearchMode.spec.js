@@ -34,7 +34,7 @@ describe('Async Search Mode Test', () => {
         defaultValue: ['A', 'B']
       };
       sinon.stub(mode, 'search').withArgs('A').returns(Promise.resolve([{label: 'First', value: 'A'}]));
-      sinon.stub(mode, 'search').withArgs('B').returns(Promise.resolve([{label: 'Second', value: 'B'}]));
+      mode.search.withArgs('B').returns(Promise.resolve([{label: 'Second', value: 'B'}]));
       return mode.initialize()
         .then(() => {
           // The results of the search should have been set in the state
