@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Fixed
+- Autocomplete component now can handle default values when using async loading items
+### Added
+- Autocomplete supports placeholder and required properties
 
 ## v4.5.0 - 03-09-2020
 
