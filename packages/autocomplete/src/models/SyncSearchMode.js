@@ -9,6 +9,7 @@ export class SyncSearchMode implements ISearchMode {
 
   initialize() {
     this.component.selectionMode.handleDefaultValue(this.component.props.defaultValue);
+    return Promise.resolve();
   }
 
   search(value: string): Promise<Array<Item>> {
