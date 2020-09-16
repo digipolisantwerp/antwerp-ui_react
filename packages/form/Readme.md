@@ -286,6 +286,77 @@ const optionsDistrict = [
   />
 </div>
 ```
+State variant:
+```
+const Select = require('./src').Select;
+const optionsDistrict = [
+  {
+    key: '0',
+    value: '2100 Deurne',
+    label: '2100 Deurne',
+  },
+  {
+    key: '1',
+    value: '2030 Antwerpen',
+    label: '2030 Antwerpen',
+  },
+  {
+    key: '2',
+    value: '2200 Merksem',
+    label: '2200 Merksem',
+  },
+  {
+    key: '3',
+    value: '2040 Brasschaat',
+    label: '2040 Brasschaat',
+  }
+];
+
+<div>
+  <Select label="District"
+    id={"select-1"}
+    label={"Districts"}
+    name={"select-name"}
+    className={"select-class"}
+    required={true}
+    inline={false}
+    placeholder={"Choose a district"}
+    options={optionsDistrict}
+    state="success"
+    onChange={(value) => console.log('select value is:', value)}
+  />
+
+  <br />
+
+  <Select label="District"
+    id={"select-1"}
+    label={"Districts"}
+    name={"select-name"}
+    className={"select-class"}
+    required={true}
+    inline={false}
+    placeholder={"Choose a district"}
+    options={optionsDistrict}
+    state="warning"
+    onChange={(value) => console.log('select value is:', value)}
+  />
+
+  <br />
+
+  <Select label="District"
+    id={"select-1"}
+    label={"Districts"}
+    name={"select-name"}
+    className={"select-class"}
+    required={true}
+    inline={false}
+    placeholder={"Choose a district"}
+    options={optionsDistrict}
+    state="error"
+    onChange={(value) => console.log('select value is:', value)}
+  />
+</div>
+```
 
 Small variant:
 ```
@@ -363,6 +434,46 @@ const optionsDistrict = [
   placeholder={"Choose a district"}
   options={optionsDistrict}
   type="large"
+  onChange={(value) => console.log('select value is:', value)}
+/>
+```
+
+Disabled variant:
+```
+const Select = require('./src').Select;
+const optionsDistrict = [
+  {
+    key: '0',
+    value: '2100 Deurne',
+    label: '2100 Deurne',
+  },
+  {
+    key: '1',
+    value: '2030 Antwerpen',
+    label: '2030 Antwerpen',
+  },
+  {
+    key: '2',
+    value: '2200 Merksem',
+    label: '2200 Merksem',
+  },
+  {
+    key: '3',
+    value: '2040 Brasschaat',
+    label: '2040 Brasschaat',
+  }
+];
+
+<Select label="District"
+  id={"select-1"}
+  label={"Districts"}
+  name={"select-name"}
+  className={"select-class"}
+  required={true}
+  disabled={true}
+  inline={false}
+  placeholder={"Choose a district"}
+  options={optionsDistrict}
   onChange={(value) => console.log('select value is:', value)}
 />
 ```

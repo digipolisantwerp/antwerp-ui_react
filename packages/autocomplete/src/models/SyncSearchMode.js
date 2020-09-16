@@ -7,10 +7,15 @@ export class SyncSearchMode implements ISearchMode {
     this.component = component;
   }
 
+  initialize() {
+    this.component.selectionMode.handleDefaultValue(this.component.props.defaultValue);
+    return Promise.resolve();
+  }
+
   search(value: string): Promise<Array<Item>> {
     let items = this.component.props.items;
     const selection = this.component.selectionMode.getSelection();
-    items = items.filter(item => !selection.find(s => s.value === item.value))
+    items = items.filter(item => !selection.find(s => s.value === item.value));
     if (!value) {
       return Promise.resolve(items);
     }
@@ -22,7 +27,7 @@ export class SyncSearchMode implements ISearchMode {
   reset(): void {
     let items = this.component.props.items;
     const selection = this.component.state.selection || [];
-    items = items.filter(item => !selection.find(s => s.value === item.value))
+    items = items.filter(item => !selection.find(s => s.value === item.value));
     this.component.setState({
       results: items
     })

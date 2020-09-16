@@ -9,8 +9,8 @@ export class SingleSelectionMode implements ISelectionMode {
     this.component = component;
   }
 
-  handleDefaultValue(defaultValue: string): void {
-    if (!defaultValue || !this.component.inputField) {
+  handleDefaultValue(defaultValue: string | string[]): void {
+    if (!defaultValue) {
       return;
     }
 
