@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - `Textarea` Fixed an issue where required property was not being passed properly
 - `AccordeonTab` Added an option to pass a custom toggle function so that state can be managed in parent components.
 
+### Fixed
+- Autocomplete component now can handle default values when using async loading items
+### Added
+- Autocomplete supports placeholder and required properties
 
 ## v4.5.0 - 03-09-2020
 
