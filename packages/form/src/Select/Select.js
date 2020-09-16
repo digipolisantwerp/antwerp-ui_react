@@ -5,7 +5,14 @@ import InputLabel from '../InputLabel';
 import Icon from '../../../icon/src/Icon';
 import Spinner from '../../../spinner/src/Spinner';
 
+type InputStates = "success" | "warning" | "error";
 type InputTypes = "small" | "normal" | "large";
+
+export const stateClasses = {
+  success: 'has-success',
+  warning: 'has-warning',
+  error: 'has-error',
+};
 
 type SelectOption = {
   label: string,
@@ -18,6 +25,7 @@ type Props = {
   label?: string,
   name?: string,
   inline?: boolean,
+  state?: InputStates,
   className?: string,
   style?: object,
   required?: boolean,
@@ -50,6 +58,7 @@ class Select extends Component<Props> {
       name,
       inline,
       className,
+      state,
       style,
       required,
       disabled,
@@ -67,6 +76,7 @@ class Select extends Component<Props> {
       'has-icon-right',
       {
         'a-input--inline': !!inline,
+        [`${stateClasses[state]}`]: !!state,
         'is-required': !!required,
         [`a-input--${type}`]: !!type,
       },
