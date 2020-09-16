@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Fixed
+- `Textarea` Fixed an issue where required property was not being passed properly
+
 
 ## v4.5.0 - 03-09-2020
 
@@ -16,7 +19,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ### Fixed
 - `Autocomplete` Fixed an issue where re-entering the autocomplete field would trigger an async search with empty query
 - `Autocomplete` Fixed an issue where debounce was using old query values
-- `Textarea` Fixed an issue where required property was not being passed properly
 
 
 ## v4.4.0 - 27-07-2020
