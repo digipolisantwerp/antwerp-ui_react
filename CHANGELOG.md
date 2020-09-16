@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ### Added
 - Added select disabled state
 
+### Fixed
+- `AccordeonTab` Added an option to pass a custom toggle function so that state can be managed in parent components.
+
 
 ## v4.5.0 - 03-09-2020
 
