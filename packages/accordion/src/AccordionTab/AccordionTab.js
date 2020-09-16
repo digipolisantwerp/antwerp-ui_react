@@ -5,6 +5,7 @@ import classNames from 'classnames';
 type Props = {
   children: React.node,
   open?: boolean,
+  toggle?: (e: React.MouseEvent<HTMLDivElement>) => void;
 };
 
 class AccordionTab extends React.Component<Props> {
@@ -22,7 +23,8 @@ class AccordionTab extends React.Component<Props> {
     }
   }
 
-  toggle() {
+  toggle(e) {
+    if (this.props.toggle) return this.props.toggle(e);
     const { isOpen } = this.state;
     this.setState({
       isOpen: !isOpen,
@@ -38,8 +40,8 @@ class AccordionTab extends React.Component<Props> {
         role="button"
         tabIndex="0"
         data-qa={qa}
-        onKeyPress={() => this.toggle()}
-        onClick={() => this.toggle()}
+        onKeyPress={(e) => this.toggle(e)}
+        onClick={(e) => this.toggle(e)}
         className={classNames('m-accordion__tab', { 'is-open': isOpen })}
       >
         { children }
