@@ -7,14 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ## [Unreleased]
 ### Added
 - Added select disabled state
-
-### Added
-- `Select` add type
-- Added select disabled state
 - `Select` add type
 
 ### Fixed
 - `Textarea` Fixed an issue where required property was not being passed properly
+- `AccordeonTab` Added an option to pass a custom toggle function so that state can be managed in parent components.
 
 
 ## v4.5.0 - 03-09-2020
