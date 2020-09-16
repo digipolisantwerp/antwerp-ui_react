@@ -13,6 +13,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Added select disabled state
 - `Select` add type
 
+### Fixed
+- `Textarea` Fixed an issue where required property was not being passed properly
+
 
 ## v4.5.0 - 03-09-2020
 
