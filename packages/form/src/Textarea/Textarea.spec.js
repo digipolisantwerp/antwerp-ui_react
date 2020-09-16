@@ -14,7 +14,7 @@ describe('Textarea', () => {
     });
   
 
-    test('Textarea should contain a reqiured attribute', () => {
+    test('Textarea should contain a required attribute', () => {
       const component = shallow(<Textarea required />);
       expect(component.props()).toHaveProperty('required', true);
     });
