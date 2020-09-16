@@ -5,19 +5,21 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
+
+
+## v4.6.0 - 16-09-2020
+
 ### Added
-- Added select disabled state
-- `Select` add type
+- `Autocomplete` Added support for `placeholder` and `required` attributes
+- `Select` Added support for `disabled` attribute
+- `Select` Added option to define size
 
 ### Fixed
-- `Textarea` Fixed an issue where required property was not being passed properly
-- `AccordeonTab` Added an option to pass a custom toggle function so that state can be managed in parent components.
-
-### Fixed
+- `Textarea` Fixed an issue where `required` attribute was not being passed properly
+- `AccordeonTab` Added an option to pass a custom toggle function so that state can be managed in parent components
 - `Select` Fix select elements must be either controlled or uncontrolled react warning
 - `Autocomplete` component now can handle default values when using async loading items
-### Added
-- `Autocomplete` supports placeholder and required properties
+
 
 ## v4.5.0 - 03-09-2020
 
