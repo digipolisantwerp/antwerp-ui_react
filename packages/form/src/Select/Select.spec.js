@@ -48,4 +48,22 @@ describe("Select", () => {
       );
       expect(component.props()).toHaveProperty('data-qa', 'id-1234');
     });
+
+    test('Should render a placeholder when it is set', () => {
+      const component = shallow(
+        <Select
+          id={"select-id"}
+          label={"Atomic Elements"}
+          options={atomicElements}
+          placeholder="placeholderValue"
+        ></Select>
+      );
+      const select = component.find('#select-id');
+      const placeholderOption = select.childAt(0);
+
+      expect(select.props().value).toBeUndefined();
+      expect(placeholderOption.text()).toBe('placeholderValue');
+      expect(placeholderOption.props().disabled).toBeTruthy();
+      expect(placeholderOption.props().selected).toBeTruthy();
+    });
 });
