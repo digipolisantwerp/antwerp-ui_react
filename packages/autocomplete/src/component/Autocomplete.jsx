@@ -207,6 +207,7 @@ class Autocomplete extends Component<Props, IState> {
              onBlur={() => this.closePane()}
              onFocus={() => this.openPane()}
              placeholder={this.props.placeholder || ''}
+             required={!!this.props.required}
       />
     );
   }
