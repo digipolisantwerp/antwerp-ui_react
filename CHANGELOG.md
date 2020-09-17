@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ## [Unreleased]
 
 ### Fixed
-- Autocomplete does now not crash when a non-existing defaultValue is provided
+- `Autocomplete` Fixed a crash when a non-existing defaultValue is provided
 - Sing Selection + Sync Mode now selects the correct value
 
 ## v4.6.0 - 16-09-2020
