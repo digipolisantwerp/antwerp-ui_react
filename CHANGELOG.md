@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Fixed the Switch and Textarea unit tests failing
 - Fixed the Switch updating inner state on props change
 - `Autocomplete` Fixed a crash when a non-existing defaultValue is provided
-- Sing Selection + Sync Mode now selects the correct value
+- `Autocomplete` Fixed an issue where the correct value wasn't selected in combination single select and sync search mode
 
 ## v4.6.0 - 16-09-2020
 
