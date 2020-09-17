@@ -28,6 +28,7 @@ describe('Async Search Mode Test', () => {
           expect(component.setState.withArgs({results: [{label: 'First', value: 'A'}]}).calledOnce).toBe(true);
         })
     });
+
     it('should handle an array of default values upon initialization', () => {
       const mode = new AsyncSearchMode(component);
       component.state = {
@@ -40,6 +41,23 @@ describe('Async Search Mode Test', () => {
           // The results of the search should have been set in the state
           expect(component.selectionMode.handleDefaultValue.withArgs(['A', 'B']).calledOnce).toBe(true);
           // And we should ask the selection mode to handle the default value
+          expect(component.setState.withArgs({
+            results: [{label: 'First', value: 'A'}, {label: 'Second', value: 'B'}]
+          }).calledOnce).toBe(true);
+        });
+    });
+
+    it('should filter out non existing values', () => {
+      const mode = new AsyncSearchMode(component);
+      component.state = {
+        defaultValue: ['A', 'B', 'C']
+      };
+      sinon.stub(mode, 'search').withArgs('A').returns(Promise.resolve([{label: 'First', value: 'A'}]));
+      mode.search.withArgs('B').returns(Promise.resolve([{label: 'Second', value: 'B'}]));
+      mode.search.withArgs('C').returns(Promise.resolve([]));
+      return mode.initialize()
+        .then(() => {
+          expect(component.selectionMode.handleDefaultValue.withArgs(['A', 'B', 'C']).calledOnce).toBe(true);
           expect(component.setState.withArgs({
             results: [{label: 'First', value: 'A'}, {label: 'Second', value: 'B'}]
           }).calledOnce).toBe(true);
