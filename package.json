@@ -12,7 +12,7 @@
   "homepage": "https://github.com/digipolisantwerp/acpaas-ui_react#readme",
   "scripts": {
     "start": "npx styleguidist server",
-    "test": "jest --coverage --verbose",
+    "test": "jest --coverage",
     "bootstrap": "lerna bootstrap",
     "build": "lerna exec --parallel -- rollup -c",
     "postbuild": "rollup -c",
