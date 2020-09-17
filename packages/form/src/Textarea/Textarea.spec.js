@@ -12,10 +12,11 @@ describe('Textarea', () => {
       const component = shallow(<Textarea qa="id-1234" />);
       expect(component.props()).toHaveProperty('data-qa', 'id-1234');
     });
-  
+
 
     test('Textarea should contain a required attribute', () => {
-      const component = shallow(<Textarea required />);
-      expect(component.props()).toHaveProperty('required', true);
+      const component = shallow(<Textarea required />).get(0);
+      const node: Node = component.props.children[1];
+      expect(node.props).toHaveProperty('required', true);
     });
 });
