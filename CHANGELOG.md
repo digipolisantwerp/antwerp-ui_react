@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Fixed
+- Fixed the Switch and Textarea unit tests failing
+- Fixed the Switch updating inner state on props change
 
 ## v4.6.0 - 16-09-2020
 
