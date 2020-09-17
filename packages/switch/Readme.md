@@ -9,10 +9,3 @@
   checked={true}
   onClick={(value) => console.log('select value is:', value)} />
 ```
-```
-<Switch
-  label={"Declared and approved"}
-  id={"switch-id-2"}
-  name={"switch-name"}
-  className={"switch-class"} />
-```
