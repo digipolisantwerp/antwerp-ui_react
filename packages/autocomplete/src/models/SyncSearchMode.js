@@ -13,13 +13,16 @@ export class SyncSearchMode implements ISearchMode {
   }
 
   search(value: string): Promise<Array<Item>> {
-    let items = this.component.props.items;
-    const selection = this.component.selectionMode.getSelection();
-    items = items.filter(item => !selection.find(s => s.value === item.value));
     if (!value) {
-      return Promise.resolve(items);
+      return Promise.resolve(this.component.props.items);
     }
 
+    let items = this.component.props.items;
+    // Remove already selected items
+    const selection = this.component.selectionMode.getSelection();
+    items = items.filter(item => !selection.find(s => s.value === item.value));
+
+    // Find matches in remaining items
     let matches = items.filter(item => item.label.toLowerCase().includes(value.toLowerCase()));
     return Promise.resolve(matches);
   }

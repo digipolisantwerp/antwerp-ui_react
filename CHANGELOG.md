@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Fixed
+- No more dissapearing elements when selecting item synchrounously and clearing field
 
 ## v4.6.0 - 16-09-2020
 
