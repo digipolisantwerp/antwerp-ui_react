@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - `Autocomplete` Fixed an issue where the correct value wasn't selected in combination single select and sync search mode
 - Fixed the Switch and Textarea unit tests failing
 - Fixed the Switch updating inner state on props change
+- Autocomplete does now not crash when a non-existing defaultValue is provided
+- Sing Selection + Sync Mode now selects the correct value
 
 ## v4.6.0 - 16-09-2020
 
