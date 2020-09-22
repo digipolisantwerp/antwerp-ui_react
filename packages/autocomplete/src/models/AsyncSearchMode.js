@@ -15,7 +15,7 @@ export class AsyncSearchMode implements ISearchMode {
           if (!results.length) {
             return;
           }
-          results = results.map(r => r[0]); // flatten the array
+          results = results.map(r => r[0]).filter(r => !!r); // flatten the array and remove undefined vars
           this.component.setState({
             results
           });
