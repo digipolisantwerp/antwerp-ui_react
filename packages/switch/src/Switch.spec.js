@@ -1,6 +1,7 @@
 import Switch from './Switch';
 import { mount, shallow } from 'enzyme';
 import React from 'react';
+import * as sinon from 'sinon';
 
 describe('Switch', () => {
 
@@ -15,26 +16,27 @@ describe('Switch', () => {
 	});
 
 	it('should add labelFalse when labelFalse provided', () => {
-		const switchButton = mount(<Switch labelFalse={"Wrong"} />);
+		const switchButton = shallow(<Switch labelFalse={"Wrong"} />);
 		expect(switchButton.find('.a-switch__label').get(0).props.children).toContain('Wrong');
 	});
 
 	it('should add labelTrue when labelTrue provided', () => {
-		const switchButton = mount(<Switch labelTrue={"Right"} />);
+		const switchButton = shallow(<Switch labelTrue={"Right"} />);
 		expect(switchButton.find('.a-switch__label').get(0).props.children).toContain('Right');
 	});
 
 	it('should trigger the onClick', () => {
-		const mock = jest.fn();
-		const switchButton = mount(<Switch onClick={mock} />);
+		const mock = sinon.stub();
+		const switchButton = shallow(<Switch onClick={mock} />);
 		switchButton.find('[type="checkbox"]').simulate('change');
-		expect(mock).toHaveBeenCalled();
+		expect(mock.calledOnce).toBe(true);
 	});
 
 	it('onClick should trigger change checked state', () => {
-		const mock = jest.fn();
-		const switchButton = mount(<Switch onClick={mock} checked={false} />);
+		const switchButton = shallow(<Switch/>);
+		expect(switchButton.state('checked')).toBe(false);
 		switchButton.find('[type="checkbox"]').simulate('change');
+		switchButton.update();
 		expect(switchButton.state('checked')).toBe(true);
 	});
 
