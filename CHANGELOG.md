@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ## [Unreleased]
 
 ### Fixed
+- `Textarea` Fixed unit tests
+- `Switch` Fixed unit tests
+- `Switch` Fixed updating inner state on props change
+- `Autocomplete` Fixed a crash when a non-existing defaultValue is provided
+- `Autocomplete` Fixed an issue where the correct value wasn't selected in combination single select and sync search mode
 - 'Autocomplete' Fixed disappearing elements after selecting item synchronously and clearing field
 
 ## v4.6.0 - 16-09-2020

@@ -13,6 +13,7 @@ describe('Multiple Selection Mode Test', () => {
     component.props = {};
     mode = new MultipleSelectionMode(component);
   });
+
   it('should select item with empty selection', () => {
     mode.select({label: "A", value: "a"});
     expect(component.setState.withArgs({selection: [{label: "A", value: 'a'}]}).calledOnce).toBe(true);
