@@ -82,7 +82,7 @@ class TextField extends Component<Props> {
           {loading ? <span className="fa a-spinner a-spinner--sm"/> : null}
         </div>
         {description ? <small>{description}</small> : null}
-        {errorDescription && <p className="u-text-danger">{errorDescription}</p>}
+        {errorDescription && <small className="u-text-danger">{errorDescription}</small>}
       </div>
     )
   }
