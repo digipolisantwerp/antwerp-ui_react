@@ -5,7 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
-
+- `TextField` Added support for colored description based on the state of the TextField
 
 ## v4.6.1 - 22-09-2020
 
