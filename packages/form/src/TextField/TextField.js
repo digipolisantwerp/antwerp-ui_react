@@ -79,7 +79,7 @@ class TextField extends Component<Props> {
           {iconright ? <Icon name={iconright}/> : null}
           {loading ? <span className="fa a-spinner a-spinner--sm"/> : null}
         </div>
-        {description ? <small>{description}</small> : null}
+        {description ? <small className={classNames(state === 'error' && 'u-text-danger', state === 'warning' && 'u-text-warning')}>{description}</small> : null}
       </div>
     )
   }
