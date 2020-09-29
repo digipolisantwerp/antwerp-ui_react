@@ -13,7 +13,7 @@ describe('Checkbox', () => {
       expect(component.props()).toHaveProperty('data-qa', 'id-1234');
     });
 
-    test('Checkbox should update the checked prop when is is set', () => {
+    test('Checkbox should update the checked prop when it is set', () => {
       const component = shallow(<Checkbox checked={true} />);
       expect(component.find('input[type="checkbox"]').prop('checked')).toEqual(true);
       component.setProps({
