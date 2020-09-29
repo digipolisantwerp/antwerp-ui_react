@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount, debug } from 'enzyme';
+import { shallow } from 'enzyme';
 import Checkbox from './Checkbox';
 
 describe('Checkbox', () => {
@@ -14,7 +14,7 @@ describe('Checkbox', () => {
     });
 
     test('Checkbox should update the checked prop when is is set', () => {
-      const component = mount(<Checkbox checked={true} />);
+      const component = shallow(<Checkbox checked={true} />);
       expect(component.find('input[type="checkbox"]').prop('checked')).toEqual(true);
       component.setProps({
         checked: false,
