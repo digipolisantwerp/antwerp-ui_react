@@ -23,6 +23,7 @@ type Props = {
   required?: boolean,
   onChange?: (e: object) => void,
   onBlur?: (e: object) => void,
+  onInvalidCapture?: (e: object) => void,
   state?: InputStates,
   type?: InputTypes,
   /** Qa id */
@@ -44,7 +45,8 @@ const Textarea = (props: Props) => {
     onBlur,
     state,
     qa,
-    type
+    type,
+    onInvalidCapture
   } = props;
 
   const textareaClass = classNames(
@@ -60,7 +62,7 @@ const Textarea = (props: Props) => {
   return (
     <div className={textareaClass} style={style} data-qa={qa}>
       {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
-      <textarea id={id} placeholder={placeholder} name={name} value={value} onChange={onChange} onBlur={onBlur} disabled={disabled} required={required}></textarea>
+      <textarea id={id} placeholder={placeholder} name={name} value={value} onChange={onChange} onBlur={onBlur} disabled={disabled} required={required} onInvalidCapture={onInvalidCapture}></textarea>
     </div>
   )
 }
