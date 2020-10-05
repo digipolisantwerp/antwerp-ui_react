@@ -6,7 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 - `Textarea` Added an option to pass `onInvalidCapture` as an attribute. 
+- `TextField` Added support for colored description based on the state of the TextField
 
+### Fixed
+- `Checkbox` Use checked instead of defaultChecked
 
 ## v4.6.1 - 22-09-2020
 

@@ -36,6 +36,7 @@ type Props = {
   /** Qa id */
   qa?: string,
   inputRef?: (ref: React.Ref) => void;
+  errorDescription?: string;
 };
 
 class TextField extends Component<Props> {
@@ -53,6 +54,7 @@ class TextField extends Component<Props> {
       iconleft,
       qa,
       type,
+      errorDescription,
     } = this.props;
 
     const {loading, ...extraProps} = this.props;
@@ -80,6 +82,7 @@ class TextField extends Component<Props> {
           {loading ? <span className="fa a-spinner a-spinner--sm"/> : null}
         </div>
         {description ? <small>{description}</small> : null}
+        {errorDescription && <small className="u-text-danger">{errorDescription}</small>}
       </div>
     )
   }

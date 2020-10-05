@@ -47,7 +47,7 @@ class Checkbox extends Component<Props> {
             name={name}
             onChange={this.handleChange}
             aria-checked={this.props.checked}
-            defaultChecked={this.props.checked}
+            checked={this.props.checked}
             disabled={disabled}
             {...this.props.handler}
             />
