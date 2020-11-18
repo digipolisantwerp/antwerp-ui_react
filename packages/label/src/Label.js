@@ -15,18 +15,20 @@ type Props = {
   type?: LabelTypes,
   className?: string,
   style?: object,
-  children?: any
+  children?: any,
+  /** Qa id */
+  qa?: string,
 };
 
 const Label = (props: Props) => {
-  const { type, className, style = {}, children } = props
+  const { type, className, style = {}, children, qa } = props
   const labelClass = classNames(
     'a-label',
     className,
     { [`${typeClasses[type]}`]: !!type },
   );
 
-  return <span className={labelClass} style={style}>{children}</span>
+  return <span className={labelClass} style={style} data-qa={qa}>{children}</span>
 }
 
 export default Label;

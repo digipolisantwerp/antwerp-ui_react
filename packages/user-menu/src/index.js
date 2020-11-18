@@ -1,1 +1,2 @@
-export { default } from './UserMenu';
+export { default } from './UserMenu.jsx';
+export { default as UserNavigation } from './UserNavigation';

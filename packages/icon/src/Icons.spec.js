@@ -20,6 +20,11 @@ describe('Icon', () => {
 
     it('should return i element if span is false', () => {
         const icon = shallow(<Icon name="test" />);
-        expect(icon.type()).toBe('i');
+        expect(icon.type()).toBe('span');
+    });
+
+    it('should set the data-qa attribute', () => {
+        const icon = shallow(<Icon qa="id-1234" />);
+        expect(icon.props()).toHaveProperty('data-qa', 'id-1234');
     });
 });

@@ -8,7 +8,7 @@ describe('AccordionTab', () => {
   test('Can render', () => {
     const component = shallow(<AccordionTab />);
 
-    expect(component.find('.m-accordion__tab')).toBeDefined();
+    expect(component.find('.m-accordion__tab').exists()).toBe(true);
   });
 
   test('Is rendered closed by default', () => {
@@ -31,7 +31,7 @@ describe('AccordionTab', () => {
       </AccordionTab>,
     );
 
-    expect(component.find('m-accordion__header')).toBeDefined();
+    expect(component.find('.m-accordion__header').exists()).toBe(true);
   });
 
   test('Can contain an AccordionTabContent-component', () => {
@@ -42,6 +42,17 @@ describe('AccordionTab', () => {
       </AccordionTab>,
     );
 
-    expect(component.find('.m-accordion__content')).toBeDefined();
+    expect(component.find('.m-accordion__content').exists()).toBe(true);
+  });
+
+  test('Can contain a data-qa attribute', () => {
+    const component = shallow(
+      <AccordionTab qa="id-1234">
+        <AccordionTabHeader />
+        <AccordionTabContent />
+      </AccordionTab>,
+    );
+
+    expect(component.find('.m-accordion__tab').props()).toHaveProperty('data-qa', 'id-1234');
   });
 });

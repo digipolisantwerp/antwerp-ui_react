@@ -1,47 +1,55 @@
 {
   "name": "@acpaas-ui/react-components",
-  "version": "2.3.1",
-  "description": "Antwerp City Platform as a Service User Interface (ACPaas UI) is a **component interface library** for building user interfaces and responsive web apps.",
+  "version": "4.7.0",
+  "description": "Antwerp City Platform as a Service User Interface (ACPaas UI) is a component interface library for building user interfaces and responsive web apps.",
   "license": "MIT",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
-  "repository": "digipolisantwerp/acpaas-ui_react.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/digipolisantwerp/acpaas-ui_react"
+  },
   "homepage": "https://github.com/digipolisantwerp/acpaas-ui_react#readme",
   "scripts": {
     "start": "npx styleguidist server",
-    "test": "jest --coverage --verbose",
-    "bootstrap": "./node_modules/bin/lerna bootstrap",
+    "test": "jest --coverage",
+    "bootstrap": "lerna bootstrap",
     "build": "lerna exec --parallel -- rollup -c",
     "postbuild": "rollup -c",
     "publish": "lerna publish --skip-git --skip-npm",
-    "prepublish": "npm run build && ./node_modules/react-styleguidist/bin/styleguidist.js build"
+    "prepublish": "npm run build && styleguidist build"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-jest": "^23.4.2",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-external-helpers": "^6.22.0",
     "babel-plugin-transform-react-jsx": "~6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-flow": "~6.23.0",
     "babel-preset-react": "~6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "chai": "^4.2.0",
-    "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.4",
     "eslint": "~4.19.1",
     "eslint-config-airbnb": "~16.1.0",
     "eslint-plugin-import": "~2.11.0",
     "eslint-plugin-jsx-a11y": "~6.0.3",
     "eslint-plugin-react": "~7.7.0",
     "flow-bin": "^0.69.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^22.4.4",
     "jest-cli": "^22.4.4",
-    "lerna": "~2.10.1",
+    "lerna": "^2.10.2",
     "react-addons-test-utils": "^15.6.2",
     "react-styleguidist": "~7.2.5",
-    "rollup": "^0.65.0",
+    "rollup": "^2.26.9",
     "rollup-plugin-babel": "^3.0.7",
-    "rollup-plugin-node-resolve": "^3.3.0",
-    "webpack": "~4.5.0"
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "sinon": "^9.0.3",
+    "webpack": "^4.44.1"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>jest.setup.js",
@@ -55,6 +63,10 @@
       "!**/node_modules/**",
       "!**/*.story.js"
     ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+    },
     "coverageThreshold": {
       "global": {
         "branches": 50,
@@ -79,12 +91,20 @@
     ]
   },
   "dependencies": {
-    "babel-loader": "~7.1.4",
+    "@a-ui/core": "^4.1.1",
     "classnames": "~2.2.6",
-    "moment": "~2.22.1",
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1",
-    "react-input-mask": "~2.0.1",
-    "react-modal": "~3.5.1"
+    "css-loader": "^3.6.0",
+    "moment": "^2.22.2",
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-input-mask": "^2.0.4",
+    "react-modal": "~3.5.1",
+    "react-scripts": "^3.4.3",
+    "rollup-plugin-postcss": "^2.9.0",
+    "rollup-plugin-sass": "^1.2.2",
+    "rxjs": "^6.6.2",
+    "sass-loader": "^7.3.1",
+    "style-loader": "^0.23.1"
   }
 }

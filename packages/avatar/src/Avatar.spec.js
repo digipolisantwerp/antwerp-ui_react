@@ -26,17 +26,22 @@ describe('Avatar', () => {
 
     it('should show the icon when provided', () => {
         const avatar = mount(<Avatar icon="bell" />);
-        expect(avatar.find('i').props().className).toContain('fa-bell');
+        expect(avatar.find('.a-avatar__icon span.fa').hasClass('fa-bell')).toEqual(true);
     });
 
     it('should show the letters when provided', () => {
         const avatar = mount(<Avatar letter="SP" />);
-        expect(avatar.find('span').text()).toBe('SP');
+        expect(avatar.find('span.a-avatar__letter').text()).toBe('SP');
     });
 
     it('should show the image and alt text when provided', () => {
         const avatar = mount(<Avatar image="http://www.google.be" alt="google" />);
         expect(avatar.find('img').props().src).toBe('http://www.google.be');
         expect(avatar.find('img').props().alt).toBe('google');
+    });
+
+    it('should set the data-qa attribute', () => {
+        const avatar = mount(<Avatar qa="id-1234">test</Avatar>).find('.a-avatar');
+        expect(avatar.props()).toHaveProperty('data-qa', 'id-1234');
     });
 });

@@ -9,6 +9,7 @@ const stateClasses = {
 };
 
 type InputStates = "success" | "warning" | "error";
+type InputTypes = "small" | "normal" | "large";
 
 type Props = {
   id?: string,
@@ -22,7 +23,11 @@ type Props = {
   required?: boolean,
   onChange?: (e: object) => void,
   onBlur?: (e: object) => void,
+  onInvalidCapture?: (e: object) => void,
   state?: InputStates,
+  type?: InputTypes,
+  /** Qa id */
+  qa?: string,
 };
 
 const Textarea = (props: Props) => {
@@ -39,6 +44,9 @@ const Textarea = (props: Props) => {
     onChange,
     onBlur,
     state,
+    qa,
+    type,
+    onInvalidCapture
   } = props;
 
   const textareaClass = classNames(
@@ -46,14 +54,15 @@ const Textarea = (props: Props) => {
     {
       'is-required': !!required,
       [`${stateClasses[state]}`]: !!state,
+      [`a-input--${type}`]: !!type,
     },
     className,
   );
 
   return (
-    <div className={textareaClass} style={style}>
+    <div className={textareaClass} style={style} data-qa={qa}>
       {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
-      <textarea id={id} placeholder={placeholder} name={name} value={value} onChange={onChange} onBlur={onBlur} disabled={disabled}></textarea>
+      <textarea id={id} placeholder={placeholder} name={name} value={value} onChange={onChange} onBlur={onBlur} disabled={disabled} required={required} onInvalidCapture={onInvalidCapture}></textarea>
     </div>
   )
 }

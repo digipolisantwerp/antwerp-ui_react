@@ -9,10 +9,10 @@
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.2.5",
-    "rc-slider": "~8.6.1",
     "moment": "^2.24.0",
+    "rc-slider": "~8.6.1",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
-    "react-input-mask": "~1.2.2"
+    "react-input-mask": "^2.0.4"
   }
 }

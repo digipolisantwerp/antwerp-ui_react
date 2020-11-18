@@ -4,24 +4,30 @@ import classNames from 'classnames';
 import Link from '../../link';
 
 type Props = {
-  align?: "left" | "right" | "center",
+  align?: 'left' | 'right' | 'center',
   items: Array<{
     name: string,
     target: string,
     active?: boolean,
-    disabled?: boolean,
+    disabled?: boolean
   }>,
-  linkProps?: Function
+  linkProps?: Function,
+  /** Aria label for active tab, defaults to 'Actief:' */
+  ariaLabelActive?: string,
+  linkProps?: Function,
+  /** Qa id */
+  qa?: string,
 };
 
 class Tabs extends React.Component<Props> {
   static defaultProps = {
     align: 'left',
     linkProps: src => src,
+    ariaLabelActive: 'Actief:'
   };
 
   renderItems() {
-    const { items, linkProps } = this.props;
+    const { items, linkProps, ariaLabelActive } = this.props;
 
     return items.map(item => (
       <li key={item.name}>
@@ -30,6 +36,7 @@ class Tabs extends React.Component<Props> {
             className={classNames({ 'is-active': item.active, 'is-disabled': item.disabled })}
             {...linkProps({ href: item.target })}
           >
+            {item.active ? <span className="u-screen-reader-only">{ariaLabelActive}</span> : ''}
             {item.name}
           </Link>
         }
@@ -38,7 +45,7 @@ class Tabs extends React.Component<Props> {
   }
 
   render() {
-    const { align, items } = this.props;
+    const { align, items, qa } = this.props;
 
     const tabClasses = classNames('m-nav-tabs', {
       'm-nav-tabs--left': align === 'left',
@@ -47,7 +54,7 @@ class Tabs extends React.Component<Props> {
 
     return (
       items && items.length > 0 && (
-        <ul className={tabClasses}>
+        <ul className={tabClasses} data-qa={qa}>
           { this.renderItems() }
         </ul>
       )

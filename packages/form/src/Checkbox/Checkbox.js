@@ -10,6 +10,9 @@ type Props = {
   required?: boolean,
   disabled?: boolean,
   onChange?: (e: Object) => void,
+  /** Qa id */
+  qa?: string,
+  handler?: () => void
 };
 
 class Checkbox extends Component<Props> {
@@ -24,9 +27,9 @@ class Checkbox extends Component<Props> {
       id,
       label,
       name,
-      checked = false,
       required,
       disabled = false,
+      qa,
     } = this.props;
 
     const inputClass = classNames(
@@ -36,9 +39,18 @@ class Checkbox extends Component<Props> {
     const requiredLabel = !!required ? <span className="u-text-danger"> *</span> : null;
 
     return (
-      <div className={inputClass}>
+      <div className={inputClass} data-qa={qa}>
         <div className="a-input__checkbox">
-          <input type="checkbox" id={id} name={name} onChange={this.handleChange} checked={checked} disabled={disabled}/>
+          <input
+            type="checkbox"
+            id={id}
+            name={name}
+            onChange={this.handleChange}
+            aria-checked={this.props.checked}
+            checked={this.props.checked}
+            disabled={disabled}
+            {...this.props.handler}
+            />
           <InputLabel htmlFor={id}>{label}{requiredLabel}</InputLabel>
         </div>
       </div>

@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react';
 import Button from '../../../button/src/Button';
 
@@ -12,6 +13,12 @@ type Props = {
   buttonClass?: string,
   /** Add a custom function that gets triggered when the tag gets closes. */
   onClick?: void,
+  /**  AriaLabel for your icon. */
+  ariaLabelIcon?: string,
+  /** AriaLabel for your close button. Defaults to 'Sluiten'. */
+  ariaLabelClose?: string,
+  /** Qa id */
+  qa?: string,
 };
 
 class TagListItem extends Component<Props> {
@@ -22,17 +29,19 @@ class TagListItem extends Component<Props> {
       icon = '',
       buttonClass = 'a-button--default',
       onClick,
-
+      ariaLabelIcon,
+      ariaLabelClose = 'Sluiten',
+      qa,
     } = this.props;
 
     return (
-      <li className="m-tag">
+      <li className="m-tag" data-qa={qa}>
         {icon &&
-          <Button size="small" icon={icon}></Button>
+          <Button size="small" icon={icon} ariaLabel={ariaLabelIcon}></Button>
         }
         <span className="m-tag__label">{value}</span>
         {closable &&
-          <Button transparent size="small" type="danger" icon="close" onClick={onClick} />
+          <Button transparent size="small" type="danger" icon="close" ariaLabel={ariaLabelClose} onClick={onClick} />
         }
       </li>
     )

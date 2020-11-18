@@ -1,8 +1,9 @@
 // @flow
-
 import React from 'react';
 import ReactModal from 'react-modal';
 import classNames from 'classnames';
+
+import './Modal.scss';
 
 import Button from '../../button/src/Button';
 
@@ -13,7 +14,6 @@ type Props = {
   ariaHideApp: boolean,
   /** Modal contents. */
   children: React.Node,
-
   /** Hide/show the close button. */
   hasCloseButton?: boolean,
   /** Modal title text. */
@@ -46,6 +46,9 @@ type Props = {
 
   /** Open the modal on initial render. */
   openOnInit?: boolean,
+
+  /** Qa id */
+  qa?: string,
 };
 
 type State = {
@@ -84,12 +87,12 @@ export default class Modal extends React.Component<Props, State> {
     openOnInit: false,
   };
 
+  state = {
+    showModal: false,
+  };
+
   constructor(props) {
     super(props);
-
-    this.state = {
-      showModal: false,
-    };
 
     this.handleToggleModal = this.handleToggleModal.bind(this);
     this.handleConfirm = this.handleConfirm.bind(this);
@@ -155,22 +158,22 @@ export default class Modal extends React.Component<Props, State> {
     const {
       appElement,
       children,
-
       onRequestClose,
-
       title,
       hasCloseButton,
       confirmText,
       denyText,
-
       className,
       overlayClassName,
-
       triggerElm,
       triggerText,
       size,
-
-      ...restProps
+      ariaHideApp,
+      onConfirm,
+      onDeny,
+      onAfterOpen,
+      openOnInit,
+      qa
     } = this.props;
 
     const modalTrigger = triggerElm ? this.addProps(triggerElm, {
@@ -189,11 +192,15 @@ export default class Modal extends React.Component<Props, State> {
           isOpen={showModal}
           onRequestClose={this.handleRequestClose}
           role="dialog"
-
+          aria-modal="true"
           className={classNames('m-modal', sizeClass, className)}
           overlayClassName={classNames('m-overlay', 'is-active', overlayClassName)}
-
-          {...restProps}
+          data-qa={qa}
+          ariaHideApp={ariaHideApp}
+          onConfirm={onConfirm}
+          onDeny={onDeny}
+          onAfterOpen={onAfterOpen}
+          openOnInit={openOnInit}
         >
           <div className="m-modal__content">
             {(title || hasCloseButton) && (
@@ -202,7 +209,7 @@ export default class Modal extends React.Component<Props, State> {
                   <h6>{title}</h6>
                 )}
                 {hasCloseButton && (
-                  <Button className="m-modal__close" icon="times" transparent onClick={() => this.handleRequestClose()} />
+                  <Button className="m-modal__close" icon="times" type="default" transparent onClick={() => this.handleRequestClose()} />
                 )}
               </div>
             )}
@@ -214,10 +221,10 @@ export default class Modal extends React.Component<Props, State> {
             {(confirmText || denyText) && (
               <div className="m-modal__footer">
                 {confirmText && (
-                  <Button className="m-modal__confirm" type="primary" onClick={this.handleConfirm}>{confirmText}</Button>
+                  <Button className="m-modal__confirm" onClick={this.handleConfirm}>{confirmText}</Button>
                 )}
                 {denyText && (
-                  <Button className="m-modal__deny" type="secondary" onClick={this.handleDeny}>{denyText}</Button>
+                  <Button className="m-modal__deny" outline onClick={this.handleDeny}>{denyText}</Button>
                 )}
               </div>
             )}

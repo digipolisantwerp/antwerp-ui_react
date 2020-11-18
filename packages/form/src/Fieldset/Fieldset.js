@@ -5,16 +5,18 @@ type Props = {
   legend: string,
   children?: any,
   style?: object,
+  /** Qa id */
+  qa?: string,
 };
 
-const Fielset = (props: Props) => {
-  const { legend, children, style } = props;
+const Fieldset = (props: Props) => {
+  const { legend, children, style, qa } = props;
   return (
-    <fieldset style={style}>
+    <fieldset style={style} data-qa={qa}>
       <legend>{legend}</legend>
       {children}
     </fieldset>
   )
 }
 
-export default Fielset;
+export default Fieldset;

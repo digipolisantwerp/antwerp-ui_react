@@ -7,7 +7,7 @@ export { default as Avatar } from './packages/avatar';
 export { default as Badge } from './packages/badge';
 
 export { default as Button } from './packages/button';
-export { default as ButtonGroup } from './packages/button';
+export { ButtonGroup } from './packages/button';
 
 export { default as Calendar } from './packages/calendar';
 
@@ -85,3 +85,18 @@ export { default as Link } from './packages/link';
 
 export { default as Modal } from './packages/modal';
 
+export {
+  SubFooter,
+  ContentBlock,
+  NavBlock,
+  ButtonBlock,
+  SocialBlock,
+} from './packages/subfooter';
+
+export { default as 
+  Pagination,
+} from './packages/pagination';
+
+export {
+  Environment
+} from './packages/environment';

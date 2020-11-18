@@ -18,18 +18,18 @@ type Props = {
   /** Alert body */
   children?: any,
   closable?: boolean,
+  ariaLabelClose?: string,
   className?: string,
   onClose?: Function,
+  /** Qa id */
+  qa?: string,
 };
 
 class Alert extends Component<Props> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      closing: true,
-      closed: false
-    };
-  }
+  state = {
+    closing: true,
+    closed: false
+  };
 
   handleClose = (e) => {
     const {onClose} = this.props;
@@ -44,7 +44,9 @@ class Alert extends Component<Props> {
       title,
       children,
       closable,
+      ariaLabelClose = 'Sluiten',
       className,
+      qa,
     } = this.props;
     const { closed } = this.state;
 
@@ -55,14 +57,14 @@ class Alert extends Component<Props> {
     );
 
     const closeButton = closable ? (
-      <Button type={type} icon="close" onClick={this.handleClose} className="m-alert__close a-button-transparent">
+      <Button type={type} icon="close" onClick={this.handleClose} className="m-alert__close a-button-transparent" aria-label={ariaLabelClose}>
       </Button>
     ) : null;
 
     return (
       <div>
         {!closed ?
-          <div className={alertClass}>
+          <div className={alertClass} data-qa={qa}>
             {closeButton}
             {title && <h5 className="u-margin-bottom-xs">{title}</h5>}
             {children}

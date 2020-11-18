@@ -1,0 +1,22 @@
+.m-user-menu-flyout {
+  display: inline-block;
+  position: relative;
+
+  .a-avatar-wrapper {
+    align-items: center;
+    display: flex;
+  }
+
+  .a-button__avatar {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+
+  .a-badge {
+    bottom: -.5625rem;
+    left: 1.5rem;
+    position: absolute;
+    transform: translateX(-50%);
+    z-index: 10;
+  }
+}
