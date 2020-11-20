@@ -64,6 +64,8 @@ type IState = {
 }
 
 class Autocomplete extends Component<Props, IState> {
+  autocompleteRef = React.createRef();
+
   state = {
     open: this.props.open || false,
     results: this.props.items || [],
@@ -92,6 +94,8 @@ class Autocomplete extends Component<Props, IState> {
         this.search(value);
       })
     );
+
+    document.addEventListener('click', this.handleOutsideClick, false);
 
     const handleArrowKeys$ = fromEvent(this.inputField, 'keydown').pipe(
       filter(e => ARROW_KEYS.some(k => e.key === k)),
@@ -175,6 +179,14 @@ class Autocomplete extends Component<Props, IState> {
       this.selectionMode.select(item);
   }
 
+  handleOutsideClick = e => {
+    const area = ReactDOM.findDOMNode(this.autocompleteRef.current);
+    console.log(area);
+    if (area && !area.contains(e.target)) {
+      this.closePane();
+    }
+  };
+
   renderItems = (item, index) => {
     const liClasses = classNames({
       'm-selectable-list__item': true,
@@ -182,15 +194,16 @@ class Autocomplete extends Component<Props, IState> {
     });
     return (
       <li key={item.value} data-value={item.value} data-label={item.label} className={liClasses}
-          onClick={() => this.selectOption(item)} ref={(item) => {
+          onClick={() => this.selectOption(item)} onKeyPress={(e) => (e.key === 'Enter') ? this.selectOption(item) : null} ref={(item) => {
         this['item_' + index] = item
-      }}>
+      }} tabindex="0">
         {item.label}
       </li>
     );
   };
 
   componentWillUnmount() {
+    document.removeEventListener('click', this.handleOutsideClick, false);
     this.destroy$.next();
     this.destroy$.complete();
   }
@@ -204,7 +217,6 @@ class Autocomplete extends Component<Props, IState> {
              ref={ref => this.inputField = ref}
              data-qa={this.props.qa}
              {...this.props.state}
-             onBlur={() => this.closePane()}
              onFocus={() => this.openPane()}
              placeholder={this.props.placeholder || ''}
              required={!!this.props.required}
@@ -259,7 +271,7 @@ class Autocomplete extends Component<Props, IState> {
 
     return (
       <div>
-        <div className={flyoutClasses}>
+        <div className={flyoutClasses} ref={this.autocompleteRef}>
           <div className={inputClass} data-qa={qa}>
             <InputLabel htmlFor={this.props.id}>{this.props.label}</InputLabel>
             <div className={wrapperClasses} onClick={() => this.focusOnInput()}>
@@ -280,15 +292,16 @@ class Autocomplete extends Component<Props, IState> {
           </div>
           <FlyoutContent hasPadding={false}>
             {(results.length === 0 && !allowNewEntry) || (results.length === 0 && allowNewEntry && (this.inputField && !this.inputField.value)) ? (
-              <p className="u-margin-xs u-text-light u-text-center">{noResults || "No Results"}</p>
+              <p className="u-margin-xs u-text-light u-text-center">{noResults || "Geen resultaten"}</p>
             ) : (
               <ul className="m-selectable-list m-selectable-list--no-border">
                 {allowNewEntry && this.inputField && this.inputField.value && (
                   <li className={newEntryClasses} onClick={() => this.handleNewEntry(this.inputField.value)}
+                      onKeyPress={(e) => (e.key === 'Enter') ? this.selectOption(item) : null}
                       ref={(item) => {
                         this['item_' + 0] = item
-                      }}>
-                    {newEntryText || "Create new entry for:"} {this.inputField.value}
+                      }} tabindex="0">
+                    {newEntryText || "Maak een nieuw item voor:"} {this.inputField.value}
                   </li>
                 )}
                 {results.map((item, index) => this.renderItems(item, index + 1))}
