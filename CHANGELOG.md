@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Fixed
+- `Pagination` Fixed Pagination not rerendering when `itemsPerPage` or `totalValues` change
 
 ## v4.7.0 - 05-10-2020
 
