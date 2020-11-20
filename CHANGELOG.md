@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
+- `RadioGroup` Added support for RadioOption key attribute
+- `RadioGroup` Added support for multiple radiogroups with same values
 
 ### Fixed
 - `Pagination` Fixed Pagination not rerendering when `itemsPerPage` or `totalValues` change
