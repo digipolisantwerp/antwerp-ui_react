@@ -6,7 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+
+## v4.8.0 - 20-11-2020
+
+### Added
+- `RadioGroup` Added support for RadioOption key attribute
+- `RadioGroup` Added support for multiple radiogroups with same values
+
 ### Fixed
+- `Pagination` Fixed Pagination not rerendering when `itemsPerPage` or `totalValues` change
 - `Autocomplete` Fixed an issue where an item sometimes wasn't selected
 - `Autocomplete` Improved overall accessibility
 

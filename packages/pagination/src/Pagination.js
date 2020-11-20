@@ -48,7 +48,11 @@ export default class Pagination extends Component<Props, State> {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.currentPage !== this.props.currentPage) {
+    if (
+      prevProps.currentPage !== this.props.currentPage ||
+      prevProps.itemsPerPage !== this.props.itemsPerPage ||
+      prevProps.totalValues !== this.props.totalValues
+    ) {
       this.setState(this.setValues);
     }
   }
