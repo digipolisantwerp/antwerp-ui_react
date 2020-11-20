@@ -13,7 +13,7 @@ const TextField = require('./src').TextField;
   className={"textfield-class"}
   required={true}
   placeholder={"Your name"}
-  onChange={(value) => console.log('textfield value is:', value)} />
+  onChange={(event) => console.log('textfield value is:', event.target.value)} />
 ```
 
 The prop `autoComplete` can be used to disable the prefill that some browsers show
@@ -27,7 +27,7 @@ const TextField = require('./src').TextField;
   className={"textfield-class"}
   required={true}
   placeholder={"Your name"}
-  onChange={(value) => console.log('textfield value is:', value)}
+  onChange={(event) => console.log('textfield value is:', event.target.value)}
   autoComplete="off" />
 ```
 
@@ -43,7 +43,7 @@ const TextField = require('./src').TextField;
   className={"textfield-class"}
   required={true}
   placeholder={"Your name"}
-  onChange={(value) => console.log('textfield value is:', value)}
+  onChange={(event) => console.log('textfield value is:', event.target.value)}
   iconright="eye" />
 
 <br />
@@ -55,7 +55,7 @@ const TextField = require('./src').TextField;
   className={"textfield-class"}
   required={true}
   placeholder={"Your name"}
-  onChange={(value) => console.log('textfield value is:', value)}
+  onChange={(event) => console.log('textfield value is:', event.target.value)}
   iconleft="user" />
 </div>
 ```
@@ -71,7 +71,7 @@ const TextField = require('./src').TextField;
   className={"textfield-class"}
   required={true}
   placeholder={"Your name"}
-  onChange={(value) => console.log('textfield value is:', value)}
+  onChange={(event) => console.log('textfield value is:', event.target.value)}
   loading={true} />
 ```
 
@@ -86,7 +86,7 @@ const TextField = require('./src').TextField;
   className={"textfield-class"}
   required={true}
   placeholder={"Your name"}
-  onChange={(value) => console.log('textfield value is:', value)}
+  onChange={(event) => console.log('textfield value is:', event.target.value)}
   disabled />
 ```
 
@@ -101,7 +101,7 @@ const TextField = require('./src').TextField;
   className={"textfield-class"}
   required={true}
   placeholder={"Your name"}
-  onChange={(value) => console.log('textfield value is:', value)}
+  onChange={(event) => console.log('textfield value is:', event.target.value)}
   type="small" />
 ```
 ```
@@ -114,7 +114,7 @@ const TextField = require('./src').TextField;
   className={"textfield-class"}
   required={true}
   placeholder={"Your name"}
-  onChange={(value) => console.log('textfield value is:', value)}
+  onChange={(event) => console.log('textfield value is:', event.target.value)}
   type="large" />
 ```
 
@@ -129,7 +129,7 @@ const Textarea = require('./src').Textarea;
   className={"textarea-class"}
   required={true}
   placeholder={"Give a description"}
-  onChange={(value) => console.log('textarea value is:', value)} />
+  onChange={(event) => console.log('textarea value is:', event.target.value)} />
 ```
 
 ```
@@ -143,7 +143,7 @@ const Textarea = require('./src').Textarea;
   required={true}
   placeholder={"Give a description"}
   disabled
-  onChange={(value) => console.log('textarea value is:', value)} />
+  onChange={(event) => console.log('textarea value is:', event.target.value)} />
 ```
 
 Small variant:
@@ -158,7 +158,7 @@ const Textarea = require('./src').Textarea;
   required={true}
   placeholder={"Give a description"}
   type="small"
-  onChange={(value) => console.log('textarea value is:', value)} />
+  onChange={(event) => console.log('textarea value is:', event.target.value)} />
 ```
 
 Large variant:
@@ -173,7 +173,7 @@ const Textarea = require('./src').Textarea;
   required={true}
   placeholder={"Give a description"}
   type="large"
-  onChange={(value) => console.log('textarea value is:', value)} />
+  onChange={(event) => console.log('textarea value is:', event.target.value)} />
 ```
 
 
