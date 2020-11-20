@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Fixed
+- `Autocomplete` Fixed an issue where an item sometimes wasn't selected
+- `Autocomplete` Improved overall accessibility
+
 
 ## v4.7.0 - 05-10-2020
 
