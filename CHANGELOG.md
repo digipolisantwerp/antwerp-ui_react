@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ## [Unreleased]
 
 
-## v4.8.1 - 24-11-2020
+## v4.8.1 - 25-11-2020
 
 ### Fixed
 - `Autocomplete` Fixed an issue with tabIndex
