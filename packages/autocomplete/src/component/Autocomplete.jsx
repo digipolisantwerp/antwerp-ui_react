@@ -181,7 +181,6 @@ class Autocomplete extends Component<Props, IState> {
 
   handleOutsideClick = e => {
     const area = ReactDOM.findDOMNode(this.autocompleteRef.current);
-    console.log(area);
     if (area && !area.contains(e.target)) {
       this.closePane();
     }
@@ -196,7 +195,7 @@ class Autocomplete extends Component<Props, IState> {
       <li key={item.value} data-value={item.value} data-label={item.label} className={liClasses}
           onClick={() => this.selectOption(item)} onKeyPress={(e) => (e.key === 'Enter') ? this.selectOption(item) : null} ref={(item) => {
         this['item_' + index] = item
-      }} tabindex="0">
+      }} tabIndex="0">
         {item.label}
       </li>
     );
@@ -300,7 +299,7 @@ class Autocomplete extends Component<Props, IState> {
                       onKeyPress={(e) => (e.key === 'Enter') ? this.selectOption(item) : null}
                       ref={(item) => {
                         this['item_' + 0] = item
-                      }} tabindex="0">
+                      }} tabIndex="0">
                     {newEntryText || "Maak een nieuw item voor:"} {this.inputField.value}
                   </li>
                 )}
