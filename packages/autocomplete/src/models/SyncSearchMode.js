@@ -17,11 +17,6 @@ export class SyncSearchMode implements ISearchMode {
       return Promise.resolve(this.component.props.items);
     }
 
-    let items = this.component.props.items;
-    // Remove already selected items
-    const selection = this.component.selectionMode.getSelection();
-    items = items.filter(item => !selection.find(s => s.value === item.value));
-
     // Find matches in remaining items
     let matches = items.filter(item => item.label.toLowerCase().includes(value.toLowerCase()));
     return Promise.resolve(matches);
