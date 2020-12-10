@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Moment from 'moment';
-import { rotateArrayByPosition } from './../utils';
+import { rotateArrayByPosition } from '../utils';
 
 class Head extends Component {
 
@@ -18,8 +18,9 @@ class Head extends Component {
 	}
 
 	renderNameOfDays() {
-		const nameOfDays = Moment.weekdaysMin();
-		const longNameDays = Moment.weekdays();
+	  // True parameter to sort weekdays by locale
+		const nameOfDays = Moment.weekdaysMin(true);
+		const longNameDays = Moment.weekdays(true);
 		const orderedLongNameDays = rotateArrayByPosition(longNameDays, 2);
 
 		return (
