@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ## [Unreleased]
 
 
+## v4.8.2 - 11-12-2020
+
+### Fixed
+- `Form/Datepicker` Fixed order of the week days
+- `Form/TextField` Fixed ability to pass unexpected props
+- `General` Fixed changelog
+
+
 ## v4.8.1 - 25-11-2020
 
 ### Fixed
@@ -33,6 +41,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Fixed
 - `Checkbox` Use checked instead of defaultChecked
+
 
 ## v4.6.1 - 22-09-2020
 
@@ -164,7 +173,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - `Footer` Fixed scroll to top.
 - `Autocomplete` Fixed items not updating when searching, added defaultValue option, added empty state, fixed open state issue.
 - `Autocomplete` Fixed handling dynamic values for defaultValue.
-
 
 
 ## v1.0.1-16 - 2018-07-02
