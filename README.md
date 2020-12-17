@@ -55,6 +55,10 @@ Your contributions are most welcome as pull requests, both code changes and docu
 
 Thank you to all the people [who already contributed][acpaas-ui-react-contributors] to ACPaaS UI!
 
+## Support
+
+Jasper Van Proeyen (<jasper.vanproeyen@digipolis.be>)
+
 ## License
 
 [MIT](./LICENSE.md)
