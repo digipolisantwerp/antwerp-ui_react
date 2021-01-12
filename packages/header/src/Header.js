@@ -52,7 +52,7 @@ const Header = (props: Props) => {
 
 Header.defaultProps = {
   logoUrl: '/',
-  logoSrc: 'https://cdn.antwerpen.be/core_branding_scss/4.0.0/assets/images/a-logo.svg',
+  logoSrc: 'https://cdn.antwerpen.be/core_branding_scss/4.2.2/assets/images/a-logo.svg',
   logoAlt: 'Officieel logo Antwerpen.'
 };
 

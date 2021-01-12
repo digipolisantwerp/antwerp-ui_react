@@ -24,13 +24,13 @@ npm install @acpaas-ui/react-components
 Import the core branding to style the components:
 
 ```scss
-@import url("https://cdn.antwerpen.be/core_branding_scss/4.0.0/main.min.css");
+@import url("https://cdn.antwerpen.be/core_branding_scss/4.2.2/main.min.css");
 ```
 
 You can also add a branding-compatible [flexbox grid layout system][flexboxgrid]:
 
 ```scss
-@import url('https://cdn.antwerpen.be/core_flexboxgrid_scss/1.0.1/flexboxgrid.min.css');
+@import url('https://cdn.antwerpen.be/core_flexboxgrid_scss/2.0.0/flexboxgrid.min.css');
 ```
 
 Note that you are free to use your own grid, as long as it meets our branding guidelines.
@@ -54,6 +54,10 @@ Detailed changes for each release are documented in the [changelog](./CHANGELOG.
 Your contributions are most welcome as pull requests, both code changes and documentation updates. However, to keep a high quality standard, please make sure to read the [Contributing Guide](./CONTRIBUTING.md) before making a pull request.
 
 Thank you to all the people [who already contributed][acpaas-ui-react-contributors] to ACPaaS UI!
+
+## Support
+
+Jasper Van Proeyen (<jasper.vanproeyen@digipolis.be>)
 
 ## License
 

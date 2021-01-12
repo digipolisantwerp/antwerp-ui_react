@@ -154,6 +154,22 @@ describe("Pagination", () => {
     expect(component.state().currentPage).toEqual(6);
   });
 
+  test("It should rerender when itemsPerPage changes", () => {
+    const component = mount(<Pagination itemsPerPage={6} totalValues={20} />);
+
+    expect(component.state().numbers).toHaveLength(4);
+    component.setProps({ itemsPerPage: 12 });
+    expect(component.state().numbers).toHaveLength(2);
+  });
+
+  test("It should rerender when totalValues changes", () => {
+    const component = mount(<Pagination itemsPerPage={8} totalValues={20} />);
+
+    expect(component.state().numbers).toHaveLength(3);
+    component.setProps({ totalValues: 6 });
+    expect(component.state().numbers).toHaveLength(1);
+  });
+
   test("should set the data-qa attribute", () => {
     const component = shallow(
       <Pagination qa="id-1234" itemsPerPage={4} totalValues={60} />
