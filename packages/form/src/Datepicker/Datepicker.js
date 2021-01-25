@@ -125,6 +125,13 @@ class Datepicker extends Component<Props> {
     }
   }
 
+  resetDate() {
+    this.setState({
+      input: '',
+      activeDate: null
+    });
+  }
+
   changeDate(date) {
     const {onChange, format, autoClose} = this.props;
     const momentDate = Moment(date, format, true);
