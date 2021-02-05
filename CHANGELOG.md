@@ -5,7 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
-
+- `Autocomplete` Fixed a bug where search results were not correctly parsed
 
 ## v4.8.2 - 11-12-2020
 
