@@ -37,6 +37,7 @@ type Props = {
   qa?: string,
   inputRef?: (ref: React.Ref) => void;
   errorDescription?: string;
+  className?: String;
 };
 
 class TextField extends Component<Props> {
@@ -56,6 +57,7 @@ class TextField extends Component<Props> {
       qa,
       type,
       errorDescription,
+      className,
       ...extraProps,
     } = this.props;
 
@@ -67,7 +69,8 @@ class TextField extends Component<Props> {
         'is-required': !!required,
         [`${stateClasses[state]}`]: !!state,
         [`a-input--${type}`]: !!type,
-      }
+      },
+        className
     );
 
     return (
@@ -76,7 +79,7 @@ class TextField extends Component<Props> {
         <div className="a-input__wrapper">
           {iconleft ? <Icon name={iconleft}/> : null}
           {mask ? <InputMask {...this.props} /> :
-            <input id={id} type="text" autoComplete={autoComplete} disabled={disabled}
+            <input id={id} type={type} autoComplete={autoComplete} disabled={disabled}
                    ref={ref => this.props.inputRef && this.props.inputRef(ref)} {...extraProps} />}
           {iconright ? <Icon name={iconright}/> : null}
           {loading ? <span className="fa a-spinner a-spinner--sm"/> : null}
