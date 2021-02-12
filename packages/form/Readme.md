@@ -1,3 +1,4 @@
+
 <div class="m-alert d-alert m-alert--wcag u-margin-bottom">
   <p>It is important to provide the user with clean instructions on how to complete the form. You can provide these both overall or inline. Note that you can not use the placeholder attribute as a replacement for clean instructions or for the label.</p>
 </div>
@@ -543,4 +544,180 @@ const Datepicker = require('./src').Datepicker;
   readOnly={true}
 />
 
+```
+
+### TelephoneNumber
+
+```
+const TelephoneNumber = require('./src').TelephoneNumber;
+<div>
+  <TelephoneNumber
+    id="tel-id-1"
+    name="tel-name"
+    label="TelephoneNumber"
+    description="Vul een telefoonnummer in"
+    onChange={(value) => console.log('New tel value:', value)}
+    open={false}
+  />
+</div>
+```
+
+Verplicht
+
+```
+const TelephoneNumber = require('./src').TelephoneNumber;
+<div>
+  <TelephoneNumber
+    id="tel-id-1"
+    name="tel-name"
+    label="TelephoneNumber"
+    description="Vul een telefoonnummer in"
+    required={true}
+    onChange={(value) => console.log('New tel value:', value)}
+    open={false}
+  />
+</div>
+```
+
+Met placeholder
+
+```
+const TelephoneNumber = require('./src').TelephoneNumber;
+<div>
+  <TelephoneNumber
+    id="tel-id-2"
+    name="tel-name-2"
+    label="TelephoneNumber"
+    placeholder="xxxxxxxxx"
+    required={true}
+    onChange={(value) => console.log('New tel value:', value)}
+    open={false}
+  />
+</div>
+```
+
+Met mask
+
+```
+const TelephoneNumber = require('./src').TelephoneNumber;
+<div>
+  <TelephoneNumber
+    id="tel-id-3"
+    name="tel-name-3"
+    label="TelephoneNumber"
+    mask="999 99 99 99"
+    required={true}
+    onChange={(value) => console.log('New tel value:', value)}
+    open={false}
+  />
+</div>
+```
+
+Error state
+
+```
+const TelephoneNumber = require('./src').TelephoneNumber;
+<div>
+  <TelephoneNumber
+    id="tel-id-4"
+    name="tel-name-4"
+    label="TelephoneNumber"
+    mask="999 99 99 99"
+    state="error"
+    errorDescription="Er is een error!"
+    required={true}
+    onChange={(value) => console.log('New tel value:', value)}
+    open={false}
+  />
+</div>
+```
+
+Icon right
+
+```
+const TelephoneNumber = require('./src').TelephoneNumber;
+<div>
+  <TelephoneNumber
+    id="tel-id-5"
+    name="tel-name-5"
+    label="TelephoneNumber"
+    mask="999 99 99 99"
+    iconright="phone"
+    required={true}
+    onChange={(value) => console.log('New tel value:', value)}
+    open={false}
+  />
+</div>
+```
+
+Icon left
+
+```
+const TelephoneNumber = require('./src').TelephoneNumber;
+<div>
+  <TelephoneNumber
+    id="tel-id-2"
+    name="tel-name-2"
+    label="TelephoneNumber"
+    mask="999 99 99 99"
+    iconleft="phone"
+    required={true}
+    onChange={(value) => console.log('New tel value:', value)}
+    open={false}
+  />
+</div>
+```
+
+Loading
+
+```
+const TelephoneNumber = require('./src').TelephoneNumber;
+<div>
+  <TelephoneNumber
+    id="tel-id-2"
+    name="tel-name-2"
+    label="TelephoneNumber"
+    mask="999 99 99 99"
+    loading={true}
+    required={true}
+    onChange={(value) => console.log('New tel value:', value)}
+    open={false}
+  />
+</div>
+```
+
+Small variant
+
+```
+const TelephoneNumber = require('./src').TelephoneNumber;
+<div>
+  <TelephoneNumber
+    id="tel-id-2"
+    name="tel-name-2"
+    label="TelephoneNumber"
+    mask="999 99 99 99"
+    type="small"
+    required={true}
+    onChange={(value) => console.log('New tel value:', value)}
+    open={false}
+  />
+</div>
+```
+
+Large variant
+
+```
+const TelephoneNumber = require('./src').TelephoneNumber;
+<div>
+  <TelephoneNumber
+    id="tel-id-2"
+    name="tel-name-2"
+    label="TelephoneNumber"
+    mask="999 99 99 99"
+    type="large"
+    required={true}
+    onChange={(value) => console.log('New tel value:', value)}
+    open={false}
+  />
+</div>
 ```

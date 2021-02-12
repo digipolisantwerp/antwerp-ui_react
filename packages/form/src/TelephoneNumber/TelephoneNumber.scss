@@ -1,0 +1,18 @@
+.a-input-telephone .a-input__wrapper {
+  display: flex;
+  flex-direction: row;
+
+  .a-input-telephone__number {
+    flex: 1;
+  }
+}
+
+.a-input{
+  &.has-success,
+  &.has-warning,
+  &.has-error {
+    .a-input-telephone__area-code .a-input__wrapper:before {
+      content: ''
+    }
+  }
+}
