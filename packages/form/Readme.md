@@ -555,7 +555,7 @@ const TelephoneNumber = require('./src').TelephoneNumber;
     id="tel-id-1"
     name="tel-name-1"
     label="TelephoneNumber"
-    description="Vul een telefoonnummer in"
+    description="Enter a phone number"
     onChange={(value) => console.log('New tel value 1:', value)}
     open={false}
   />
