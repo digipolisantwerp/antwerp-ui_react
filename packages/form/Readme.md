@@ -60,6 +60,36 @@ const TextField = require('./src').TextField;
 </div>
 ```
 
+Use `addonleft` or `addonright` to add a suffix or prefix to the input
+
+```
+const TextField = require('./src').TextField;
+
+<div>
+<TextField
+  label={"Name"}
+  id={"textfield-id-3"}
+  name={"textfield-name"}
+  className={"textfield-class"}
+  required={true}
+  placeholder={"Your name"}
+  onChange={(event) => console.log('textfield value is:', event.target.value)}
+  addonleft="http(s)://" />
+
+<br />
+
+<TextField
+  label={"Name"}
+  id={"textfield-id-4"}
+  name={"textfield-name"}
+  className={"textfield-class"}
+  required={true}
+  placeholder={"Your name"}
+  onChange={(event) => console.log('textfield value is:', event.target.value)}
+  addonright="km" />
+</div>
+```
+
 A spinner can be added using the `spinner` prop
 ```
 const TextField = require('./src').TextField;
