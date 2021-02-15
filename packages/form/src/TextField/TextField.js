@@ -14,7 +14,7 @@ type InputStates = "success" | "warning" | "error";
 type InputTypes = "small" | "normal" | "large";
 
 type Props = {
-  id?: string,
+  id: string,
   label?: string,
   value?: string,
   name?: string,
