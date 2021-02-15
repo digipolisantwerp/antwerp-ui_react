@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import InputLabel from '../InputLabel';
 import TextField from '../TextField';
 import { default as Select } from '../Select';
-import countryCodes from './country-codes.json';
+import countryCodes from './TelephoneNumber.const';
 
 import './TelephoneNumber.scss';
 
