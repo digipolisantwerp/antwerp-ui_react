@@ -37,7 +37,7 @@ type Props = {
   qa?: string,
   inputRef?: (ref: React.Ref) => void;
   errorDescription?: string;
-  className?: String;
+  className?: string;
 };
 
 class TextField extends Component<Props> {
