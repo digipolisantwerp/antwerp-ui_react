@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Fixed
+- `Toggle` Fixed an issue where the toggle's checked state could get mixed up
+
 
 ## v4.8.2 - 11-12-2020
 
