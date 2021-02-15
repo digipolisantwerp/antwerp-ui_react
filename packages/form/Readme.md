@@ -553,33 +553,16 @@ const TelephoneNumber = require('./src').TelephoneNumber;
 <div>
   <TelephoneNumber
     id="tel-id-1"
-    name="tel-name"
+    name="tel-name-1"
     label="TelephoneNumber"
     description="Vul een telefoonnummer in"
-    onChange={(value) => console.log('New tel value:', value)}
+    onChange={(value) => console.log('New tel value 1:', value)}
     open={false}
   />
 </div>
 ```
 
-Verplicht
-
-```
-const TelephoneNumber = require('./src').TelephoneNumber;
-<div>
-  <TelephoneNumber
-    id="tel-id-1"
-    name="tel-name"
-    label="TelephoneNumber"
-    description="Vul een telefoonnummer in"
-    required={true}
-    onChange={(value) => console.log('New tel value:', value)}
-    open={false}
-  />
-</div>
-```
-
-Met placeholder
+Required
 
 ```
 const TelephoneNumber = require('./src').TelephoneNumber;
@@ -588,15 +571,15 @@ const TelephoneNumber = require('./src').TelephoneNumber;
     id="tel-id-2"
     name="tel-name-2"
     label="TelephoneNumber"
-    placeholder="xxxxxxxxx"
+    description="Enter a phone number"
     required={true}
-    onChange={(value) => console.log('New tel value:', value)}
+    onChange={(value) => console.log('New tel value 2:', value)}
     open={false}
   />
 </div>
 ```
 
-Met mask
+With placeholder
 
 ```
 const TelephoneNumber = require('./src').TelephoneNumber;
@@ -605,9 +588,26 @@ const TelephoneNumber = require('./src').TelephoneNumber;
     id="tel-id-3"
     name="tel-name-3"
     label="TelephoneNumber"
+    placeholder="xxxxxxxxx"
+    required={true}
+    onChange={(value) => console.log('New tel value 3:', value)}
+    open={false}
+  />
+</div>
+```
+
+With mask
+
+```
+const TelephoneNumber = require('./src').TelephoneNumber;
+<div>
+  <TelephoneNumber
+    id="tel-id-4"
+    name="tel-name-4"
+    label="TelephoneNumber"
     mask="999 99 99 99"
     required={true}
-    onChange={(value) => console.log('New tel value:', value)}
+    onChange={(value) => console.log('New tel value 4:', value)}
     open={false}
   />
 </div>
@@ -619,14 +619,14 @@ Error state
 const TelephoneNumber = require('./src').TelephoneNumber;
 <div>
   <TelephoneNumber
-    id="tel-id-4"
-    name="tel-name-4"
+    id="tel-id-5"
+    name="tel-name-5"
     label="TelephoneNumber"
     mask="999 99 99 99"
     state="error"
-    errorDescription="Er is een error!"
+    errorDescription="An error occured!"
     required={true}
-    onChange={(value) => console.log('New tel value:', value)}
+    onChange={(value) => console.log('New tel value 5:', value)}
     open={false}
   />
 </div>
@@ -638,13 +638,13 @@ Icon right
 const TelephoneNumber = require('./src').TelephoneNumber;
 <div>
   <TelephoneNumber
-    id="tel-id-5"
-    name="tel-name-5"
+    id="tel-id-6"
+    name="tel-name-6"
     label="TelephoneNumber"
     mask="999 99 99 99"
     iconright="phone"
     required={true}
-    onChange={(value) => console.log('New tel value:', value)}
+    onChange={(value) => console.log('New tel value 6:', value)}
     open={false}
   />
 </div>
@@ -656,13 +656,13 @@ Icon left
 const TelephoneNumber = require('./src').TelephoneNumber;
 <div>
   <TelephoneNumber
-    id="tel-id-2"
-    name="tel-name-2"
+    id="tel-id-7"
+    name="tel-name-7"
     label="TelephoneNumber"
     mask="999 99 99 99"
     iconleft="phone"
     required={true}
-    onChange={(value) => console.log('New tel value:', value)}
+    onChange={(value) => console.log('New tel value 7:', value)}
     open={false}
   />
 </div>
@@ -674,13 +674,13 @@ Loading
 const TelephoneNumber = require('./src').TelephoneNumber;
 <div>
   <TelephoneNumber
-    id="tel-id-2"
-    name="tel-name-2"
+    id="tel-id-8"
+    name="tel-name-8"
     label="TelephoneNumber"
     mask="999 99 99 99"
     loading={true}
     required={true}
-    onChange={(value) => console.log('New tel value:', value)}
+    onChange={(value) => console.log('New tel value 8:', value)}
     open={false}
   />
 </div>
@@ -692,13 +692,13 @@ Small variant
 const TelephoneNumber = require('./src').TelephoneNumber;
 <div>
   <TelephoneNumber
-    id="tel-id-2"
-    name="tel-name-2"
+    id="tel-id-9"
+    name="tel-name-9"
     label="TelephoneNumber"
     mask="999 99 99 99"
     type="small"
     required={true}
-    onChange={(value) => console.log('New tel value:', value)}
+    onChange={(value) => console.log('New tel value 9:', value)}
     open={false}
   />
 </div>
@@ -710,13 +710,13 @@ Large variant
 const TelephoneNumber = require('./src').TelephoneNumber;
 <div>
   <TelephoneNumber
-    id="tel-id-2"
-    name="tel-name-2"
+    id="tel-id-10"
+    name="tel-name-10"
     label="TelephoneNumber"
     mask="999 99 99 99"
     type="large"
     required={true}
-    onChange={(value) => console.log('New tel value:', value)}
+    onChange={(value) => console.log('New tel value 10:', value)}
     open={false}
   />
 </div>

@@ -17,7 +17,7 @@ type InputStates = "success" | "warning" | "error";
 type InputTypes = "small" | "normal" | "large";
 
 type Props = {
-  id?: string,
+  id: string,
   label?: string,
   value?: {
     number: String,
@@ -117,7 +117,7 @@ const TelephoneNumber = (props: Props) => {
         <Select
           className="a-input-telephone__area-code"
           id={`${id}-areacode`}
-          name={`${name}-eareacode`}
+          name={`${name}-areacode`}
           required={required}
           onChange={updateAreaCode}
           value={internalValue.areaCode}
