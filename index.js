@@ -41,7 +41,7 @@ export {
   Textarea,
   RadioGroup,
   InputLabel,
-  Datepicker
+  Datepicker,
 } from './packages/form';
 
 export { default as Header } from './packages/header';
@@ -93,7 +93,7 @@ export {
   SocialBlock,
 } from './packages/subfooter';
 
-export { default as 
+export { default as
   Pagination,
 } from './packages/pagination';
 

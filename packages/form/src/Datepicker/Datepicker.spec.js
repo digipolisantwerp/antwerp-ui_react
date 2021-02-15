@@ -10,7 +10,12 @@ describe('Datepicker', () => {
 	it('should set active date if provided', () => {
 		const datepicker = mount(<Datepicker activeDate={"23/01/1991"} format={format} />);
 		expect(datepicker.state('activeDate').format(format)).toBe("23/01/1991");
-	});
+  });
+
+  it('should set to reset the date through a prop', () => {
+    const datepicker = mount(<Datepicker activeDate={""} />);
+		expect(datepicker.state('activeDate')).toBe(null);
+  });
 
 	it('should set default format as DD/MM/YYYY  if not provided', () => {
 		const datepicker = mount(<Datepicker />);
@@ -23,9 +28,12 @@ describe('Datepicker', () => {
 		appInstance.toggleCalendar();
 		expect(datepicker.state('open')).toBe(true);
 	});
-	
+
 	it('should set the data-qa attribute', () => {
 		const datepicker = shallow(<Datepicker qa="id-1234" />);
 		expect(datepicker.props()).toHaveProperty('data-qa', 'id-1234');
-	});
+  });
+
+
+
 });
