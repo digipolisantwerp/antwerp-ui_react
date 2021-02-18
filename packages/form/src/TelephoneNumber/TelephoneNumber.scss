@@ -1,9 +1,18 @@
 .a-input-telephone .a-input__wrapper {
   display: flex;
 
-  .a-input-telephone__number {
+  input[type="text"].a-input-telephone__number {
     flex: 1;
+    border-left: none;
   }
+
+  a-input-telephone__area-code select,
+  input[type="text"].a-input-telephone__number {
+    &:focus {
+      z-index: 1;
+    }
+  }
+
 }
 
 .a-input {
