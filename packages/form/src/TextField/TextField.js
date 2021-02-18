@@ -61,8 +61,6 @@ class TextField extends Component<Props> {
       ...extraProps,
     } = this.props;
 
-    console.log('type', type);
-
     const inputClass = classNames(
       'a-input',
       {
