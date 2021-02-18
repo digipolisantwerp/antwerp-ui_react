@@ -132,7 +132,7 @@ const TextField = require('./src').TextField;
   required={true}
   placeholder={"Your name"}
   onChange={(event) => console.log('textfield value is:', event.target.value)}
-  type="small" />
+  size="small" />
 ```
 ```
 const TextField = require('./src').TextField;
@@ -145,7 +145,7 @@ const TextField = require('./src').TextField;
   required={true}
   placeholder={"Your name"}
   onChange={(event) => console.log('textfield value is:', event.target.value)}
-  type="large" />
+  size="large" />
 ```
 
 ### Textarea
