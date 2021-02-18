@@ -5,7 +5,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
+
+### Added
 - `Form/TelephoneNumber` Added new telephone number component
+- `Form/TextField` Support addons (addon-left, addon-right)
+
+### Fixed
+- `Autocomplete` Fixed a bug where search results were not correctly parsed
+- `Toggle` Fixed an issue where the toggle's checked state could get mixed up
 
 
 ## v4.8.2 - 11-12-2020

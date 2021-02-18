@@ -39,16 +39,6 @@ class Toggle extends Component<Props> {
     checked: this.props.checked || false
   }
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.checked !== prevState.checked) {
-      return {
-        checked: nextProps.checked
-      };
-    }
-
-    return null;
-  }
-
 	static defaultProps = {
   	id: 'toggle-normal',
     checked: false,
@@ -61,8 +51,8 @@ class Toggle extends Component<Props> {
 		uncheckedButtonClass: 'a-button--danger'
 	}
 
-  handleClick = (e) => {
-    this.setState({ checked: !this.state.checked });
+  handleClick = e => {
+    this.setState({ checked: e.target.value });
     if (this.props.onClick) {
       this.props.onClick(e);
     }
