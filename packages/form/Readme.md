@@ -148,6 +148,38 @@ const TextField = require('./src').TextField;
   onChange={(event) => console.log('textfield value is:', event.target.value)}
   size="large" />
 ```
+The text field can be another type by useing the `type` property <br>
+
+Number:
+```
+const TextField = require('./src').TextField;
+
+<TextField
+  label={"Name"}
+  id={"textfield-id-10"}
+  name={"textfield-name"}
+  className={"textfield-class"}
+  required={true}
+  placeholder={"Your name"}
+  onChange={(event) => console.log('textfield value is:', event.target.value)}
+  type="number"
+  size="large" />
+```
+Email:
+```
+const TextField = require('./src').TextField;
+
+<TextField
+  label={"Name"}
+  id={"textfield-id-10"}
+  name={"textfield-name"}
+  className={"textfield-class"}
+  required={true}
+  placeholder={"Your name"}
+  onChange={(event) => console.log('textfield value is:', event.target.value)}
+  type="email"
+  size="large" />
+```
 
 ### Textarea
 ```

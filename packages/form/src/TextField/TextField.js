@@ -34,11 +34,13 @@ type Props = {
   addonleft?: string,
   addonright?: string,
   loading?: boolean,
+  type?: string,
   size?: Sizes,
   /** Qa id */
   qa?: string,
   inputRef?: (ref: React.Ref) => void,
   errorDescription?: string,
+  className?: string,
 };
 
 class TextField extends Component<Props> {
@@ -56,8 +58,10 @@ class TextField extends Component<Props> {
       iconleft,
       loading,
       qa,
+      type = 'text',
       size,
       errorDescription,
+      className,
       addonleft,
       addonright,
       ...extraProps
@@ -72,7 +76,8 @@ class TextField extends Component<Props> {
         'is-required': !!required,
         [`${stateClasses[state]}`]: !!state,
         [`a-input--${size}`]: !!size,
-      }
+      },
+        className
     );
 
     return (
@@ -82,7 +87,7 @@ class TextField extends Component<Props> {
           {addonleft ? <div class="a-input__addon">{addonleft}</div> : null}
           {iconleft ? <Icon name={iconleft}/> : null}
           {mask ? <InputMask {...this.props} /> :
-            <input id={id} type="text" autoComplete={autoComplete} disabled={disabled}
+            <input id={id} type={type} autoComplete={autoComplete} disabled={disabled}
                    ref={ref => this.props.inputRef && this.props.inputRef(ref)} {...extraProps} />}
           {iconright ? <Icon name={iconright}/> : null}
           {loading ? <span className="fa a-spinner a-spinner--sm"/> : null}

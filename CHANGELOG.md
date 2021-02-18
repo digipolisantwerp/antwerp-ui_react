@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Added
 - `Form/TextField` Support addons (addon-left, addon-right)
+- `Form/TextField` Pass type prop to child input
+- `Form/TextField` Allow for setting className on wrapper
 
 ### Fixed
 - `Autocomplete` Fixed a bug where search results were not correctly parsed
