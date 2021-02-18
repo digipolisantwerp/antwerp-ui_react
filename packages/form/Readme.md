@@ -726,7 +726,7 @@ const TelephoneNumber = require('./src').TelephoneNumber;
     name="tel-name-9"
     label="TelephoneNumber"
     mask="999 99 99 99"
-    type="small"
+    size="small"
     required={true}
     onChange={(value) => console.log('New tel value 9:', value)}
     open={false}
@@ -744,7 +744,7 @@ const TelephoneNumber = require('./src').TelephoneNumber;
     name="tel-name-10"
     label="TelephoneNumber"
     mask="999 99 99 99"
-    type="large"
+    size="large"
     required={true}
     onChange={(value) => console.log('New tel value 10:', value)}
     open={false}
