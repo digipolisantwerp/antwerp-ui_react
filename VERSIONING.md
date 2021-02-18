@@ -47,7 +47,7 @@ Sometimes a number of significant changes will be queued up for release on maste
 
 - Merge the necessary changes on `master` first
 - Branch `hotfix/vX.Y.Z` from the tag for the latest published release
-  - Z is incremented, e.g. the latest release is 4.2.2, the branch is `hotfix/v4.2.3`
+- Z is incremented, e.g. the latest release is 4.2.2, the branch is `hotfix/v4.2.3`
 - Cherry-pick the necessary changes from `master`
 - Version and publish the X.Y.Z release from the hotfix branch as described in the [release guide](RELEASE.md)
 - Close the hotfix branch once that hotfix release is no longer the latest published release
