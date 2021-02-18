@@ -56,7 +56,7 @@ class TextField extends Component<Props> {
       iconleft,
       loading,
       qa,
-      type,
+      size,
       errorDescription,
       addonleft,
       addonright,
@@ -71,7 +71,7 @@ class TextField extends Component<Props> {
         'has-addon': !!addonleft || !!addonright,
         'is-required': !!required,
         [`${stateClasses[state]}`]: !!state,
-        [`a-input--${type}`]: !!type,
+        [`a-input--${size}`]: !!size,
       }
     );
 
