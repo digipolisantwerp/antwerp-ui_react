@@ -55,11 +55,13 @@ class TextField extends Component<Props> {
       iconleft,
       loading,
       qa,
-      type,
+      type = 'text',
       errorDescription,
       className,
       ...extraProps,
     } = this.props;
+
+    console.log('type', type);
 
     const inputClass = classNames(
       'a-input',
