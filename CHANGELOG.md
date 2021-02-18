@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ## [Unreleased]
 
 ### Fixed
+- `Autocomplete` Fixed a bug where search results were not correctly parsed
 - `Toggle` Fixed an issue where the toggle's checked state could get mixed up
 
 
