@@ -106,6 +106,14 @@ class Datepicker extends Component<Props> {
   };
 
   static getDerivedStateFromProps(props, state) {
+    // Reset input value
+    if (props.activeDate === '') {
+        return {
+          activeDate: null,
+          input: props.activeDate
+        };
+    }
+
     if (props.activeDate) {
       const momentDate = Moment(props.activeDate, props.format, true);
       if (momentDate.isValid()) {
@@ -123,6 +131,13 @@ class Datepicker extends Component<Props> {
     if (this.props.readOnly) {
       this.toggleCalendar()
     }
+  }
+
+  resetDate() {
+    this.setState({
+      input: '',
+      activeDate: null
+    });
   }
 
   changeDate(date) {

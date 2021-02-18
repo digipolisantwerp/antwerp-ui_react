@@ -6,6 +6,7 @@
   size="tiny"
   checkedLabel="Open menu"
   uncheckedLabel="Close menu"
+  checked={true}
   showLabels={false}
   />
 <br/><br/>
