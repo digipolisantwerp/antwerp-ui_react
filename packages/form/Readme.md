@@ -120,7 +120,7 @@ const TextField = require('./src').TextField;
   disabled />
 ```
 
-The text field can be small using the `style` prop
+The text field can be small using the `size` prop
 ```
 const TextField = require('./src').TextField;
 
@@ -219,7 +219,7 @@ const Textarea = require('./src').Textarea;
   className={"textarea-class"}
   required={true}
   placeholder={"Give a description"}
-  type="small"
+  size="small"
   onChange={(event) => console.log('textarea value is:', event.target.value)} />
 ```
 
@@ -234,7 +234,7 @@ const Textarea = require('./src').Textarea;
   className={"textarea-class"}
   required={true}
   placeholder={"Give a description"}
-  type="large"
+  size="large"
   onChange={(event) => console.log('textarea value is:', event.target.value)} />
 ```
 
@@ -455,7 +455,7 @@ const optionsDistrict = [
   inline={false}
   placeholder={"Choose a district"}
   options={optionsDistrict}
-  type="small"
+  size="small"
   onChange={(value) => console.log('select value is:', value)}
 />
 ```
@@ -495,7 +495,7 @@ const optionsDistrict = [
   inline={false}
   placeholder={"Choose a district"}
   options={optionsDistrict}
-  type="large"
+  size="large"
   onChange={(value) => console.log('select value is:', value)}
 />
 ```
@@ -580,7 +580,7 @@ Small variant
 const Datepicker = require('./src').Datepicker;
 
 <Datepicker
-  type="small"
+  size="small"
   locale={"en"}
   id={"datepicker-id-2"}
   name={"datepicker-name"}
@@ -596,7 +596,7 @@ Large variant
 const Datepicker = require('./src').Datepicker;
 
 <Datepicker
-  type="large"
+  size="large"
   locale={"en"}
   id={"datepicker-id-2"}
   name={"datepicker-name"}
