@@ -14,7 +14,7 @@ const stateClasses = {
 };
 
 type InputStates = "success" | "warning" | "error";
-type InputTypes = "small" | "normal" | "large";
+type InputSizes = "small" | "normal" | "large";
 
 type Props = {
   id: string,
@@ -38,7 +38,7 @@ type Props = {
   iconright?: string,
   iconleft?: string,
   loading?: boolean,
-  type?: InputTypes;
+  size?: InputSizes;
   /** Qa id */
   qa?: string,
   inputRef?: (ref: React.Ref) => void;
