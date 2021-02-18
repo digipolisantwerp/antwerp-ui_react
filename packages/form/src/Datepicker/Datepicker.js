@@ -60,7 +60,7 @@ type
   /** Qa id */
   qa?: string,
   /** Sizes */
-  sie?: Sizes,
+  size?: Sizes,
 };
 
 class Datepicker extends Component<Props> {
