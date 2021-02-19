@@ -1,9 +1,12 @@
 .a-input-telephone .a-input__wrapper {
   display: flex;
 
-  input[type="text"].a-input-telephone__number {
+  .a-input-telephone__number {
     flex: 1;
-    border-left: none;
+
+    input[type="text"] {
+      border-left: none;
+    }
   }
 
   a-input-telephone__area-code select,
