@@ -11,7 +11,7 @@ export const stateClasses = {
 };
 
 type InputStates = "success" | "warning" | "error";
-type InputTypes = "small" | "normal" | "large";
+type Sizes = "small" | "normal" | "large";
 
 type Props = {
   id?: string,
@@ -29,14 +29,18 @@ type Props = {
   mask?: string,
   state?: InputStates,
   autoComplete?: string,
-  iconright?: string,
-  iconleft?: string,
+  iconright?: React.ReactElement | string,
+  iconleft?: React.ReactElement | string,
+  addonleft?: string,
+  addonright?: string,
   loading?: boolean,
-  type?: InputTypes;
+  type?: string,
+  size?: Sizes,
   /** Qa id */
   qa?: string,
-  inputRef?: (ref: React.Ref) => void;
-  errorDescription?: string;
+  inputRef?: (ref: React.Ref) => void,
+  errorDescription?: string,
+  className?: string,
 };
 
 class TextField extends Component<Props> {
@@ -54,9 +58,13 @@ class TextField extends Component<Props> {
       iconleft,
       loading,
       qa,
-      type,
+      type = 'text',
+      size,
       errorDescription,
-      ...extraProps,
+      className,
+      addonleft,
+      addonright,
+      ...extraProps
     } = this.props;
 
     const inputClass = classNames(
@@ -64,22 +72,26 @@ class TextField extends Component<Props> {
       {
         'has-icon-right': iconright || loading,
         'has-icon-left': iconleft,
+        'has-addon': !!addonleft || !!addonright,
         'is-required': !!required,
         [`${stateClasses[state]}`]: !!state,
-        [`a-input--${type}`]: !!type,
-      }
+        [`a-input--${size}`]: !!size,
+      },
+        className
     );
 
     return (
       <div className={inputClass} data-qa={qa}>
         {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
         <div className="a-input__wrapper">
+          {addonleft ? <div class="a-input__addon">{addonleft}</div> : null}
           {iconleft ? <Icon name={iconleft}/> : null}
           {mask ? <InputMask {...this.props} /> :
-            <input id={id} type="text" autoComplete={autoComplete} disabled={disabled}
+            <input id={id} type={type} autoComplete={autoComplete} disabled={disabled}
                    ref={ref => this.props.inputRef && this.props.inputRef(ref)} {...extraProps} />}
           {iconright ? <Icon name={iconright}/> : null}
           {loading ? <span className="fa a-spinner a-spinner--sm"/> : null}
+          {addonright ? <div class="a-input__addon">{addonright}</div> : null}
         </div>
         {description ? <small>{description}</small> : null}
         {errorDescription && <small className="u-text-danger">{errorDescription}</small>}

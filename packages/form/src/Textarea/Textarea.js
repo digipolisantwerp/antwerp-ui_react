@@ -9,7 +9,7 @@ const stateClasses = {
 };
 
 type InputStates = "success" | "warning" | "error";
-type InputTypes = "small" | "normal" | "large";
+type Sizes = "small" | "normal" | "large";
 
 type Props = {
   id?: string,
@@ -25,7 +25,7 @@ type Props = {
   onBlur?: (e: object) => void,
   onInvalidCapture?: (e: object) => void,
   state?: InputStates,
-  type?: InputTypes,
+  size?: Sizes,
   /** Qa id */
   qa?: string,
 };
@@ -45,7 +45,7 @@ const Textarea = (props: Props) => {
     onBlur,
     state,
     qa,
-    type,
+    size,
     onInvalidCapture
   } = props;
 
@@ -54,7 +54,7 @@ const Textarea = (props: Props) => {
     {
       'is-required': !!required,
       [`${stateClasses[state]}`]: !!state,
-      [`a-input--${type}`]: !!type,
+      [`a-input--${size}`]: !!size,
     },
     className,
   );

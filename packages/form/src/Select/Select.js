@@ -6,7 +6,7 @@ import Icon from '../../../icon/src/Icon';
 import Spinner from '../../../spinner/src/Spinner';
 
 type InputStates = "success" | "warning" | "error";
-type InputTypes = "small" | "normal" | "large";
+type Sizes = "small" | "normal" | "large";
 
 export const stateClasses = {
   success: 'has-success',
@@ -35,7 +35,7 @@ type Props = {
   onChange?: (e: object) => void,
   value?: string,
   disabled?: boolean,
-  type?: InputTypes,
+  size?: Sizes,
   /** Qa id */
   qa?: string,
 };
@@ -68,7 +68,7 @@ class Select extends Component<Props> {
       value,
       loading,
       qa,
-      type,
+      size,
     } = this.props;
 
     const selectClass = classNames(
@@ -78,7 +78,7 @@ class Select extends Component<Props> {
         'a-input--inline': !!inline,
         [`${stateClasses[state]}`]: !!state,
         'is-required': !!required,
-        [`a-input--${type}`]: !!type,
+        [`a-input--${size}`]: !!size,
       },
       className
     );

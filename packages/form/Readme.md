@@ -1,3 +1,4 @@
+
 <div class="m-alert d-alert m-alert--wcag u-margin-bottom">
   <p>It is important to provide the user with clean instructions on how to complete the form. You can provide these both overall or inline. Note that you can not use the placeholder attribute as a replacement for clean instructions or for the label.</p>
 </div>
@@ -60,13 +61,43 @@ const TextField = require('./src').TextField;
 </div>
 ```
 
+Use `addonleft` or `addonright` to add a suffix or prefix to the input
+
+```
+const TextField = require('./src').TextField;
+
+<div>
+<TextField
+  label={"Name"}
+  id={"textfield-id-5"}
+  name={"textfield-name"}
+  className={"textfield-class"}
+  required={true}
+  placeholder={"Your name"}
+  onChange={(event) => console.log('textfield value is:', event.target.value)}
+  addonleft="http(s)://" />
+
+<br />
+
+<TextField
+  label={"Name"}
+  id={"textfield-id-6"}
+  name={"textfield-name"}
+  className={"textfield-class"}
+  required={true}
+  placeholder={"Your name"}
+  onChange={(event) => console.log('textfield value is:', event.target.value)}
+  addonright="km" />
+</div>
+```
+
 A spinner can be added using the `spinner` prop
 ```
 const TextField = require('./src').TextField;
 
 <TextField
   label={"Name"}
-  id={"textfield-id-5"}
+  id={"textfield-id-7"}
   name={"textfield-name"}
   className={"textfield-class"}
   required={true}
@@ -81,7 +112,7 @@ const TextField = require('./src').TextField;
 
 <TextField
   label={"Name"}
-  id={"textfield-id-6"}
+  id={"textfield-id-8"}
   name={"textfield-name"}
   className={"textfield-class"}
   required={true}
@@ -90,32 +121,64 @@ const TextField = require('./src').TextField;
   disabled />
 ```
 
-The text field can be small using the `style` prop
+The text field can be small using the `size` prop
 ```
 const TextField = require('./src').TextField;
 
 <TextField
   label={"Name"}
-  id={"textfield-id-6"}
+  id={"textfield-id-9"}
   name={"textfield-name"}
   className={"textfield-class"}
   required={true}
   placeholder={"Your name"}
   onChange={(event) => console.log('textfield value is:', event.target.value)}
-  type="small" />
+  size="small" />
 ```
 ```
 const TextField = require('./src').TextField;
 
 <TextField
   label={"Name"}
-  id={"textfield-id-6"}
+  id={"textfield-id-10"}
   name={"textfield-name"}
   className={"textfield-class"}
   required={true}
   placeholder={"Your name"}
   onChange={(event) => console.log('textfield value is:', event.target.value)}
-  type="large" />
+  size="large" />
+```
+The text field can be another type by useing the `type` property <br>
+
+Number:
+```
+const TextField = require('./src').TextField;
+
+<TextField
+  label={"Name"}
+  id={"textfield-id-10"}
+  name={"textfield-name"}
+  className={"textfield-class"}
+  required={true}
+  placeholder={"Your name"}
+  onChange={(event) => console.log('textfield value is:', event.target.value)}
+  type="number"
+  size="large" />
+```
+Email:
+```
+const TextField = require('./src').TextField;
+
+<TextField
+  label={"Name"}
+  id={"textfield-id-10"}
+  name={"textfield-name"}
+  className={"textfield-class"}
+  required={true}
+  placeholder={"Your name"}
+  onChange={(event) => console.log('textfield value is:', event.target.value)}
+  type="email"
+  size="large" />
 ```
 
 ### Textarea
@@ -157,7 +220,7 @@ const Textarea = require('./src').Textarea;
   className={"textarea-class"}
   required={true}
   placeholder={"Give a description"}
-  type="small"
+  size="small"
   onChange={(event) => console.log('textarea value is:', event.target.value)} />
 ```
 
@@ -172,7 +235,7 @@ const Textarea = require('./src').Textarea;
   className={"textarea-class"}
   required={true}
   placeholder={"Give a description"}
-  type="large"
+  size="large"
   onChange={(event) => console.log('textarea value is:', event.target.value)} />
 ```
 
@@ -393,7 +456,7 @@ const optionsDistrict = [
   inline={false}
   placeholder={"Choose a district"}
   options={optionsDistrict}
-  type="small"
+  size="small"
   onChange={(value) => console.log('select value is:', value)}
 />
 ```
@@ -433,7 +496,7 @@ const optionsDistrict = [
   inline={false}
   placeholder={"Choose a district"}
   options={optionsDistrict}
-  type="large"
+  size="large"
   onChange={(value) => console.log('select value is:', value)}
 />
 ```
@@ -518,7 +581,7 @@ Small variant
 const Datepicker = require('./src').Datepicker;
 
 <Datepicker
-  type="small"
+  size="small"
   locale={"en"}
   id={"datepicker-id-2"}
   name={"datepicker-name"}
@@ -534,7 +597,7 @@ Large variant
 const Datepicker = require('./src').Datepicker;
 
 <Datepicker
-  type="large"
+  size="large"
   locale={"en"}
   id={"datepicker-id-2"}
   name={"datepicker-name"}
@@ -543,4 +606,180 @@ const Datepicker = require('./src').Datepicker;
   readOnly={true}
 />
 
+```
+
+### TelephoneNumber
+
+```
+const TelephoneNumber = require('./src').TelephoneNumber;
+<div>
+  <TelephoneNumber
+    id="tel-id-1"
+    name="tel-name-1"
+    label="TelephoneNumber"
+    description="Enter a phone number"
+    onChange={(value) => console.log('New tel value 1:', value)}
+    open={false}
+  />
+</div>
+```
+
+Required
+
+```
+const TelephoneNumber = require('./src').TelephoneNumber;
+<div>
+  <TelephoneNumber
+    id="tel-id-2"
+    name="tel-name-2"
+    label="TelephoneNumber"
+    description="Enter a phone number"
+    required={true}
+    onChange={(value) => console.log('New tel value 2:', value)}
+    open={false}
+  />
+</div>
+```
+
+With placeholder
+
+```
+const TelephoneNumber = require('./src').TelephoneNumber;
+<div>
+  <TelephoneNumber
+    id="tel-id-3"
+    name="tel-name-3"
+    label="TelephoneNumber"
+    placeholder="xxxxxxxxx"
+    required={true}
+    onChange={(value) => console.log('New tel value 3:', value)}
+    open={false}
+  />
+</div>
+```
+
+With mask
+
+```
+const TelephoneNumber = require('./src').TelephoneNumber;
+<div>
+  <TelephoneNumber
+    id="tel-id-4"
+    name="tel-name-4"
+    label="TelephoneNumber"
+    mask="999 99 99 99"
+    required={true}
+    onChange={(value) => console.log('New tel value 4:', value)}
+    open={false}
+  />
+</div>
+```
+
+Error state
+
+```
+const TelephoneNumber = require('./src').TelephoneNumber;
+<div>
+  <TelephoneNumber
+    id="tel-id-5"
+    name="tel-name-5"
+    label="TelephoneNumber"
+    mask="999 99 99 99"
+    state="error"
+    errorDescription="An error occured!"
+    required={true}
+    onChange={(value) => console.log('New tel value 5:', value)}
+    open={false}
+  />
+</div>
+```
+
+Icon right
+
+```
+const TelephoneNumber = require('./src').TelephoneNumber;
+<div>
+  <TelephoneNumber
+    id="tel-id-6"
+    name="tel-name-6"
+    label="TelephoneNumber"
+    mask="999 99 99 99"
+    iconright="phone"
+    required={true}
+    onChange={(value) => console.log('New tel value 6:', value)}
+    open={false}
+  />
+</div>
+```
+
+Icon left
+
+```
+const TelephoneNumber = require('./src').TelephoneNumber;
+<div>
+  <TelephoneNumber
+    id="tel-id-7"
+    name="tel-name-7"
+    label="TelephoneNumber"
+    mask="999 99 99 99"
+    iconleft="phone"
+    required={true}
+    onChange={(value) => console.log('New tel value 7:', value)}
+    open={false}
+  />
+</div>
+```
+
+Loading
+
+```
+const TelephoneNumber = require('./src').TelephoneNumber;
+<div>
+  <TelephoneNumber
+    id="tel-id-8"
+    name="tel-name-8"
+    label="TelephoneNumber"
+    mask="999 99 99 99"
+    loading={true}
+    required={true}
+    onChange={(value) => console.log('New tel value 8:', value)}
+    open={false}
+  />
+</div>
+```
+
+Small variant
+
+```
+const TelephoneNumber = require('./src').TelephoneNumber;
+<div>
+  <TelephoneNumber
+    id="tel-id-9"
+    name="tel-name-9"
+    label="TelephoneNumber"
+    mask="999 99 99 99"
+    size="small"
+    required={true}
+    onChange={(value) => console.log('New tel value 9:', value)}
+    open={false}
+  />
+</div>
+```
+
+Large variant
+
+```
+const TelephoneNumber = require('./src').TelephoneNumber;
+<div>
+  <TelephoneNumber
+    id="tel-id-10"
+    name="tel-name-10"
+    label="TelephoneNumber"
+    mask="999 99 99 99"
+    size="large"
+    required={true}
+    onChange={(value) => console.log('New tel value 10:', value)}
+    open={false}
+  />
+</div>
 ```
