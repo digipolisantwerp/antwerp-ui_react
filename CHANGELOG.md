@@ -5,6 +5,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
+
+
+## v5.0.0 - 19-02-2021
+
+### Changed
+- `Input` [BREAKING] We had to change the input's API to make it more consistent. This means that for some components 'type' had to be changed to 'size', in order to also support the standard 'type' attribute.
+
+### Added
 - `Form/TelephoneNumber` Added new telephone number component
 
 
