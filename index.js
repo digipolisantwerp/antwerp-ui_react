@@ -42,6 +42,7 @@ export {
   RadioGroup,
   InputLabel,
   Datepicker,
+  TelephoneNumber,
 } from './packages/form';
 
 export { default as Header } from './packages/header';

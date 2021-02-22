@@ -66,20 +66,21 @@ const TelephoneNumber = (props: Props) => {
     ...extraProps
   } = props;
 
-  const [internalValue, setInternalValue] = useState({
+  const valueIsValidObject = (value) => typeof value === 'object' && value !== null;
+  const valueIsEqualToInternalValue = (val, internalVal) => val.areaCode === internalVal.areaCode && val.number === internalVal.number;
+
+  const [internalValue, setInternalValue] = useState(valueIsValidObject(value) ? value : {
     areaCode: internalValue && internalValue.areaCode ? internalValue.areaCode : '+32',
     number: internalValue && internalValue.number ? internalValue.number : ''
   });
 
-  useEffect(() => onChange(internalValue), [internalValue])
   useEffect(() => {
-    if(
-      typeof value === 'object' && value !== null &&
-      (
-        value.areaCode !== internalValue.areaCode ||
-        value.number !== internalValue.number
-      )
-    ) {
+    if (!valueIsEqualToInternalValue(value, internalValue)) {
+      onChange(internalValue);
+    }
+  }, [internalValue])
+  useEffect(() => {
+    if (valueIsValidObject(value) && !valueIsEqualToInternalValue(value, internalValue)) {
       setInternalValue(value);
     }
   }, [value])
