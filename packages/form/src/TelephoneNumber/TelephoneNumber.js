@@ -75,7 +75,7 @@ const TelephoneNumber = (props: Props) => {
   });
 
   useEffect(() => {
-    if (!valueIsEqualToInternalValue(value, internalValue)) {
+    if (!valueIsValidObject(value) || !valueIsEqualToInternalValue(value, internalValue)) {
       onChange(internalValue);
     }
   }, [internalValue])
