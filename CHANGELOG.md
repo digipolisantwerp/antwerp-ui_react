@@ -5,7 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
-
+- `Form/TelephoneNumber` Fix infinite loop when setting initialValue
 
 ## v5.0.1 - 19-02-2021
 
