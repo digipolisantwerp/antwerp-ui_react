@@ -15,8 +15,8 @@ import {stateClasses} from "../../../form/src/TextField/TextField";
 
 import './Autocomplete.scss';
 
-const ARROW_KEYS = ["ArrowUp", "ArrowDown", "Enter"];
-type InputStates = "success" | "warning" | "error";
+const ARROW_KEYS = ['ArrowUp', 'ArrowDown', 'Enter'];
+type InputStates = 'success' | 'warning' | 'error';
 type Item = { label: string; value: string };
 type Props = {
   items?: Array<Item>;
@@ -215,7 +215,6 @@ class Autocomplete extends Component<Props, IState> {
              disabled={this.props.disabled}
              ref={ref => this.inputField = ref}
              data-qa={this.props.qa}
-             {...this.props.state}
              onFocus={() => this.openPane()}
              placeholder={this.props.placeholder || ''}
              required={!!this.props.required}
