@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import Link from '../../link/src/Link';
+import Icon from '../../icon';
 
 import './Pagination.scss';
 
@@ -182,8 +183,7 @@ export default class Pagination extends Component<Props, State> {
               onClick={(e) => this.onPrev(e)}
               aria-label={ariaLabelPreviousPage}
             >
-              <span aria-hidden="true" className="fa fa-angle-left" />
-              <span className="u-screen-reader-only">{ariaLabelPreviousPage}</span>
+              <Icon name="angle-left" ariaLabel={ariaLabelPreviousPage} />
             </Link>
           </li>
           {display === 'text' && (
@@ -214,8 +214,7 @@ export default class Pagination extends Component<Props, State> {
               onClick={(e) => this.onNext(e)}
               aria-label={ariaLabelNextPage}
             >
-              <span aria-hidden="true" className="fa fa-angle-right" />
-              <span className="u-screen-reader-only">{ariaLabelNextPage}</span>
+              <Icon name="angle-right" ariaLabel={ariaLabelNextPage} />
             </Link>
           </li>
         </ul>

@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import classNames from 'classnames';
 import ReactDOM from 'react-dom';
-import FlyoutContent from '../../../flyout-button/src/FlyoutContent';
+
+
 import {MultipleSelectionMode} from "../models/MultipleSelectionMode";
 import {SingleSelectionMode} from "../models/SingleSelectionMode";
 import TagList, {TagListItem} from "../../../taglist";
@@ -285,7 +286,7 @@ class Autocomplete extends Component<Props, IState> {
               </TagList>}
               {!this.props.multipleSelect && this.getInput()}
               {this.props.showSearchIcon && <Icon name="search"/>}
-              {(loading || isLoading) && <span className="fa a-spinner a-spinner--sm"/>}
+              {(loading || isLoading) && <span className="a-spinner a-spinner--sm" role="alert"></span>}
             </div>
           </div>
           <FlyoutContent hasPadding={false}>

@@ -3,8 +3,9 @@ import Moment from 'moment';
 import classNames from 'classnames';
 
 import InputLabel from '../InputLabel';
-import Calendar from '../../../calendar/src/Calendar';
+import Calendar from '../../../calendar';
 import TextField from '../TextField';
+import Icon from '../../../icon';
 
 const stateClasses = {
   success: 'has-success',
@@ -230,7 +231,7 @@ class Datepicker extends Component<Props> {
           onClick={() => this.onClickInput()}
           onChange={(e) => this.changeDate(e.target.value)}
           onBlur={onBlur} />
-        <span onClick={this.toggleCalendar.bind(this)} className="fa fa-calendar is-clickable"></span>
+        <Icon name="calendar" className="is-clickable" onClick={this.toggleCalendar.bind(this)} />
         {open &&
           <div className={datepickerClass} aria-hidden="false">
             <div className="m-datepicker is-open">

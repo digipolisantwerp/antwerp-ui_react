@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
+import Icon from '../../icon';
 
 const sizeClasses = {
   tiny: 'a-toggle--tiny',
@@ -110,12 +111,12 @@ class Toggle extends Component<Props> {
         />
         <div className="a-toggle__labels">
           <label htmlFor={id} className={checkedClasses}>
-            <span className={"fa " + checkedIcon}></span>
-              <span className={showLabels ? '' : 'u-screen-reader-only'}>{checkedLabel}</span>
+            <Icon name={checkedIcon} ariaLabel={showLabels ? '' : checkedLabel} />
+            {showLabels && <span>{checkedLabel}</span>}
           </label>
           <label htmlFor={id} className={uncheckedClasses}>
-            <span className={"fa " + uncheckedIcon}></span>
-              <span className={showLabels ? '' : 'u-screen-reader-only'}>{uncheckedLabel}</span>
+            <Icon name={uncheckedIcon} ariaLabel={showLabels ? '' : uncheckedLabel} />
+            {showLabels && <span>{uncheckedLabel}</span>}
           </label>
         </div>
       </div>

@@ -90,7 +90,7 @@ class TextField extends Component<Props> {
             <input id={id} type={type} autoComplete={autoComplete} disabled={disabled}
                    ref={ref => this.props.inputRef && this.props.inputRef(ref)} {...extraProps} />}
           {iconright ? <Icon name={iconright}/> : null}
-          {loading ? <span className="fa a-spinner a-spinner--sm"/> : null}
+          {loading ? <Icon name="spinner" className="a-spinner a-spinner--sm"/> : null}
           {addonright ? <div className="a-input__addon">{addonright}</div> : null}
         </div>
         {description ? <small>{description}</small> : null}

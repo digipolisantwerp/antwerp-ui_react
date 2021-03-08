@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import Icon from '../../icon/src/Icon';
+import Icon from '../../icon';
 
 const defaultClass = 'a-button';
 const sizeClasses = {

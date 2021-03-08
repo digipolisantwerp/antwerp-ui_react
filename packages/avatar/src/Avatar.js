@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import Icon from '../../icon/src/Icon';
+import Icon from '../../icon';
 
 const sizeClasses = {
   small: 'a-avatar--small',
