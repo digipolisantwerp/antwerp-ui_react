@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import Link from '../../link/src/Link';
-import Icon from '../../icon';
+import Icon from '../../icon/src/Icon';
 
 import './Pagination.scss';
 

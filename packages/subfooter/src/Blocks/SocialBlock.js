@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from '../../../icon';
+import Icon from '../../../icon/src/Icon';
 
 const generateSocialLinkFor = ({ name, handle }) => {
   if (handle === '') {

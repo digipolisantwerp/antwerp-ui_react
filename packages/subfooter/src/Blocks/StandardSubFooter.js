@@ -3,7 +3,7 @@ import ContentBlock from './ContentBlock';
 import NavBlock from './NavBlock';
 import ButtonBlock from './ButtonBlock';
 import SocialBlock from './SocialBlock';
-import Icon from '../../../icon';
+import Icon from '../../../icon/src/Icon';
 import {Environment} from '../../../environment';
 
 const AstadSubFooter = () => {

@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import InputLabel from '../InputLabel';
 import Calendar from '../../../calendar';
 import TextField from '../TextField';
-import Icon from '../../../icon';
+import Icon from '../../../icon/src/Icon';
 
 const stateClasses = {
   success: 'has-success',

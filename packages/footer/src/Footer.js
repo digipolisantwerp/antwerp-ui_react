@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from '../../icon';
+import Icon from '../../icon/src/Icon';
 
 type Props = {
   style?: object,

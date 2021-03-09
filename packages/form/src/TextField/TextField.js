@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import InputMask from 'react-input-mask';
 import classNames from 'classnames';
 import InputLabel from '../InputLabel';
-import Icon from '../../../icon';
+import Icon from '../../../icon/src/Icon';
 
 export const stateClasses = {
   success: 'has-success',
