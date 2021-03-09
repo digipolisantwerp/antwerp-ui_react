@@ -286,7 +286,7 @@ class Autocomplete extends Component<Props, IState> {
               </TagList>}
               {!this.props.multipleSelect && this.getInput()}
               {this.props.showSearchIcon && <Icon name="search"/>}
-              {(loading || isLoading) && <span className="a-spinner a-spinner--sm" role="alert"></span>}
+              {(loading || isLoading) && <Icon name="spinner" className="a-spinner a-spinner--sm"/>}
             </div>
           </div>
           <FlyoutContent hasPadding={false}>

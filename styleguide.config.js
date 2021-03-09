@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  components: 'packages/*/src/**/!(index)*.{js,jsx}',
+  components: 'packages/*/src/!(index)*.{js,jsx}',
   getExampleFilename(componentPath) {
     const basePath = componentPath.split('src/')[0];
     return basePath + 'Readme.md';
