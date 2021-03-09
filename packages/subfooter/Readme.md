@@ -1,4 +1,9 @@
 ```
+const ContentBlock = require('./src').ContentBlock;
+const NavBlock = require('./src').NavBlock;
+const ButtonBlock = require('./src').ButtonBlock;
+const SocialBlock = require('./src').SocialBlock;
+
 /* Shorthand standard subfooter notation -> <SubFooter type="antwerpen" />*/
 <SubFooter>
     <ContentBlock xs={12} sm={4} md={4}>

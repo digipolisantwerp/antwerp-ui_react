@@ -1,6 +1,7 @@
 ```
 const CardBody = require('./src').CardBody;
 const CardHeader = require('./src').CardHeader;
+const CardIcon = require('./src').CardIcon;
 const CardTitle = require('./src').CardTitle;
 const CardDescription = require('./src').CardDescription;
 const CardActions = require('./src').CardActions;

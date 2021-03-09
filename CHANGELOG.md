@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - `Form/TelephoneNumber` Fixed minor styling issues
 - `Form/TextField` Fixed an issue with class names
 - `Handle` Replaced deprecated componentWillReceiveProps
+- `Toggle` Fixed an issue where the toggle's checked state could still get mixed up
 
 ### Changed
 - Upgraded to the latest core branding (v4.3.1)
