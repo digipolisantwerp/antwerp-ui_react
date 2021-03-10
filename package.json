@@ -9,7 +9,7 @@
     "type": "git",
     "url": "https://github.com/digipolisantwerp/acpaas-ui_react"
   },
-  "homepage": "https://github.com/digipolisantwerp/acpaas-ui_react#readme",
+  "homepage": "http://digipolisantwerp.github.io/acpaas-ui_react",
   "scripts": {
     "start": "npx styleguidist server",
     "test": "jest --coverage",
@@ -39,7 +39,7 @@
     "eslint-plugin-jsx-a11y": "~6.0.3",
     "eslint-plugin-react": "~7.7.0",
     "flow-bin": "^0.69.0",
-    "handlebars": "^4.5.0",
+    "handlebars": "^4.7.7",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^22.4.4",
     "jest-cli": "^22.4.4",

@@ -1,5 +1,11 @@
 const path = require('path');
 
+// Fix GitHub Pages
+let basePath = '';
+if (process.env.NODE_ENV === 'production') {
+  basePath = 'https://digipolisantwerp.github.io/acpaas-ui_react';
+}
+
 module.exports = {
   components: 'packages/*/src/!(index)*.{js,jsx}',
   getExampleFilename(componentPath) {
@@ -19,6 +25,11 @@ module.exports = {
     const name = path.basename(componentPath).replace(/.jsx?$/g, '');
     return `import { ${name} } from '@acpaas-ui/react-components';`;
   },
+  dangerouslyUpdateWebpackConfig(webpackConfig, env) {
+    // WARNING: inspect Styleguidist Webpack config before modifying it, otherwise you may break Styleguidist
+    console.log('Environment: ', process.env.NODE_ENV);
+    return webpackConfig;
+  },
   editorConfig: {
     theme: 'xq-light',
   },
@@ -27,9 +38,11 @@ module.exports = {
   usageMode: 'expand',
   webpackConfig: require('./webpack.config'),
   template: {
+    context: '',
     favicon: 'https://cdn.antwerpen.be/core_branding_favicons/citizens/favicon.ico',
     lang: 'en',
     head: {
+      raw: '<base href="' + basePath + '/">',
       links: [
         {
           rel: 'stylesheet',
