@@ -17,7 +17,7 @@
     "build": "lerna exec --parallel -- rollup -c",
     "postbuild": "rollup -c",
     "publish": "lerna publish --skip-git --skip-npm",
-    "prepublish": "npm run build && styleguidist build"
+    "prepublish": "npm run build"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -39,12 +39,13 @@
     "eslint-plugin-jsx-a11y": "~6.0.3",
     "eslint-plugin-react": "~7.7.0",
     "flow-bin": "^0.69.0",
+    "handlebars": "^4.5.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^22.4.4",
     "jest-cli": "^22.4.4",
-    "lerna": "^2.10.2",
+    "lerna": "^4.0.0",
     "react-addons-test-utils": "^15.6.2",
-    "react-styleguidist": "~7.2.5",
+    "react-styleguidist": "^8.0.0",
     "rollup": "^2.26.9",
     "rollup-plugin-babel": "^3.0.7",
     "rollup-plugin-node-resolve": "^3.4.0",
@@ -91,7 +92,7 @@
     ]
   },
   "dependencies": {
-    "@a-ui/core": "^4.1.1",
+    "@a-ui/core": "^4.3.1",
     "classnames": "~2.2.6",
     "css-loader": "^3.6.0",
     "moment": "^2.22.2",
@@ -100,7 +101,7 @@
     "react-dom": "^16.13.1",
     "react-input-mask": "^2.0.4",
     "react-modal": "~3.5.1",
-    "react-scripts": "^3.4.3",
+    "react-scripts": "^4.0.3",
     "rollup-plugin-postcss": "^2.9.0",
     "rollup-plugin-sass": "^1.2.2",
     "rxjs": "^6.6.2",

@@ -7,10 +7,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ## [Unreleased]
 
 
+## v5.0.3 - 09-03-2021
+
+### Fixed
+- Fixed styleguide which was showing too many (sub) components
+- `Autocomplete` Fixed state error
+- `Footer` Fixed double package name for SubFooter
+- `Form/TelephoneNumber` Fixed minor styling issues
+- `Form/TextField` Fixed an issue with class names
+- `Handle` Replaced deprecated componentWillReceiveProps
+- `Toggle` Fixed an issue where the toggle's checked state could still get mixed up
+
+### Changed
+- Upgraded to the latest core branding (v4.3.1)
+- Updated Styleguidist
+- `Form/Select` Improved inner workings
+- `Form/TelephoneNumber` Fixed minor styling issues
+
+
 ## v5.0.2 - 23-02-2021
 
 ### Fixed
 - `Form/TelephoneNumber` Fix infinite loop when setting initialValue
+
 
 ## v5.0.1 - 19-02-2021
 

@@ -740,7 +740,7 @@ const TelephoneNumber = require('./src').TelephoneNumber;
     name="tel-name-8"
     label="TelephoneNumber"
     mask="999 99 99 99"
-    loading={true}
+    loading="true"
     required={true}
     onChange={(value) => console.log('New tel value 8:', value)}
     open={false}

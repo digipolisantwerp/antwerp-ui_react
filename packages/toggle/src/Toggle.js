@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
+import Icon from '../../icon/src/Icon';
 
 const sizeClasses = {
   tiny: 'a-toggle--tiny',
@@ -51,8 +52,10 @@ class Toggle extends Component<Props> {
 		uncheckedButtonClass: 'a-button--danger'
 	}
 
-  handleClick = e => {
-    this.setState({ checked: e.target.value });
+  handleChange = e => {
+    if (this.props.onChange) {
+      this.props.onChange(e);
+    }
     if (this.props.onClick) {
       this.props.onClick(e);
     }
@@ -102,20 +105,20 @@ class Toggle extends Component<Props> {
           className="a-toggle__checkbox"
           id={id}
           name={name}
-          aria-checked={this.state.checked}
-          defaultChecked={this.state.checked}
+          aria-checked={this.props.checked}
+          defaultChecked={this.props.checked}
           type="checkbox"
           role="switch"
-          onChange={this.handleClick}
+          onChange={this.handleChange}
         />
         <div className="a-toggle__labels">
           <label htmlFor={id} className={checkedClasses}>
-            <span className={"fa " + checkedIcon}></span>
-              <span className={showLabels ? '' : 'u-screen-reader-only'}>{checkedLabel}</span>
+            <Icon name={checkedIcon} ariaLabel={showLabels ? '' : checkedLabel} />
+            {showLabels && <span>{checkedLabel}</span>}
           </label>
           <label htmlFor={id} className={uncheckedClasses}>
-            <span className={"fa " + uncheckedIcon}></span>
-              <span className={showLabels ? '' : 'u-screen-reader-only'}>{uncheckedLabel}</span>
+            <Icon name={uncheckedIcon} ariaLabel={showLabels ? '' : uncheckedLabel} />
+            {showLabels && <span>{uncheckedLabel}</span>}
           </label>
         </div>
       </div>

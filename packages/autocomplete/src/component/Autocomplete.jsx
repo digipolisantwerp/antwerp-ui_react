@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import classNames from 'classnames';
 import ReactDOM from 'react-dom';
-import FlyoutContent from '../../../flyout-button/src/FlyoutContent';
+
+
 import {MultipleSelectionMode} from "../models/MultipleSelectionMode";
 import {SingleSelectionMode} from "../models/SingleSelectionMode";
 import TagList, {TagListItem} from "../../../taglist";
@@ -15,8 +16,8 @@ import {stateClasses} from "../../../form/src/TextField/TextField";
 
 import './Autocomplete.scss';
 
-const ARROW_KEYS = ["ArrowUp", "ArrowDown", "Enter"];
-type InputStates = "success" | "warning" | "error";
+const ARROW_KEYS = ['ArrowUp', 'ArrowDown', 'Enter'];
+type InputStates = 'success' | 'warning' | 'error';
 type Item = { label: string; value: string };
 type Props = {
   items?: Array<Item>;
@@ -215,7 +216,6 @@ class Autocomplete extends Component<Props, IState> {
              disabled={this.props.disabled}
              ref={ref => this.inputField = ref}
              data-qa={this.props.qa}
-             {...this.props.state}
              onFocus={() => this.openPane()}
              placeholder={this.props.placeholder || ''}
              required={!!this.props.required}
@@ -286,7 +286,7 @@ class Autocomplete extends Component<Props, IState> {
               </TagList>}
               {!this.props.multipleSelect && this.getInput()}
               {this.props.showSearchIcon && <Icon name="search"/>}
-              {(loading || isLoading) && <span className="fa a-spinner a-spinner--sm"/>}
+              {(loading || isLoading) && <Icon name="spinner" className="a-spinner a-spinner--sm"/>}
             </div>
           </div>
           <FlyoutContent hasPadding={false}>

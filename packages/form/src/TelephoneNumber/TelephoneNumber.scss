@@ -4,13 +4,13 @@
   .a-input-telephone__number {
     flex: 1;
 
-    input[type="text"] {
+    input:not([class*=a-button]):not([type=checkbox]):not([type=radio]) {
       border-left: none;
     }
   }
 
-  a-input-telephone__area-code select,
-  input[type="text"].a-input-telephone__number {
+  .a-input-telephone__area-code select,
+  input:not([class*=a-button]):not([type=checkbox]):not([type=radio]).a-input-telephone__number {
     &:focus {
       z-index: 1;
     }

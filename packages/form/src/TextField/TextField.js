@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import InputMask from 'react-input-mask';
 import classNames from 'classnames';
 import InputLabel from '../InputLabel';
-import Icon from '../../../icon';
+import Icon from '../../../icon/src/Icon';
 
 export const stateClasses = {
   success: 'has-success',
@@ -84,14 +84,14 @@ class TextField extends Component<Props> {
       <div className={inputClass} data-qa={qa}>
         {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
         <div className="a-input__wrapper">
-          {addonleft ? <div class="a-input__addon">{addonleft}</div> : null}
+          {addonleft ? <div className="a-input__addon">{addonleft}</div> : null}
           {iconleft ? <Icon name={iconleft}/> : null}
           {mask ? <InputMask {...this.props} /> :
             <input id={id} type={type} autoComplete={autoComplete} disabled={disabled}
                    ref={ref => this.props.inputRef && this.props.inputRef(ref)} {...extraProps} />}
           {iconright ? <Icon name={iconright}/> : null}
-          {loading ? <span className="fa a-spinner a-spinner--sm"/> : null}
-          {addonright ? <div class="a-input__addon">{addonright}</div> : null}
+          {loading ? <Icon name="spinner" className="a-spinner a-spinner--sm"/> : null}
+          {addonright ? <div className="a-input__addon">{addonright}</div> : null}
         </div>
         {description ? <small>{description}</small> : null}
         {errorDescription && <small className="u-text-danger">{errorDescription}</small>}

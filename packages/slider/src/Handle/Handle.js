@@ -6,13 +6,14 @@ class Handle extends Component {
     grab: 5
   };
 
-  componentWillReceiveProps(nextProps) {
-    let {sliderPos} = nextProps;
+  static getDerivedStateFromProps(props, state) {
+    let {sliderPos} = props;
     const handlePos = 30; // Fills the bar up correctly on the right side
 
-    this.setState({
-      limit: sliderPos - handlePos
-    })
+    return {
+      ...state,
+      limit: sliderPos - handlePos,
+    }
   }
 
   handleNoop = e => {

@@ -41,7 +41,7 @@ type Props = {
 };
 
 class Select extends Component<Props> {
-  state = {}
+  state = {value: this.props.value || ''};
 
   onChange(e) {
     const value = e.currentTarget.value;
@@ -92,8 +92,8 @@ class Select extends Component<Props> {
       <div className={selectClass} name={name} data-qa={qa}>
         {label && <InputLabel inline={inline} htmlFor={id}>{label}</InputLabel>}
         <div className={wrapperClass}>
-          <select id={id} name={name} onChange={(e) => this.onChange(e)} value={value} disabled={disabled}>
-            {placeholder && <option value="" selected disabled>{placeholder}</option>}
+          <select id={id} name={name} onChange={(e) => this.onChange(e)} defaultValue={this.state.value} disabled={disabled}>
+            {placeholder && <option value="" disabled>{placeholder}</option>}
             {options.map(option => (
               <Option
                 value={option.value}

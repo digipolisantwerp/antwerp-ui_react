@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  components: 'packages/*/src/**/!(index)*.{js,jsx}',
+  components: 'packages/*/src/!(index)*.{js,jsx}',
   getExampleFilename(componentPath) {
     const basePath = componentPath.split('src/')[0];
     return basePath + 'Readme.md';
@@ -9,6 +9,9 @@ module.exports = {
   ignore: [
     path.resolve(__dirname, 'packages/**/models/*.js'),
     path.resolve(__dirname, 'packages/**/types.js'),
+    path.resolve(__dirname, 'packages/calendar/src/utils/aria.js'),
+    path.resolve(__dirname, 'packages/form/src/TelephoneNumber/TelephoneNumber.const.js'),
+    path.resolve(__dirname, 'packages/user-menu/src/UserNavigation/UserNavigationUrls.js'),
     '**/*.spec.js'
   ],
   skipComponentsWithoutExample: true,

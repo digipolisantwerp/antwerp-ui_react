@@ -2,6 +2,7 @@
 
 import React from 'react';
 import classNames from 'classnames';
+import Icon from '../../../icon/src/Icon';
 
 type Props = {
   icon: string,
@@ -11,9 +12,7 @@ type Props = {
 
 const CardIcon = ({ icon, className , ariaLabel }: Props) => (
   <div className={classNames('pull-left u-margin-right u-margin-bottom', className)}>
-    <span className={classNames('fa fa-lg u-text-light', icon)}>
-      <span className="u-screen-reader-only">{ariaLabel}</span>
-    </span>
+    <Icon name={icon} className="fa-lg u-text-light" ariaLabel={ariaLabel} />
   </div>
 );
 

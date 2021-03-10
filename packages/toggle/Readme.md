@@ -8,6 +8,8 @@
   uncheckedLabel="Close menu"
   checked={true}
   showLabels={false}
+  onClick={() => console.log('click')}
+  onChange={() => console.log('change')}
   />
 <br/><br/>
 <Toggle
