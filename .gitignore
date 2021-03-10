@@ -3,7 +3,7 @@ build
 node_modules
 *.log
 dist
-!docs/build
+docs
 /.idea
 coverage
 yarn.lock

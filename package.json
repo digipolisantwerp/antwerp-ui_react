@@ -17,7 +17,7 @@
     "build": "lerna exec --parallel -- rollup -c",
     "postbuild": "rollup -c",
     "publish": "lerna publish --skip-git --skip-npm",
-    "prepublish": "npm run build && styleguidist build"
+    "prepublish": "npm run build"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
