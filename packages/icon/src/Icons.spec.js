@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-import Icon from './Icon/src/Icon';
+import Icon from './Icon';
 
 describe('Icon', () => {
     it('should apply the correct icon-name', () => {
