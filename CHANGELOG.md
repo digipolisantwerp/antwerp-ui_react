@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ## [Unreleased]
 
 
-## v5.0.3 - 09-03-2021
+## v5.0.3 - 11-03-2021
 
 ### Fixed
 - Fixed styleguide which was showing too many (sub) components
