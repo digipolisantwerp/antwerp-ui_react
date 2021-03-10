@@ -24,8 +24,8 @@ jobs:
         if: success()
         uses: actions/upload-artifact@v1
         with:
-          name: dist
-          path: dist
+          name: docs
+          path: docs
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
@@ -36,10 +36,10 @@ jobs:
       - name: Download build
         uses: actions/download-artifact@v1
         with:
-          name: dist
+          name: docs
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: dist
+          FOLDER: docs
