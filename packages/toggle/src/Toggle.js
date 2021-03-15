@@ -48,12 +48,21 @@ class Toggle extends Component<Props> {
 		uncheckedIcon: 'fa-close',
 		uncheckedButtonClass: 'a-button--danger'
 	}
+
   constructor(props) {
     super(props);
     this.state = {checked: props.checked || false};
+  }
 
-    // This binding is necessary to make `this` work in the callback
-    this.handleChange = this.handleChange.bind(this);
+  componentDidUpdate(prevProps) {
+    // check if checked changed
+    if (this.props.checked !== prevProps.checked) {
+      // check if state change is required
+      if (this.props.checked !== this.state.checked) {
+        // update state with new checked value
+        this.setState({ checked: this.props.checked });
+      }
+    }
   }
 
   handleChange = e => {
