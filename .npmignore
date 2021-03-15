@@ -1,0 +1,15 @@
+.*
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+coverage
+docs
+index.js
+jest.setup.js
+lerna.json
+packages
+rollup.config.js
+styleguide
+styleguide.config.js
+TESTING.md
+VERSIONING.md
+webpack.config.js
