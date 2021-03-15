@@ -36,9 +36,6 @@ type Props = {
 
 
 class Toggle extends Component<Props> {
-  state = {
-    checked: this.props.checked || false
-  }
 
 	static defaultProps = {
   	id: 'toggle-normal',
@@ -51,12 +48,20 @@ class Toggle extends Component<Props> {
 		uncheckedIcon: 'fa-close',
 		uncheckedButtonClass: 'a-button--danger'
 	}
+  constructor(props) {
+    super(props);
+    this.state = {checked: props.checked || false};
+
+    // This binding is necessary to make `this` work in the callback
+    this.handleChange = this.handleChange.bind(this);
+  }
 
   handleChange = e => {
-    if (this.props.onChange) {
+    this.setState({checked: e.target.checked});
+    if (this.props.onChange && (typeof this.props.onChange === 'function')) {
       this.props.onChange(e);
     }
-    if (this.props.onClick) {
+    if (this.props.onClick && (typeof this.props.onClick === 'function')) {
       this.props.onClick(e);
     }
   }
@@ -105,8 +110,8 @@ class Toggle extends Component<Props> {
           className="a-toggle__checkbox"
           id={id}
           name={name}
-          aria-checked={this.props.checked}
-          defaultChecked={this.props.checked}
+          aria-checked={this.state.checked}
+          defaultChecked={this.state.checked}
           type="checkbox"
           role="switch"
           onChange={this.handleChange}
