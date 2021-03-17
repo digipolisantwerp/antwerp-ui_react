@@ -30,9 +30,6 @@ module.exports = {
     console.log('Environment: ', process.env.NODE_ENV);
     return webpackConfig;
   },
-  // editorConfig: {
-  //   theme: 'xq-light',
-  // },
   styleguideDir: 'docs',
   title: 'ACPaaS UI React Components',
   usageMode: 'expand',
@@ -98,7 +95,7 @@ module.exports = {
       ribbonText: 'rgb(255, 255, 255)',
       codeBase: 'rgb(8, 31, 44)',
       codeComment: 'rgb(111, 111, 111)',
-      codePunctuation: 'rgb(148, 148, 148)',
+      codePunctuation: 'rgb(118, 118, 118)',
       codeProperty: 'rgb(132, 11, 85)',
       codeDeleted: 'rgb(132, 11, 85)',
       codeString: 'rgb(43, 132, 13)',
