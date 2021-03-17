@@ -3,16 +3,17 @@ import classNames from 'classnames';
 import ReactDOM from 'react-dom';
 
 
-import {MultipleSelectionMode} from "../models/MultipleSelectionMode";
-import {SingleSelectionMode} from "../models/SingleSelectionMode";
-import TagList, {TagListItem} from "../../../taglist";
-import {SyncSearchMode} from "../models/SyncSearchMode";
-import {AsyncSearchMode} from "../models/AsyncSearchMode";
-import {fromEvent, Subject} from "rxjs";
+import {MultipleSelectionMode} from '../models/MultipleSelectionMode';
+import {SingleSelectionMode} from '../models/SingleSelectionMode';
+import TagList, {TagListItem} from '../../../taglist';
+import {SyncSearchMode} from '../models/SyncSearchMode';
+import {AsyncSearchMode} from '../models/AsyncSearchMode';
+import {fromEvent, Subject} from 'rxjs';
 import {debounceTime, filter, map, takeUntil, tap} from 'rxjs/operators';
-import InputLabel from "../../../form/src/InputLabel";
-import Icon from "../../../icon";
-import {stateClasses} from "../../../form/src/TextField/TextField";
+import InputLabel from '../../../form/src/InputLabel';
+import FlyoutContent from '../../../flyout-button/src/FlyoutContent/FlyoutContent'
+import Icon from '../../../icon';
+import {stateClasses} from '../../../form/src/TextField/TextField';
 
 import './Autocomplete.scss';
 

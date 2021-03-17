@@ -1,4 +1,6 @@
 ```
+import Icon from '../icon/src/Icon';
+
 const ContentBlock = require('./src').ContentBlock;
 const NavBlock = require('./src').NavBlock;
 const ButtonBlock = require('./src').ButtonBlock;

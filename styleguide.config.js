@@ -30,9 +30,9 @@ module.exports = {
     console.log('Environment: ', process.env.NODE_ENV);
     return webpackConfig;
   },
-  editorConfig: {
-    theme: 'xq-light',
-  },
+  // editorConfig: {
+  //   theme: 'xq-light',
+  // },
   styleguideDir: 'docs',
   title: 'ACPaaS UI React Components',
   usageMode: 'expand',

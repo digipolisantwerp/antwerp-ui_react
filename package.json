@@ -45,7 +45,7 @@
     "jest-cli": "^22.4.4",
     "lerna": "^4.0.0",
     "react-addons-test-utils": "^15.6.2",
-    "react-styleguidist": "^8.0.0",
+    "react-styleguidist": "^11.1.5",
     "rollup": "^2.26.9",
     "rollup-plugin-babel": "^3.0.7",
     "rollup-plugin-node-resolve": "^3.4.0",
