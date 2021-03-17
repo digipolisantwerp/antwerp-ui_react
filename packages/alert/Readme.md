@@ -7,7 +7,7 @@ import Icon from '../icon/src/Icon';
   title="This is a success box!"
   onClose={() => console.log('closed')}
   closable={true}>
-  This is my child <Icon name="bell" />
+  This is my child <Icon name="alarm-bell" />
   </Alert>
 ```
 
@@ -18,6 +18,6 @@ import Icon from '../icon/src/Icon';
   type="warning"
   title="This is a warning box!"
   closable={true}>
-  This is my child <Icon name="exclamation" />
+  This is my child <Icon name="alert-triangle" />
   </Alert>
 ```
