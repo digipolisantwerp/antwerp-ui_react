@@ -15,14 +15,25 @@ type Props = {
 };
 
 const Icon = ({ name, style, className, ariaLabel, onClick, qa }: Props) => {
-  const iconClass = classNames(className, `fa fa-${name} ${name}`);
+
+  const iconClass = classNames(className, 'ai');
+  const xlinkHref = `http://cdn.antwerpen.be/core_branding_scss/5.0.0-beta.2/assets/images/ai.svg#${name}`;
 
   return (
-    <React.Fragment>
-      <span className={iconClass} style={style} data-qa={qa} aria-hidden="true" onClick={onClick}></span>
+    <span className={iconClass} style={style} data-qa={qa} onClick={onClick}>
+      <svg aria-hidden="true"><use xlinkHref={xlinkHref} /></svg>
       {ariaLabel && <span className="u-screen-reader-only">{ariaLabel}</span>}
-    </React.Fragment>
-  );
+    </span>
+  )
+
+  // const iconClass = classNames(className, `fa fa-${name} ${name}`);
+
+  // return (
+  //   <React.Fragment>
+  //     <span className={iconClass} style={style} data-qa={qa} aria-hidden="true" onClick={onClick}></span>
+  //     {ariaLabel && <span className="u-screen-reader-only">{ariaLabel}</span>}
+  //   </React.Fragment>
+  // );
 };
 
 export default Icon;

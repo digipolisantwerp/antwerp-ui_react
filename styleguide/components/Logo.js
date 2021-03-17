@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Styled from 'react-styleguidist/lib/rsg-components/Styled';
-const logo = 'https://cdn.antwerpen.be/core_branding_scss/4.3.1/assets/images/a-logo.svg';
+const logo = 'https://cdn.antwerpen.be/core_branding_scss/5.0.0-beta.2/assets/images/a-logo.svg';
 
 const styles = ({ fontFamily, color }) => ({
 	logo: {
