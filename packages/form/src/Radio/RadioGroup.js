@@ -68,6 +68,6 @@ const RadioGroup = (props: Props) => {
       {description ? <small>{description}</small> : null}
     </div>
   )
-}
+};
 
 export default RadioGroup;

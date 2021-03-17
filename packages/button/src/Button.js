@@ -45,7 +45,7 @@ type Props = {
   onClick?: (e: object) => void,
   /** Qa id */
   qa?: string,
-}
+};
 
 class Button extends Component<Props> {
   render() {

@@ -13,6 +13,6 @@ const Form = (props: Props) => {
       {children}
     </form>
   )
-}
+};
 
 export default Form;

@@ -10,7 +10,8 @@ type Props = {
   direction?: Direction,
   /** Qa id */
   qa?: string,
-}
+};
+
 const ButtonGroup = (props: Props) => {
   const { children, style, direction = 'horizontal', qa } = props;
   const className = classNames('m-button-group', {
@@ -22,6 +23,6 @@ const ButtonGroup = (props: Props) => {
       {children}
     </div>
   )
-}
+};
 
 export default ButtonGroup;

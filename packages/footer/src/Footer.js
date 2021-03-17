@@ -9,6 +9,7 @@ type Props = {
   /** Qa id */
   qa?: string,
 };
+
 const Footer = (props: Props) => {
   const { style, children, qa, ariaLabel = "Ga naar boven" } = props;
 
@@ -24,6 +25,6 @@ const Footer = (props: Props) => {
       </a>
     </footer>
   )
-}
+};
 
 export default Footer;

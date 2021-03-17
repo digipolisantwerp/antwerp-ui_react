@@ -12,5 +12,6 @@ const CardBody = (props: Props) => {
       {children}
     </div>
   )
-}
+};
+
 export default CardBody;

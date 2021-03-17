@@ -20,6 +20,6 @@ const CardHeader = (props: Props) => {
   );
 
   return (title || actions) ? cardHeader : null
-}
+};
 
 export default CardHeader;

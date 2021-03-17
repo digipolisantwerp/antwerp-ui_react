@@ -10,6 +10,6 @@ const CardTitle = (props: Props) => {
   return (
     <h5 className="u-margin-bottom-xs" style={style}>{children}</h5>
   )
-}
+};
 
 export default CardTitle;

@@ -8,7 +8,7 @@ type Props = {
   icon: string,
   className?: string,
   ariaLabel?: string,
-}
+};
 
 const CardIcon = ({ icon, className , ariaLabel }: Props) => (
   <div className={classNames('pull-left u-margin-right u-margin-bottom', className)}>

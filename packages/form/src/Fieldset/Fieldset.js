@@ -17,6 +17,6 @@ const Fieldset = (props: Props) => {
       {children}
     </fieldset>
   )
-}
+};
 
 export default Fieldset;

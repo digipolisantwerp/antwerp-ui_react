@@ -29,6 +29,6 @@ const InputLabel = (props: Props) => {
       {children}
     </label>
   )
-}
+};
 
 export default InputLabel;

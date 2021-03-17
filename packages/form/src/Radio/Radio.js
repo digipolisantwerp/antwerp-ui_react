@@ -32,6 +32,6 @@ const Radio = (props: Props) => {
       <label htmlFor={id}>{children}</label>
     </div>
   )
-}
+};
 
 export default Radio;

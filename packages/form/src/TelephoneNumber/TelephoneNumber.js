@@ -141,6 +141,6 @@ const TelephoneNumber = (props: Props) => {
       {errorDescription && <small className="u-text-danger">{errorDescription}</small>}
     </div>
   )
-}
+};
 
 export default TelephoneNumber;
