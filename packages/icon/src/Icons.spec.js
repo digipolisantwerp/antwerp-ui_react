@@ -1,6 +1,6 @@
-import Icon from './Icon';
-import { mount, shallow } from 'enzyme';
 import React from 'react';
+import { mount, shallow } from 'enzyme';
+import Icon from './Icon';
 
 describe('Icon', () => {
     it('should apply the correct icon-name', () => {
@@ -13,18 +13,8 @@ describe('Icon', () => {
         expect(icon.getDOMNode().className).toContain("test");
     });
 
-    it('should return span element if span is true', () => {
-        const icon = shallow(<Icon name="test" span />);
-        expect(icon.type()).toBe('span');
-    });
-
-    it('should return i element if span is false', () => {
-        const icon = shallow(<Icon name="test" />);
-        expect(icon.type()).toBe('span');
-    });
-
     it('should set the data-qa attribute', () => {
-        const icon = shallow(<Icon qa="id-1234" />);
-        expect(icon.props()).toHaveProperty('data-qa', 'id-1234');
+        const icon = shallow(<Icon name="test" qa="id-1234" />);
+        expect(icon.find('.fa').props()).toHaveProperty('data-qa', 'id-1234');
     });
 });

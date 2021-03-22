@@ -1,0 +1,29 @@
+.a-input-telephone .a-input__wrapper {
+  display: flex;
+
+  .a-input-telephone__number {
+    flex: 1;
+
+    input:not([class*=a-button]):not([type=checkbox]):not([type=radio]) {
+      border-left: none;
+    }
+  }
+
+  .a-input-telephone__area-code select,
+  input:not([class*=a-button]):not([type=checkbox]):not([type=radio]).a-input-telephone__number {
+    &:focus {
+      z-index: 1;
+    }
+  }
+
+}
+
+.a-input {
+  &.has-success,
+  &.has-warning,
+  &.has-error {
+    .a-input-telephone__area-code .a-input__wrapper:before {
+      content: none;
+    }
+  }
+}

@@ -10,17 +10,17 @@
 <Avatar letter="SP" />
 ```
 
-https://api.adorable.io/avatars/285/jasper@adorable.png
+https://robohash.org/jasper
 
 ### Image avatar
 ```
-<Avatar image="https://api.adorable.io/avatars/285/jasper@adorable.png"/>
+<Avatar image="https://robohash.org/jasper"/>
 ```
 
 ### Avatar sizes
 ```
-<Avatar image="https://api.adorable.io/avatars/285/jasper@adorable.png" size="large" alt="Groot"/>{' '}
-<Avatar image="https://api.adorable.io/avatars/285/jasper@adorable.png" size="medium" alt="Medium"/>{' '}
-<Avatar image="https://api.adorable.io/avatars/285/jasper@adorable.png" size="small" alt="Klein"/>
+<Avatar image="https://robohash.org/jasper" size="large" alt="Groot"/>{' '}
+<Avatar image="https://robohash.org/jasper" size="medium" alt="Medium"/>{' '}
+<Avatar image="https://robohash.org/jasper" size="small" alt="Klein"/>
 
 ```

@@ -64,6 +64,5 @@ describe("Select", () => {
       expect(select.props().value).toBeUndefined();
       expect(placeholderOption.text()).toBe('placeholderValue');
       expect(placeholderOption.props().disabled).toBeTruthy();
-      expect(placeholderOption.props().selected).toBeTruthy();
     });
 });

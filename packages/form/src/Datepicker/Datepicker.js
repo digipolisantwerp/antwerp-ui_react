@@ -3,8 +3,9 @@ import Moment from 'moment';
 import classNames from 'classnames';
 
 import InputLabel from '../InputLabel';
-import Calendar from '../../../calendar/src/Calendar';
+import Calendar from '../../../calendar';
 import TextField from '../TextField';
+import Icon from '../../../icon/src/Icon';
 
 const stateClasses = {
   success: 'has-success',
@@ -13,7 +14,7 @@ const stateClasses = {
 };
 
 type InputStates = "success" | "warning" | "error";
-type InputTypes = "small" | "normal" | "large";
+type Sizes = "small" | "normal" | "large";
 
 type
   Props = {
@@ -59,8 +60,8 @@ type
   onBlur?: (e: object) => void,
   /** Qa id */
   qa?: string,
-  /** Input type */
-  type?: InputTypes,
+  /** Sizes */
+  size?: Sizes,
 };
 
 class Datepicker extends Component<Props> {
@@ -106,6 +107,14 @@ class Datepicker extends Component<Props> {
   };
 
   static getDerivedStateFromProps(props, state) {
+    // Reset input value
+    if (props.activeDate === '') {
+        return {
+          activeDate: null,
+          input: props.activeDate
+        };
+    }
+
     if (props.activeDate) {
       const momentDate = Moment(props.activeDate, props.format, true);
       if (momentDate.isValid()) {
@@ -123,6 +132,13 @@ class Datepicker extends Component<Props> {
     if (this.props.readOnly) {
       this.toggleCalendar()
     }
+  }
+
+  resetDate() {
+    this.setState({
+      input: '',
+      activeDate: null
+    });
   }
 
   changeDate(date) {
@@ -174,7 +190,7 @@ class Datepicker extends Component<Props> {
       noWeekends,
       onBlur,
       qa,
-      type,
+      size,
     } = this.props;
 
     const {
@@ -189,7 +205,7 @@ class Datepicker extends Component<Props> {
       {
         'is-required': !!required,
         [`${stateClasses[state]}`]: !!state,
-        [`a-input--${type}`]: !!type,
+        [`a-input--${size}`]: !!size,
       }
     );
 
@@ -215,7 +231,7 @@ class Datepicker extends Component<Props> {
           onClick={() => this.onClickInput()}
           onChange={(e) => this.changeDate(e.target.value)}
           onBlur={onBlur} />
-        <span onClick={this.toggleCalendar.bind(this)} className="fa fa-calendar is-clickable"></span>
+        <Icon name="calendar" className="is-clickable" onClick={this.toggleCalendar.bind(this)} />
         {open &&
           <div className={datepickerClass} aria-hidden="false">
             <div className="m-datepicker is-open">

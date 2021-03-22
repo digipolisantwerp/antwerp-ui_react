@@ -6,7 +6,7 @@ import Icon from '../../../icon/src/Icon';
 import Spinner from '../../../spinner/src/Spinner';
 
 type InputStates = "success" | "warning" | "error";
-type InputTypes = "small" | "normal" | "large";
+type Sizes = "small" | "normal" | "large";
 
 export const stateClasses = {
   success: 'has-success',
@@ -35,13 +35,13 @@ type Props = {
   onChange?: (e: object) => void,
   value?: string,
   disabled?: boolean,
-  type?: InputTypes,
+  size?: Sizes,
   /** Qa id */
   qa?: string,
 };
 
 class Select extends Component<Props> {
-  state = {}
+  state = {value: this.props.value || ''};
 
   onChange(e) {
     const value = e.currentTarget.value;
@@ -68,7 +68,7 @@ class Select extends Component<Props> {
       value,
       loading,
       qa,
-      type,
+      size,
     } = this.props;
 
     const selectClass = classNames(
@@ -78,7 +78,7 @@ class Select extends Component<Props> {
         'a-input--inline': !!inline,
         [`${stateClasses[state]}`]: !!state,
         'is-required': !!required,
-        [`a-input--${type}`]: !!type,
+        [`a-input--${size}`]: !!size,
       },
       className
     );
@@ -92,8 +92,8 @@ class Select extends Component<Props> {
       <div className={selectClass} name={name} data-qa={qa}>
         {label && <InputLabel inline={inline} htmlFor={id}>{label}</InputLabel>}
         <div className={wrapperClass}>
-          <select id={id} name={name} onChange={(e) => this.onChange(e)} value={value} disabled={disabled}>
-            {placeholder && <option value="" selected disabled>{placeholder}</option>}
+          <select id={id} name={name} onChange={(e) => this.onChange(e)} defaultValue={this.state.value} disabled={disabled}>
+            {placeholder && <option value="" disabled>{placeholder}</option>}
             {options.map(option => (
               <Option
                 value={option.value}

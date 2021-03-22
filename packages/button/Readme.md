@@ -11,12 +11,12 @@
 
 ### Button modifiers
 
-<div class="m-alert d-alert m-alert--wcag u-margin-bottom">
+```
+<div className="m-alert d-alert m-alert--wcag u-margin-bottom">
     <p>Due to [WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/) compliance only `primary` and `secondary` are available in combination with `negative`.
-      The fallback is `primary` for `success`, `warning` and `danger`. See the <a href="https://www.w3.org/TR/WCAG21/#contrast-minimum" title="Web Content Accessibility Guidelines (WCAG) 2.1 Success Criterion 1.4.3 Contrast (Minimum)" class="has-icon-right" target="_blank">Contrast criterion<span class="fa fa-external-link"></span></a>.</p>
+      The fallback is `primary` for `success`, `warning` and `danger`. See the <a href="https://www.w3.org/TR/WCAG21/#contrast-minimum" title="Web Content Accessibility Guidelines (WCAG) 2.1 Success Criterion 1.4.3 Contrast (Minimum)" className="has-icon-right" target="_blank">Contrast criterion<Icon name="external-link" ariaLabel=" (external)" /></a>.</p>
 </div>
 
-```
 <Button type="primary" negative>Negative</Button>{' '}
 <Button type="primary" outline>Outline</Button>{' '}
 <Button icon="close" ariaLabel="Close" transparent></Button>
@@ -62,9 +62,9 @@
 const ButtonGroup = require('.').ButtonGroup;
 <div>
 <ButtonGroup>
-  <Button type="primary" size="tiny">left</Button>
-  <Button type="primary" size="tiny">middle</Button>
-  <Button type="primary" size="tiny">right</Button>
+  <Button type="primary">left</Button>
+  <Button type="primary">middle</Button>
+  <Button type="primary">right</Button>
 </ButtonGroup>
 <br />
 <ButtonGroup direction="vertical">

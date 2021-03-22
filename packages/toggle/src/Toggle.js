@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
+import Icon from '../../icon/src/Icon';
 
 const sizeClasses = {
   tiny: 'a-toggle--tiny',
@@ -35,19 +36,6 @@ type Props = {
 
 
 class Toggle extends Component<Props> {
-  state = {
-    checked: this.props.checked || false
-  }
-
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.checked !== prevState.checked) {
-      return {
-        checked: nextProps.checked
-      };
-    }
-
-    return null;
-  }
 
 	static defaultProps = {
   	id: 'toggle-normal',
@@ -61,9 +49,28 @@ class Toggle extends Component<Props> {
 		uncheckedButtonClass: 'a-button--danger'
 	}
 
-  handleClick = (e) => {
-    this.setState({ checked: !this.state.checked });
-    if (this.props.onClick) {
+  constructor(props) {
+    super(props);
+    this.state = {checked: props.checked || false};
+  }
+
+  componentDidUpdate(prevProps) {
+    // check if checked changed
+    if (this.props.checked !== prevProps.checked) {
+      // check if state change is required
+      if (this.props.checked !== this.state.checked) {
+        // update state with new checked value
+        this.setState({ checked: this.props.checked });
+      }
+    }
+  }
+
+  handleChange = e => {
+    this.setState({checked: e.target.checked});
+    if (this.props.onChange && (typeof this.props.onChange === 'function')) {
+      this.props.onChange(e);
+    }
+    if (this.props.onClick && (typeof this.props.onClick === 'function')) {
       this.props.onClick(e);
     }
   }
@@ -116,16 +123,16 @@ class Toggle extends Component<Props> {
           defaultChecked={this.state.checked}
           type="checkbox"
           role="switch"
-          onChange={this.handleClick}
+          onChange={this.handleChange}
         />
         <div className="a-toggle__labels">
           <label htmlFor={id} className={checkedClasses}>
-            <span className={"fa " + checkedIcon}></span>
-              <span className={showLabels ? '' : 'u-screen-reader-only'}>{checkedLabel}</span>
+            <Icon name={checkedIcon} ariaLabel={showLabels ? '' : checkedLabel} />
+            {showLabels && <span>{checkedLabel}</span>}
           </label>
           <label htmlFor={id} className={uncheckedClasses}>
-            <span className={"fa " + uncheckedIcon}></span>
-              <span className={showLabels ? '' : 'u-screen-reader-only'}>{uncheckedLabel}</span>
+            <Icon name={uncheckedIcon} ariaLabel={showLabels ? '' : uncheckedLabel} />
+            {showLabels && <span>{uncheckedLabel}</span>}
           </label>
         </div>
       </div>

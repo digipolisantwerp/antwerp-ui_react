@@ -1,4 +1,5 @@
 import React from 'react';
+import Icon from '../../icon/src/Icon';
 
 type Props = {
   style?: object,
@@ -19,7 +20,7 @@ const Footer = (props: Props) => {
     <footer className="o-footer" style={style} data-qa={qa}>
       <span className="o-footer__label">{children || '© stad Antwerpen'}</span>
       <a onClick={() => scrollToTop()} href="#" className="o-footer__button a-button a-button--secondary has-icon" aria-label={ariaLabel}>
-        <span className="fa fa-arrow-up"></span>
+        <Icon name="arrow-up" />
       </a>
     </footer>
   )

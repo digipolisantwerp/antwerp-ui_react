@@ -1,4 +1,5 @@
 import React from 'react';
+import Icon from '../../../icon/src/Icon';
 
 const generateSocialLinkFor = ({ name, handle }) => {
   if (handle === '') {
@@ -12,7 +13,7 @@ const generateSocialLinkFor = ({ name, handle }) => {
       title={name}
       aria-label={name}
       rel="external noopener noreferrer">
-      <span className={`fa fa-${name}`} />
+      <Icon name={name} />
     </a>
   );
 };

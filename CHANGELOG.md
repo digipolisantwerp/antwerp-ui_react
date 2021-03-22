@@ -7,6 +7,64 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ## [Unreleased]
 
 
+## v5.0.4 - 16-03-2021
+
+### Fixed
+- `Toggle` Final fix for the toggle's mixed checked state
+- Optimized published package size
+
+
+## v5.0.3 - 11-03-2021
+
+### Fixed
+- Fixed styleguide which was showing too many (sub) components
+- `Autocomplete` Fixed state error
+- `Footer` Fixed double package name for SubFooter
+- `Form/TelephoneNumber` Fixed minor styling issues
+- `Form/TextField` Fixed an issue with class names
+- `Handle` Replaced deprecated componentWillReceiveProps
+- `Toggle` Fixed an issue where the toggle's checked state could still get mixed up
+
+### Changed
+- Upgraded to the latest core branding (v4.3.1)
+- Updated Styleguidist
+- `Form/Select` Improved inner workings
+- `Form/TelephoneNumber` Fixed minor styling issues
+
+
+## v5.0.2 - 23-02-2021
+
+### Fixed
+- `Form/TelephoneNumber` Fix infinite loop when setting initialValue
+
+
+## v5.0.1 - 19-02-2021
+
+### Fixed
+- `Form/TelephoneNumber` Fix border & spacing
+
+
+## v5.0.0 - 19-02-2021
+
+### Changed
+- `Input` [BREAKING] We had to change the input's API to make it more consistent. This means that for some components 'type' had to be changed to 'size', in order to also support the standard 'type' attribute.
+
+### Added
+- `Form/TelephoneNumber` Added new telephone number component
+
+
+## v4.9.0 - 18-02-2021
+
+### Added
+- `Form/TextField` Support addons (addon-left, addon-right)
+- `Form/TextField` Pass type prop to child input
+- `Form/TextField` Allow for setting className on wrapper
+
+### Fixed
+- `Autocomplete` Fixed a bug where search results were not correctly parsed
+- `Toggle` Fixed an issue where the toggle's checked state could get mixed up
+
+
 ## v4.8.2 - 11-12-2020
 
 ### Fixed
