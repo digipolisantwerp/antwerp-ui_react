@@ -7,7 +7,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 module.exports = {
-  components: 'packages/*/src/!(index)*.{js,jsx}',
+  components: 'packages/*/src{/component,}/!(index)*.{js,jsx}',
   getExampleFilename(componentPath) {
     const basePath = componentPath.split('src/')[0];
     return basePath + 'Readme.md';

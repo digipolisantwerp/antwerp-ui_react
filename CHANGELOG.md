@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ## [Unreleased]
 
 
+## v5.0.5 - 22-03-2021
+
+### Fixed
+- `Autocomplete` Fixed a missing `FlyoutContent` import
+- `Autocomplete` Fixed component not showing in styleguide
+
+
 ## v5.0.4 - 16-03-2021
 
 ### Fixed
