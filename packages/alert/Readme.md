@@ -7,7 +7,7 @@ import Icon from '../icon/src/Icon';
   title="This is a success box!"
   onClose={() => console.log('closed')}
   closable={true}>
-  This is my child <Icon name="alarm-bell" />
+  This is my child <Icon name="test3" style={{stroke:'green'}} />
   </Alert>
 ```
 
