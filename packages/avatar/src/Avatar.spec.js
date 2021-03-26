@@ -25,8 +25,8 @@ describe('Avatar', () => {
     });
 
     it('should show the icon when provided', () => {
-        const avatar = mount(<Avatar icon="bell" />);
-        expect(avatar.find('.a-avatar__icon span.fa').hasClass('fa-bell')).toEqual(true);
+        const avatar = mount(<Avatar icon="alarm-bell" />);
+        expect(avatar.find('.a-avatar__icon span.ai').hasClass('ai-alarm-bell')).toEqual(true);
     });
 
     it('should show the letters when provided', () => {

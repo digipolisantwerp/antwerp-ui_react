@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import InputLabel from '../../form/src/InputLabel';
 
 interface IProps {
-  id: string;
-  label: string;
+  id?: string;
+  label?: string;
   labelTrue: string;
   labelFalse: string;
   onClick?: (event) => void;
@@ -47,17 +47,19 @@ class Switch extends Component<IProps> {
 
     return (
       <div className="a-input" data-qa={qa}>
-        {label && <InputLabel>{label}</InputLabel>}
-        <div className="a-switch"></div>
-        <button
-          className="a-switch__button"
-          role="switch"
-          aria-checked={this.state.checked}
-          disabled={disabled}
-          onClick={(event) => this.onClick(event)}>
-          <span className="a-switch__off">{labelFalse}</span>
-          <span className="a-switch__on">{labelTrue}</span>
-        </button>
+        {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
+        <div className="a-switch">
+          <button
+            id={id}
+            className="a-switch__button"
+            role="switch"
+            aria-checked={this.state.checked}
+            disabled={disabled}
+            onClick={(event) => this.onClick(event)}>
+            <span className="a-switch__off">{labelFalse}</span>
+            <span className="a-switch__on">{labelTrue}</span>
+          </button>
+        </div>
       </div>
     )
 

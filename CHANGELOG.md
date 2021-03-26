@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+- `Icon` [BREAKING] FontAwesome was replaced by support for Streamline icons.
+- `Switch` [BREAKING] Changed the way the Switch component works
+- `Toggle` [BREAKING] Changed the way the Toggle component works
+
+### Removed
+- `Subfooter` Please use the metanavigation instead
+
 
 ## v5.0.5 - 22-03-2021
 

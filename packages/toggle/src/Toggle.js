@@ -18,7 +18,6 @@ type Sizes = "tiny" | "small" | "large";
 
 type Props = {
   id?: string,
-  name?: string,
   size?: Sizes,
 	checkedLabel: string,
 	checkedIcon?: string,
@@ -41,11 +40,11 @@ class Toggle extends Component<Props> {
   	id: 'toggle-normal',
     checked: false,
   	checkedLabel: '',
-		checkedIcon: 'fa-bars',
+		checkedIcon: 'ai-navigation-menu',
 		checkedButtonClass: '',
     showLabels: true,
 		uncheckedLabel: '',
-		uncheckedIcon: 'fa-close',
+		uncheckedIcon: 'ai-close',
 		uncheckedButtonClass: 'a-button--danger'
 	}
 
@@ -66,7 +65,7 @@ class Toggle extends Component<Props> {
   }
 
   handleChange = e => {
-    this.setState({checked: e.target.checked});
+    this.setState({checked: !this.state.checked});
     if (this.props.onChange && (typeof this.props.onChange === 'function')) {
       this.props.onChange(e);
     }
@@ -78,7 +77,6 @@ class Toggle extends Component<Props> {
   render() {
     const {
       id,
-      name,
       size,
       checkedLabel,
       checkedIcon,
@@ -91,7 +89,7 @@ class Toggle extends Component<Props> {
     } = this.props;
 
     const toggleClass = classNames(
-      'a-toggle has-icon',
+      'a-toggle',
       {
         [`${sizeClasses[size]}`]: !!size,
       }
@@ -115,26 +113,20 @@ class Toggle extends Component<Props> {
 
     return (
       <div className={toggleClass} data-qa={qa}>
-        <input
-          className="a-toggle__checkbox"
+        <button
+          className="a-toggle__button"
           id={id}
-          name={name}
-          aria-checked={this.state.checked}
-          defaultChecked={this.state.checked}
-          type="checkbox"
-          role="switch"
-          onChange={this.handleChange}
-        />
-        <div className="a-toggle__labels">
-          <label htmlFor={id} className={checkedClasses}>
+          aria-expanded={this.state.checked}
+          onClick={this.handleChange}>
+          <span className={checkedClasses}>
             <Icon name={checkedIcon} ariaLabel={showLabels ? '' : checkedLabel} />
             {showLabels && <span>{checkedLabel}</span>}
-          </label>
-          <label htmlFor={id} className={uncheckedClasses}>
+          </span>
+          <span className={uncheckedClasses}>
             <Icon name={uncheckedIcon} ariaLabel={showLabels ? '' : uncheckedLabel} />
             {showLabels && <span>{uncheckedLabel}</span>}
-          </label>
-        </div>
+          </span>
+        </button>
       </div>
     );
   }

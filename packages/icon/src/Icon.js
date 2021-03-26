@@ -25,7 +25,7 @@ const Icon = ({ name, style, className, ariaLabel, onClick, qa }: Props) => {
    */
   const fetchAntwerpIcons = async () => {
     try {
-      const xlinkHref = 'https://cdn.antwerpen.be/core_branding_scss/5.0.0-beta.3/assets/images/ai.svg';
+      const xlinkHref = 'https://cdn.antwerpen.be/core_branding_scss/5.0.0-beta.4/assets/images/ai.svg';
       const response = await fetch(xlinkHref);
       const svgText = await response.text();
       const svgWrapper = document.createElement('svg');
@@ -47,8 +47,8 @@ const Icon = ({ name, style, className, ariaLabel, onClick, qa }: Props) => {
     fetchAntwerpIcons();
   }
 
-  const iconClass = classNames(className, 'ai');
-  const href = name.substring(0, 3) === 'ai-' ? name : `ai-${name}`;
+  const href = name ? (name.substring(0, 3) === 'ai-' ? name : `ai-${name}`) : '';
+  const iconClass = classNames(className, href, 'ai');
 
   return (
     <span className={iconClass} style={style} data-qa={qa} onClick={onClick}>
