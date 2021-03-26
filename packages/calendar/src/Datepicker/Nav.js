@@ -37,7 +37,7 @@ class Nav extends Component {
           htmlType="button"
           onClick={onClickPrevious}
           className={'a-button has-icon'}
-          icon={'angle-left'}
+          icon={'ai-arrow-left-1'}
           ariaLabel={ariaLabelPrevious(viewType, displayedPeriod)}
         />
 
@@ -49,7 +49,7 @@ class Nav extends Component {
           htmlType="button"
           onClick={onClickNext}
           className={'a-button has-icon'}
-          icon={'angle-right'}
+          icon={'ai-arrow-right-1'}
           ariaLabel={ariaLabelNext(viewType, displayedPeriod)}
         />
       </React.Fragment>

@@ -69,7 +69,7 @@ class UserMenu extends Component<Props> {
     return (
       <Avatar
         image={avatarUrl}
-        icon={avatarUrl ? null : 'user'}
+        icon={avatarUrl ? null : 'ai-single-neutral'}
         alt="avatar"
         width="48"
         height="48"
@@ -109,7 +109,7 @@ class UserMenu extends Component<Props> {
       <div className="u-text-center u-margin-top">
         <Avatar
           image={avatarUrl}
-          icon={avatarUrl ? null : 'user'}
+          icon={avatarUrl ? null : 'ai-single-neutral'}
           alt="avatar"
           width="48"
           height="48"
@@ -158,7 +158,7 @@ class UserMenu extends Component<Props> {
       <Button
         className="a-button-negative o-header__button"
         onClick={(e) => this.onLogin()}
-        iconLeft="user">{ariaLogin}</Button>
+        iconLeft="ai-single-neutral">{ariaLogin}</Button>
     );
   }
 

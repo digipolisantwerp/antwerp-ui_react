@@ -1,4 +1,5 @@
 const path = require('path');
+const pjson = require('./package.json');
 
 // Fix GitHub Pages
 let basePath = '';
@@ -32,8 +33,9 @@ module.exports = {
   },
   styleguideDir: 'docs',
   title: 'ACPaaS UI React Components',
-  usageMode: 'expand',
+  usageMode: 'collapse',
   webpackConfig: require('./webpack.config'),
+  version: `v${pjson.version}`,
   template: {
     context: '',
     favicon: 'https://cdn.antwerpen.be/core_branding_favicons/citizens/favicon.ico',
@@ -43,11 +45,16 @@ module.exports = {
       links: [
         {
           rel: 'stylesheet',
-          href: 'https://cdn.antwerpen.be/core_branding_scss/5.0.0-beta.2/main.min.css'
+          href: 'https://cdn.antwerpen.be/core_branding_scss/5.0.0-beta.3/main.min.css'
         }
       ]
     }
   },
+  // styleguideComponents: {
+    // Logo: path.join(__dirname, 'styleguide/components/Logo'),
+    // SectionsRenderer: path.join(__dirname, 'styleguide/components/SectionsRenderer'),
+    // StyleGuideRenderer: path.join(__dirname, 'styleguide/components/StyleGuide'),
+  // },
   styles: {
     Code: {
       code: {

@@ -1,7 +1,7 @@
 ### Icon Avatar
 
 ```
-<Avatar icon="bell" />
+<Avatar icon="ai-alarm-bell" />
 ```
 
 ### Letter avatar

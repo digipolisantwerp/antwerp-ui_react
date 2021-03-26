@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Logo from 'react-styleguidist/lib/rsg-components/Logo';
-import Markdown from 'react-styleguidist/lib/rsg-components/Markdown';
-import Styled from 'react-styleguidist/lib/rsg-components/Styled';
+import Logo from 'rsg-components/Logo';
+import Markdown from 'rsg-components/Markdown';
+import Styled from 'rsg-components/Styled';
 import cx from 'classnames';
 
 const xsmall = '@media (max-width: 600px)';

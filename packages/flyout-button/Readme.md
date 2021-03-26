@@ -1,5 +1,5 @@
 ```
-<FlyoutButton icon="bell" outline flyoutHasPadding>
+<FlyoutButton icon="ai-navigation-menu" outline flyoutHasPadding>
   this is the flyout content
 </FlyoutButton>
 ```

@@ -231,7 +231,7 @@ class Datepicker extends Component<Props> {
           onClick={() => this.onClickInput()}
           onChange={(e) => this.changeDate(e.target.value)}
           onBlur={onBlur} />
-        <Icon name="calendar" className="is-clickable" onClick={this.toggleCalendar.bind(this)} />
+        <Icon name="ai-calendar-3" className="is-clickable" onClick={this.toggleCalendar.bind(this)} />
         {open &&
           <div className={datepickerClass} aria-hidden="false">
             <div className="m-datepicker is-open">

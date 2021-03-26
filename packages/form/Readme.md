@@ -45,7 +45,7 @@ const TextField = require('./src').TextField;
   required={true}
   placeholder={"Your name"}
   onChange={(event) => console.log('textfield value is:', event.target.value)}
-  iconright="eye" />
+  iconright="ai-view-1" />
 
 <br />
 
@@ -57,7 +57,7 @@ const TextField = require('./src').TextField;
   required={true}
   placeholder={"Your name"}
   onChange={(event) => console.log('textfield value is:', event.target.value)}
-  iconleft="user" />
+  iconleft="ai-single-neutral" />
 </div>
 ```
 
@@ -156,7 +156,7 @@ const TextField = require('./src').TextField;
 
 <TextField
   label={"Name"}
-  id={"textfield-id-10"}
+  id={"textfield-id-11"}
   name={"textfield-name"}
   className={"textfield-class"}
   required={true}
@@ -171,7 +171,7 @@ const TextField = require('./src').TextField;
 
 <TextField
   label={"Name"}
-  id={"textfield-id-10"}
+  id={"textfield-id-12"}
   name={"textfield-name"}
   className={"textfield-class"}
   required={true}
@@ -215,7 +215,7 @@ const Textarea = require('./src').Textarea;
 
 <Textarea
   label={"Description"}
-  id={"textarea-2"}
+  id={"textarea-3"}
   name={"textarea-name"}
   className={"textarea-class"}
   required={true}
@@ -230,7 +230,7 @@ const Textarea = require('./src').Textarea;
 
 <Textarea
   label={"Description"}
-  id={"textarea-2"}
+  id={"textarea-4"}
   name={"textarea-name"}
   className={"textarea-class"}
   required={true}
@@ -377,7 +377,7 @@ const optionsDistrict = [
 
 <div>
   <Select label="District"
-    id={"select-1"}
+    id={"select-3"}
     label={"Districts"}
     name={"select-name"}
     className={"select-class"}
@@ -392,7 +392,7 @@ const optionsDistrict = [
   <br />
 
   <Select label="District"
-    id={"select-1"}
+    id={"select-4"}
     label={"Districts"}
     name={"select-name"}
     className={"select-class"}
@@ -407,7 +407,7 @@ const optionsDistrict = [
   <br />
 
   <Select label="District"
-    id={"select-1"}
+    id={"select-5"}
     label={"Districts"}
     name={"select-name"}
     className={"select-class"}
@@ -448,7 +448,7 @@ const optionsDistrict = [
 ];
 
 <Select label="District"
-  id={"select-1"}
+  id={"select-6"}
   label={"Districts"}
   name={"select-name"}
   className={"select-class"}
@@ -488,7 +488,7 @@ const optionsDistrict = [
 ];
 
 <Select label="District"
-  id={"select-1"}
+  id={"select-7"}
   label={"Districts"}
   name={"select-name"}
   className={"select-class"}
@@ -528,7 +528,7 @@ const optionsDistrict = [
 ];
 
 <Select label="District"
-  id={"select-1"}
+  id={"select-8"}
   label={"Districts"}
   name={"select-name"}
   className={"select-class"}
@@ -583,7 +583,7 @@ const Datepicker = require('./src').Datepicker;
 <Datepicker
   size="small"
   locale={"en"}
-  id={"datepicker-id-2"}
+  id={"datepicker-id-3"}
   name={"datepicker-name"}
   label={"Datepicker without input mask and small"}
   format={"DD/MM/YYYY"}
@@ -599,7 +599,7 @@ const Datepicker = require('./src').Datepicker;
 <Datepicker
   size="large"
   locale={"en"}
-  id={"datepicker-id-2"}
+  id={"datepicker-id-4"}
   name={"datepicker-name"}
   label={"Datepicker without input mask and small"}
   format={"DD/MM/YYYY"}
@@ -704,7 +704,7 @@ const TelephoneNumber = require('./src').TelephoneNumber;
     name="tel-name-6"
     label="TelephoneNumber"
     mask="999 99 99 99"
-    iconright="phone"
+    iconright="ai-phone"
     required={true}
     onChange={(value) => console.log('New tel value 6:', value)}
     open={false}
@@ -722,7 +722,7 @@ const TelephoneNumber = require('./src').TelephoneNumber;
     name="tel-name-7"
     label="TelephoneNumber"
     mask="999 99 99 99"
-    iconleft="phone"
+    iconleft="ai-phone"
     required={true}
     onChange={(value) => console.log('New tel value 7:', value)}
     open={false}

@@ -11,9 +11,9 @@ type Props = {
 };
 
 const CardIcon = ({ icon, className , ariaLabel }: Props) => (
-  <div className={classNames('pull-left u-margin-right u-margin-bottom', className)}>
+  <span className={classNames('pull-left u-margin-right u-margin-bottom', className)}>
     <Icon name={icon} className="fa-lg u-text-light" ariaLabel={ariaLabel} />
-  </div>
+  </span>
 );
 
 CardIcon.defaultProps = {

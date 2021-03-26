@@ -105,7 +105,7 @@ class Select extends Component<Props> {
               </Option>
             ))}
           </select>
-          {loading ? <Spinner size="small" className="fa" /> : <Icon name="angle-down" span />}
+          {loading ? <Spinner size="small" className="ai" /> : <Icon name="ai-arrow-down-1" />}
         </div>
       </div>
     )

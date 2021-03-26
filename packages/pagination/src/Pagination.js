@@ -3,8 +3,6 @@ import classNames from 'classnames';
 import Link from '../../link/src/Link';
 import Icon from '../../icon/src/Icon';
 
-import './Pagination.scss';
-
 type Props = {
   /** The current page */
   currentPage?: Number,
@@ -162,10 +160,10 @@ export default class Pagination extends Component<Props, State> {
     const { numbers, currentPage, totalPages } = this.state;
 
     const paginationClasses = classNames('m-pagination', styling);
-    const previousDisabledClasses = classNames('pagination-button', 'pagination-prev-page', {
+    const previousDisabledClasses = classNames('pagination-prev-page', {
       'is-disabled': currentPage <= 1
     });
-    const nextDisabledClasses = classNames('pagination-button', 'pagination-next-page', {
+    const nextDisabledClasses = classNames('pagination-next-page', {
       'is-disabled': currentPage >= totalPages
     });
 
@@ -176,14 +174,14 @@ export default class Pagination extends Component<Props, State> {
     return (
       <nav role="navigation" aria-label={ariaLabel} data-qa={qa}>
         <ul className={paginationClasses}>
-          <li className="m-pagination__prev pagination-button" key="pagination__prev">
+          <li className="m-pagination__prev" key="pagination__prev">
             <Link
               className={previousDisabledClasses}
               href={currentPage > 1 ? '#' : null}
               onClick={(e) => this.onPrev(e)}
               aria-label={ariaLabelPreviousPage}
             >
-              <Icon name="angle-left" ariaLabel={ariaLabelPreviousPage} />
+              <Icon name="ai-arrow-left-1" ariaLabel={ariaLabelPreviousPage} />
             </Link>
           </li>
           {display === 'text' && (
@@ -196,7 +194,7 @@ export default class Pagination extends Component<Props, State> {
               } else {
                 return (<li key={i}>
                   <Link
-                    className={classNames({ 'is-active': number === `${currentPage}` }, 'pagination-button', `pagination-button-${i}`)}
+                    className={classNames({ 'is-active': number === `${currentPage}` }, `pagination-button-${i}`)}
                     href={'#'}
                     onClick={(e) => this.onChange(number, e)}
                     aria-label={`${ariaLabelPage} ${number}`}
@@ -207,14 +205,14 @@ export default class Pagination extends Component<Props, State> {
                 </li>);
               }
             })}
-          <li className="m-pagination__next pagination-button" key="pagination__next">
+          <li className="m-pagination__next" key="pagination__next">
             <Link
               className={nextDisabledClasses}
               href={currentPage < totalPages ? '#' : null}
               onClick={(e) => this.onNext(e)}
               aria-label={ariaLabelNextPage}
             >
-              <Icon name="angle-right" ariaLabel={ariaLabelNextPage} />
+              <Icon name="ai-arrow-right-1" ariaLabel={ariaLabelNextPage} />
             </Link>
           </li>
         </ul>

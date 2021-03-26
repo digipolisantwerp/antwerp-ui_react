@@ -209,7 +209,7 @@ export default class Modal extends React.Component<Props, State> {
                   <h6>{title}</h6>
                 )}
                 {hasCloseButton && (
-                  <Button className="m-modal__close" icon="times" type="default" transparent onClick={() => this.handleRequestClose()} />
+                  <Button className="m-modal__close" icon="ai-close" type="default" transparent onClick={() => this.handleRequestClose()} />
                 )}
               </div>
             )}

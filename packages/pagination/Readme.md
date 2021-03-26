@@ -7,7 +7,7 @@ const totalValues = 180;
   currentPage={state.currentPage}
   itemsPerPage={itemsPerPage}
   totalValues={totalValues}
-  styling="basic"
+  styling="m-pagination--outline"
   display="numbers"
   buttonType="a"
   onUpdate={n => setState({currentPage: n})}

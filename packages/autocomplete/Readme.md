@@ -255,6 +255,7 @@ The prop `allowNewEntry` & `onNewEntry` is used for allowing new entries to be c
   onChange={(value) => {console.log(`Typed ${value}`)}}
   label="Select a city">
 </Autocomplete>
+<br/>
 <Autocomplete
   items={[
     { label: "Antwerpen", value: "antwerpen"},
