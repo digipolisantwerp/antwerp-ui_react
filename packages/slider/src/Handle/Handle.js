@@ -143,6 +143,7 @@ class Handle extends Component {
       min,
       max,
       label,
+      ariaLabel,
       id,
     } = this.props;
 
@@ -164,7 +165,7 @@ class Handle extends Component {
         aria-valuemax={max}
         aria-valuemin={min}
         aria-valuenow={fixedValue}
-        aria-label={label}
+        aria-label={ariaLabel}
         style={{
           left: getPositionFromValue(value) + 'px'
         }}

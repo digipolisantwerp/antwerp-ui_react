@@ -198,6 +198,7 @@ class Slider extends Component<Props, State> {
               direction={direction}
               getPositionFromValue={this.getPositionFromValue}
               tooltips={tooltips}
+              ariaLabel="Minimum"
               onDragEnd={this.onDragEnd}
             />
             {range && (
@@ -216,6 +217,7 @@ class Slider extends Component<Props, State> {
                 direction={direction}
                 getPositionFromValue={this.getPositionFromValue}
                 tooltips={tooltips}
+                ariaLabel="Maximum"
                 onDragEnd={this.onDragEnd}
               />
             )}

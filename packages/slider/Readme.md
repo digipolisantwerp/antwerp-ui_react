@@ -40,9 +40,9 @@
   id={"slider-3"}
   range={true}
   min={0}
-  max={26.55}
-  start={0}
-  end={26.55}
+  max={50}
+  start={12.24}
+  end={26.52}
   minRange={1}
   step={1}
   fixed={2}
