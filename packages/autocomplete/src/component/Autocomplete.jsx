@@ -286,7 +286,7 @@ class Autocomplete extends Component<Props, IState> {
                 </li>
               </TagList>}
               {!this.props.multipleSelect && this.getInput()}
-              {this.props.showSearchIcon && <Icon name="search"/>}
+              {this.props.showSearchIcon && <Icon name="ai-search"/>}
               {(loading || isLoading) && <Icon name="ai-spinner" className="a-spinner a-spinner--sm"/>}
             </div>
           </div>

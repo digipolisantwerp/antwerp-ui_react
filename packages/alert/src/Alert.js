@@ -62,7 +62,7 @@ class Alert extends Component<Props> {
     );
 
     const closeButton = closable ? (
-      <Button type={type} icon="close" onClick={this.handleClose} className="m-alert__close a-button-transparent" ariaLabel={ariaLabelClose}></Button>
+      <Button type={type} icon="ai-close" onClick={this.handleClose} className="m-alert__close a-button-transparent" ariaLabel={ariaLabelClose}></Button>
     ) : null;
 
     return (

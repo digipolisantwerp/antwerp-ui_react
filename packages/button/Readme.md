@@ -23,7 +23,7 @@ import Icon from '../icon/src/Icon';
 ```
 <Button type="primary" negative>Negative</Button>{' '}
 <Button type="primary" outline>Outline</Button>{' '}
-<Button icon="close" ariaLabel="Close" transparent></Button>
+<Button icon="ai-close" ariaLabel="Close" transparent></Button>
 ```
 
 ### Button sizes
