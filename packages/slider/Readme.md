@@ -1,7 +1,7 @@
 ### Regular slider
 ```
 <Slider
-  id={"slider-id"}
+  id={"slider-1"}
   label={"Percentage"}
   range={false}
   min={0}
@@ -20,6 +20,7 @@
 ### Slider with tooltips
 ```
 <Slider
+  id={"slider-2"}
   range={false}
   min={0}
   max={100}
@@ -36,6 +37,7 @@
 ### Range slider
 ```
 <Slider
+  id={"slider-3"}
   range={true}
   min={0}
   max={26.55}

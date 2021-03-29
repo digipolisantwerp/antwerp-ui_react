@@ -10,6 +10,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - `Icon` [BREAKING] FontAwesome was replaced by support for Streamline icons.
 - `Switch` [BREAKING] Changed the way the Switch component works
 - `Toggle` [BREAKING] Changed the way the Toggle component works
+- `Button` [BREAKING] Removed 'alt' prop as it isn't valid
+
+### Fixed
+- `Accordion` Improved accessibility
+- `Accordion` Improved accessibility
+- `Calendar` Improved accessibility
+- `Datepicker` Improved accessibility
+- `Modal` Improved accessibility
+- `Slider` Improved accessibility
 
 ### Removed
 - `Subfooter` Please use the metanavigation instead

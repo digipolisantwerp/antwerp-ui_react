@@ -54,7 +54,7 @@ const Icon = ({ name, style, className, ariaLabel, onClick, src, qa }: Props) =>
 
   return (
     <span className={iconClass} style={style} data-qa={qa} onClick={onClick}>
-      {name && <svg><use href={`#${href}`} /></svg>}
+      {name && <svg aria-hidden="true"><use href={`#${href}`} /></svg>}
       {src}
       {ariaLabel && <span className="u-screen-reader-only">{ariaLabel}</span>}
     </span>

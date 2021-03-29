@@ -43,6 +43,7 @@ class AccordionTab extends React.Component<Props> {
         onKeyPress={(e) => this.toggle(e)}
         onClick={(e) => this.toggle(e)}
         className={classNames('m-accordion__tab', { 'is-open': isOpen })}
+        aria-expanded={isOpen}
       >
         { children }
       </div>

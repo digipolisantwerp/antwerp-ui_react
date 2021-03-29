@@ -66,7 +66,7 @@ class Alert extends Component<Props> {
     ) : null;
 
     return (
-      <div>
+      <div role="alert">
         {!closed ?
           <div className={alertClass} data-qa={qa}>
             {closeButton}
