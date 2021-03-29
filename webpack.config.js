@@ -1,5 +1,6 @@
 const path = require('path');
 module.exports = {
+  devtool: 'eval-cheap-source-map',
   module: {
     rules: [
       // Babel loader, will use your project’s .babelrc
