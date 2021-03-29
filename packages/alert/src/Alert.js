@@ -17,9 +17,13 @@ type Props = {
   title?: string,
   /** Alert body */
   children?: any,
+  /** Whether the dialog has a close button */
   closable?: boolean,
+  /** The ARIA-label for the close button */
   ariaLabelClose?: string,
+  /** Extra class to add to alert */
   className?: string,
+  /** Add optional onClick */
   onClose?: Function,
   /** Qa id */
   qa?: string,
@@ -48,6 +52,7 @@ class Alert extends Component<Props> {
       className,
       qa,
     } = this.props;
+
     const { closed } = this.state;
 
     const alertClass = classNames(
@@ -57,8 +62,7 @@ class Alert extends Component<Props> {
     );
 
     const closeButton = closable ? (
-      <Button type={type} icon="close" onClick={this.handleClose} className="m-alert__close a-button-transparent" aria-label={ariaLabelClose}>
-      </Button>
+      <Button type={type} icon="close" onClick={this.handleClose} className="m-alert__close a-button-transparent" ariaLabel={ariaLabelClose}></Button>
     ) : null;
 
     return (

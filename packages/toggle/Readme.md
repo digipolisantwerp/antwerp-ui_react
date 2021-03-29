@@ -1,5 +1,3 @@
-### Toggle
-
 ```
 <Toggle
   id="toggle-tiny"

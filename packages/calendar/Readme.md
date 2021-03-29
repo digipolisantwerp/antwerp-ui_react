@@ -1,4 +1,3 @@
-### Calendar
 ```
 <Calendar
     format={"DD/MM/YYYY"}

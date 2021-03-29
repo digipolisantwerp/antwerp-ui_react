@@ -33,7 +33,7 @@ type Props = {
   type?: string,
   style?: object,
   children?: any,
-  /** Font Awesome icon name */
+  /** Streamline icon name */
   icon?: string,
   iconLeft?: string,
   iconRight?: string,

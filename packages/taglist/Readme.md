@@ -22,12 +22,14 @@ const TagListItem = require('.').TagListItem;
         key="withIcon"
         closable={false}
         icon="ai-check-1"
+        ariaLabelIcon="Check"
     />
      <TagListItem
         value="with buttonclass"
         key="withButtonClass"
         closable={false}
         icon="ai-check-1"
+        ariaLabelIcon="Check"
         buttonClass="success"
     />
 </TagList>

@@ -12,20 +12,22 @@ type Props = {
   ariaLabel?: string,
   /** Add optional onClick */
   onClick?: (e: object) => void,
+  /** Provide your own SVG icon */
+  src?: string,
   /** Qa id */
   qa?: string,
 };
 
 let isFetching = false;
 
-const Icon = ({ name, style, className, ariaLabel, onClick, qa }: Props) => {
+const Icon = ({ name, style, className, ariaLabel, onClick, src, qa }: Props) => {
 
   /**
    * Inject SVG icons from core branding into page
    */
   const fetchAntwerpIcons = async () => {
     try {
-      const xlinkHref = 'https://cdn.antwerpen.be/core_branding_scss/5.0.0-beta.4/assets/images/ai.svg';
+      const xlinkHref = 'https://cdn.antwerpen.be/core_branding_scss/5.0.0-beta.5/assets/images/ai.svg';
       const response = await fetch(xlinkHref);
       const svgText = await response.text();
       const svgWrapper = document.createElement('svg');
@@ -52,7 +54,8 @@ const Icon = ({ name, style, className, ariaLabel, onClick, qa }: Props) => {
 
   return (
     <span className={iconClass} style={style} data-qa={qa} onClick={onClick}>
-      <svg><use href={`#${href}`} /></svg>
+      {name && <svg><use href={`#${href}`} /></svg>}
+      {src}
       {ariaLabel && <span className="u-screen-reader-only">{ariaLabel}</span>}
     </span>
   );

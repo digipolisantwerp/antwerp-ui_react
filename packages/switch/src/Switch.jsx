@@ -9,6 +9,7 @@ interface IProps {
   labelFalse: string;
   onClick?: (event) => void;
   disabled?: boolean;
+  ariaLabel?: string;
   qa?: string;
   checked?: boolean;
 }
@@ -42,6 +43,7 @@ class Switch extends Component<IProps> {
       labelTrue,
       labelFalse,
       disabled,
+      ariaLabel,
       qa,
     } = this.props;
 
@@ -54,6 +56,7 @@ class Switch extends Component<IProps> {
             className="a-switch__button"
             role="switch"
             aria-checked={this.state.checked}
+            aria-label={label || ariaLabel}
             disabled={disabled}
             onClick={(event) => this.onClick(event)}>
             <span className="a-switch__off">{labelFalse}</span>

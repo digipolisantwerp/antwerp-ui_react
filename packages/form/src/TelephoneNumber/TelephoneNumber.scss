@@ -13,6 +13,10 @@
   input:not([class*=a-button]):not([type=checkbox]):not([type=radio]).a-input-telephone__number {
     &:focus {
       z-index: 1;
+
+      + .ai {
+        z-index: 2;
+      }
     }
   }
 

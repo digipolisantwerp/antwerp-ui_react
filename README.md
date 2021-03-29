@@ -24,7 +24,7 @@ npm install @acpaas-ui/react-components
 Import the core branding to style the components:
 
 ```scss
-@import url("https://cdn.antwerpen.be/core_branding_scss/5.0.0-beta.4/main.min.css");
+@import url("https://cdn.antwerpen.be/core_branding_scss/5.0.0-beta.5/main.min.css");
 ```
 
 You can also add a branding-compatible [flexbox grid layout system][flexboxgrid]:

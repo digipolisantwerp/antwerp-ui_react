@@ -1,4 +1,4 @@
-### Slider
+### Regular slider
 ```
 <Slider
   id={"slider-id"}

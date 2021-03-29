@@ -13,12 +13,12 @@ type AvatarSizes = 'small' | 'medium' | 'large';
 type Props = {
   /** Avatar size ("small")  */
   size?: AvatarSizes,
-  /** Font Awesome icon name */
+  /** Streamline icon name */
   icon?: string,
   letter?: string,
   image?: string,
   alt?: string,
-  /** aria-label, defaults to 'Gebruikers icoon' */
+  /** aria-label, defaults to 'Gebruiker icoon' */
   ariaLabel?: string,
   className?: string,
   children?: any,
