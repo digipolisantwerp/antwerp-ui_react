@@ -11,7 +11,7 @@ export default {
   ],
   plugins: [
     resolve(),
-    sass(),
+    sass({ insert: true }),
     babel({
       exclude: ['node_modules/**']
     })
