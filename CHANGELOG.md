@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ## [Unreleased]
 
 
+## v5.0.6 - 30-03-2021
+
+### Fixed
+- `Autocomplete` Fixed styling not being included in the build
+
+
 ## v5.0.5 - 22-03-2021
 
 ### Fixed
