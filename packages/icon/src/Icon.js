@@ -38,7 +38,7 @@ const Icon = ({ name, style, className, ariaLabel, onClick, src, qa }: Props) =>
         document.body.appendChild(svgWrapper);
       }
     } catch(err) {
-      // Do nothing, just make sure it is executed again
+      throw new Error(err);
     } finally {
       isFetching = false;
     }
