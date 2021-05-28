@@ -1,24 +1,24 @@
-# ACPaaS UI Testing Guide
+# Antwerp UI Testing Guide
 
 When developing, testing is a major part of the work.
 We use [Jest](https://jestjs.io) in combination with [Enzyme](https://airbnb.io/enzyme) as our test suite.
 
 To make life easier in Visual Studio Code for testing with Jest, we suggest that you install [this VS Code Jest extension](https://github.com/jest-community/vscode-jest).
 
-## ACPaaS UI Test Automation Guide
+## Antwerp UI Test Automation Guide
 
 When automating tests, one of the challenges is to keep the test resilient to code changes.
 Using [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes) can help you with that, by creating unique selectors for your tests.
 
-### Using unique data attributes with ACPaaS UI
+### Using unique data attributes with Antwerp UI
 
-It's not possible to add unique attributes to the ACPaaS UI components for the simple reason that the attribute won't be unique anymore when you use the component multiple times on the same page.
+It's not possible to add unique attributes to the Antwerp UI components for the simple reason that the attribute won't be unique anymore when you use the component multiple times on the same page.
 
-We solve this problem by adding unique attributes to the individual ACPaaS UI components at app level.
+We solve this problem by adding unique attributes to the individual Antwerp UI components at app level.
 
 #### Example
 
-The following example shows the ACPaaS UI Accordion with the unique `qa` data attribute `id-1234`.
+The following example shows the Antwerp UI Accordion with the unique `qa` data attribute `id-1234`.
 
 ```html
 <Accordion qa="id-1234"/>
@@ -53,7 +53,7 @@ So the compiled code would look like this:
 
 ### Overview
 
-To help you locate a specific element of a component, we've made an overview of all ACPaaS UI components and the CSS classes they use. When an element doesn't have a class set, you can still target it by selecting the element type or its custom attribute.
+To help you locate a specific element of a component, we've made an overview of all Antwerp UI components and the CSS classes they use. When an element doesn't have a class set, you can still target it by selecting the element type or its custom attribute.
 
 | Component | Class | Element / Attribute | Description |
 | --------  | ----- | ------- | ----------- |

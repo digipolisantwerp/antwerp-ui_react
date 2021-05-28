@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - `Switch` [BREAKING] Changed the way the Switch component works
 - `Toggle` [BREAKING] Changed the way the Toggle component works
 - `Button` [BREAKING] Removed 'alt' prop as it isn't valid
+- Antwerp UI
 
 ### Fixed
 - `Accordion` Improved accessibility

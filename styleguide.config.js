@@ -32,7 +32,7 @@ module.exports = {
     return webpackConfig;
   },
   styleguideDir: 'docs',
-  title: 'ACPaaS UI React Components',
+  title: 'Antwerp UI React components',
   usageMode: 'collapse',
   webpackConfig: require('./webpack.config'),
   version: `v${pjson.version}`,

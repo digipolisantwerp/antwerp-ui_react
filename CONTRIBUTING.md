@@ -1,8 +1,8 @@
-# ACPaaS UI Contributing Guide
+# Antwerp UI Contributing Guide
 
-Hi! We're really excited that you are interested in contributing to ACPaaS UI. Before submitting your contribution though, please make sure to take a moment and read through the following guidelines.
+Hi! We're really excited that you are interested in contributing to Antwerp UI. Before submitting your contribution though, please make sure to take a moment and read through the following guidelines.
 
-- [ACPaaS UI Contributing Guide](#acpaas-ui-contributing-guide)
+- [Antwerp UI Contributing Guide](#acpaas-ui-contributing-guide)
   - [Issue Reporting Guidelines](#issue-reporting-guidelines)
   - [Pull Request Guidelines](#pull-request-guidelines)
   - [Development Setup](#development-setup)
@@ -17,7 +17,7 @@ Hi! We're really excited that you are interested in contributing to ACPaaS UI. B
 - Use the [#acpaas-ui-react channel][acpaas-ui-react-slack] on slack to ask questions or discuss changes to the code itself.
 - Use [GitHub Issues][github-issues] to report bugs, request features, ask policy questions or propose policy changes.
 
-  > Note: policy questions are about the way ACPaaS UI is developed and released, or about its architecture. We use github issues to have a public archive of these discussions.
+  > Note: policy questions are about the way Antwerp UI is developed and released, or about its architecture. We use github issues to have a public archive of these discussions.
 
 ## Pull Request Guidelines
 
@@ -76,7 +76,7 @@ The default test script will do the following: lint with ESLint -> unit tests wi
 
 ## Releases
 
-ACPaaS UI is supplied as a single library on NPM [@acpaas-ui/react-components](https://www.npmjs.com/package/@acpaas-ui/react-components).
+Antwerp UI is supplied as a single library on NPM [@acpaas-ui/react-components](https://www.npmjs.com/package/@acpaas-ui/react-components).
 
 It is released once a week, or more often if there are high priority changes.
 
@@ -88,7 +88,7 @@ A [changelog](CHANGELOG.md) is provided for your convenience.
 
 ## Credits
 
-Thank you to all the people who have already contributed to ACPaaS UI!
+Thank you to all the people who have already contributed to Antwerp UI!
 
 [github-issues]: https://github.com/digipolisantwerp/acpaas-ui_react/issues
 [acpaas-ui-react-slack]: https://digantcafe.slack.com/messages/CDGCW8U30/

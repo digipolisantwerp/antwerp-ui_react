@@ -1,4 +1,4 @@
-# ACPaaS UI React - versioning guidelines
+# Antwerp UI React - versioning guidelines
 
 This package is supplied as a library.
 For now, we will not release separate components on NPM.
