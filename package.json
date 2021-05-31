@@ -92,7 +92,7 @@
     ]
   },
   "dependencies": {
-    "@a-ui/core": "^4.3.1",
+    "@a-ui/core": "^5.0.0",
     "classnames": "~2.2.6",
     "css-loader": "^3.6.0",
     "moment": "^2.22.2",

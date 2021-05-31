@@ -27,7 +27,7 @@ const Icon = ({ name, style, className, ariaLabel, onClick, src, qa }: Props) =>
    */
   const fetchAntwerpIcons = async () => {
     try {
-      const xlinkHref = 'https://cdn.antwerpen.be/core_branding_scss/5.0.0-beta.5/assets/images/ai.svg';
+      const xlinkHref = 'https://cdn.antwerpen.be/core_branding_scss/5.0.0/assets/images/ai.svg';
       const response = await fetch(xlinkHref);
       const svgText = await response.text();
       const svgWrapper = document.createElement('svg');

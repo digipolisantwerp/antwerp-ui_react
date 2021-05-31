@@ -52,7 +52,7 @@ const Header = (props: Props) => {
 
 Header.defaultProps = {
   logoUrl: '/',
-  logoSrc: 'https://cdn.antwerpen.be/core_branding_scss/5.0.0-beta.5/assets/images/a-logo.svg',
+  logoSrc: 'https://cdn.antwerpen.be/core_branding_scss/5.0.0/assets/images/a-logo.svg',
   logoAlt: 'Ga naar homepage.'
 };
 
