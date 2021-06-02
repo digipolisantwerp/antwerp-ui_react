@@ -73,16 +73,16 @@ Copyright (c) 2018-present, Digipolis
 <!-- Github links -->
 
 <!-- Github URL -->
-[antwerp-ui-js]: https://github.com/digipolisantwerp/acpaas-ui_js
-[antwerp-ui-angular]: https://github.com/digipolisantwerp/acpaas-ui_angular
-[antwerp-ui-react]: https://github.com/digipolisantwerp/acpaas-ui_react
-[antwerp-ui-react-issues]: https://github.com/digipolisantwerp/acpaas-ui_react/issues
-[antwerp-ui-react-contributors]: https://github.com/digipolisantwerp/acpaas-ui_react/graphs/contributors
+[antwerp-ui-js]: https://github.com/digipolisantwerp/antwerp-ui_js
+[antwerp-ui-angular]: https://github.com/digipolisantwerp/antwerp-ui_angular
+[antwerp-ui-react]: https://github.com/digipolisantwerp/antwerp-ui_react
+[antwerp-ui-react-issues]: https://github.com/digipolisantwerp/antwerp-ui_react/issues
+[antwerp-ui-react-contributors]: https://github.com/digipolisantwerp/antwerp-ui_react/graphs/contributors
 [branding-core]: https://github.com/a-ui/core_branding_scss
 [branding-core-guide]: https://a-ui.github.io/core_branding_scss/
 [branding-acpaas]: https://github.com/a-ui/acpaas_branding_scss
 
 <!-- Github Version Badge -->
-[antwerp-ui-angular-github]: https://img.shields.io/github/package-json/v/digipolisantwerp/acpaas-ui_angular.svg
-[antwerp-ui-react-github]: https://img.shields.io/github/package-json/v/digipolisantwerp/acpaas-ui_react.svg
-[antwerp-ui-js-github]: https://img.shields.io/github/package-json/v/digipolisantwerp/acpaas-ui_js.svg
+[antwerp-ui-angular-github]: https://img.shields.io/github/package-json/v/digipolisantwerp/antwerp-ui_angular.svg
+[antwerp-ui-react-github]: https://img.shields.io/github/package-json/v/digipolisantwerp/antwerp-ui_react.svg
+[antwerp-ui-js-github]: https://img.shields.io/github/package-json/v/digipolisantwerp/antwerp-ui_js.svg

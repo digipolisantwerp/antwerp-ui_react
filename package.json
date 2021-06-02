@@ -7,9 +7,9 @@
   "module": "dist/index.esm.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/digipolisantwerp/acpaas-ui_react"
+    "url": "https://github.com/digipolisantwerp/antwerp-ui_react"
   },
-  "homepage": "http://digipolisantwerp.github.io/acpaas-ui_react",
+  "homepage": "http://digipolisantwerp.github.io/antwerp-ui_react",
   "scripts": {
     "start": "npx styleguidist server",
     "test": "jest --coverage",

@@ -4,7 +4,7 @@ const pjson = require('./package.json');
 // Fix GitHub Pages
 let basePath = '';
 if (process.env.NODE_ENV === 'production') {
-  basePath = 'https://digipolisantwerp.github.io/acpaas-ui_react';
+  basePath = 'https://digipolisantwerp.github.io/antwerp-ui_react';
 }
 
 module.exports = {
