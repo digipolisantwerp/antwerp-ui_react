@@ -3,6 +3,9 @@ This component uses [react-modal](http://reactcommunity.org/react-modal) interna
 ```js
  <Modal
   appElement="#rsg-root"
+  ariaCloseLabel="Close modal"
+  confirmText="Yes"
+  denyText="No"
   title="Do you agree?"
   shouldCloseOnEsc={true}
   shouldCloseOnOverlayClick={true}

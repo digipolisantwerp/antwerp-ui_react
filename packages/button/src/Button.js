@@ -33,19 +33,18 @@ type Props = {
   type?: string,
   style?: object,
   children?: any,
-  /** Font Awesome icon name */
+  /** Streamline icon name */
   icon?: string,
   iconLeft?: string,
   iconRight?: string,
   size?: ButtonSizes,
-  alt?: string,
   block?: boolean,
   disabled?: boolean,
   htmlType?: string,
   onClick?: (e: object) => void,
   /** Qa id */
   qa?: string,
-}
+};
 
 class Button extends Component<Props> {
   render() {
@@ -62,7 +61,6 @@ class Button extends Component<Props> {
       onClick,
       title = '',
       ariaLabel = '',
-      alt = '',
       type,
       size,
       block = false,
@@ -95,7 +93,6 @@ class Button extends Component<Props> {
         title={title || ''}
         onClick={onClick}
         style={style}
-        alt={alt}
         disabled={disabled}
         type={htmlType}
         aria-label={ariaLabel}

@@ -36,6 +36,7 @@ type Props = {
   value?: string,
   disabled?: boolean,
   size?: Sizes,
+  ariaLabelledby?: string,
   /** Qa id */
   qa?: string,
 };
@@ -67,8 +68,9 @@ class Select extends Component<Props> {
       onChange,
       value,
       loading,
-      qa,
       size,
+      ariaLabelledby,
+      qa,
     } = this.props;
 
     const selectClass = classNames(
@@ -92,7 +94,7 @@ class Select extends Component<Props> {
       <div className={selectClass} name={name} data-qa={qa}>
         {label && <InputLabel inline={inline} htmlFor={id}>{label}</InputLabel>}
         <div className={wrapperClass}>
-          <select id={id} name={name} onChange={(e) => this.onChange(e)} defaultValue={this.state.value} disabled={disabled}>
+          <select id={id} name={name} onChange={(e) => this.onChange(e)} defaultValue={this.state.value} disabled={disabled} aria-labelledby={ariaLabelledby}>
             {placeholder && <option value="" disabled>{placeholder}</option>}
             {options.map(option => (
               <Option
@@ -105,7 +107,7 @@ class Select extends Component<Props> {
               </Option>
             ))}
           </select>
-          {loading ? <Spinner size="small" className="fa" /> : <Icon name="angle-down" span />}
+          {loading ? <Spinner size="small" className="ai" /> : <Icon name="ai-arrow-down-1" />}
         </div>
       </div>
     )

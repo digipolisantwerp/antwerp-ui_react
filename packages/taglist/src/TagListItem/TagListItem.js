@@ -41,7 +41,7 @@ class TagListItem extends Component<Props> {
         }
         <span className="m-tag__label">{value}</span>
         {closable &&
-          <Button transparent size="small" type="danger" icon="close" ariaLabel={ariaLabelClose} onClick={onClick} />
+          <Button transparent size="small" type="danger" icon="ai-close" ariaLabel={ariaLabelClose} onClick={onClick} />
         }
       </li>
     )

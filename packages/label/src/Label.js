@@ -29,6 +29,6 @@ const Label = (props: Props) => {
   );
 
   return <span className={labelClass} style={style} data-qa={qa}>{children}</span>
-}
+};
 
 export default Label;

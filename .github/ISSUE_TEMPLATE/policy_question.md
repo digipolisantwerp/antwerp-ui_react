@@ -6,7 +6,7 @@ about: Discuss dev and release practices.
 
 ## About this policy
 
-This issue is about [this policy document](https://github.com/digipolisantwerp/acpaas-ui_react/blob/master/CONTRIBUTING.md).
+This issue is about [this policy document](https://github.com/digipolisantwerp/antwerp-ui_react/blob/master/CONTRIBUTING.md).
 <!-- change this to the policy document the issue is about -->
 
 ## Request for information

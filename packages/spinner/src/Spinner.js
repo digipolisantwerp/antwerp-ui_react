@@ -29,6 +29,6 @@ const Spinner = (props: Props) => {
   )
 
   return <div className={spinnerClass} style={style} role="status" aria-label={ariaLabel} data-qa={qa}></div>;
-}
+};
 
 export default Spinner;

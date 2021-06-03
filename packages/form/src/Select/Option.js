@@ -17,6 +17,6 @@ const Option = (props: Props) => {
       {children}
     </option>
   )
-}
+};
 
 export default Option;

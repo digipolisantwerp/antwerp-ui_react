@@ -176,11 +176,11 @@ class Slider extends Component<Props, State> {
           }}
         >
           <div className="m-range-slider__inner">
-            <Bar 
-              start={start}  
-              end={end} 
-              getPositionFromValue={this.getPositionFromValue} 
-              range={range} 
+            <Bar
+              start={start}
+              end={end}
+              getPositionFromValue={this.getPositionFromValue}
+              range={range}
             />
 
             <Handle
@@ -192,11 +192,13 @@ class Slider extends Component<Props, State> {
               unit={unit}
               fixed={fixed}
               label={label}
+              id={`${id}-handle-1`}
               handleNoop={this.handleNoop}
               sliderPos={sliderPos}
               direction={direction}
               getPositionFromValue={this.getPositionFromValue}
               tooltips={tooltips}
+              ariaLabel="Minimum"
               onDragEnd={this.onDragEnd}
             />
             {range && (
@@ -209,11 +211,13 @@ class Slider extends Component<Props, State> {
                 unit={unit}
                 fixed={fixed}
                 label={label}
+                id={`${id}-handle-2`}
                 handleNoop={this.handleNoop}
                 sliderPos={sliderPos}
                 direction={direction}
                 getPositionFromValue={this.getPositionFromValue}
                 tooltips={tooltips}
+                ariaLabel="Maximum"
                 onDragEnd={this.onDragEnd}
               />
             )}

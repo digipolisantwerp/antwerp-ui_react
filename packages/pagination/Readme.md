@@ -1,15 +1,15 @@
 ```js
-initialState = { currentPage: 5};
+const [currentPage, setCurrentPage] = React.useState(5)
 const itemsPerPage = 4;
 const totalValues = 180;
 
 <Pagination
-  currentPage={state.currentPage}
+  currentPage={currentPage}
   itemsPerPage={itemsPerPage}
   totalValues={totalValues}
-  styling="basic"
+  styling="m-pagination--outline"
   display="numbers"
   buttonType="a"
-  onUpdate={n => setState({currentPage: n})}
+  onUpdate={n => setCurrentPage(n)}
 />;
 ```

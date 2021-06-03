@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import {fromEvent, Subject} from "rxjs";
 import {debounceTime, filter, map, takeUntil, tap} from 'rxjs/operators';
 
-import FlyoutContent from '../../../flyout-button/src/FlyoutContent';
+import FlyoutContent from '../../../flyout-button/src/FlyoutContent/FlyoutContent';
 import TagList, {TagListItem} from "../../../taglist";
 import InputLabel from "../../../form/src/InputLabel";
 import Icon from "../../../icon";
@@ -286,8 +286,8 @@ class Autocomplete extends Component<Props, IState> {
                 </li>
               </TagList>}
               {!this.props.multipleSelect && this.getInput()}
-              {this.props.showSearchIcon && <Icon name="search"/>}
-              {(loading || isLoading) && <Icon name="spinner" className="a-spinner a-spinner--sm"/>}
+              {this.props.showSearchIcon && <Icon name="ai-search"/>}
+              {(loading || isLoading) && <Icon name="ai-spinner" className="a-spinner a-spinner--sm"/>}
             </div>
           </div>
           <FlyoutContent hasPadding={false}>

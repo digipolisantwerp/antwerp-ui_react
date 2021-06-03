@@ -144,37 +144,37 @@ describe('Button', () => {
 
     describe('.icon', () => {
         it('should add `has-icon` if an icon is provided', () => {
-            const button = mount(<Button icon="bell" />);
+            const button = mount(<Button icon="ai-alarm-bell" />);
             expect(button.getDOMNode().className).toContain('has-icon');
         });
 
         it('should add the icon if an icon is provided', () => {
-            const button = mount(<Button icon="bell" />);
-            expect(button.find('span').props().className).toContain('fa-bell');
+            const button = mount(<Button icon="ai-alarm-bell" />);
+            expect(button.find('span').props().className).toContain('ai-alarm-bell');
         });
     });
 
     describe('.icon-left', () => {
         it('should add `has-icon-left` if an icon is provided', () => {
-            const button = mount(<Button iconLeft="bell" />);
+            const button = mount(<Button iconLeft="ai-alarm-bell" />);
             expect(button.getDOMNode().className).toContain('has-icon-left');
         });
 
         it('should add the icon if an icon is provided', () => {
-            const button = mount(<Button iconLeft="bell" />);
-            expect(button.find('span').props().className).toContain('fa-bell');
+            const button = mount(<Button iconLeft="ai-alarm-bell" />);
+            expect(button.find('span').props().className).toContain('ai-alarm-bell');
         });
     });
 
     describe('.icon-right', () => {
         it('should add `has-icon-right` if an icon is provided', () => {
-            const button = mount(<Button iconRight="bell" />);
+            const button = mount(<Button iconRight="ai-alarm-bell" />);
             expect(button.getDOMNode().className).toContain('has-icon-right');
         });
 
         it('should add the icon if an icon is provided', () => {
-            const button = mount(<Button iconRight="bell" />);
-            expect(button.find('span').props().className).toContain('fa-bell');
+            const button = mount(<Button iconRight="ai-alarm-bell" />);
+            expect(button.find('span').props().className).toContain('ai-alarm-bell');
         });
     });
 

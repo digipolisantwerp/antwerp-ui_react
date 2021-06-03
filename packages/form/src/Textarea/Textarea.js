@@ -65,6 +65,6 @@ const Textarea = (props: Props) => {
       <textarea id={id} placeholder={placeholder} name={name} value={value} onChange={onChange} onBlur={onBlur} disabled={disabled} required={required} onInvalidCapture={onInvalidCapture}></textarea>
     </div>
   )
-}
+};
 
 export default Textarea;

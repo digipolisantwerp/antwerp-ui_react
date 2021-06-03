@@ -1,5 +1,3 @@
-### Toggle
-
 ```
 <Toggle
   id="toggle-tiny"
@@ -31,9 +29,9 @@
 <Toggle
   id="toggle-with-labels"
   checkedLabel="List view"
-  checkedIcon="fa-bars"
+  checkedIcon="ai-list-bullets"
   uncheckedButtonClass=""
   uncheckedLabel="Card view"
-  uncheckedIcon="fa-map-marker"
+  uncheckedIcon="ai-maps"
   uncheckedButtonClass="" />
 ```

@@ -1,9 +1,10 @@
 const path = require('path');
+const pjson = require('./package.json');
 
 // Fix GitHub Pages
 let basePath = '';
 if (process.env.NODE_ENV === 'production') {
-  basePath = 'https://digipolisantwerp.github.io/acpaas-ui_react';
+  basePath = 'https://digipolisantwerp.github.io/antwerp-ui_react';
 }
 
 module.exports = {
@@ -30,13 +31,11 @@ module.exports = {
     console.log('Environment: ', process.env.NODE_ENV);
     return webpackConfig;
   },
-  editorConfig: {
-    theme: 'xq-light',
-  },
   styleguideDir: 'docs',
-  title: 'ACPaaS UI React Components',
-  usageMode: 'expand',
+  title: 'Antwerp UI React components',
+  usageMode: 'collapse',
   webpackConfig: require('./webpack.config'),
+  version: `v${pjson.version}`,
   template: {
     context: '',
     favicon: 'https://cdn.antwerpen.be/core_branding_favicons/citizens/favicon.ico',
@@ -46,11 +45,16 @@ module.exports = {
       links: [
         {
           rel: 'stylesheet',
-          href: 'https://cdn.antwerpen.be/core_branding_scss/4.3.1/main.min.css'
+          href: 'https://cdn.antwerpen.be/core_branding_scss/5.0.0/main.min.css'
         }
       ]
     }
   },
+  // styleguideComponents: {
+    // Logo: path.join(__dirname, 'styleguide/components/Logo'),
+    // SectionsRenderer: path.join(__dirname, 'styleguide/components/SectionsRenderer'),
+    // StyleGuideRenderer: path.join(__dirname, 'styleguide/components/StyleGuide'),
+  // },
   styles: {
     Code: {
       code: {
@@ -98,7 +102,7 @@ module.exports = {
       ribbonText: 'rgb(255, 255, 255)',
       codeBase: 'rgb(8, 31, 44)',
       codeComment: 'rgb(111, 111, 111)',
-      codePunctuation: 'rgb(148, 148, 148)',
+      codePunctuation: 'rgb(118, 118, 118)',
       codeProperty: 'rgb(132, 11, 85)',
       codeDeleted: 'rgb(132, 11, 85)',
       codeString: 'rgb(43, 132, 13)',

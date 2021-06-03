@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import ReactDOM from 'react-dom';
 
-import FlyoutContent from '../../flyout-button/src/FlyoutContent';
+import FlyoutContent from '../../flyout-button/src/FlyoutContent/FlyoutContent';
 
 const flyoutSizes = {
   small: 'sm',

@@ -21,6 +21,6 @@ const Content = (props: Props) => {
       </div>
     </div>
   )
-}
+};
 
 export default Content;

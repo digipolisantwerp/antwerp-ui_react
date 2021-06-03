@@ -12,6 +12,6 @@ const CardDescription = (props: Props) => {
       {children}
     </p>
   )
-}
+};
 
 export default CardDescription;

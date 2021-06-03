@@ -55,7 +55,6 @@ class Calendar extends Component {
       <React.Fragment>
         <div
           className="m-datepicker__nav"
-          role="application"
           aria-label={`${ariaLabelDatePicker(viewType)}`}
           aria-hidden="false"
         >

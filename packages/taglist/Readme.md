@@ -21,13 +21,15 @@ const TagListItem = require('.').TagListItem;
         value="with icon"
         key="withIcon"
         closable={false}
-        icon="check"
+        icon="ai-check-1"
+        ariaLabelIcon="Check"
     />
      <TagListItem
         value="with buttonclass"
         key="withButtonClass"
         closable={false}
-        icon="check"
+        icon="ai-check-1"
+        ariaLabelIcon="Check"
         buttonClass="success"
     />
 </TagList>

@@ -113,11 +113,12 @@ const TelephoneNumber = (props: Props) => {
 
   return (
     <div className={telephoneNumberClass} style={style} data-qa={qa}>
-      {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
+      {label && <InputLabel id={`${id}-areacode-label`} htmlFor={id}>{label}</InputLabel>}
       <div className="a-input__wrapper">
         <Select
           className="a-input-telephone__area-code"
           id={`${id}-areacode`}
+          ariaLabelledby={`${id}-areacode-label`}
           name={`${name}-areacode`}
           required={required}
           onChange={updateAreaCode}
@@ -141,6 +142,6 @@ const TelephoneNumber = (props: Props) => {
       {errorDescription && <small className="u-text-danger">{errorDescription}</small>}
     </div>
   )
-}
+};
 
 export default TelephoneNumber;

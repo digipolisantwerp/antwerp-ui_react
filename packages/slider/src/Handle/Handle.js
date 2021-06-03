@@ -143,6 +143,8 @@ class Handle extends Component {
       min,
       max,
       label,
+      ariaLabel,
+      id,
     } = this.props;
 
     const fixedValue = value.toFixed(fixed);
@@ -163,14 +165,14 @@ class Handle extends Component {
         aria-valuemax={max}
         aria-valuemin={min}
         aria-valuenow={fixedValue}
-        aria-label={label}
+        aria-label={ariaLabel}
         style={{
           left: getPositionFromValue(value) + 'px'
         }}
       >
         {tooltips ? (
-          <div className="m-range-slider__tooltip a-tooltip a-tooltip--primary a-tooltip--top">
-            <p>{fixedValue.replace(/[.]/, ',')}{unit}</p>
+          <div className="m-range-slider__tooltip a-tooltip a-tooltip--primary a-tooltip--top" aria-labelledby={id}>
+            <p id={id}>{fixedValue.replace(/[.]/, ',')}{unit}</p>
           </div>
         ) : (
           <span className="m-range-slider__value">{fixedValue.replace(/[.]/, ',')}{unit}</span>

@@ -21,6 +21,6 @@ const Contact = (props: Props) => {
       </div>
     </div>
   )
-}
+};
 
 export default Contact;

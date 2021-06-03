@@ -1,4 +1,3 @@
-
 import React from 'react';
 import classNames from 'classnames';
 type Props = {
@@ -6,9 +5,9 @@ type Props = {
   children?: any,
   /** Qa id */
   qa?: string,
-}
+};
 
-export const FlyoutContent = (props: Props) => {
+const FlyoutContent = (props: Props) => {
   const { hasPadding, children, qa } = props;
   const classes = classNames('m-flyout__content', {
     'has-padding': !!hasPadding

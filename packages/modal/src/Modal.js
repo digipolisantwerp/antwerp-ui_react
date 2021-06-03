@@ -12,6 +12,8 @@ type Props = {
   appElement?: string | HTMLElement,
   /** Hide/Show the appElement (for screenreaders). */
   ariaHideApp: boolean,
+  /** Add ARIA-label for the close button */
+  ariaCloseLabel?: string,
   /** Modal contents. */
   children: React.Node,
   /** Hide/show the close button. */
@@ -66,12 +68,13 @@ export default class Modal extends React.Component<Props, State> {
   static defaultProps = {
     appElement: '#root',
     ariaHideApp: true,
+    ariaCloseLabel: 'Sluiten',
 
     hasCloseButton: true,
     title: '',
 
-    confirmText: 'Yes',
-    denyText: 'No',
+    confirmText: 'Ja',
+    denyText: 'Nee',
     triggerElm: null,
     triggerText: 'Open',
 
@@ -169,6 +172,7 @@ export default class Modal extends React.Component<Props, State> {
       triggerText,
       size,
       ariaHideApp,
+      ariaCloseLabel,
       onConfirm,
       onDeny,
       onAfterOpen,
@@ -191,7 +195,7 @@ export default class Modal extends React.Component<Props, State> {
           htmlOpenClassName="u-modal-open"
           isOpen={showModal}
           onRequestClose={this.handleRequestClose}
-          role="dialog"
+          role="modal"
           aria-modal="true"
           className={classNames('m-modal', sizeClass, className)}
           overlayClassName={classNames('m-overlay', 'is-active', overlayClassName)}
@@ -209,7 +213,7 @@ export default class Modal extends React.Component<Props, State> {
                   <h6>{title}</h6>
                 )}
                 {hasCloseButton && (
-                  <Button className="m-modal__close" icon="times" type="default" transparent onClick={() => this.handleRequestClose()} />
+                  <Button className="m-modal__close" icon="ai-close" ariaLabel={ariaCloseLabel} type="default" transparent onClick={() => this.handleRequestClose()} />
                 )}
               </div>
             )}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Button from '../../button/src/Button';
 import classNames from 'classnames';
-import FlyoutContent from './FlyoutContent';
+import FlyoutContent from './FlyoutContent/FlyoutContent';
 const flyoutSizes = {
   small: 'sm',
   medium: 'md',
@@ -19,7 +19,7 @@ type Props = {
   /** Flyout size ("small" | "medium" | "large" | "full") */
   flyoutSizes?: FlyoutSizes,
   flyourHasPadding?: boolean,
-  /** Font Awesome icon name */
+  /** Streamline icon name */
   icon?: string,
   children?: any,
   /** Qa id */

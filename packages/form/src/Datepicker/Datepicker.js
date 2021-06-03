@@ -171,6 +171,14 @@ class Datepicker extends Component<Props> {
     }
   }
 
+  keyPressed(e) {
+    if(e.key === 'Enter' && !this.props.disabled){
+      this.setState({
+        open: !this.state.open
+      });
+    }
+  }
+
   render() {
     const {
       label,
@@ -231,7 +239,7 @@ class Datepicker extends Component<Props> {
           onClick={() => this.onClickInput()}
           onChange={(e) => this.changeDate(e.target.value)}
           onBlur={onBlur} />
-        <Icon name="calendar" className="is-clickable" onClick={this.toggleCalendar.bind(this)} />
+        <span role="button" className="ai is-clickable" tabIndex="0" onClick={this.toggleCalendar.bind(this)} onKeyPress={this.keyPressed.bind(this)} aria-label="Open"><Icon name="ai-calendar-3" /></span>
         {open &&
           <div className={datepickerClass} aria-hidden="false">
             <div className="m-datepicker is-open">

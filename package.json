@@ -1,15 +1,15 @@
 {
   "name": "@acpaas-ui/react-components",
   "version": "5.0.6",
-  "description": "Antwerp City Platform as a Service User Interface (ACPaas UI) is a component interface library for building user interfaces and responsive web apps.",
+  "description": "Antwerp  UI is a component interface library for building user interfaces and responsive web apps.",
   "license": "MIT",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/digipolisantwerp/acpaas-ui_react"
+    "url": "https://github.com/digipolisantwerp/antwerp-ui_react"
   },
-  "homepage": "http://digipolisantwerp.github.io/acpaas-ui_react",
+  "homepage": "http://digipolisantwerp.github.io/antwerp-ui_react",
   "scripts": {
     "start": "npx styleguidist server",
     "test": "jest --coverage",
@@ -45,7 +45,7 @@
     "jest-cli": "^22.4.4",
     "lerna": "^4.0.0",
     "react-addons-test-utils": "^15.6.2",
-    "react-styleguidist": "^8.0.0",
+    "react-styleguidist": "^11.1.5",
     "rollup": "^2.26.9",
     "rollup-plugin-babel": "^3.0.7",
     "rollup-plugin-node-resolve": "^3.4.0",
@@ -92,7 +92,7 @@
     ]
   },
   "dependencies": {
-    "@a-ui/core": "^4.3.1",
+    "@a-ui/core": "^5.0.0",
     "classnames": "~2.2.6",
     "css-loader": "^3.6.0",
     "moment": "^2.22.2",
