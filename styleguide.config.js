@@ -13,12 +13,6 @@ module.exports = {
     const basePath = componentPath.split('src/')[0];
     return basePath + 'Readme.md';
   },
-  compilerConfig: {
-    transforms: {
-      asyncAwait: false,
-      moduleImport: false,
-    }
-  },
   ignore: [
     path.resolve(__dirname, 'packages/**/models/*.js'),
     path.resolve(__dirname, 'packages/**/types.js'),
