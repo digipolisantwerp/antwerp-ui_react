@@ -23,7 +23,7 @@ const Icon = ({ name, style, className, ariaLabel, onClick, src, qa }: Props) =>
   /**
    * Inject SVG icons from core branding into page
    */
-  const fetchAntwerpIcons = async () => {
+  const fetchAntwerpIcons = async function() {
     if (!fetch) return;
     try {
       const xlinkHref = 'https://cdn.antwerpen.be/core_branding_scss/5.0.0/assets/images/ai.svg';
