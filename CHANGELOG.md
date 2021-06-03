@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+
+## v6.0.0 - 2021-06-02
+
 ### Changed
 - `Icon` [BREAKING] FontAwesome was replaced by support for Streamline icons.
 - `Switch` [BREAKING] Changed the way the Switch component works
