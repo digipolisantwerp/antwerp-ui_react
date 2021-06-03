@@ -4,7 +4,7 @@ import Icon from './Icon';
 
 describe('Icon', () => {
     it('should apply the correct icon-name', () => {
-        const icon = mount(<Icon name="danger" />);
+        const icon = mount(<Icon name="ai-danger" />);
         expect(icon.getDOMNode().className).toContain("ai-danger");
     });
 

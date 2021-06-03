@@ -5,9 +5,9 @@ import CardIcon from './CardIcon';
 describe('CardIcon', () => {
 
     test('CardIcon renders children correctly', () => {
-        const icon = 'lock';
+        const icon = 'ai-lock';
         const component = mount(<CardIcon icon={icon} />);
 
-        expect(component.find(`.ai-${icon}`).exists()).toEqual(true);
+        expect(component.find(`.${icon}`).exists()).toEqual(true);
     });
 });
