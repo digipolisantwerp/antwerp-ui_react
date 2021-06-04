@@ -1,5 +1,5 @@
-import resolve from 'rollup-plugin-node-resolve';
-import babel from 'rollup-plugin-babel';
+import resolve from '@rollup/plugin-node-resolve';
+import babel from '@rollup/plugin-babel';
 import pkg from './package.json';
 import sass from 'rollup-plugin-sass';
 
@@ -15,7 +15,12 @@ export default {
 			insert: true
 		}),
 		babel({
-			exclude: ['node_modules/**']
+      babelHelpers: 'bundled',
+			exclude: ['node_modules/**'],
+      presets: [
+        "@babel/preset-flow",
+        "@babel/preset-react"
+      ]
 		})
 	],
 	external: ['react', 'classnames'],
