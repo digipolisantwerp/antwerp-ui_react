@@ -3,35 +3,11 @@ module.exports = {
   devtool: 'eval-cheap-source-map',
   module: {
     rules: [
-      // Babel loader, will use your project’s .babelrc
+      // Babel loader, will use your project’s fsdajkfdsak;ljfaklds;jfasd.js
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              "presets": [
-                [
-                  "@babel/preset-env",
-                  {
-                    "modules": false
-                  }
-                ],
-                "@babel/preset-flow",
-                "@babel/preset-react"
-              ],
-              "plugins": [
-                [
-                  "@babel/plugin-transform-runtime",
-                  {
-                    "regenerator": true,
-                  }
-                ]
-              ]
-            }
-          }
-        ]
+        loader: "babel-loader"
       },
       {
         test: /\.(s*)css$/,

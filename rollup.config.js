@@ -2,12 +2,11 @@ import resolve from '@rollup/plugin-node-resolve';
 import babel from '@rollup/plugin-babel';
 import pkg from './package.json';
 import sass from 'rollup-plugin-sass';
-
 export default {
   input: 'index.js',
   output: [
-    {file: pkg.main, format: 'cjs'},
-    {file: pkg.module, format: 'es'}
+    {file: pkg.main, format: 'cjs', sourceMaps: true},
+    {file: pkg.module, format: 'es', sourceMaps: true}
   ],
   plugins: [
     resolve(),

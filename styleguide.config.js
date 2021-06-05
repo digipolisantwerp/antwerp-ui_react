@@ -40,7 +40,7 @@ module.exports = {
   styleguideDir: 'docs',
   title: 'Antwerp UI React components',
   usageMode: 'collapse',
-  webpackConfig: require('./webpack.config'),
+  webpackConfig: require('./webpack.config.js'),
   version: `v${pjson.version}`,
   template: {
     context: '',
@@ -52,6 +52,12 @@ module.exports = {
         {
           rel: 'stylesheet',
           href: 'https://cdn.antwerpen.be/core_branding_scss/5.0.0/main.min.css'
+        }
+      ],
+      scripts: [
+        {
+          src: "https://cdn.jsdelivr.net/npm/regenerator-runtime@0.13.7/runtime.min.js",
+          type: "text/javascript"
         }
       ]
     }
