@@ -7,7 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ## [Unreleased]
 
 
-## v6.0.1 - 2021-06-07
+## v6.0.2 - 2021-06-08
+
+### Fixed
+- Fixed an issue caused by babelHelpers that weren't included in the build
+
+
+## v6.0.1 - 2021-06-07 [BORKED]
 
 ### Fixed
 - Fixed the styleguide not building correctly
