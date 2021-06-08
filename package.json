@@ -12,7 +12,7 @@
   "homepage": "http://digipolisantwerp.github.io/antwerp-ui_react",
   "scripts": {
     "start": "npx styleguidist server",
-    "test": "jest",
+    "test": "jest --coverage",
     "bootstrap": "lerna bootstrap",
     "build": "lerna exec --parallel -- rollup -c",
     "postbuild": "rollup -c",

@@ -3,7 +3,7 @@ module.exports = {
   devtool: 'eval-cheap-source-map',
   module: {
     rules: [
-      // Babel loader, will use your project’s fsdajkfdsak;ljfaklds;jfasd.js
+      // Babel loader, will use your project’s babel.config.js
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,

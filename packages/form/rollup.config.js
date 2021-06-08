@@ -17,10 +17,7 @@ export default {
 		babel({
       babelHelpers: 'bundled',
 			exclude: ['node_modules/**'],
-      presets: [
-        "@babel/preset-flow",
-        "@babel/preset-react"
-      ]
+      configFile: "../../babel.config.js"
 		})
 	],
 	external: ['react', 'classnames', 'react-input-mask', 'moment', 'react-dom'],
