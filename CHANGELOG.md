@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ## [Unreleased]
 
 
+## v6.0.1 - 2021-06-07
+
+### Fixed
+- Fixed the styleguide not building correctly
+
+### Changed
+- Optimized build
+
+
 ## v6.0.0 - 2021-06-02
 
 ### Changed

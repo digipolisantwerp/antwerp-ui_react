@@ -20,20 +20,22 @@
     "prepublish": "npm run build"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-jest": "^23.4.2",
-    "babel-loader": "^7.1.5",
-    "babel-plugin-external-helpers": "^6.22.0",
-    "babel-plugin-transform-react-jsx": "~6.24.1",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-flow": "~6.23.0",
-    "babel-preset-react": "~6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
+    "@babel/core": "^7.14.3",
+    "@babel/plugin-external-helpers": "^7.12.13",
+    "@babel/plugin-transform-react-jsx": "^7.14.3",
+    "@babel/plugin-transform-runtime": "^7.14.3",
+    "@babel/preset-env": "^7.14.4",
+    "@babel/preset-flow": "^7.13.13",
+    "@babel/preset-react": "^7.13.13",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^26.6.3",
+    "babel-loader": "^8.1.0",
     "chai": "^4.2.0",
     "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.4",
-    "eslint": "~4.19.1",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "eslint": "^7.28.0",
     "eslint-config-airbnb": "~16.1.0",
     "eslint-plugin-import": "~2.11.0",
     "eslint-plugin-jsx-a11y": "~6.0.3",
@@ -41,55 +43,18 @@
     "flow-bin": "^0.69.0",
     "handlebars": "^4.7.7",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^22.4.4",
-    "jest-cli": "^22.4.4",
+    "install": "^0.13.0",
+    "jest": "^26.6.0",
+    "jest-cli": "^27.0.4",
     "lerna": "^4.0.0",
+    "npm": "^7.16.0",
     "react-addons-test-utils": "^15.6.2",
     "react-styleguidist": "^11.1.5",
-    "rollup": "^2.26.9",
-    "rollup-plugin-babel": "^3.0.7",
-    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup": "^2.50.6",
+    "rollup-plugin-postcss": "^4.0.0",
+    "rollup-plugin-sass": "^1.2.2",
     "sinon": "^9.0.3",
     "webpack": "^4.44.1"
-  },
-  "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>jest.setup.js",
-    "testURL": "http://localhost/",
-    "resetMocks": true,
-    "resetModules": true,
-    "collectCoverage": true,
-    "collectCoverageFrom": [
-      "packages/**/*.js",
-      "!packages/**/dist/**",
-      "!**/node_modules/**",
-      "!**/*.story.js"
-    ],
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
-    },
-    "coverageThreshold": {
-      "global": {
-        "branches": 50,
-        "functions": 57,
-        "lines": 38,
-        "statements": 38
-      }
-    },
-    "coverageReporters": [
-      "lcov",
-      "html"
-    ],
-    "coveragePathIgnorePatterns": [
-      "<rootDir>node_modules/",
-      "<rootDir>coverage/"
-    ],
-    "testMatch": [
-      "**/?(*.)(spec).js?(x)"
-    ],
-    "testPathIgnorePatterns": [
-      "<rootDir>node_modules/"
-    ]
   },
   "dependencies": {
     "@a-ui/core": "^5.0.0",
@@ -102,8 +67,6 @@
     "react-input-mask": "^2.0.4",
     "react-modal": "~3.5.1",
     "react-scripts": "^4.0.3",
-    "rollup-plugin-postcss": "^2.9.0",
-    "rollup-plugin-sass": "^1.2.2",
     "rxjs": "^6.6.2",
     "sass-loader": "^7.3.1",
     "style-loader": "^0.23.1"
