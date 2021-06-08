@@ -5,8 +5,8 @@ import sass from 'rollup-plugin-sass';
 export default {
   input: 'index.js',
   output: [
-    {file: pkg.main, format: 'cjs', sourceMaps: true},
-    {file: pkg.module, format: 'es', sourceMaps: true}
+    {file: pkg.main, format: 'cjs', validate: true},
+    {file: pkg.module, format: 'es', validate: true}
   ],
   plugins: [
     resolve(),
