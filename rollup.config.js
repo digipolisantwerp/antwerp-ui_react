@@ -12,9 +12,8 @@ export default {
     resolve(),
     sass(),
     babel({
-      babelHelpers: 'external',
+      babelHelpers: 'bundled',
       exclude: ['node_modules/**'],
-      plugins: [['@babel/plugin-external-helpers']],
       presets: [
         "@babel/preset-flow",
         "@babel/preset-react"
