@@ -220,6 +220,7 @@ class Autocomplete extends Component<Props, IState> {
              onFocus={() => this.openPane()}
              placeholder={this.props.placeholder || ''}
              required={!!this.props.required}
+             defaultValue={this.state.defaultValue}
       />
     );
   }
