@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- Removed unnecessary dependencies, moved react and react-dom to peer dependencies
+
 ### Fixed
 
 - Checkbox no longer becomes disabled when no id is given (fixes [#248](https://github.com/digipolisantwerp/antwerp-ui_react/issues/248))

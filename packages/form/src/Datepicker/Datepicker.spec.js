@@ -30,7 +30,7 @@ describe('Datepicker', () => {
 	});
 
 	it('should set the data-qa attribute', () => {
-		const datepicker = shallow(<Datepicker qa="id-1234" />);
+		const datepicker = shallow(<Datepicker qa="id-1234" id="id-4321" />);
 		expect(datepicker.props()).toHaveProperty('data-qa', 'id-1234');
   });
 
