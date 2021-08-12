@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Fixed
+
+- Checkbox no longer becomes disabled when no id is given (fixes [#248](https://github.com/digipolisantwerp/antwerp-ui_react/issues/248))
+- Datepicker label selects datepicker when no id is given
 
 ## v6.0.2 - 2021-06-08
 
