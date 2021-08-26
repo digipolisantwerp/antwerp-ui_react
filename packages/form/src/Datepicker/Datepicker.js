@@ -86,15 +86,15 @@ class Datepicker extends Component<Props> {
 
   componentDidMount() {
     if (typeof window !== 'undefined') {
-      document.addEventListener('mousedown', this.handleClickOutside.bind(this));
-      document.addEventListener('touchstart', this.handleClickOutside.bind(this));
+      document.addEventListener('mousedown', this.handleClickOutside);
+      document.addEventListener('touchstart', this.handleClickOutside);
     }
   }
 
-  componentDidUpdate() {
+  componentWillUnmount() {
     if (typeof window !== 'undefined') {
-      document.removeEventListener('mousedown', this.handleClickOutside.bind(this));
-      document.removeEventListener('touchstart', this.handleClickOutside.bind(this));
+      document.removeEventListener('mousedown', this.handleClickOutside);
+      document.removeEventListener('touchstart', this.handleClickOutside);
     }
   }
 
