@@ -18,15 +18,14 @@ class Head extends Component {
 	}
 
 	renderNameOfDays() {
-	  // True parameter to sort weekdays by locale
-		const nameOfDays = Moment.weekdaysMin(true);
-		const longNameDays = Moment.weekdays(true);
-		const orderedLongNameDays = rotateArrayByPosition(longNameDays, 2);
+		// rotate arrays to put monday first, to match <Body>
+		const nameOfDays = rotateArrayByPosition(Moment.weekdaysMin(), 2);
+		const longNameDays = rotateArrayByPosition(Moment.weekdays(), 2);
 
 		return (
 			<tr className="m-datepicker__days">
 				{
-					nameOfDays.map((day, i) => <th key={i} className="u-text-capitalize" aria-label={orderedLongNameDays[i]}>{ day }</th>)
+					nameOfDays.map((day, i) => <th key={i} className="u-text-capitalize" aria-label={longNameDays[i]}>{ day }</th>)
 				}
 			</tr>
 		);
