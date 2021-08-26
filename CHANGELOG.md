@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## v5.0.7 - 26-08-2021
+
 ### Fixed
 - `Form/Datepicker` - cleaned up document event listeners (fixes [#247](https://github.com/digipolisantwerp/antwerp-ui_react/issues/247))
 - `Calendar` headers now show monday first for `en` locale (fixes [#246](https://github.com/digipolisantwerp/antwerp-ui_react/issues/246)
