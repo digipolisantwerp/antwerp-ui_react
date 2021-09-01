@@ -9,7 +9,7 @@ describe('Checkbox', () => {
     });
 
     test('Checkbox should contain a data-qa attribute', () => {
-      const component = shallow(<Checkbox qa="id-1234" />);
+      const component = shallow(<Checkbox qa="id-1234" id="id-4321" />);
       expect(component.props()).toHaveProperty('data-qa', 'id-1234');
     });
 

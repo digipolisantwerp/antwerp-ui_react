@@ -22,6 +22,8 @@ class Checkbox extends Component<Props> {
     }
   }
 
+  defaultId = 'aui-cb-' + Math.random().toString(36);
+
   render() {
     const {
       id,
@@ -43,7 +45,7 @@ class Checkbox extends Component<Props> {
         <div className="a-input__checkbox">
           <input
             type="checkbox"
-            id={id}
+            id={id || this.defaultId}
             name={name}
             onChange={this.handleChange}
             aria-checked={this.props.checked}
@@ -51,7 +53,7 @@ class Checkbox extends Component<Props> {
             disabled={disabled}
             {...this.props.handler}
             />
-          <InputLabel htmlFor={id}>{label}{requiredLabel}</InputLabel>
+          <InputLabel htmlFor={id || this.defaultId}>{label}{requiredLabel}</InputLabel>
         </div>
       </div>
     )

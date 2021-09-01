@@ -84,6 +84,8 @@ class Datepicker extends Component<Props> {
     disabled: false,
   };
 
+  defaultId = 'aui-date-' + Math.random().toString(36);
+
   componentDidMount() {
     if (typeof window !== 'undefined') {
       document.addEventListener('mousedown', this.handleClickOutside);
@@ -102,7 +104,7 @@ class Datepicker extends Component<Props> {
     if (this.datepicker && this.datepicker.contains(e.target)) {
       return;
     }
-
+    
     this.setState({ open: false });
   };
 
@@ -226,12 +228,12 @@ class Datepicker extends Component<Props> {
     );
 
     return <div className={datepickerWrapperClass} ref={node => this.datepicker = node} data-qa={qa}>
-      {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
+      {label && <InputLabel htmlFor={id || this.defaultId}>{label}</InputLabel>}
       <div className="a-input__wrapper">
         <TextField
           mask={mask}
           name={name}
-          id={id}
+          id={id || this.defaultId}
           value={input}
           required={required}
           readOnly={readOnly}
