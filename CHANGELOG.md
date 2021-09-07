@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ## [Unreleased]
 
 
+## v6.0.4 - 2021-09-07
+
+### Fixed
+- Fixed an issue with hard peer dependencies
+
+
 ## v6.0.3 - 2021-09-02
 
 ### Changed
