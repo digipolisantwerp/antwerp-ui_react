@@ -29,10 +29,11 @@
       }
     }
 
-    input {
+    input, input:focus {
       border: none !important;
       padding-left: $spacer-xs;
       box-shadow: none !important;
+      outline: none !important;
     }
   }
 }
