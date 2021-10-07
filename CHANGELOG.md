@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+
+## v6.0.5 - 2021-10-07
+
 ### Fixed
 - `Autocomplete` - removed focus state from fake input field
 
