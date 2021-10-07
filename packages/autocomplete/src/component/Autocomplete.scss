@@ -8,18 +8,23 @@
     flex-direction: row;
 
     &.has-focus {
-      border-color: $input-border-focus;
-      box-shadow: 0 0 0 1px $input-border-focus;
+      outline: 5px auto Highlight;
+      outline: 5px auto -webkit-focus-ring-color;
     }
 
     .o-tag-list {
       display: flex;
       flex-wrap: wrap;
       padding: 0;
+      margin-bottom: 0;
 
       .m-tag {
         &:not(.has-input) {
-          margin: $spacer-xs / 2 0 0 $spacer-xs / 2;
+          margin: $spacer-xs / 2 0 $spacer-xs / 2 $spacer-xs / 2;
+        }
+
+        &.has-input {
+          margin: 0;
         }
 
         &.has-input {
@@ -29,10 +34,11 @@
       }
     }
 
-    input {
+    input, input:focus {
       border: none !important;
       padding-left: $spacer-xs;
       box-shadow: none !important;
+      outline: none !important;
     }
   }
 }
