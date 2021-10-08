@@ -29,6 +29,7 @@ const Icon = ({ name, style, className, ariaLabel, onClick, src, qa }: Props) =>
       const xlinkHref = 'https://cdn.antwerpen.be/core_branding_scss/5.0.0/assets/images/ai.svg';
       const response = await fetch(xlinkHref);
       const svgText = await response.text();
+
       const svgWrapper = document.createElement('svg');
 
       svgWrapper.id = 'aiSvg';
@@ -41,7 +42,7 @@ const Icon = ({ name, style, className, ariaLabel, onClick, src, qa }: Props) =>
     }
   }
 
-  if(!document.getElementById('aiSvg')) {
+  if(typeof document !== 'undefined' && !document.getElementById('aiSvg')) {
     fetchAntwerpIcons();
   }
 
