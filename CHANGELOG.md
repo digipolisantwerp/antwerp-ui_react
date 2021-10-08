@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Fixed
+- `Icon` Fixed document reference
 
 ## v6.0.5 - 2021-10-07
 
