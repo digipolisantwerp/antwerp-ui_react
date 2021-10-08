@@ -325,6 +325,7 @@ const optionsDistrict = [
     id={"select-1"}
     label={"Districts"}
     name={"select-name"}
+    value={"2030 Antwerpen"}
     className={"select-class"}
     required={true}
     inline={false}

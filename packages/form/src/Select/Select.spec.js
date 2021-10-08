@@ -61,7 +61,7 @@ describe("Select", () => {
       const select = component.find('#select-id');
       const placeholderOption = select.childAt(0);
 
-      expect(select.props().value).toBeUndefined();
+      expect(select.props().value).toBe('');
       expect(placeholderOption.text()).toBe('placeholderValue');
       expect(placeholderOption.props().disabled).toBeTruthy();
     });
