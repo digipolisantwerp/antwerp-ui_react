@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ## [Unreleased]
 
 
+## v6.0.6 - 2021-10-08
+
+### Fixed
+- `Select` - fixed defaultValue not working
+
+
 ## v6.0.5 - 2021-10-07
 
 ### Fixed
