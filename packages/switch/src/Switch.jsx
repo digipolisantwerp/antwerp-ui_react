@@ -8,6 +8,7 @@ interface IProps {
   labelTrue: string;
   labelFalse: string;
   onClick?: (event) => void;
+  onChecked?: (checked) => void;
   disabled?: boolean;
   ariaLabel?: string;
   qa?: string;
@@ -33,6 +34,10 @@ class Switch extends Component<IProps> {
 
     if (this.props.onClick && (typeof this.props.onClick === 'function')) {
       this.props.onClick(e);
+    }
+
+    if (this.props.onChecked && (typeof this.props.onChecked === 'function')) {
+      this.props.onChecked(!this.state.checked);
     }
   }
 
