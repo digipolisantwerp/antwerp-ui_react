@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Fixed
+- `Switch` - not passing correct value.
 
 ## v6.0.6 - 2021-10-08
 
