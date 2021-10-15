@@ -92,7 +92,7 @@ class Select extends Component<Props> {
       <div className={selectClass} name={name} data-qa={qa}>
         {label && <InputLabel inline={inline} htmlFor={id}>{label}</InputLabel>}
         <div className={wrapperClass}>
-          <select id={id} name={name} onChange={(e) => this.onChange(e)} defaultValue={this.state.value} disabled={disabled}>
+          <select id={id} name={name} onChange={(e) => this.onChange(e)} value={this.state.value} disabled={disabled}>
             {placeholder && <option value="" disabled>{placeholder}</option>}
             {options.map(option => (
               <Option
