@@ -1,3 +1,6 @@
+- `onClick` will pass the element that was clicked
+- `onChecked` will pass `true` of `false` based on if the checkbox is checked
+
 ```
 <Switch
   label={"Declared and approved"}
