@@ -8,8 +8,8 @@ export class AsyncSearchMode implements ISearchMode {
   }
 
   initialize(): Promise<void> {
-    if (this.component.state.defaultValue && this.component.state.defaultValue.length > 0) {
-      const defaultValues = Array.isArray(this.component.state.defaultValue) ? [...this.component.state.defaultValue] : [this.component.state.defaultValue];
+    if (this.component.props && this.component.props.defaultValue && this.component.props.defaultValue.length > 0) {
+      const defaultValues = Array.isArray(this.component.props.defaultValue) ? [...this.component.props.defaultValue] : [this.component.props.defaultValue];
       return Promise.all(defaultValues.map(v => this.search(v)))
         .then((results) => {
           if (!results.length) {

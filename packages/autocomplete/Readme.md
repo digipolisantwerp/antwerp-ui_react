@@ -347,22 +347,22 @@ Leave out the `onNewEntry` prop to create items with the same value and key as s
 The prop `asyncItems` can be used to lazy load the select items.
 ```
 const items=[
-          { label: "Antwerpen", value: "antwerpen"},
-          { label: "Gent", value: "gent"},
-          { label: "Brussel", value: "brussel"},
-          { label: "Brugge", value: "brugge"},
-          { label: "Hasselt", value: "hasselt"},
-          { label: "Luik", value: "luik"},
-          { label: "Oostende", value: "oostende"},
-          { label: "Namen", value: "namen"},
-          { label: "Mechelen", value: "mechelen"},
-          { label: "Sint-Niklaas", value: "sint-niklaas"},
-          { label: "Aalst", value: "aalst"},
-          { label: "Genk", value: "genk"}
-        ];
+  { label: "Antwerpen", value: "antwerpen"},
+  { label: "Gent", value: "gent"},
+  { label: "Brussel", value: "brussel"},
+  { label: "Brugge", value: "brugge"},
+  { label: "Hasselt", value: "hasselt"},
+  { label: "Luik", value: "luik"},
+  { label: "Oostende", value: "oostende"},
+  { label: "Namen", value: "namen"},
+  { label: "Mechelen", value: "mechelen"},
+  { label: "Sint-Niklaas", value: "sint-niklaas"},
+  { label: "Aalst", value: "aalst"},
+  { label: "Genk", value: "genk"}
+];
 function load(query, clbk) {
-    const results = items.filter(item => item.label.toLowerCase().includes(query));
-    setTimeout(() => clbk(results), 2000);
+  const results = items.filter(item => item.label.toLowerCase().includes(query));
+  setTimeout(() => clbk(results), 2000);
 }
 const defaultValues = ["mechelen", "antwerpen"];
 <Autocomplete
