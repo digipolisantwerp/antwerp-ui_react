@@ -19,7 +19,7 @@ import './Autocomplete.scss';
 
 const ARROW_KEYS = ['ArrowUp', 'ArrowDown', 'Enter'];
 type InputStates = 'success' | 'warning' | 'error';
-type Item = { label: string; value: string };
+type Item = { label: string; value: string; disabled?: boolean };
 type Props = {
   items?: Array<Item>;
   asyncItems?: (query: string, callback: (results: Array<Item>) => void) => void;
@@ -180,8 +180,11 @@ class Autocomplete extends Component<Props, IState> {
   };
 
   selectOption(item: Item) {
-    if (!!item)
-      this.selectionMode.select(item);
+    if (!item || item.disabled) {
+      return;
+    }
+
+    this.selectionMode.select(item);
   }
 
   handleOutsideClick = e => {
@@ -194,7 +197,8 @@ class Autocomplete extends Component<Props, IState> {
   renderItems = (item, index) => {
     const liClasses = classNames({
       'm-selectable-list__item': true,
-      'm-selectable-list__item--active': this.state.cursor === index
+      'm-selectable-list__item--active': this.state.cursor === index,
+      'm-selectable-list__item--disabled': item.disabled,
     });
     return (
       <li key={item.value} data-value={item.value} data-label={item.label} className={liClasses}

@@ -375,3 +375,36 @@ const defaultValues = ["mechelen", "antwerpen"];
   defaultValue={defaultValues}>
 </Autocomplete>
 ```
+
+
+The prop `disabled` on items can be used to not allow items to be selected.
+```
+const items=[
+  { label: "Antwerpen", value: "antwerpen", disabled: true },
+  { label: "Gent", value: "gent" },
+  { label: "Brussel", value: "brussel" },
+  { label: "Brugge", value: "brugge" },
+  { label: "Hasselt", value: "hasselt" },
+  { label: "Luik", value: "luik" },
+  { label: "Oostende", value: "oostende", disabled: true },
+  { label: "Namen", value: "namen", disabled: true },
+  { label: "Mechelen", value: "mechelen", disabled: true },
+  { label: "Sint-Niklaas", value: "sint-niklaas" },
+  { label: "Aalst", value: "aalst" },
+  { label: "Genk", value: "genk" }
+];
+function load(query, clbk) {
+    const results = items.filter(item => item.label.toLowerCase().includes(query));
+    setTimeout(() => clbk(results), 2000);
+}
+const defaultValues = ["gent", "brussel"];
+<Autocomplete
+  asyncItems={load}
+  id="autocomplete-15"
+  multipleSelect="true"
+  onSelection={(selected) => {console.log(`Selected ${selected}`)}}
+  onChange={(value) => {console.log(`Typed ${value}`)}}
+  label="Select a city"
+  defaultValue={defaultValues}>
+</Autocomplete>
+```

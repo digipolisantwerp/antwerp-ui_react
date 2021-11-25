@@ -42,3 +42,9 @@
     }
   }
 }
+
+.m-selectable-list__item--disabled {
+  cursor: not-allowed;
+  color: $grey;
+  background-color: $grey-lighter;
+}
