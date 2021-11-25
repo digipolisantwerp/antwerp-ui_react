@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+- `Autocomplete` Add disabled option to items array
+
 
 ## v6.0.6 - 2021-10-08
 
