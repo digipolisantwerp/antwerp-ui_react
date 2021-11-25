@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+
+## v6.1.0 - 2021-11-25
+
 ### Fixed
 - `Select` - removed value from internal state
 - `Autocomplete` - removed defaultValue from internal state
