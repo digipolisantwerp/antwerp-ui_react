@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Fixed
+- `Select` - removed value from internal state
+- `Autocomplete` - removed defaultValue from internal state
+
 ### Changed
 - `Autocomplete` Add disabled option to items array
 
@@ -14,7 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Fixed
 - `Select` - fixed defaultValue not working
-- `Icon` Fixed document reference
+- `Icon` - fixed document reference
 
 
 ## v6.0.5 - 2021-10-07

@@ -16,7 +16,7 @@ describe('Async Search Mode Test', () => {
   describe('default value initialization', () => {
     it('should handle a single default value upon initialization', () => {
       const mode = new AsyncSearchMode(component);
-      component.state = {
+      component.props = {
         defaultValue: 'A'
       };
       sinon.stub(mode, 'search').withArgs('A').returns(Promise.resolve([{label: 'First', value: 'A'}]));
@@ -31,7 +31,7 @@ describe('Async Search Mode Test', () => {
 
     it('should handle an array of default values upon initialization', () => {
       const mode = new AsyncSearchMode(component);
-      component.state = {
+      component.props = {
         defaultValue: ['A', 'B']
       };
       sinon.stub(mode, 'search').withArgs('A').returns(Promise.resolve([{label: 'First', value: 'A'}]));
@@ -49,7 +49,7 @@ describe('Async Search Mode Test', () => {
 
     it('should filter out non existing values', () => {
       const mode = new AsyncSearchMode(component);
-      component.state = {
+      component.props = {
         defaultValue: ['A', 'B', 'C']
       };
       sinon.stub(mode, 'search').withArgs('A').returns(Promise.resolve([{label: 'First', value: 'A'}]));

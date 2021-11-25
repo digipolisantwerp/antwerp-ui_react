@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import {fromEvent, Subject} from "rxjs";
 import {debounceTime, filter, map, takeUntil, tap} from 'rxjs/operators';
 
-import FlyoutContent from '../../../flyout-button/src/FlyoutContent/FlyoutContent';
+import FlyoutContent from '../../../flyout-button/src/FlyoutContent';
 import TagList, {TagListItem} from "../../../taglist";
 import InputLabel from "../../../form/src/InputLabel";
 import Icon from "../../../icon";
@@ -68,12 +68,15 @@ type IState = {
 class Autocomplete extends Component<Props, IState> {
   autocompleteRef = React.createRef();
 
+  static defaultProps = {
+    defaultValue: ''
+  };
+
   state = {
     open: this.props.open || false,
     results: this.props.items || [],
     cursor: 0,
     selection: [],
-    defaultValue: this.props.defaultValue || ''
   };
 
   inputField: HTMLInputElement;

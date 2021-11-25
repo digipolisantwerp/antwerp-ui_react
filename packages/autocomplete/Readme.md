@@ -361,8 +361,8 @@ const items=[
   { label: "Genk", value: "genk"}
 ];
 function load(query, clbk) {
-    const results = items.filter(item => item.label.toLowerCase().includes(query));
-    setTimeout(() => clbk(results), 2000);
+  const results = items.filter(item => item.label.toLowerCase().includes(query));
+  setTimeout(() => clbk(results), 2000);
 }
 const defaultValues = ["mechelen", "antwerpen"];
 <Autocomplete
