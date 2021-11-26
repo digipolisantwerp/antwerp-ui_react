@@ -68,12 +68,15 @@ type IState = {
 class Autocomplete extends Component<Props, IState> {
   autocompleteRef = React.createRef();
 
+  static defaultProps = {
+    defaultValue: ''
+  };
+
   state = {
     open: this.props.open || false,
     results: this.props.items || [],
     cursor: 0,
     selection: [],
-    defaultValue: this.props.defaultValue || ''
   };
 
   inputField: HTMLInputElement;
