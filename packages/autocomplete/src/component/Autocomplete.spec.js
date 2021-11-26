@@ -15,7 +15,6 @@ describe('Autocomplete Test', () => {
         results: [],
         cursor: 0,
         selection: [],
-        defaultValue: ''
       });
     });
     test('Initialize formcontrol', () => {

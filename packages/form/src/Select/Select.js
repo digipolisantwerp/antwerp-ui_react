@@ -41,16 +41,10 @@ type Props = {
 };
 
 class Select extends Component<Props> {
-  state = {value: this.props.value || ''};
+  static defaultProps = {
+    value: ''
+  };
 
-  onChange(e) {
-    const value = e.currentTarget.value;
-    this.setState({ value });
-
-    if (this.props.onChange) {
-      this.props.onChange(e);
-    }
-  }
   render() {
     const {
       id,
@@ -82,17 +76,19 @@ class Select extends Component<Props> {
       },
       className
     );
+
     const wrapperClass = classNames(
       'a-input__wrapper',
       {
         'a-input__wrapper--inline': !!inline
       }
     );
+
     return (
       <div className={selectClass} name={name} data-qa={qa}>
         {label && <InputLabel inline={inline} htmlFor={id}>{label}</InputLabel>}
         <div className={wrapperClass}>
-          <select id={id} name={name} onChange={(e) => this.onChange(e)} value={this.state.value} disabled={disabled}>
+          <select id={id} name={name} onChange={onChange} value={value} disabled={disabled}>
             {placeholder && <option value="" disabled>{placeholder}</option>}
             {options.map(option => (
               <Option
