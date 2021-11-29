@@ -175,7 +175,6 @@ class Autocomplete extends Component<Props, IState> {
   }
 
   scrollToItem = () => {
-    console.log(this.state.cursor)
     const domNode = ReactDOM.findDOMNode(this['item_' + this.state.cursor]);
 
     if (!domNode) {
