@@ -20,8 +20,12 @@ type Props = {
   hasCloseButton?: boolean,
   /** Modal title text. */
   title?: string,
+  /** Custom confirm element (will close modal on click and trigger onConfirm). */
+  confirmElm?: React.Node,
   /** Confirm button text. */
   confirmText?: string,
+  /** Custom deny element (will close modal on click and trigger onDeny). */
+  denyElm?: React.Node,
   /** Deny button text. */
   denyText?: string,
   /** Custom trigger element (will trigger on click). */
@@ -73,7 +77,9 @@ export default class Modal extends React.Component<Props, State> {
     hasCloseButton: true,
     title: '',
 
+    confirmElm: null,
     confirmText: 'Ja',
+    denyElm: null,
     denyText: 'Nee',
     triggerElm: null,
     triggerText: 'Open',
@@ -164,7 +170,9 @@ export default class Modal extends React.Component<Props, State> {
       onRequestClose,
       title,
       hasCloseButton,
+      confirmElm,
       confirmText,
+      denyElm,
       denyText,
       className,
       overlayClassName,
@@ -184,7 +192,19 @@ export default class Modal extends React.Component<Props, State> {
       onClick: () => this.handleToggleModal(true),
     }) : <Button type="primary" onClick={() => this.handleToggleModal(true)}>{triggerText}</Button>;
 
+    const confirmTrigger = confirmElm ? this.addProps(confirmElm, {
+      onClick: this.handleConfirm,
+    }) : <Button className="m-modal__confirm" onClick={this.handleConfirm}>{confirmText}</Button>;
+
+    const denyTrigger = denyElm ? this.addProps(denyElm, {
+      onClick: this.handleDeny,
+    }) : <Button className="m-modal__deny" outline onClick={this.handleDeny}>{denyText}</Button>
+
     const sizeClass = sizes[size];
+
+    const showConfirm = confirmElm || confirmText;
+    const showDeny = denyElm || denyText;
+    const showFooter = showConfirm || showDeny;
 
     return (
       <div>
@@ -222,14 +242,10 @@ export default class Modal extends React.Component<Props, State> {
                 {children}
               </div>
             )}
-            {(confirmText || denyText) && (
+            {showFooter && (
               <div className="m-modal__footer">
-                {confirmText && (
-                  <Button className="m-modal__confirm" onClick={this.handleConfirm}>{confirmText}</Button>
-                )}
-                {denyText && (
-                  <Button className="m-modal__deny" outline onClick={this.handleDeny}>{denyText}</Button>
-                )}
+                {showConfirm && confirmTrigger}
+                {showDeny && denyTrigger}
               </div>
             )}
           </div>
