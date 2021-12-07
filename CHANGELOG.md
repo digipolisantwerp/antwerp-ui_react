@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ## [Unreleased]
 
 
+## v6.2.0 - 2021-12-07
+
+### Added
+- `Modal` - added option to use custom component as confirm and deny button
+
+
 ## v6.1.0 - 2021-11-25
 
 ### Fixed
