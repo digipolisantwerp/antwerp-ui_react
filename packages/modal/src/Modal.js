@@ -202,6 +202,10 @@ export default class Modal extends React.Component<Props, State> {
 
     const sizeClass = sizes[size];
 
+    const showConfirm = confirmElm || confirmText;
+    const showDeny = denyElm || denyText;
+    const showFooter = showConfirm || showDeny;
+
     return (
       <div>
         {modalTrigger}
@@ -238,10 +242,10 @@ export default class Modal extends React.Component<Props, State> {
                 {children}
               </div>
             )}
-            {(confirmText || denyText || confirmElm || denyElm) && (
+            {showFooter && (
               <div className="m-modal__footer">
-                {confirmTrigger}
-                {denyTrigger}
+                {showConfirm && confirmTrigger}
+                {showDeny && denyTrigger}
               </div>
             )}
           </div>
