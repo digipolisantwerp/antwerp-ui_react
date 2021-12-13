@@ -108,7 +108,7 @@ class Autocomplete extends Component<Props, IState> {
       tap(e => {
         e.preventDefault();
         const {results, cursor} = this.state;
-        if (e.key === "ArrowDown" && cursor < results.length - 1) {
+        if (e.key === "ArrowDown" && cursor < results.length) {
           this.setState({
             open: true,
             cursor: cursor + 1
@@ -116,7 +116,7 @@ class Autocomplete extends Component<Props, IState> {
             this.scrollToItem()
           });
         }
-        if (e.key === "ArrowUp" && cursor > 0) {
+        if (e.key === "ArrowUp" && cursor > 1) {
           this.setState({
             open: true,
             cursor: cursor - 1
@@ -176,6 +176,11 @@ class Autocomplete extends Component<Props, IState> {
 
   scrollToItem = () => {
     const domNode = ReactDOM.findDOMNode(this['item_' + this.state.cursor]);
+
+    if (!domNode) {
+      return;
+    }
+
     domNode.scrollIntoView(false)
   };
 
