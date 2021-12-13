@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Fixed
+- `Autocomplete` - prevent crash when going to index 0
 
 ## v6.2.0 - 2021-12-07
 
