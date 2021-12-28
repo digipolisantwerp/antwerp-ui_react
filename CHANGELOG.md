@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+- `Autocomplete` - added clearbutton to clear input field and selected items
 
 ## v6.2.1 - 2021-12-13
 

@@ -18,7 +18,6 @@
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
   showSearchIcon={true}
-  showClearButton={true}
   label="Select a city"
   required={true}
   placeholder="Search...">
@@ -407,5 +406,31 @@ const defaultValues = ["gent", "brussel"];
   onChange={(value) => {console.log(`Typed ${value}`)}}
   label="Select a city"
   defaultValue={defaultValues}>
+</Autocomplete>
+```
+
+The prop `showClearButton` can be used to show a button to clear the input value and selected items. It is disabled when no items are selected and the input field is empty.
+```
+<Autocomplete
+  items={[
+    { label: "Antwerpen", value: "antwerpen"},
+    { label: "Gent", value: "gent"},
+    { label: "Brussel", value: "brussel"},
+    { label: "Brugge", value: "brugge"},
+    { label: "Hasselt", value: "hasselt"},
+    { label: "Luik", value: "luik"},
+    { label: "Oostende", value: "oostende"},
+    { label: "Namen", value: "namen"},
+    { label: "Mechelen", value: "mechelen"},
+    { label: "Sint-Niklaas", value: "sint-niklaas"},
+    { label: "Aalst", value: "aalst"},
+    { label: "Genk", value: "genk"}
+  ]}
+  id="autocomplete-16"
+  defaultValue="aalst"
+  onSelection={(selected) => {console.log(`Selected ${selected}`)}}
+  onChange={(value) => {console.log(`Typed ${value}`)}}
+  label="Select a city"
+  showClearButton={true}>
 </Autocomplete>
 ```
