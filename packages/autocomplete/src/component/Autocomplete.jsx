@@ -8,6 +8,7 @@ import FlyoutContent from '../../../flyout-button/src/FlyoutContent';
 import TagList, {TagListItem} from "../../../taglist";
 import InputLabel from "../../../form/src/InputLabel";
 import Icon from "../../../icon";
+import Button from "../../../button";
 
 import {MultipleSelectionMode} from "../models/MultipleSelectionMode";
 import {SingleSelectionMode} from "../models/SingleSelectionMode";
@@ -40,6 +41,7 @@ type Props = {
   /** Qa id */
   qa?: string;
   showSearchIcon?: boolean;
+  showClearButton?: boolean;
   /**
    * If true, this control will allow selection of multiple items,
    * listing them as tags in the control.
@@ -199,6 +201,15 @@ class Autocomplete extends Component<Props, IState> {
     }
   };
 
+  emptyField = () => {
+    this.inputField.value = '';
+    this.setState({
+      selection: [],
+    });
+    this.props.onChange('')
+    this.props.onSelection([])
+  };
+
   renderItems = (item, index) => {
     const liClasses = classNames({
       'm-selectable-list__item': true,
@@ -244,8 +255,8 @@ class Autocomplete extends Component<Props, IState> {
   }
 
   render() {
-    const {noResults, loading, state, qa, allowNewEntry, newEntryText} = this.props;
-    const {results, open, isLoading} = this.state;
+    const {noResults, loading, state, qa, allowNewEntry, newEntryText, showClearButton, multipleSelect, defaultValue} = this.props;
+    const {results, open, isLoading, selection} = this.state;
 
     const flyoutClasses = classNames(
       'm-flyout',
@@ -253,7 +264,7 @@ class Autocomplete extends Component<Props, IState> {
       'm-autocomplete',
       {
         'is-open': open,
-        'is-multiple-select': !!this.props.multipleSelect,
+        'is-multiple-select': !!multipleSelect,
         'm-flyout--left': !this.props.direction || this.props.direction === "left",
         'm-flyout--right': this.props.direction === "right"
       }
@@ -265,14 +276,16 @@ class Autocomplete extends Component<Props, IState> {
         'has-icon-right': this.props.loading || this.state.isLoading,
         'has-icon-left': this.props.showSearchIcon,
         [`${stateClasses[state]}`]: !!state,
-        'is-required': !!this.props.required
+        'is-required': !!this.props.required,
+        'has-clear-button': showClearButton,
+        'has-state-icon': !!state,
       }
     );
 
     const wrapperClasses = classNames(
       'a-input__wrapper',
       {
-        'has-focus': !!this.inputField && this.inputField === document.activeElement && !!this.props.multipleSelect
+        'has-focus': !!this.inputField && this.inputField === document.activeElement && !!multipleSelect
       }
     );
 
@@ -287,19 +300,38 @@ class Autocomplete extends Component<Props, IState> {
           <div className={inputClass} data-qa={qa}>
             <InputLabel htmlFor={this.props.id}>{this.props.label}</InputLabel>
             <div className={wrapperClasses} onClick={() => this.focusOnInput()}>
-              {this.props.multipleSelect && <TagList>
-                {this.state.selection.filter(s => !!s).map(s => {
+              {multipleSelect && <TagList>
+                {selection.filter(s => !!s).map(s => {
                   return (
                     <TagListItem closable={true} onClick={() => this.selectionMode.unselect(s)} key={s.value}
                                  value={s.label}/>)
                 })}
                 <li className="m-tag has-input">
-                  {this.props.multipleSelect && this.getInput()}
+                  {multipleSelect && this.getInput()}
                 </li>
               </TagList>}
-              {!this.props.multipleSelect && this.getInput()}
+              {!multipleSelect && this.getInput()}
               {this.props.showSearchIcon && <Icon name="ai-search"/>}
               {(loading || isLoading) && <Icon name="ai-spinner" className="a-spinner a-spinner--sm"/>}
+              {(showClearButton) && (
+                <div className="a-input__button-wrapper">
+                    <Button
+                      icon="ai-close"
+                      ariaLabel="Close"
+                      size="small"
+                      transparent
+                      disabled={
+                        !multipleSelect ? (
+                            !(this.inputField && this.inputField.value) && !defaultValue || (this.inputField && !this.inputField.value)
+                        ) :
+                        (
+                          !selection.length && (!this.inputField || (this.inputField && !this.inputField.value))
+                        )
+                      }
+                      onClick={this.emptyField}>
+                    </Button>
+                </div>
+              )}
             </div>
           </div>
           <FlyoutContent hasPadding={false}>

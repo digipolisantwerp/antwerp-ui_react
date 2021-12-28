@@ -48,3 +48,48 @@
   color: $grey;
   background-color: $grey-lighter;
 }
+
+.m-autocomplete {
+  .a-input {
+    &__wrapper {
+      .a-input__button-wrapper {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        right: 7px;
+        top: 0px;
+        height: 100%;
+      }
+    }
+    &.has-clear-button {
+      .a-input__wrapper {
+        input {
+          padding-right: 3rem;
+        }
+      }
+    }
+    &.has-clear-button.has-state-icon {
+      .a-input__wrapper {
+        &::before {
+          right: 2.25rem;
+        }
+        input {
+          padding-right: 5.25rem;
+        }
+      }
+    }
+    &.has-clear-button.has-icon-right {
+      .a-input__wrapper {
+        &::before {
+          right: 4.25rem;
+        }
+        input {
+          padding-right: 7.25rem;
+        }
+        .a-spinner {
+          right: 1.75rem;
+        }
+      }
+    }
+  }
+}

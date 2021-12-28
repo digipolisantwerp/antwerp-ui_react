@@ -18,6 +18,7 @@
   onSelection={(selected) => {console.log(`Selected ${selected}`)}}
   onChange={(value) => {console.log(`Typed ${value}`)}}
   showSearchIcon={true}
+  showClearButton={true}
   label="Select a city"
   required={true}
   placeholder="Search...">
