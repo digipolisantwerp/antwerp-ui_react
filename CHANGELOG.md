@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+- `Table` - added table component
 
 ## v6.2.1 - 2021-12-13
 
