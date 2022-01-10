@@ -24,6 +24,7 @@ const Filter = ({
       case "select":
         return (
           <Select
+            key={filter.id}
             label={filter.label}
             id={filter.id}
             name={filter.id}
@@ -36,6 +37,7 @@ const Filter = ({
       case "datepicker":
         return (
           <Datepicker
+            key={filter.id}
             label={filter.label}
             id={filter.id}
             name={filter.id}
@@ -47,6 +49,7 @@ const Filter = ({
       case "telephone-number":
         return (
           <TelephoneNumber
+            key={filter.id}
             label={filter.label}
             id={filter.id}
             name={filter.id}
@@ -58,6 +61,7 @@ const Filter = ({
       default:
         return (
           <TextField
+            key={filter.id}
             label={filter.label}
             id={filter.id}
             name={filter.id}
