@@ -18,5 +18,5 @@ export default {
       configFile: "../../babel.config.js"
     })
   ],
-  external: ['react', 'react-dom', 'classnames', 'react-input-mask'],
+  external: ['react', 'react-dom', 'classnames', 'moment', 'react-input-mask'],
 };
