@@ -104,7 +104,7 @@ class Datepicker extends Component<Props> {
     if (this.datepicker && this.datepicker.contains(e.target)) {
       return;
     }
-    
+
     this.setState({ open: false });
   };
 

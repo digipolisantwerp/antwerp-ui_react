@@ -1,7 +1,7 @@
 // @flow
 import React, { Fragment, useState } from 'react';
 import classnames from 'classnames';
-import get from 'lodash.get';
+import * as get from 'lodash.get';
 
 import TableLoader from './components/TableLoader';
 import TableHeader from './components/TableHeader';
