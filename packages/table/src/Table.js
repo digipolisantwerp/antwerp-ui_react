@@ -27,7 +27,7 @@ type Props = {
   }>,
   filters: Array<string | {
     id: string,
-    display?: 'generic',
+    display?: 'generic' | 'optional',
     type: string,
     label: string,
     placeholder: string,
@@ -40,6 +40,7 @@ type Props = {
     value: string,
     label: string
   }[],
+  extraTableActions?: any,
   loading: boolean,
   responsive: boolean,
   saveFilters?: boolean,
@@ -71,33 +72,34 @@ type Props = {
 
 const Table = ({
   tableId,
-	className,
-	tableClassName,
-	rows = [],
-	columns = [],
-	loading = false,
-	responsive = true,
-	fixed = false,
-	hasClickAction = false,
-	sorting,
-	sortingChanged,
+  className,
+  tableClassName,
+  rows = [],
+  columns = [],
+  loading = false,
+  responsive = true,
+  fixed = false,
+  hasClickAction = false,
+  sorting,
+  sortingChanged,
   filtersChanged,
-	rowClicked,
+  rowClicked,
   paginationChanged,
-	striped = true,
+  striped = true,
   saveFilters = false,
   saveColumns = true,
   disableColumnSorting = false,
-	type,
-	draggable = false,
+  type,
+  draggable = false,
   paginationOptions = DEFAULT_PAGINATION_OPTIONS,
-	loadDataMessage = 'Loading data...',
-	noColumnsMessage = 'No columns available.',
-	noDataMessage = 'No data available.',
+  loadDataMessage = 'Aan het laden...',
+  noColumnsMessage = 'Geen kolommen beschikbaar.',
+  noDataMessage = 'Geen data beschikbaar.',
   extraFilterMessage = 'Extra filters',
-  perPageMessage = 'Items per page',
-  ofMessage = 'of',
+  perPageMessage = 'Items per pagina',
+  ofMessage = 'van',
   filters = [],
+  extraTableActions,
   itemsPerPage,
   currentPage,
   totalItems
@@ -113,10 +115,10 @@ const Table = ({
      : {}
   );
 
-	const hasCols = !loading && columns.length > 0;
-	const hasData = !loading && rows.length > 0;
-	const showPlaceholder = (!hasCols || !hasData) && !loading;
-	const showLoader = !!loading;
+  const hasCols = !loading && columns.length > 0;
+  const hasData = !loading && rows.length > 0;
+  const showPlaceholder = (!hasCols || !hasData) && !loading;
+  const showLoader = !!loading;
 
   const mappedColumns = columns.reduce((acc, column) => {
     const savedColumnIndex = savedColumns.findIndex((x) => x.id === column.id);
@@ -144,16 +146,16 @@ const Table = ({
   }))
 
   const onRowClick = (rowData) => {
-		if (hasClickAction && rowClicked) {
-			rowClicked(rowData);
-		}
-	};
+    if (hasClickAction && rowClicked) {
+      rowClicked(rowData);
+    }
+  };
 
-	const onSortClick = (key, order) => {
-		if (sortingChanged) {
-			sortingChanged({ key, order });
-		}
-	};
+  const onSortClick = (key, order) => {
+    if (sortingChanged) {
+      sortingChanged({ key, order });
+    }
+  };
 
   const handleColumnsChanged = (newColumns) => {
     localStorage.setItem(`antwerp-ui_table_columns_${tableId}`, JSON.stringify(newColumns))
@@ -172,33 +174,33 @@ const Table = ({
     setSavedFilters(newFilters)
   }
 
-	const renderLoader = () => <TableLoader loadDataMessage={loadDataMessage} />;
+  const renderLoader = () => <TableLoader loadDataMessage={loadDataMessage} />;
 
   const renderTableRow = (row, rowIndex, level, isLast) => {
-		return (
-			<Fragment key={`table-row-${level}-${rowIndex}`}>
-				<TableRow
-					className={row && row.classList ? row.classList : ''}
-					hasClickAction={hasClickAction}
-					onClick={() => onRowClick(row)}
-					level={level}
-					isLast={isLast}
-				>
-					{mappedColumns.filter((column) => column.visible).map((col) => (
-						<TableCell {...getCellProps(col, row, rowIndex)} />
-					))}
-				</TableRow>
-				{row?.rows?.length
-					? row.rows.map((subRow, subRowIndex) => renderTableRow(
-						subRow,
-						subRowIndex,
-						level + 1,
-						row.rows.length - 1 === subRowIndex,
-					))
-					: null}
-			</Fragment>
-		);
-	};
+    return (
+      <Fragment key={`table-row-${level}-${rowIndex}`}>
+        <TableRow
+          className={row && row.classList ? row.classList : ''}
+          hasClickAction={hasClickAction}
+          onClick={() => onRowClick(row)}
+          level={level}
+          isLast={isLast}
+        >
+          {mappedColumns.filter((column) => column.visible).map((col) => (
+            <TableCell {...getCellProps(col, row, rowIndex)} />
+          ))}
+        </TableRow>
+        {row?.rows?.length
+          ? row.rows.map((subRow, subRowIndex) => renderTableRow(
+            subRow,
+            subRowIndex,
+            level + 1,
+            row.rows.length - 1 === subRowIndex,
+          ))
+          : null}
+      </Fragment>
+    );
+  };
 
   return (
     <>
@@ -210,6 +212,7 @@ const Table = ({
         columnVisibilityChanged={handleColumnsChanged}
         filtersChanged={handleFiltersChanged}
         disableColumnSorting={disableColumnSorting}
+        extraTableActions={extraTableActions}
       />
       <div className={classnames(className, { 'a-table__wrapper-responsive': responsive })}>
         <table

@@ -12,7 +12,8 @@ const Filter = ({
   columnOrderChanged,
   columnVisibilityChanged,
   filtersChanged,
-  disableColumnSorting
+  disableColumnSorting,
+  extraTableActions
 }) => {
   const genericFilter = filters.find((filter) => filter.display === 'generic');
   const restFilters = filters.filter((filter) => filter.display !== 'generic');
@@ -115,43 +116,46 @@ const Filter = ({
           <Button
             iconRight={extraFiltersOpen ? "ai-arrow-up-1" : "ai-arrow-down-1"}
             onClick={() => setExtraFiltersOpen(!extraFiltersOpen)}
-            className="u-margin-left-xs"
+            className={genericFilter ? "u-margin-left-xs" : undefined}
             outline
           >
             {extraFilterMessage}
           </Button>
         )}
-        {!disableColumnSorting && (
-          <FlyoutButton icon="ai-layout-column" className="m-table-filter__column-selector" flyoutHasPadding outline flyoutDirection="right" flyoutSize="small">
-            {columns.map((column, i) => (
-              <div className="m-table-column-selector" key={i}>
-                <Checkbox
-                  label={column.label}
-                  id={column.value}
-                  name={column.label}
-                  checked={column.visible}
-                  onChange={() => handleColumnVisibilityChange(i)}
-                />
-                <div className="m-table-column-selector__order">
-                  <Button
-                    icon="ai-arrow-up-1"
-                    size="small"
-                    negative
-                    disabled={i === 0}
-                    onClick={() => handleColumnOrderChange(i, 'up')}
+        <div className="m-table-filter__actions">
+          {extraTableActions ? extraTableActions : null}
+          {!disableColumnSorting && (
+            <FlyoutButton icon="ai-layout-column" flyoutHasPadding outline flyoutDirection="right" flyoutSize="small">
+              {columns.map((column, i) => (
+                <div className="m-table-column-selector" key={i}>
+                  <Checkbox
+                    label={column.label}
+                    id={column.value}
+                    name={column.label}
+                    checked={column.visible}
+                    onChange={() => handleColumnVisibilityChange(i)}
                   />
-                  <Button
-                    icon="ai-arrow-down-1"
-                    size="small"
-                    negative
-                    disabled={i === columns.length - 1}
-                    onClick={() => handleColumnOrderChange(i, 'down')}
-                  />
+                  <div className="m-table-column-selector__order">
+                    <Button
+                      icon="ai-arrow-up-1"
+                      size="small"
+                      negative
+                      disabled={i === 0}
+                      onClick={() => handleColumnOrderChange(i, 'up')}
+                    />
+                    <Button
+                      icon="ai-arrow-down-1"
+                      size="small"
+                      negative
+                      disabled={i === columns.length - 1}
+                      onClick={() => handleColumnOrderChange(i, 'down')}
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
-          </FlyoutButton>
-        )}
+              ))}
+            </FlyoutButton>
+          )}
+        </div>
       </div>
       <div className={classnames({
         'm-table-filter__optional-filters': true,

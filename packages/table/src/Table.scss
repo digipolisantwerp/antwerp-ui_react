@@ -147,13 +147,13 @@
 .m-table-filter {
   margin-bottom: $spacer;
 
+  &__actions {
+    margin-left: auto;
+  }
+
   &__top-bar {
     display: flex;
     align-items: flex-end;
-
-    .m-flyout {
-      margin-left: auto;
-    }
   }
 
   &__generic-filter {

@@ -9,16 +9,16 @@ type Props = {
 };
 
 const TableLoader = ({
-	loadDataMessage,
+  loadDataMessage,
 }: Props) => (
-	<tr>
-		<td>
-			<div className="a-table--loading">
-				<Spinner className="u-margin-right-xs" style={{ display: 'inline' }} />
-				<span>{loadDataMessage}</span>
-			</div>
-		</td>
-	</tr>
+  <tr>
+    <td>
+      <div className="a-table--loading">
+        <Spinner className="u-margin-right-xs" style={{ display: 'inline' }} />
+        <span>{loadDataMessage}</span>
+      </div>
+    </td>
+  </tr>
 );
 
 export default TableLoader;
