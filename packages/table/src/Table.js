@@ -1,7 +1,6 @@
 // @flow
 import React, { Fragment, useState } from 'react';
 import classnames from 'classnames';
-import get from 'lodash.get';
 
 import TableLoader from './components/TableLoader';
 import TableHeader from './components/TableHeader';
@@ -179,7 +178,7 @@ const Table = ({
 		return (
 			<Fragment key={`table-row-${level}-${rowIndex}`}>
 				<TableRow
-					className={classnames(get(row, 'classList', ''))}
+					className={classList && classList.row ? classList.row : '')}
 					hasClickAction={hasClickAction}
 					onClick={() => onRowClick(row)}
 					level={level}
