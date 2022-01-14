@@ -178,7 +178,7 @@ const Table = ({
 		return (
 			<Fragment key={`table-row-${level}-${rowIndex}`}>
 				<TableRow
-					className={classList && classList.row ? classList.row : ''}
+					className={row && row.classList ? row.classList : ''}
 					hasClickAction={hasClickAction}
 					onClick={() => onRowClick(row)}
 					level={level}
