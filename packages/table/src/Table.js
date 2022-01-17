@@ -47,24 +47,22 @@ type Props = {
   saveColumns?: boolean,
   saveSorting?: boolean,
   fixed: string,
-  hasClickAction: string,
   sorting: {
     key: string,
     order: string
   },
   filtersChanged?: Function,
   sortingChanged?: Function,
-  rowClicked?: Function,
   paginationChanged?: Function,
+  ariaLabels: {
+    loadData: string,
+    extraFilterMessage: string,
+    perPageMessage: string,
+    ofMessage: string,
+  },
   striped?: boolean,
   disableColumnSorting?: boolean,
   type?: string,
-  loadDataMessage: string,
-  noColumnsMessage: string,
-  noDataMessage: string,
-  extraFilterMessage: string,
-  perPageMessage: string,
-  ofMessage: string,
   itemsPerPage: number,
   currentPage: number,
   totalItems: number
@@ -92,12 +90,12 @@ const Table = ({
   type,
   draggable = false,
   paginationOptions = DEFAULT_PAGINATION_OPTIONS,
-  loadDataMessage = 'Aan het laden...',
-  noColumnsMessage = 'Geen kolommen beschikbaar.',
-  noDataMessage = 'Geen data beschikbaar.',
-  extraFilterMessage = 'Extra filters',
-  perPageMessage = 'Items per pagina',
-  ofMessage = 'van',
+  ariaLabels = {
+    loadDataMessage: 'Aan het laden...',
+    extraFilterMessage: 'Extra filters',
+    perPageMessage: 'Items per pagina',
+    ofMessage: 'van',
+  },
   filters = [],
   extraTableActions,
   itemsPerPage,
@@ -145,12 +143,6 @@ const Table = ({
     value: savedFilters[filter.id] || undefined
   }))
 
-  const onRowClick = (rowData) => {
-    if (hasClickAction && rowClicked) {
-      rowClicked(rowData);
-    }
-  };
-
   const onSortClick = (key, order) => {
     if (sortingChanged) {
       sortingChanged({ key, order });
@@ -174,7 +166,7 @@ const Table = ({
     setSavedFilters(newFilters)
   }
 
-  const renderLoader = () => <TableLoader loadDataMessage={loadDataMessage} />;
+  const renderLoader = () => <TableLoader loadDataMessage={ariaLabels.loadDataMessage} />;
 
   const renderTableRow = (row, rowIndex, level, isLast) => {
     return (
@@ -182,7 +174,6 @@ const Table = ({
         <TableRow
           className={row && row.classList ? row.classList : ''}
           hasClickAction={hasClickAction}
-          onClick={() => onRowClick(row)}
           level={level}
           isLast={isLast}
         >
@@ -207,7 +198,7 @@ const Table = ({
       <Filter
         filters={mappedFilters}
         columns={mappedColumns}
-        extraFilterMessage={extraFilterMessage}
+        extraFilterMessage={ariaLabels.extraFilterMessage}
         columnOrderChanged={handleColumnsChanged}
         columnVisibilityChanged={handleColumnsChanged}
         filtersChanged={handleFiltersChanged}
@@ -249,7 +240,7 @@ const Table = ({
               totalItems,
             })}
           />
-          <p className="u-margin-left-xs">{perPageMessage} | {(currentPage - 1) * itemsPerPage + 1} - {(currentPage - 1) * itemsPerPage + itemsPerPage} {ofMessage} {totalItems}</p>
+          <p className="u-margin-left-xs">{ariaLabels.perPageMessage} | {(currentPage - 1) * itemsPerPage + 1} - {(currentPage - 1) * itemsPerPage + itemsPerPage} {ariaLabels.ofMessage} {totalItems}</p>
           <Pagination
             currentPage={currentPage}
             itemsPerPage={itemsPerPage}

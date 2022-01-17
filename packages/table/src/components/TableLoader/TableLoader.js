@@ -2,8 +2,6 @@
 import Spinner from '../../../../spinner';
 import React from 'react';
 
-// import '../Table.scss';
-
 type Props = {
   loadDataMessage: string,
 };

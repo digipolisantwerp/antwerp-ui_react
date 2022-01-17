@@ -1,10 +1,6 @@
 @import '~@a-ui/core/src/styles/_quarks';
 
 .a-table__wrapper-responsive {
-	border: none;
-	border-top: 1px solid #949494;
-	border-bottom: 1px solid #949494;
-
 	tbody tr {
 		border-bottom: none;
 	}
@@ -29,7 +25,7 @@
 		table-layout: fixed;
 	}
 
-	th > .a-table__header__button {
+	th > .a-table__header-button {
 		padding-left: 0;
 		width: auto;
 
@@ -40,7 +36,7 @@
 
 	&.a-table--primary,
 	&.a-table--secondary {
-		th > .a-table__header__button {
+		th > .a-table__header-button {
 			color: $white;
 		}
 	}
@@ -105,37 +101,6 @@
 					}
 				}
 			}
-		}
-	}
-
-	.a-table__row--hovered {
-		position: relative;
-		background: transparent;
-		color: transparent;
-
-		&.a-table__row--level-2 {
-			&::before,
-			&::after {
-				left: $spacer-md;
-			}
-		}
-
-		&::before,
-		&::after {
-			content: "";
-			position: absolute;
-			left: 0;
-			width: 100%;
-			background: $brand-primary;
-			height: 4px;
-		}
-
-		&::after {
-			bottom: 0;
-		}
-
-		> * {
-			opacity: 0;
 		}
 	}
 
