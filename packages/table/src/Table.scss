@@ -1,0 +1,166 @@
+@import '~@a-ui/core/src/styles/_quarks';
+
+.a-table__wrapper-responsive {
+	tbody tr {
+		border-bottom: none;
+	}
+
+	td {
+		position: relative;
+
+		&::after {
+			content: '';
+			width: 100%;
+			height: 1px;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			border-bottom: 1px solid #949494;
+		}
+	}
+}
+
+.a-table {
+	&.a-table--fixed {
+		table-layout: fixed;
+	}
+
+	th > .a-table__header-button {
+		padding-left: 0;
+		width: auto;
+
+		.fa {
+			font-size: rem($font-size-base);
+		}
+	}
+
+	&.a-table--primary,
+	&.a-table--secondary {
+		th > .a-table__header-button {
+			color: $white;
+		}
+	}
+
+	&.a-table--has-placeholder,
+	.a-table--loading {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		min-width: 100%;
+	}
+
+	&.a-table--has-placeholder {
+		border: 1px dashed $grey;
+		padding: $spacer;
+		flex-direction: column;
+		align-items: flex-start;
+
+		.a-table--has-placeholder__item:not(:last-child) {
+			margin-bottom: $spacer-xs;
+		}
+	}
+
+	.a-table-expanded-row {
+		background-color: $white !important;
+	}
+
+	.a-table__row--level-1 {
+		td {
+			&:first-child {
+				&::after {
+					left: 0;
+				}
+			}
+		}
+	}
+
+	.a-table__row--level-2 {
+		td:first-child {
+			padding-left: $spacer-md + $spacer;
+
+			&::before {
+				content: '';
+				background: white;
+				width: $spacer-md;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+
+			&::after {
+				left: $spacer-md;
+			}
+		}
+
+		&.a-table__row--last-in-level {
+			td {
+				&:first-child {
+					&::after {
+						left: 0;
+					}
+				}
+			}
+		}
+	}
+
+	.a-table__row--collapse {
+		display: none;
+	}
+}
+
+.m-table-filter {
+  margin-bottom: $spacer;
+
+  &__actions {
+    margin-left: auto;
+  }
+
+  &__top-bar {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &__generic-filter {
+    min-width: 40%;
+  }
+
+  &__optional-filters {
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: $spacer-xs;
+    display: none;
+
+    &--open {
+      margin-top: $spacer-xs;
+      display: flex;
+    }
+
+    > .a-input {
+      flex: 1;
+    }
+  }
+}
+
+.m-table-column-selector {
+  display: flex;
+  align-items: center;
+
+  &__order {
+    margin-left: auto;
+  }
+
+  .a-input__label {
+    margin-bottom: 0;
+  }
+}
+
+.m-table-pagination {
+  display: flex;
+  align-items: center;
+  margin-top: $spacer;
+
+  nav {
+    margin-left: auto;
+  }
+}

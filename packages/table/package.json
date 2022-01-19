@@ -1,5 +1,5 @@
 {
-  "name": "autocomplete",
+  "name": "table",
   "version": "0.0.1-0",
   "description": "",
   "main": "dist/index.cjs.js",
@@ -8,10 +8,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "classnames": "~2.2.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "icon": "0.0.1-0",
-    "taglist": "0.0.1-0"
+    "rc-slider": "~8.6.1",
+    "classnames": "~2.2.6",
+    "moment": "^2.24.0",
+    "react-input-mask": "^2.0.4",
+    "icon": "0.0.1-0"
   }
 }
