@@ -93,3 +93,5 @@ export { default as
 export {
   Environment
 } from './packages/environment';
+
+export { default as Table } from './packages/table';
