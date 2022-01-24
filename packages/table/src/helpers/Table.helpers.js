@@ -1,3 +1,5 @@
+import * as get from 'lodash.get';
+
 export const isNull = (value) => value === null;
 export const isUndefined = (value) => value === undefined;
 export const isNil = (value) => isNull(value) || isUndefined(value);
@@ -14,7 +16,8 @@ const getCellValue = (rowData, key, fallback) => {
     return null;
   }
 
-  const value = rowData[key];
+  // Because of a weird fluke with jest & lerna we have to do this
+  const value = get.default ? get.default(rowData, key) : get(rowData, key);
 
   if (isObject(value)) {
     return String(value);

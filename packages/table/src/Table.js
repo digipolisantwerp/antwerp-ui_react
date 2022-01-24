@@ -228,7 +228,7 @@ const Table = ({
           </tbody>
         </table>
       </div>
-      {currentPage && totalItems && currentPage && (
+      {!!currentPage && !!totalItems && !!currentPage && (
         <div className="m-table-pagination">
           <Select
             inline={true}
