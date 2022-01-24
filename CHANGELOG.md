@@ -8,9 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Fixed
 - `Table` - export table component
+## v6.3.0 - 2022-01-1ß
 
 ### Added
 - `Table` - added table component
+
 
 ## v6.2.1 - 2021-12-13
 

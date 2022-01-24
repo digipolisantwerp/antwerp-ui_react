@@ -545,12 +545,18 @@ const optionsDistrict = [
 
 ### Datepicker
 
+If you want to use another locale (like e.g. Dutch) you have to manually import it. You can also choose to load more locales and define the right one via the `locale` prop. If no locales are defined React will fall back to English.
+
+```js static
+import 'moment/locale/nl';
+```
+
 ```
 const Datepicker = require('./src').Datepicker;
 
 <div>
   <Datepicker
-    locale={"en"}
+    locale={"nl"}
     id={"datepicker-id-1"}
     name={"datepicker-name"}
     label={"Datepicker with input mask"}
@@ -566,7 +572,7 @@ const Datepicker = require('./src').Datepicker;
   <br />
 
   <Datepicker
-    locale={"en"}
+    locale={"nl"}
     id={"datepicker-id-2"}
     name={"datepicker-name"}
     label={"Datepicker without input mask"}
@@ -583,7 +589,7 @@ const Datepicker = require('./src').Datepicker;
 
 <Datepicker
   size="small"
-  locale={"en"}
+  locale={"nl"}
   id={"datepicker-id-3"}
   name={"datepicker-name"}
   label={"Datepicker without input mask and small"}
@@ -599,7 +605,7 @@ const Datepicker = require('./src').Datepicker;
 
 <Datepicker
   size="large"
-  locale={"en"}
+  locale={"nl"}
   id={"datepicker-id-4"}
   name={"datepicker-name"}
   label={"Datepicker without input mask and small"}

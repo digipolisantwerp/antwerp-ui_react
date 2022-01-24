@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import classNames from 'classnames';
-import Link from '../../link';
+import Link from '../../link/src/Link';
 
 type Props = {
   align?: 'left' | 'right' | 'center',
