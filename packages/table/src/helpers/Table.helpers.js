@@ -1,3 +1,5 @@
+import * as get from 'lodash.get';
+
 export const isNull = (value) => value === null;
 export const isUndefined = (value) => value === undefined;
 export const isNil = (value) => isNull(value) || isUndefined(value);
@@ -14,7 +16,7 @@ const getCellValue = (rowData, key, fallback) => {
     return null;
   }
 
-  const value = rowData[key];
+  const value = get(rowData, key);
 
   if (isObject(value)) {
     return String(value);

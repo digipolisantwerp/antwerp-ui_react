@@ -13,19 +13,19 @@ export const TABLE_MOCK_COLUMNS = (
   {
     id: 'firstName',
     label: "First name",
-    value: "firstName",
+    value: "user.firstName",
   },
   {
     id: 'lastName',
     label: "Last name",
-    value: "lastName",
+    value: "user.lastName",
   },
   {
     id: 'fullName',
     label: "Full name",
     value: "fullName",
     format(data, col, rowData) {
-      const { firstName, lastName } = rowData;
+      const { user: { firstName, lastName } } = rowData;
 
       return `${firstName} ${lastName}`;
     },
@@ -94,53 +94,73 @@ export const TABLE_MOCK_FILTER = [
 export const TABLE_MOCK_ROWS = [
   {
     id: 0,
-    firstName: "Wyatt",
-    lastName: "Cooper",
+    user: {
+      firstName: "Wyatt",
+      lastName: "Cooper",
+    }
   },
   {
     id: 1,
-    firstName: "Mullen",
-    lastName: "Ballard",
+    user: {
+      firstName: "Mullen",
+      lastName: "Ballard",
+    }
   },
   {
     id: 2,
-    firstName: "Sonia",
-    lastName: "Bass",
+    user: {
+      firstName: "Sonia",
+      lastName: "Bass",
+    }
   },
   {
     id: 3,
-    firstName: "Kristen",
-    lastName: "Moore",
+    user: {
+      firstName: "Kristen",
+      lastName: "Moore",
+    }
   },
   {
     id: 4,
-    firstName: "Moss",
-    lastName: "Bowen",
+    user: {
+      firstName: "Moss",
+      lastName: "Bowen",
+    }
   },
   {
     id: 5,
-    firstName: "Elaine",
-    lastName: "Michael",
+    user: {
+      firstName: "Elaine",
+      lastName: "Michael",
+    }
   },
   {
     id: 6,
-    firstName: "Jerri",
-    lastName: "Hicks",
+    user: {
+      firstName: "Jerri",
+      lastName: "Hicks",
+    }
   },
   {
     id: 7,
-    firstName: "Sharron",
-    lastName: "Castro",
+    user: {
+      firstName: "Sharron",
+      lastName: "Castro",
+    }
   },
   {
     id: 8,
-    firstName: "Harriett",
-    lastName: "Horton",
+    user: {
+      firstName: "Harriett",
+      lastName: "Horton",
+    }
   },
   {
     id: 9,
-    firstName: "Griffin",
-    lastName: "Navarro",
+    user: {
+      firstName: "Griffin",
+      lastName: "Navarro",
+    }
   },
 ];
 

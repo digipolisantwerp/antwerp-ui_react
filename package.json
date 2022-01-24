@@ -69,6 +69,7 @@
   "dependencies": {
     "@a-ui/core": "^5.0.0",
     "classnames": "~2.2.6",
+    "lodash.get": "^4.4.2",
     "moment": "^2.29.1",
     "react-input-mask": "^2.0.4",
     "react-modal": "~3.5.1",
