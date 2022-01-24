@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+- `Table` - allow parsing of nested values
+
 ## v6.3.1 - 2022-01-24
 
 ### Fixed
