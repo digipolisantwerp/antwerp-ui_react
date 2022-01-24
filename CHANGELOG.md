@@ -6,8 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## v6.3.1 - 2022-01-24
+
 ### Fixed
 - `Table` - export table component
+
+
 ## v6.3.0 - 2022-01-1ß
 
 ### Added
