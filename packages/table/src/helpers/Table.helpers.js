@@ -16,7 +16,8 @@ const getCellValue = (rowData, key, fallback) => {
     return null;
   }
 
-  const value = get(rowData, key);
+  // Because of a weird fluke with jest & lerna we have to do this
+  const value = get.default ? get.default(rowData, key) : get(rowData, key);
 
   if (isObject(value)) {
     return String(value);
