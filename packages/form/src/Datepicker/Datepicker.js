@@ -44,6 +44,8 @@ type
   disabled?: boolean,
   /** If it should be free text input or click only */
   readOnly?: boolean,
+  /** Set a placeholder. */
+  placeholder?: string,
   /** enable/disable the days during the weekend. */
   noWeekends?: boolean,
   /** Every date less than this date will be disabled. */
@@ -191,6 +193,7 @@ class Datepicker extends Component<Props> {
       required,
       disabled,
       readOnly,
+      placeholder,
       name,
       format,
       locale = 'nl',
@@ -235,6 +238,7 @@ class Datepicker extends Component<Props> {
           name={name}
           id={id || this.defaultId}
           value={input}
+          placeholder={placeholder}
           required={required}
           readOnly={readOnly}
           disabled={disabled}

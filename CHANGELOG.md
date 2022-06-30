@@ -6,10 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
-## v6.3.1 - 2022-01-24
+## v6.4.0 - 2022-xx-xx
 
 ### Added
 - Added support for React 18
+- `Form` - Added placeholder option for datepicker
 
 ### Fixed
 - Made sure no extra space is created when flyout is closed

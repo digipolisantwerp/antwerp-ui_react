@@ -561,6 +561,7 @@ const Datepicker = require('./src').Datepicker;
     name={"datepicker-name"}
     label={"Datepicker with input mask"}
     format={"DD/MM/YYYY"}
+    placeholder={"dd/mm/yyyy"}
     mask={"99/99/9999"}
     required={true}
     onChange={(date, isValid) => console.log('date is ' + date + ', and is valid ' + isValid)}
