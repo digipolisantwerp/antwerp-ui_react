@@ -73,10 +73,12 @@ export const TABLE_MOCK_FILTER = [
     type: "select",
     options: [{
       id: '1',
-      label: 'Sci-Fi'
+      label: 'Sci-Fi',
+      value: 'Sci-Fi',
     }, {
       id: '2',
-      label: 'Thriller'
+      label: 'Thriller',
+      value: 'Thriller',
     }],
     label: "Genre",
     placeholder: "All Genres",
