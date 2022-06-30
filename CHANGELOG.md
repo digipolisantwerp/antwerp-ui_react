@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ### Added
 - Added support for React 18
 - `Form` - Added placeholder option for datepicker
+- `Form` - Added description option for select
+- `Form` - Added error description option for select
+- `Form` - Added error description option for datepicker
 
 ### Fixed
 - Made sure no extra space is created when flyout is closed

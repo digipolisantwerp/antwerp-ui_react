@@ -54,6 +54,8 @@ type
   state?: InputStates,
   /** Description to be shown under input. */
   description?: string,
+  /** Error description to be shown under input. */
+  errorDescription?: string,
   /** Every date greater than this date will be disabled. */
   maxDate?: string,
   /** Event for when the date changes. */
@@ -189,6 +191,7 @@ class Datepicker extends Component<Props> {
       id,
       state,
       description,
+      errorDescription,
       mask,
       required,
       disabled,
@@ -264,6 +267,7 @@ class Datepicker extends Component<Props> {
         }
       </div>
       {description && <small>{description}</small>}
+      {errorDescription && <small className="u-text-danger">{errorDescription}</small>}
     </div>
     ;
   }

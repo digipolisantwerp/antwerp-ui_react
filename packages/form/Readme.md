@@ -323,6 +323,7 @@ const optionsDistrict = [
 <div>
   <Select label="District"
     id={"select-1"}
+    description={"A brief description about districts"}
     label={"Districts"}
     name={"select-name"}
     value={"2030 Antwerpen"}
