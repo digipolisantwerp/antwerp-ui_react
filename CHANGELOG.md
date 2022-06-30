@@ -8,6 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## v6.3.1 - 2022-01-24
 
+### Added
+- Added support for React 18
+
+### Fixed
+- Made sure no extra space is created when flyout is closed
+
+
+## v6.3.1 - 2022-01-24
+
 ### Fixed
 - `Table` - export table component
 
