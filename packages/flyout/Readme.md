@@ -4,6 +4,6 @@ import Button from '../button/src/Button';
 <Flyout trigger={
   <Button type="primary">Click me!</Button>
   } hasPadding>
-  this is the flyout
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu mauris arcu. In ut nulla metus. Cras ut commodo nunc. Nullam augue massa, semper eget pharetra quis, lacinia sit amet metus. Proin magna felis, dictum sed arcu non, maximus tempor massa. Sed id sem sed nisl fringilla volutpat sed eu elit. Donec nec mauris eu sem euismod porttitor eget et dui.
 </Flyout>
 ```

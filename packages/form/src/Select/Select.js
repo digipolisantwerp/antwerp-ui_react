@@ -31,6 +31,8 @@ type Props = {
   required?: boolean,
   loading?: boolean,
   placeholder?: string,
+  description?: string,
+  errorDescription?: string,
   options?: Array<SelectOption>,
   onChange?: (e: object) => void,
   value?: string,
@@ -51,6 +53,8 @@ class Select extends Component<Props> {
       id,
       label,
       name,
+      description,
+      errorDescription,
       inline,
       className,
       state,
@@ -103,6 +107,8 @@ class Select extends Component<Props> {
               </Option>
             ))}
           </select>
+          {description ? <small>{description}</small> : null}
+          {errorDescription && <small className="u-text-danger">{errorDescription}</small>}
           {loading ? <Spinner size="small" className="ai" /> : <Icon name="ai-arrow-down-1" />}
         </div>
       </div>

@@ -44,6 +44,8 @@ type
   disabled?: boolean,
   /** If it should be free text input or click only */
   readOnly?: boolean,
+  /** Set a placeholder. */
+  placeholder?: string,
   /** enable/disable the days during the weekend. */
   noWeekends?: boolean,
   /** Every date less than this date will be disabled. */
@@ -52,6 +54,8 @@ type
   state?: InputStates,
   /** Description to be shown under input. */
   description?: string,
+  /** Error description to be shown under input. */
+  errorDescription?: string,
   /** Every date greater than this date will be disabled. */
   maxDate?: string,
   /** Event for when the date changes. */
@@ -187,10 +191,12 @@ class Datepicker extends Component<Props> {
       id,
       state,
       description,
+      errorDescription,
       mask,
       required,
       disabled,
       readOnly,
+      placeholder,
       name,
       format,
       locale = 'nl',
@@ -235,6 +241,7 @@ class Datepicker extends Component<Props> {
           name={name}
           id={id || this.defaultId}
           value={input}
+          placeholder={placeholder}
           required={required}
           readOnly={readOnly}
           disabled={disabled}
@@ -260,6 +267,7 @@ class Datepicker extends Component<Props> {
         }
       </div>
       {description && <small>{description}</small>}
+      {errorDescription && <small className="u-text-danger">{errorDescription}</small>}
     </div>
     ;
   }
