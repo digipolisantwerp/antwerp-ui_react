@@ -6,7 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
-## v6.4.0 - 2022-xx-xx
+
+## v6.4.0 - 2022-07-01
 
 ### Added
 - Added support for React 18

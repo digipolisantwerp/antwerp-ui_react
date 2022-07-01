@@ -4,8 +4,6 @@ import ReactDOM from 'react-dom';
 
 import FlyoutContent from '../../flyout-button/src/FlyoutContent/FlyoutContent';
 
-import './Flyout.scss';
-
 const flyoutSizes = {
   small: 'sm',
   medium: 'md',

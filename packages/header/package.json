@@ -13,8 +13,8 @@
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "node-sass": "^4.14.1",
     "rollup-plugin-sass": "^1.2.2",
+    "sass": "^1.53.0",
     "sass-loader": "^7.3.1"
   }
 }
