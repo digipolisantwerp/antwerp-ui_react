@@ -5,7 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
-
+- Bugfix: Datepicker filter value
 
 ## v6.4.0 - 2022-07-01
 
