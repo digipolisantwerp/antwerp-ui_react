@@ -43,7 +43,7 @@ const Filter = ({
             id={filter.id}
             name={filter.id}
             value={filter.value}
-            onChange={(e) => handleFilter(filter.id, e.target.value)}
+            onChange={(value) => handleFilter(filter.id, value)}
             size={isGeneric ? "medium" : "small"}
           />
         );
