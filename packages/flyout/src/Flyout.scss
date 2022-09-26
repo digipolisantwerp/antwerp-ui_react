@@ -1,0 +1,10 @@
+@import '~@a-ui/core/src/styles/_quarks';
+
+.m-flyout .m-flyout__content {
+  max-height: 0;
+  transition: visibility 0s ease-in-out .2s, opacity .2s ease-in-out, transform .2s ease-in-out, max-height .2s ease-in-out;
+}
+
+.m-flyout.is-open .m-flyout__content {
+  max-height: 1000000px;
+}

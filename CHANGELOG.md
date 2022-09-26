@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## v5.0.10 - XX-XX-2022
+
+### Fixed
+- `Flyout` - Made sure no extra space is created when flyout is closed
+
 ## v5.0.9 - 26-11-2021
 
 ### Fixed
