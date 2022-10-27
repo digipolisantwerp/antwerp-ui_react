@@ -23,20 +23,22 @@ const Icon = ({ name, style, className, ariaLabel, onClick, src, qa }: Props) =>
   /**
    * Inject SVG icons from core branding into page
    */
-  const fetchAntwerpIcons = async function() {
+  const fetchAntwerpIcons = function() {
     if (!fetch) return;
+
     try {
       const xlinkHref = 'https://cdn.antwerpen.be/core_branding_scss/5.0.0/assets/images/ai.svg';
-      const response = await fetch(xlinkHref);
-      const svgText = await response.text();
-
-      const svgWrapper = document.createElement('svg');
-
-      svgWrapper.id = 'aiSvg';
-      svgWrapper.innerHTML = svgText;
-      if(!document.getElementById('aiSvg')) {
-        document.body.appendChild(svgWrapper);
-      }
+      const response = fetch(xlinkHref)
+        .then((response) => response.text())
+        .then((svgText) => {
+          const svgWrapper = document.createElement('svg');
+    
+          svgWrapper.id = 'aiSvg';
+          svgWrapper.innerHTML = svgText;
+          if(!document.getElementById('aiSvg')) {
+            document.body.appendChild(svgWrapper);
+          }
+        });
     } catch(err) {
       throw new Error(err);
     }
