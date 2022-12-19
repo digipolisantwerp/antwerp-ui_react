@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@acpaas-ui/react-components/avatar": [
+        "packages/ui-components/atoms/avatar/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
