@@ -1,0 +1,45 @@
+{
+  "name": "documentation-examples",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "/documentation/examples/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/documentation/examples"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "documentation-examples:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "documentation-examples:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "documentation-examples:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["/documentation/examples/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  },
+  "tags": []
+}

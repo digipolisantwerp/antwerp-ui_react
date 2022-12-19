@@ -4,7 +4,7 @@ export interface AvatarProps {}
 export function Avatar(props: AvatarProps) {
   return (
     <div>
-      <h1>Welcome to Avatar!</h1>
+      <h1>Avatar</h1>
     </div>
   );
 }

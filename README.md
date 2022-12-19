@@ -15,3 +15,9 @@ Run `npx nx connect-to-nx-cloud` to enable [remote caching](https://nx.app) and 
 ## Further help
 
 Visit the [Nx Documentation](https://nx.dev) to learn more.
+
+## TODO-NT DOC
+
+- VSCode library
+- Run tests of single component `nx test ui-components-atoms-avatar`
+- Run example app: `yarn nx run documentation-examples:serve:development`

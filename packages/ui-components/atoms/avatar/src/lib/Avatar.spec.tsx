@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import UiComponentsAtomsAvatar from './Avatar';
+import Avatar from './Avatar';
 
-describe('UiComponentsAtomsAvatar', () => {
+describe('Avatar', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<UiComponentsAtomsAvatar />);
+    const { baseElement } = render(<Avatar />);
     expect(baseElement).toBeTruthy();
   });
 });
