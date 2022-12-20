@@ -1,7 +1,7 @@
 {
-  "name": "documentation-examples",
+  "name": "documentation-playground",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "/documentation/examples/src",
+  "sourceRoot": "/documentation/playground/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -9,7 +9,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/documentation/examples"
+        "outputPath": "dist/documentation/playground"
       },
       "configurations": {
         "development": {},
@@ -20,15 +20,15 @@
       "executor": "@nrwl/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "documentation-examples:build"
+        "buildTarget": "documentation-playground:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "documentation-examples:build:development",
+          "buildTarget": "documentation-playground:build:development",
           "hmr": true
         },
         "production": {
-          "buildTarget": "documentation-examples:build:production",
+          "buildTarget": "documentation-playground:build:production",
           "hmr": false
         }
       }
@@ -37,7 +37,7 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["/documentation/examples/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["/documentation/playground/**/*.{ts,tsx,js,jsx}"]
       }
     }
   },
