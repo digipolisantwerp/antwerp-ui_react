@@ -1,0 +1,16 @@
+{
+  "name": "@acpaas-ui/storybook",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "/documentation/storybook/src",
+  "projectType": "application",
+  "targets": {
+    "start": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "yarn storybook",
+        "cwd": "documentation/storybook"
+      }
+    }
+  },
+  "tags": []
+}
