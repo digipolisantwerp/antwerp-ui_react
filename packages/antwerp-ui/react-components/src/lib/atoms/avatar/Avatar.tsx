@@ -1,10 +1,10 @@
-/* eslint-disable @typescript-eslint/no-empty-interface */
+/* eslint-disable-next-line */
 export interface AvatarProps {}
 
 export function Avatar(props: AvatarProps) {
   return (
     <div>
-      <h1>Avatar 2</h1>
+      <h1>Welcome to Avatar!</h1>
     </div>
   );
 }

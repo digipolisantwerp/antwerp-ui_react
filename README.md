@@ -20,6 +20,8 @@ Visit the [Nx Documentation](https://nx.dev) to learn more.
 
 - Node version 18.12.1
 - VSCode library
-- Run tests of single component `nx test ui-components-atoms-avatar`
 - Run example app: `yarn nx run documentation-playground:serve:development`
 - Run storybook: `yarn nx run @acpaas-ui/storybook:start --verbose`
+- Commando `yarn install` in storybook => voeg toe in commando
+
+- yarn nx g @nrwl/react:component --project antwerp-ui-react-components --directory=lib/atoms antwerp-ui-react-components --name Badge --export true --pascalCaseFiles true
