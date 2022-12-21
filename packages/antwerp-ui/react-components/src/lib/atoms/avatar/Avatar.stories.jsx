@@ -1,5 +1,5 @@
 import React from 'react';
-import Avatar from './Avatar';
+import { Avatar } from './Avatar';
 
 export default {
   title: 'React/Atoms/Avatar',
@@ -7,7 +7,7 @@ export default {
   parameters: {}
 };
 
-const Template = () => <Avatar />;
+const Template = () => <Avatar letter='NT' rounded/>;
 
 export const Base = Template.bind({});
 

@@ -1,1 +1,1 @@
-export * from './lib/atoms/avatar/Avatar';
+export * from './lib/atoms/avatar';
