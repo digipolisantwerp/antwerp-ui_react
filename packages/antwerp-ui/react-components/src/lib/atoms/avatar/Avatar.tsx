@@ -1,7 +1,7 @@
 import { AvatarProps, DEFAULT_AVATAR_ICON } from './Avatar.types';
 import { classNames } from '../../../utils/dom.utils';
 
-// TODO REPLACE ICON BY ICON COMPONENT
+// TODO-NT REPLACE ICON BY ICON COMPONENT
 const letterAvatar = (letter: string) => <span className="a-avatar__letter">{letter}</span>;
 const imageAvatar = (image: string, alt: string) => <img src={`${image}`} alt={`${alt}`} />;
 const iconAvatar = (icon: string) => (

@@ -14,6 +14,12 @@
 
 ## Testing
 
+Jest and react test library
+
+- `yarn test`
+- `yarn test --watch`
+- `yarn test --coverage`
+
 ## Conventions
 
 ## Contributions
