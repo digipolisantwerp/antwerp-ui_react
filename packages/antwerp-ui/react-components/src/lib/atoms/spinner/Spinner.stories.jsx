@@ -44,10 +44,8 @@ export default {
     },
     qa: {
       control: { type: 'text' },
-      defaultValue: '',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: '' }
       },
       description: 'The qa parameter allows to set the `data-qa` prop on the rendered html of the component.',
     }

@@ -1,3 +1,6 @@
+Algemeen:
+- Moet de `qa` gedocumenteerd worden?
+
 Avatar:
 - Voorrang: image > tekst > icoon
 
