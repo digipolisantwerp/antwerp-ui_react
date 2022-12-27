@@ -1,0 +1,6 @@
+Avatar:
+- Voorrang: image > tekst > icoon
+
+Spinner:
+- Gebruik van aria-busy?
+- Role alert = huiststijlgids? (vs. status in oude implementatie)?

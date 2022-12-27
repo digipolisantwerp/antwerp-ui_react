@@ -1,6 +1,7 @@
 import { Avatar } from '@acpaas-ui/react-components';
 
 export function AvatarExamples() {
+  // TODO-NT ICON AVATAR
   return (
     <>
       <h1>Avatars</h1>
