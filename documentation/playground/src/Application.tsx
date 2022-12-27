@@ -1,10 +1,10 @@
-
-
-import { Avatar } from '@acpaas-ui/react-components'
+import AvatarExamples from './atoms/AvatarExamples';
 
 export function Application() {
   return (
-    <Avatar letter='NT'/>
+    <>
+      <AvatarExamples />
+    </>
   );
 }
 

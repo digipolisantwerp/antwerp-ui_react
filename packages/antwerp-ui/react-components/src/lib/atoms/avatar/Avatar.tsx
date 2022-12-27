@@ -31,7 +31,7 @@ export function Avatar({ letter, rounded, size, ariaLabel, image, imageAlt, icon
     [`a-avatar--${(size || '')[0]}`]: !!size
   });
   return (
-    <div id={qa} className={classes} aria-label={ariaLabel}>
+    <div className={classes} aria-label={ariaLabel} data-qa={qa}>
       {renderContent()}
     </div>
   );
