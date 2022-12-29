@@ -58,7 +58,7 @@ export default {
         defaultValue: { summary: 'Gebruiker icoon' }
       },
       defaultValue: 'Gebruiker icoon',
-      description: 'The ariaLabel describes an accessible name for the avatar component.',
+      description: 'The ariaLabel describes an accessible name for the icon avatar component.',
     },
     imageAlt: {
       control: { type: 'text' },

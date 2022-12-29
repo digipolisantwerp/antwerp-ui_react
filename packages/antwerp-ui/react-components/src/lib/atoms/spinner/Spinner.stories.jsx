@@ -11,7 +11,7 @@ export default {
         type: { summary: 'string' },
         defaultValue: { summary: 'Wordt geladen...' }
       },
-      description: 'The label describes an (accessible) name for the spinner. This label is visible if `showText` is set to `true`.'
+      description: 'The label describes the spinner. This label is visible if `showText` is set to `true`.'
     },
     showText: {
       control: { type: 'boolean' },
