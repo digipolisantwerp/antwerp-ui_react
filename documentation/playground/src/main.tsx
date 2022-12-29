@@ -1,14 +1,12 @@
 import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 
-import Application from './Application';
+import Playground from './Playground';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('aui-react-playground') as HTMLElement
-);
+const root = ReactDOM.createRoot(document.getElementById('aui-react-playground') as HTMLElement);
 
 root.render(
   <StrictMode>
-    <Application />
+    <Playground />
   </StrictMode>
 );

@@ -1,16 +1,13 @@
-import { AvatarProps, DEFAULT_AVATAR_ICON } from './Avatar.types';
+import { AvatarProps } from './Avatar.types';
 import { classNames } from '../../../utils/dom.utils';
+import { DEFAULT_AVATAR_ICON } from '../../../constants/settings';
+import { Icon } from '../../base/icon';
 
-// TODO-NT REPLACE ICON BY ICON COMPONENT
 const letterAvatar = (letter: string) => <span className="a-avatar__letter">{letter}</span>;
 const imageAvatar = (image: string, alt: string) => <img src={`${image}`} alt={`${alt}`} />;
-const iconAvatar = (icon: string) => (
-  <span className="a-avatar__icon">
-    <span className="ai" aria-hidden="true">
-      <svg>
-        <use href={`#ai-${icon}`}></use>
-      </svg>
-    </span>
+const iconAvatar = (icon: string, ariaLabel: string) => (
+  <span className="a-avatar__icon" aria-label={ariaLabel}>
+    <Icon name={icon} />
   </span>
 );
 
@@ -22,7 +19,7 @@ export function Avatar({ letter, rounded, size, ariaLabel, image, imageAlt, icon
     if (letter) {
       return letterAvatar(letter);
     }
-    return iconAvatar(icon || DEFAULT_AVATAR_ICON);
+    return iconAvatar(icon || DEFAULT_AVATAR_ICON, ariaLabel);
   };
   const classes = classNames({
     'a-avatar': true,
@@ -31,7 +28,7 @@ export function Avatar({ letter, rounded, size, ariaLabel, image, imageAlt, icon
     [`a-avatar--${(size || '')[0]}`]: !!size
   });
   return (
-    <div className={classes} aria-label={ariaLabel} data-qa={qa}>
+    <div className={classes} data-qa={qa}>
       {renderContent()}
     </div>
   );

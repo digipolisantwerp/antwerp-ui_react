@@ -8,8 +8,8 @@ THIS IS A DRAFT
 - Node version 18.12.1
 - VSCode library
 - Commando `yarn install` in storybook => voeg toe in commando
-- Run example app: `yarn nx run documentation-playground:serve:development` vs
-- Run storybook: `yarn nx run @acpaas-ui/storybook:start`
+- Run example app: `yarn run playground` vs
+- Run storybook: `yarn run storybook`
 
 ## Code generation
 

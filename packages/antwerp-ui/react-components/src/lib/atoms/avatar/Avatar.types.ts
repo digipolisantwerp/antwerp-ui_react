@@ -1,5 +1,3 @@
-export const DEFAULT_AVATAR_ICON = 'single-neutral';
-
 export interface AvatarProps {
   icon?: string;
   letter?: string;
