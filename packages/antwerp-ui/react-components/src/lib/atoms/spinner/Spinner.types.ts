@@ -1,7 +1,7 @@
 export interface SpinnerProps {
   label: string;
-  showText?: boolean;
-  size?: string;
-  vertical?: boolean;
   qa?: string;
+  showText?: boolean;
+  size?: 'extra-small' | 'small' | 'medium' | 'large';
+  vertical?: boolean;
 }

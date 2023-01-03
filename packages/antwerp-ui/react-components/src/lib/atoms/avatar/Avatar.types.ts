@@ -1,10 +1,10 @@
 export interface AvatarProps {
+  ariaLabel?: string;
   icon?: string;
-  letter?: string;
   image?: string;
-  imageAlt: string;
+  imageAlt?: string;
+  letter?: string;
+  qa?: string;
   rounded?: boolean;
   size?: 'small' | 'medium' | 'large';
-  ariaLabel: string;
-  qa?: string;
 }
