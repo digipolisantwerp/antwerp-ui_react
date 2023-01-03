@@ -1,9 +1,9 @@
-import { DEFAULT_SIZE, Size, SIZE_MAPPING, Theme } from '../../../constants/layout.settings';
-import { classNames } from '../../../utils/dom.utils';
-import { Icon } from '../../base/icon';
 import { Avatar } from '../avatar';
-import { Spinner } from '../spinner';
 import { ButtonProps } from './Button.types';
+import { classNames } from '../../../utils/dom.utils';
+import { DEFAULT_SIZE, Size, SIZE_MAPPING, Theme } from '../../../constants/layout.settings';
+import { Icon } from '../../base/icon';
+import { Spinner } from '../spinner';
 
 export function Button({
   ariaLabel,
