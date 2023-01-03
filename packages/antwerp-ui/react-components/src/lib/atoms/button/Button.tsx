@@ -39,12 +39,13 @@ export function Button({
   });
 
   const renderAddOn = (): JSX.Element | null => {
+    const iconType = icon || iconLeft || iconRight;
     if (avatar) {
       return <Avatar {...avatar} size={size} />;
     } else if (spinner) {
       return <Spinner size={size === Size.S ? Size.XS : Size.S} />;
-    } else if (icon || iconLeft || iconRight) {
-      return <Icon name={icon || iconLeft || iconRight || ''} />;
+    } else if (iconType) {
+      return <Icon name={iconType} />;
     }
     return null;
   };
