@@ -38,7 +38,14 @@ export default {
       description: 'The qa parameter allows to set the `data-qa` prop on the rendered html of the component.',
     }
   },
-  parameters: {}
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'An icon is an image that represents a concept with meaning for the user. Icons can have an important role in any application. They are mostly language-independent, so without much effort they can give context to a lot of people. They are also very small, which means that they don’t take up a lot of screen real estate.'
+      }
+    }
+  }
 };
 
 export const icon = '';

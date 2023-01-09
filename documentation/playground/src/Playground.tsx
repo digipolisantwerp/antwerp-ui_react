@@ -1,15 +1,17 @@
 import AvatarExamples from './atoms/AvatarExamples';
+import BadgeExamples from './atoms/BadgeExamples';
 import ButtonExamples from './atoms/ButtonExamples';
-import SpinnerExamples from './atoms/SpinnerExamples';
 import IconExamples from './base/IconExamples';
+import SpinnerExamples from './atoms/SpinnerExamples';
 
 export function Playground() {
   return (
     <>
       <IconExamples />
       <AvatarExamples />
-      <SpinnerExamples />
+      <BadgeExamples />
       <ButtonExamples />
+      <SpinnerExamples />
     </>
   );
 }

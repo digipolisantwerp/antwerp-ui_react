@@ -50,7 +50,14 @@ export default {
       description: 'The qa parameter allows to set the `data-qa` prop on the rendered html of the component.',
     }
   },
-  parameters: {}
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A spinner communicates to the users that they have to wait for a page, element or functionality to complete loading before they can access it. '
+      }
+    }
+  }
 };
 
 export const spinner = '';

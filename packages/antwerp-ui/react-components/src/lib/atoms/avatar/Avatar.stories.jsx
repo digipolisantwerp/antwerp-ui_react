@@ -77,7 +77,14 @@ export default {
       description: 'The qa parameter allows to set the `data-qa` prop on the rendered html of the component.',
     },
   },
-  parameters: {}
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Avatars are a special type of add-on or stand-alone visualisation meant to represent a user. Avatars can be interactive, and take on the form of the button-like call to action. They can also be an actual part (or add-on) of a button. Or they can function as a purely ‘decorative’ callback to a user.'
+      }
+    }
+  }
 };
 
 export const avatar = '';

@@ -149,7 +149,14 @@ export default {
       description: 'The qa parameter allows for an identification to be given to the component.'
     }
   },
-  parameters: {}
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Buttons are the primary call-to-action components by which we allow users to take action. Buttons are used for actions that affect the front-end or back-end.'
+      }
+    }
+  }
 };
 
 export const button = '';
