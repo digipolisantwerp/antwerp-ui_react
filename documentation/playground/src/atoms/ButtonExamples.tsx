@@ -20,6 +20,7 @@ export function ButtonExamples() {
       <Button theme="warning" outline>
         Warning outline
       </Button>
+      <Button icon="ai-archive"></Button>
     </>
   );
 }
