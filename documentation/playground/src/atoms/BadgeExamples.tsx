@@ -3,7 +3,7 @@ import { Badge } from '@acpaas-ui/react-components';
 export function BadgeExamples() {
   return (
     <>
-      <h1>Badges</h1>
+      <h2>Badges</h2>
       <Badge>1</Badge>
       <Badge theme="primary" type="transparent">
         2

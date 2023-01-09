@@ -3,7 +3,7 @@ import { Button } from '@acpaas-ui/react-components';
 export function ButtonExamples() {
   return (
     <>
-      <h1>Buttons</h1>
+      <h2>Buttons</h2>
       <Button size="large">Click me!</Button>
       <Button avatar={{ image: 'https://placedog.net/100/100?r' }}>Avatar button</Button>
       <Button size="small" spinner>
