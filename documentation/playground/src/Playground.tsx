@@ -8,9 +8,7 @@ import CheckboxExamples from './atoms/CheckboxExamples';
 export function Playground() {
   return (
     <>
-      <h1>Base</h1>
       <IconExamples />
-      <h1>Atoms</h1>
       <AvatarExamples />
       <BadgeExamples />
       <CheckboxExamples />

@@ -7,7 +7,7 @@ export function CheckboxExamples() {
     setFirstChecked(e.target.checked);
   };
   return (
-    <>
+    <div className="u-margin-bottom">
       <h2>Checkboxes</h2>
       <Checkbox name="checkbox" id="check-1" label="Controlled" onChange={onCheckboxChange} checked={firstChecked} />
       <Checkbox name="checkbox" id="check-2" label="Controlled no onChange" checked={true} />
@@ -16,7 +16,7 @@ export function CheckboxExamples() {
       <Checkbox name="checkbox" id="check-5" label="Disabled unchecked" disabled />
       <Checkbox name="checkbox" id="check-6" label="Disabled indeterminate" disabled indeterminate />
       <Checkbox name="checkbox" id="check-7" label="Disabled checked" disabled checked />
-    </>
+    </div>
   );
 }
 

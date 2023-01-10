@@ -2,7 +2,7 @@ import { Button } from '@acpaas-ui/react-components';
 
 export function ButtonExamples() {
   return (
-    <>
+    <div className="u-margin-bottom">
       <h2>Buttons</h2>
       <Button size="large">Click me!</Button>
       <Button avatar={{ image: 'https://placedog.net/100/100?r' }}>Avatar button</Button>
@@ -21,7 +21,7 @@ export function ButtonExamples() {
         Warning outline
       </Button>
       <Button icon="ai-archive"></Button>
-    </>
+    </div>
   );
 }
 
