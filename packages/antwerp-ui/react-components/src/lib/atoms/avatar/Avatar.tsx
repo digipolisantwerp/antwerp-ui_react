@@ -15,12 +15,12 @@ const iconAvatar = (icon: string, ariaLabel: string) => (
 export function Avatar({ letter, rounded, size, ariaLabel, image, imageAlt, icon, qa }: AvatarProps) {
   const renderContent = () => {
     if (image) {
-      return imageAvatar(image, imageAlt);
+      return imageAvatar(image, imageAlt || '');
     }
     if (letter) {
       return letterAvatar(letter);
     }
-    return iconAvatar(icon || DEFAULT_AVATAR_ICON, ariaLabel);
+    return iconAvatar(icon || DEFAULT_AVATAR_ICON, ariaLabel || '');
   };
   const classes = classNames({
     'a-avatar': true,

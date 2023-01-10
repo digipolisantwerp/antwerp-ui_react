@@ -18,11 +18,10 @@ export function Checkbox({ label, checked, id, qa, name, disabled, indeterminate
   });
 
   return (
-    <div className={classes} data-testid={id}>
+    <div data-qa={qa} className={classes} data-testid={id}>
       <input
         type="checkbox"
         id={id}
-        data-qa={qa}
         name={name}
         checked={checked}
         ref={setIndeterminate}

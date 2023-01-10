@@ -4,6 +4,7 @@ import ButtonExamples from './atoms/ButtonExamples';
 import IconExamples from './base/IconExamples';
 import SpinnerExamples from './atoms/SpinnerExamples';
 import CheckboxExamples from './atoms/CheckboxExamples';
+import RadioExamples from './atoms/RadioExamples';
 
 export function Playground() {
   return (
@@ -11,8 +12,9 @@ export function Playground() {
       <IconExamples />
       <AvatarExamples />
       <BadgeExamples />
-      <CheckboxExamples />
       <ButtonExamples />
+      <CheckboxExamples />
+      <RadioExamples />
       <SpinnerExamples />
     </>
   );
