@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import { Badge } from './Badge';
 import { render, screen } from '@testing-library/react';
 
-describe('Badge', () => {
+describe('UI Components - Atoms - Badge', () => {
   it('should render successfully', () => {
     render(<Badge>24</Badge>);
     expect(screen.getByText('24')).toBeInTheDocument();
