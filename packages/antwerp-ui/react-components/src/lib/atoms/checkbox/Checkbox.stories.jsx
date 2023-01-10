@@ -49,7 +49,7 @@ export default {
         type: { summary: 'function' },
       },
       action: 'onChange',
-      description: 'Function triggered when the checkbox value has changed. First parameter of this function is of type (React) ChangeEvent.'
+      description: 'Function triggered when the checkbox value has changed. First parameter of this function is of type (React).ChangeEvent.'
     },
     id: {
       control: { type: 'text' },
