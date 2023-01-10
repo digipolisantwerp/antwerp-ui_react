@@ -3,6 +3,14 @@ import Checkbox from './Checkbox';
 export default {
   title: 'React/Atoms/Checkbox',
   component: Checkbox,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A checkbox allows for a user to select one or more explicit options from a list. They are ideal for allowing the selection of multiple options (for example for batch operations) or simply to provide a clear opt-in or opt-out decision. When there is a list of two or more options that are mutually exclusive and the user must select exactly one choice, then use radio buttons instead of checkboxes. Never combine a checkbox with a label containing other elements apart from text. For instance do not use text links in the label of a checkbox.'
+      }
+    }
+  },
   argTypes: {
     label: {
       control: { type: 'text' },
@@ -77,14 +85,6 @@ export default {
         type: { summary: 'string' }
       },
       description: 'The qa parameter allows to set the `data-qa` prop on the rendered html of the component.'
-    }
-  },
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'A checkbox allows for a user to select one or more explicit options from a list. They are ideal for allowing the selection of multiple options (for example for batch operations) or simply to provide a clear opt-in or opt-out decision. When there is a list of two or more options that are mutually exclusive and the user must select exactly one choice, then use radio buttons instead of checkboxes. Never combine a checkbox with a label containing other elements apart from text. For instance do not use text links in the label of a checkbox.'
-      }
     }
   }
 };

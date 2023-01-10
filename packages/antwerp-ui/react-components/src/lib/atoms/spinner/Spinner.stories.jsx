@@ -3,6 +3,14 @@ import Spinner from './Spinner';
 export default {
   title: 'React/Atoms/Spinner',
   component: Spinner,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A spinner communicates to the users that they have to wait for a page, element or functionality to complete loading before they can access it. '
+      }
+    }
+  },
   argTypes: {
     label: {
       control: { type: 'text' },
@@ -48,14 +56,6 @@ export default {
         type: { summary: 'string' },
       },
       description: 'The qa parameter allows to set the `data-qa` prop on the rendered html of the component.',
-    }
-  },
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'A spinner communicates to the users that they have to wait for a page, element or functionality to complete loading before they can access it. '
-      }
     }
   }
 };

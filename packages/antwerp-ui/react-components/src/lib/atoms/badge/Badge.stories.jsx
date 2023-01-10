@@ -3,6 +3,14 @@ import Badge from './Badge';
 export default {
   title: 'React/Atoms/Badge',
   component: Badge,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A badge is a small numeric label that accompanies other elements, such as text, links, tabs, icons, etc., and can be used to indicate a value associated with the accompanying element. A prime use-case example of a badge is for denoting how many new messages or notifications are unread or awaiting the user in an inbox.'
+      }
+    }
+  },
   argTypes: {
     children: {
       control: { type: 'text' },
@@ -48,14 +56,6 @@ export default {
         type: { summary: 'string' }
       },
       description: 'The qa parameter allows to set the `data-qa` prop on the rendered html of the component.'
-    }
-  },
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'A badge is a small numeric label that accompanies other elements, such as text, links, tabs, icons, etc., and can be used to indicate a value associated with the accompanying element. A prime use-case example of a badge is for denoting how many new messages or notifications are unread or awaiting the user in an inbox.'
-      }
     }
   }
 };

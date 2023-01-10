@@ -3,6 +3,13 @@ import { Radio  } from './Radio';
 export default {
   title: 'React/Atoms/Radios/Radio',
   component: Radio,
+  parameters: {
+    docs: {
+      description: {
+        component: 'The Radio component should be used as the child of a RadioGroup component. Use radio buttons when users can only select one option from a list of presented choices.'
+      }
+    }
+  },
   argTypes: {
     label: {
       control: { type: 'text' },
@@ -67,13 +74,6 @@ export default {
         type: { summary: 'string' }
       },
       description: 'The qa parameter allows to set the `data-qa` prop on the rendered html of the component.'
-    }
-  },
-  parameters: {
-    docs: {
-      description: {
-        component: 'The Radio component should be used as the child of a RadioGroup component. Use radio buttons when users can only select one option from a list of presented choices.'
-      }
     }
   }
 };
