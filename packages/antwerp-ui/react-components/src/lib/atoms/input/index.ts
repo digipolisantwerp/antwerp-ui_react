@@ -1,2 +1,3 @@
 export { TextField } from './text-field/TextField';
-export type { TextFieldProps } from './text-field/TextField.types';
+export { TextArea } from './text-area/TextArea';
+export type { TextFieldProps, TextAreaProps } from './Input.types';

@@ -1,44 +1,9 @@
+import { TextFieldProps } from '../Input.types';
 import { classNames } from '../../../../utils/dom.utils';
-import { DEFAULT_SIZE, SIZE_MAPPING, State } from '../../../../constants/layout.settings';
+import { DEFAULT_SIZE, SIZE_MAPPING } from '../../../../constants/layout.settings';
 import { Icon } from '../../../base/icon';
-import { CharacterCounterProps, DescriptionProps, LabelProps, TextFieldProps } from './TextField.types';
+import { renderCharacterCounter, renderDescription, renderLabel } from '../input.renders';
 import { useState } from 'react';
-
-const renderLabel = ({ label, id, required, inline }: LabelProps) => {
-  const labelClasses = classNames({
-    'a-input__label': true,
-    'a-input__label--inline': !!inline
-  });
-  return label ? (
-    <label className={labelClasses} htmlFor={id}>
-      {label}
-      {required && <span className="u-text-danger">*</span>}
-    </label>
-  ) : null;
-};
-
-const renderDescription = ({ description, state }: DescriptionProps) => {
-  const descriptionClasses = classNames({
-    'a-input__description': true,
-    'is-error': state === State.ERROR,
-    'is-success': state === State.SUCCESS
-  });
-  return description ? (
-    <small className={descriptionClasses}>
-      {state === State.SUCCESS && <Icon name="check-1" />}
-      {state === State.ERROR && <Icon name="alert-triangle" />}
-      {description}
-    </small>
-  ) : null;
-};
-
-const renderCharacterCounter = ({ charCounter, characterCount, maxLength }: CharacterCounterProps) => {
-  return charCounter && maxLength ? (
-    <small aria-live="polite" className="a-input__description u-text-right">
-      {`${characterCount} / ${maxLength}`}
-    </small>
-  ) : null;
-};
 
 export function TextField({
   addonLeft,

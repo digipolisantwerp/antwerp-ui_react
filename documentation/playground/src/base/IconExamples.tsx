@@ -7,7 +7,7 @@ export function IconExamples() {
       <Icon name="alarm-bell" />
       <Icon name="alert-diamond" />
       <Icon name="mouse" screenReaderText="Click to connect your mouse" />
-      <Icon thin name="mouse" screenReaderText="Click to connect your mouse" />
+      <Icon thin name="ai-mouse" screenReaderText="Click to connect your mouse" />
     </div>
   );
 }
