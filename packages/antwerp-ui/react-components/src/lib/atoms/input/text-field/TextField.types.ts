@@ -21,7 +21,7 @@ export interface TextFieldProps {
   qa?: string;
   readOnly?: boolean;
   required?: boolean;
-  size?: 'small' | 'default' | 'large';
+  size?: 'small' | 'medium' | 'large';
   state?: 'success' | 'error';
   type?: InputTypes;
   value?: string;
