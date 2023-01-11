@@ -19,7 +19,7 @@ export default {
         type: { summary: 'string' },
         defaultValue: { summary: 'Wordt geladen...' }
       },
-      description: 'The label describes the spinner. This label is visible if `showText` is set to `true`.'
+      description: 'The `label` describes the spinner. This label is visible if `showText` is set to `true`.'
     },
     showText: {
       control: { type: 'boolean' },
@@ -29,7 +29,7 @@ export default {
         defaultValue: { summary: false }
       },
       description:
-        'Controls whether the label parameter should be used as a visual element or as a screen reader only element.'
+        'Controls whether the label should be used as a visual element or as a screen reader only element.'
     },
     size: {
       control: { type: 'select' },
@@ -55,7 +55,7 @@ export default {
       table: {
         type: { summary: 'string' },
       },
-      description: 'The qa parameter allows to set the `data-qa` prop on the rendered html of the component.',
+      description: 'The `qa` prop allows to set the `data-qa` attribute on the rendered HTML of the component.',
     }
   }
 };

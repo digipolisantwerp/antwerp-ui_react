@@ -18,7 +18,7 @@ export default {
         type: { summary: 'string' },
         defaultValue: { summary: '' }
       },
-      description: 'A label that displays next to the Radio button.'
+      description: 'A label that displays next to the `Radio` button.'
     },
     checked: {
       control: { type: 'boolean' },
@@ -28,7 +28,7 @@ export default {
         defaultValue: { summary: false }
       },
       description:
-        'The checked parameter is used to set a default state for the Radio component. In normal instances, this will be passed down from the RadioGroup component and is used in conjuction with state in order to change the selected Radio button.'
+        'The `checked` prop is used to set the state for the `Radio` component. In normal instances, this will be passed down from the `RadioGroup` component and is used to change the selected `Radio` button.'
     },
     disabled: {
       control: { type: 'boolean' },
@@ -38,7 +38,7 @@ export default {
         defaultValue: { summary: false }
       },
       description:
-        'A Radio component can be ‘disabled’, barring any interaction with the control.'
+        'A `Radio` component can be `disabled`, barring any interaction with the control.'
     },
     name: {
       control: { type: 'text' },
@@ -48,7 +48,7 @@ export default {
         defaultValue: { summary: '' }
       },
       description:
-        'The name parameter is used to group radio buttons together. In normal instances, this will be passed down from the RadioGroup component, where it can be left empty for the Radio component. However, if there is no RadioGroup component, the name will have to be passed to the Radio button itself.'
+        'The `name` prop is used to group radio buttons together. In normal instances, this will be passed down from the `RadioGroup` component, where it can be left empty for the Radio component. However, if there is no `RadioGroup` component, the name will have to be passed to the `Radio` button itself.'
     },
     onChange: {
       control: { type: 'function' },
@@ -56,7 +56,7 @@ export default {
         type: { summary: 'function' },
       },
       action: 'onChange',
-      description: 'Function triggered when the radio value is selected. First parameter of this function is of type (React).ChangeEvent.'
+      description: 'Function triggered when the radio value is selected. The first parameter of this function is of type `(React).ChangeEvent`.'
     },
     id: {
       control: { type: 'text' },
@@ -66,14 +66,14 @@ export default {
         defaultValue: { summary: '' }
       },
       description:
-        'The id parameter is required for the Radio component. It is used to link the label with the input tag.'
+        'The `id` prop is required for the Radio component. It is also used to link the label with the HTML `input` tag.'
     },
     qa: {
       control: { type: 'text' },
       table: {
         type: { summary: 'string' }
       },
-      description: 'The qa parameter allows to set the `data-qa` prop on the rendered html of the component.'
+      description: 'The `qa` prop allows to set the `data-qa` attribute on the rendered HTML of the component.'
     }
   }
 };

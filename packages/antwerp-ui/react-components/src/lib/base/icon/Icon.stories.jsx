@@ -25,6 +25,7 @@ export default {
       control: { type: 'boolean' },
       table: {
         type: { summary: 'boolean' },
+        defaultValue: { summary: false }
       },
       defaultValue: false,
       description: 'If you use a more detailed icon it can become unreadable. Use the `thin` prop to make strokes a bit thinner.',
@@ -37,13 +38,12 @@ export default {
         defaultValue: { summary: '' }
       },
     },
-
     qa: {
       control: { type: 'text' },
       table: {
         type: { summary: 'string' },
       },
-      description: 'The qa parameter allows to set the `data-qa` prop on the rendered html of the component.',
+      description: 'The qa parameter allows to set the `data-qa` prop on the rendered HTML of the component.',
     }
   }
 };

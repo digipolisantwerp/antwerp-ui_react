@@ -25,9 +25,15 @@ Jest and react test library
 
 ## Conventions
 
+### Components
+
 - No `style`
 - No `classNames`
 - No CSS
+
+### Documentation
+
+- correct terms in documentation: React props, HTML attributes and function parameters
 
 ## Contributions
 

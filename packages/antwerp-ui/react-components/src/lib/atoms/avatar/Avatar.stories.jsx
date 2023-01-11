@@ -19,7 +19,7 @@ export default {
         type: { summary: 'url' },
         defaultValue: { summary: '' }
       },
-      description: 'The image parameter will allow to display an authenticated user in the avatar. It will override the letter parameter if provided.',
+      description: 'The `image` prop will allow to display an authenticated user in the avatar. It will override the `letter` prop if provided.',
     },
     letter: {
       control: { type: 'text' },
@@ -28,7 +28,7 @@ export default {
         defaultValue: { summary: '' }
       },
       defaultValue: 'NT',
-      description: 'The letter parameter will allow an authenticated user to display their initials. If an image is provided, it will override the letter parameter.',
+      description: 'The `letter` prop will allow an authenticated user to display their initials. If an image is provided, it will override the letter parameter.',
     },
     icon: {
       control: { type: 'select' },
@@ -38,7 +38,7 @@ export default {
       },
       defaultValue: 'single-neutral',
       options: ['single-neutral', 'social-media-snapchat', 'house-chimney', 'bicycle', 'flash'],
-      description: 'The icon parameter displays an icon in the avatar for guest users. Authenticated users will have this replaced with their initials, or an image, if they provided one.',
+      description: 'The `icon` prop displays an icon in the avatar for guest users. Authenticated users will have this replaced with their initials, or an image, if they provided one.',
     },
     rounded: {
       control: { type: 'boolean' },
@@ -47,7 +47,7 @@ export default {
         defaultValue: { summary: false }
       },
       defaultValue: false,
-      description: 'Adds a class to the component to add a rounded style to it.',
+      description: 'Adds a class to the underlying HTML to change the style to rounded.',
     },
     size: {
       control: { type: 'select' },
@@ -57,7 +57,7 @@ export default {
       },
       options: ['', 'small', 'medium', 'large'],
       defaultValue: '',
-      description: 'Sets the size for the component. Can be omitted for medium.',
+      description: 'Sets the size for the component. Can be omitted for `medium`.',
     },
     ariaLabel: {
       control: { type: 'text' },
@@ -66,7 +66,7 @@ export default {
         defaultValue: { summary: 'Gebruiker icoon' }
       },
       defaultValue: 'Gebruiker icoon',
-      description: 'The ariaLabel describes an accessible name for the icon avatar component.',
+      description: 'The `ariaLabel` describes an accessible name for the icon inside the `Avatar` component.',
     },
     imageAlt: {
       control: { type: 'text' },
@@ -82,7 +82,7 @@ export default {
       table: {
         type: { summary: 'string' },
       },
-      description: 'The qa parameter allows to set the `data-qa` prop on the rendered html of the component.',
+      description: 'The qa prop allows to set the `data-qa` attribute on the rendered HTML of the component.',
     },
   }
 };

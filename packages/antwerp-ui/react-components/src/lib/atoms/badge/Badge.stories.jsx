@@ -19,7 +19,7 @@ export default {
         type: { summary: 'integer' },
         defaultValue: { summary: '' }
       },
-      description: 'The content of the badge is passed as a children prop. It will only display numeric values.'
+      description: 'The content of the badge is passed as the `children` prop. It will only display numeric values.'
     },
     type: {
       control: { type: 'select' },
@@ -48,14 +48,14 @@ export default {
       table: {
         type: { summary: 'string' }
       },
-      description: 'The ariaLabel describes an accessible name for the badge component.'
+      description: 'The `ariaLabel` describes an accessible name for the badge component.'
     },
     qa: {
       control: { type: 'text' },
       table: {
         type: { summary: 'string' }
       },
-      description: 'The qa parameter allows to set the `data-qa` prop on the rendered html of the component.'
+      description: 'The `qa` prop allows to set the `data-qa` attribute on the rendered HTML of the component.'
     }
   }
 };

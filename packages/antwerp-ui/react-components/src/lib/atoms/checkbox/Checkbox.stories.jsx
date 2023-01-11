@@ -19,7 +19,7 @@ export default {
         type: { summary: 'string' },
         defaultValue: { summary: '' }
       },
-      description: 'The checkbox component has an optional label parameter that is shown next to the checkbox.'
+      description: 'The `Checkbox` component has a `label` prop that is shown next to the checkbox.'
     },
     checked: {
       control: { type: 'boolean' },
@@ -29,7 +29,7 @@ export default {
         defaultValue: { summary: false }
       },
       description:
-        'Checked state. When this parameter is set, the Checkbox becomes a controlled component.'
+        'Checked state. When this prop is set, the `Checkbox` becomes a controlled component; use it together with `onChange`.'
     },
     disabled: {
       control: { type: 'boolean' },
@@ -39,7 +39,7 @@ export default {
         defaultValue: { summary: false }
       },
       description:
-        "A checkbox can have the disabled attribute. This will make it so the checkbox cannot be interacted with, and it's state cannot be change by the user."
+        "This will ensure that the checkbox cannot be interacted with; it's state cannot be changed by the user."
     },
     indeterminate: {
       control: { type: 'boolean' },
@@ -49,7 +49,7 @@ export default {
         defaultValue: { summary: false }
       },
       description:
-        "Whenever a checkbox is used to reflect a(n) '(un)select all'-type of behaviour for a group of components or other checkboxes, a third indeterminate-state is added."
+        "Whenever a `Checkbox` is used to reflect a(n) '(un)select all'-type of behaviour for a group of components or other checkboxes, a third indeterminate-state is added."
     },
     onChange: {
       control: { type: 'function' },
@@ -57,7 +57,7 @@ export default {
         type: { summary: 'function' },
       },
       action: 'onChange',
-      description: 'Function triggered when the checkbox value has changed. First parameter of this function is of type (React).ChangeEvent.'
+      description: 'Function triggered when the checkbox value has changed. First parameter of this function is of type `(React).ChangeEvent`.'
     },
     id: {
       control: { type: 'text' },
@@ -67,7 +67,7 @@ export default {
         defaultValue: { summary: '' }
       },
       description:
-        'The id parameter is required for the Checkbox component. It is used to link the label with the input tag.'
+        'The `id` prop is required for the `Checkbox` component. It is used to link the label with the input tag.'
     },
     name: {
       control: { type: 'text' },
@@ -77,14 +77,14 @@ export default {
         defaultValue: { summary: '' }
       },
       description:
-        "The checkbox component's name parameter. The name attribute in a checkbox is used to reference form data after it's submitted, and to reference the data on the client side."
+        "The `Checkbox` component's `name` prop. The `name` prop in a checkbox is used to reference form data after it's submitted, and to reference the data on the client side."
     },
     qa: {
       control: { type: 'text' },
       table: {
         type: { summary: 'string' }
       },
-      description: 'The qa parameter allows to set the `data-qa` prop on the rendered html of the component.'
+      description: 'The `qa` prop allows to set the `data-qa` attribute on the rendered HTML of the component.'
     }
   }
 };

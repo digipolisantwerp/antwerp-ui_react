@@ -18,14 +18,14 @@ export default {
       table: {
         type: { summary: 'string' }
       },
-      description: 'The id attribute of the button.'
+      description: 'The `id` attribute of the rendered HTML button.'
     },
     title: {
       control: { type: 'text' },
       table: {
         type: { summary: 'string' }
       },
-      description: 'The title attribute of the button.'
+      description: 'The `title` attribute of the rendered HTML button.'
     },
     size: {
       control: { type: 'select' },
@@ -42,7 +42,7 @@ export default {
         defaultValue: { summary: false }
       },
       defaultValue: false,
-      description: 'Set button style to outlined. This type of button can be used as a medium emphasis button.'
+      description: 'Set the button style to outlined. This type of button can be used as a medium emphasis button.'
     },
     transparent: {
       control: { type: 'boolean' },
@@ -77,7 +77,7 @@ export default {
         type: { summary: 'string' },
       },
       description:
-        'Set icon attribute to use as a stand-alone icon button (icon name can be used with or without `ai`-prefix).',
+        'Set the `icon` prop to use as the `Button` component a stand-alone icon button (icon name can be used with or without `ai`-prefix).',
       options: ['', 'archive', 'add', 'check-1', 'close'],
     },
     iconLeft: {
@@ -86,7 +86,7 @@ export default {
         type: { summary: 'string' },
       },
       description:
-        'Set this attribute to use an icon as a leading add-on inside the button (icon name can be used with or without `ai`-prefix).',
+        'Set this prop to use an icon as a leading add-on inside the button (icon name can be used with or without `ai`-prefix).',
         options: ['', 'archive', 'add', 'check-1', 'close'],
 
     },
@@ -96,7 +96,7 @@ export default {
         type: { summary: 'string' },
       },
       description:
-        'Set this attribute to use an icon as a trailing add-on inside the button (icon name can be used with or without `ai`-prefix).',
+        'Set this prop to use an icon as a trailing add-on inside the button (icon name can be used with or without `ai`-prefix).',
       options: ['', 'archive', 'add', 'check-1', 'close'],
     },
     avatar: {
@@ -106,7 +106,7 @@ export default {
       },
       component: Avatar,
       description:
-        'Set this attribute to use an avatar as a leading add-on inside the button. The object properties can be found in the Avatar component.'
+        'Set this prop to use an avatar as a leading add-on inside the button. The object properties can be found in the Avatar component.'
     },
     spinner: {
       control: { type: 'boolean' },
@@ -115,7 +115,7 @@ export default {
         defaultValue: { summary: false }
       },
       description:
-        'Set this attribute to use a spinner as a trailing add-on inside the button. This can be used to indicate loading state.'
+        'Set this prop to use a spinner as a trailing add-on inside the button. This can be used to indicate loading state.'
     },
     onClick: {
       control: { type: 'function' },
@@ -147,14 +147,14 @@ export default {
         type: { summary: 'string' }
       },
       control: { type: 'text' },
-      description: 'The ariaLabel describes an accessible name for the avatar component.'
+      description: 'The `ariaLabel` describes an accessible name for the avatar component.'
     },
     qa: {
       table: {
         type: { summary: 'string' }
       },
       control: { type: 'text' },
-      description: 'The qa parameter allows for an identification to be given to the component.'
+      description: 'The `qa` prop allows to set the `data-qa` attribute on the rendered HTML of the component.'
     }
   }
 };

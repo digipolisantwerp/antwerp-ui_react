@@ -21,7 +21,7 @@ export default {
         type: { summary: 'string' },
         defaultValue: { summary: '' }
       },
-      description: 'An optional label for the radio button group.'
+      description: 'An optional label for the `RadioGroup` component.'
     },
     value: {
       control: { type: 'text' },
@@ -31,7 +31,7 @@ export default {
         defaultValue: { summary: '' }
       },
       description:
-        'The value is a parameter to control the Radio that is checked within the RadioGroup componen. This prop makes the RadioGroup a controlled component and should be used together with `onChange`.'
+        'The value is a prop to control the `Radio` that is checked within the `RadioGroup` component. This prop makes the `RadioGroup` a controlled component and should be used together with `onChange`.'
     },
     name: {
       control: { type: 'text' },
@@ -41,7 +41,7 @@ export default {
         defaultValue: { summary: '' }
       },
       description:
-        'The name parameter is used to group radio buttons together. Once the radio group is created, selecting any radio button in that group automatically deselects any other selected radio button in the same group. You can have as many radio groups on a page as you want, as long as each group has its own name.'
+        'The `name` prop is used to group radio buttons together. Once the radio group is created, selecting any radio button in that group automatically deselects any other selected radio button in the same group. You can have as many radio groups on a page as you want, as long as each group has its own name.'
     },
     onChange: {
       control: { type: 'function' },
@@ -49,14 +49,14 @@ export default {
         type: { summary: 'function' },
       },
       action: 'onChange',
-      description: 'Function triggered when an option is selected. The first parameter of this function is the selected value (string).'
+      description: 'Function triggered when an option is selected. The first parameter of this function is the selected value as `string`.'
     },
     qa: {
       control: { type: 'text' },
       table: {
         type: { summary: 'string' }
       },
-      description: 'The qa parameter allows to set the `data-qa` prop on the rendered html of the component.'
+      description: 'The qa prop allows to set the `data-qa` attribute on the rendered HTML of the component.'
     }
   }
 };
