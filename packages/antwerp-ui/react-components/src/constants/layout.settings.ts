@@ -22,3 +22,9 @@ export enum Theme {
   SUCCESS = 'success',
   WARNING = 'warning'
 }
+
+// States
+export enum State {
+  SUCCESS = 'success',
+  ERROR = 'error'
+}
