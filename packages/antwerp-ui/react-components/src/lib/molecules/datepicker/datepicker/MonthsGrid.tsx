@@ -3,13 +3,19 @@ import moment from 'moment';
 import { classNames } from '../../../../utils/dom.utils';
 import { MonthsGridProps } from '../datepicker.types';
 
-export function MonthsGrid({ activeMonth }: MonthsGridProps) {
+export function MonthsGrid({ onChange, value, activeYear }: MonthsGridProps) {
   const renderMonth = (month: number) => {
-    const classes = classNames({ 'is-current': month === activeMonth });
+    const classes = classNames({
+      'is-current': month === moment().month() && activeYear === moment().year()
+    });
+    const monthValue = moment()
+      .set('year', activeYear)
+      .set('month', month)
+      .set('date', value?.date() ?? 1);
     return (
       <td>
-        <button type="button" className={classes}>
-          {moment().set('month', month).format('MMMM')}
+        <button type="button" className={classes} onClick={() => onChange(monthValue)}>
+          {moment().set('year', activeYear).set('month', month).format('MMMM')}
         </button>
       </td>
     );

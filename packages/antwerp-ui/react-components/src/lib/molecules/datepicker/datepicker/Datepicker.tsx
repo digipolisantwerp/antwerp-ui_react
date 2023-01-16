@@ -1,43 +1,74 @@
 import moment from 'moment';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { classNames } from '../../../../utils/dom.utils';
 import { Button } from '../../../atoms/button';
 import { Icon } from '../../../base/icon';
 import { ActiveView, DatepickerProps } from '../datepicker.types';
-import { DaysGrid } from './DaysGrid';
+import { DaysGrid } from './days-grid/DaysGrid';
 import { MonthsGrid } from './MonthsGrid';
 import { YearsGrid } from './YearsGrid';
 
-export function Datepicker({ qa, ariaLabel, unavailable, unavailableFrom, unavailableTo, isOpen }: DatepickerProps) {
-  const [activeYear, setActiveYear] = useState(moment().year());
-  const [activeMonth, setActiveMonth] = useState(moment().month());
+export function Datepicker({
+  qa,
+  value,
+  onChange,
+  ariaLabel,
+  ariaLabelPreviousMonth,
+  ariaLabelPreviousYear,
+  ariaLabelPreviousYears,
+  ariaLabelNextMonth,
+  ariaLabelNextYear,
+  ariaLabelNextYears,
+  unavailable,
+  unavailableFrom,
+  unavailableTo,
+  isOpen
+}: DatepickerProps) {
+  const [activeDate, setActiveDate] = useState(moment(value));
+  const [activeYear, setActiveYear] = useState(moment(value).year());
+  const [activeMonth, setActiveMonth] = useState(moment(value).month());
   const [activeView, setActiveView] = useState<ActiveView>('days');
   const [yearsRowsStart, setYearsRowsStart] = useState(activeYear - 7);
+
+  useEffect(() => {
+    setActiveDate(moment(value));
+  }, [value]);
 
   const activeTimeframeLabels = useMemo(() => {
     const timeframeMoment = moment().set('year', activeYear).set('month', activeMonth);
     let main = '';
-    let nextLabel = '';
-    let prevLabel = '';
+    let next = '';
+    let prev = '';
     switch (activeView) {
       case 'days':
         main = timeframeMoment.format('MMMM YYYY');
-        nextLabel = `volgende maand, ${timeframeMoment.add(1, 'month').format('MMMM YYYY')}`;
-        prevLabel = `de vorige maand, ${timeframeMoment.subtract(1, 'month').format('MMMM YYYY')}`;
+        next = `${ariaLabelNextMonth}, ${timeframeMoment.add(1, 'month').format('MMMM YYYY')}`;
+        prev = `${ariaLabelPreviousMonth}, ${timeframeMoment.subtract(1, 'month').format('MMMM YYYY')}`;
         break;
       case 'months':
         main = timeframeMoment.format('YYYY');
-        nextLabel = `volgend jaar, ${timeframeMoment.add(1, 'year').format('YYYY')}`;
-        prevLabel = `vorig jaar, ${timeframeMoment.subtract(1, 'year').format('YYYY')}`;
+        next = `${ariaLabelNextYear}, ${timeframeMoment.add(1, 'year').format('YYYY')}`;
+        prev = `${ariaLabelPreviousYear}, ${timeframeMoment.subtract(1, 'year').format('YYYY')}`;
         break;
       case 'years':
         main = `${yearsRowsStart} - ${yearsRowsStart + 17}`;
-        nextLabel = 'de volgende jaren';
-        prevLabel = 'voorgaande jaren';
+        next = ariaLabelNextYears as string;
+        prev = ariaLabelPreviousYears as string;
         break;
     }
-    return { main, next: `Ga naar ${nextLabel}`, prev: `Ga naar ${prevLabel}` };
-  }, [activeView, activeYear, activeMonth, yearsRowsStart]);
+    return { main, next, prev };
+  }, [
+    activeView,
+    activeYear,
+    activeMonth,
+    yearsRowsStart,
+    ariaLabelNextMonth,
+    ariaLabelNextYear,
+    ariaLabelNextYears,
+    ariaLabelPreviousMonth,
+    ariaLabelPreviousYear,
+    ariaLabelPreviousYears
+  ]);
 
   const handlePreviousDatesClick = () => {
     switch (activeView) {
@@ -97,6 +128,23 @@ export function Datepicker({ qa, ariaLabel, unavailable, unavailableFrom, unavai
     }
   };
 
+  const handleChange = (value: moment.Moment) => {
+    switch (activeView) {
+      case 'days':
+        setActiveDate(value);
+        onChange && onChange(value.toISOString());
+        break;
+      case 'months':
+        setActiveMonth(value.month());
+        setActiveView('days');
+        break;
+      case 'years':
+        setActiveYear(value.year());
+        setActiveView('months');
+        break;
+    }
+  };
+
   const renderGrid = () => {
     switch (activeView) {
       case 'days':
@@ -104,26 +152,37 @@ export function Datepicker({ qa, ariaLabel, unavailable, unavailableFrom, unavai
           <DaysGrid
             activeMonth={activeMonth}
             activeYear={activeYear}
+            value={activeDate}
+            onChange={handleChange}
             unavailableFrom={unavailableFrom}
             unavailableTo={unavailableTo}
             unavailable={unavailable}
           />
         );
       case 'months':
-        return <MonthsGrid activeMonth={activeMonth} />;
+        return <MonthsGrid value={activeDate} onChange={handleChange} activeYear={activeYear} />;
       case 'years':
-        return <YearsGrid yearsRowsStart={yearsRowsStart} activeYear={activeYear} />;
-
-      default:
-        return null;
+        return (
+          <YearsGrid
+            value={activeDate}
+            onChange={handleChange}
+            yearsRowsStart={yearsRowsStart}
+            activeMonth={activeMonth}
+          />
+        );
     }
   };
 
   const classes = classNames({ 'm-datepicker': true, 'is-open': !!isOpen });
   return (
-    <div aria-label={ariaLabel} className={classes} aria-hidden={!isOpen}>
+    <div aria-label={ariaLabel} className={classes} aria-hidden={!isOpen} data-qa={qa}>
       <div className="m-datepicker__nav">
-        <button type="button" className="m-datepicker__nav-title" onClick={handleChangeViewClick}>
+        <button
+          type="button"
+          className="m-datepicker__nav-title"
+          aria-label={activeTimeframeLabels.main}
+          onClick={handleChangeViewClick}
+        >
           {activeTimeframeLabels.main}
           <Icon name={activeView === 'days' ? 'arrow-down-1' : 'arrow-up-1'} />
         </button>
@@ -148,7 +207,13 @@ export function Datepicker({ qa, ariaLabel, unavailable, unavailableFrom, unavai
 }
 
 Datepicker.defaultProps = {
-  ariaLabel: 'Datumkiezer dagen bekijken'
+  ariaLabel: 'Datumkiezer dagen bekijken',
+  ariaLabelPreviousMonth: 'Ga naar de vorige maand',
+  ariaLabelPreviousYear: 'Ga naar vorig jaar',
+  ariaLabelPreviousYears: 'Ga naar voorgaande jaren',
+  ariaLabelNextMonth: 'Ga naar volgende maand',
+  ariaLabelNextYear: 'Ga naar volgend jaar',
+  ariaLabelNextYears: 'Ga naar de volgende jaren'
 };
 
 export default Datepicker;

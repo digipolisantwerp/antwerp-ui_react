@@ -3,12 +3,23 @@ import moment from 'moment';
 import { classNames } from '../../../../utils/dom.utils';
 import { YearsGridProps } from '../datepicker.types';
 
-export function YearsGrid({ yearsRowsStart, activeYear }: YearsGridProps) {
+export function YearsGrid({ yearsRowsStart, value, activeMonth, onChange }: YearsGridProps) {
   const renderYear = (year: number) => {
-    const classes = classNames({ 'is-current': year === activeYear });
+    const classes = classNames({ 'is-current': year === moment().year() });
     return (
       <td>
-        <button type="button" className={classes}>
+        <button
+          type="button"
+          className={classes}
+          onClick={() =>
+            onChange(
+              moment()
+                .set('year', year)
+                .set('month', activeMonth)
+                .set('date', value?.date() ?? 1)
+            )
+          }
+        >
           {moment().set('year', year).format('YYYY')}
         </button>
       </td>
