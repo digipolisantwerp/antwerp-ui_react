@@ -23,6 +23,12 @@ Jest and react test library
 - `yarn test --watch`
 - `yarn test --coverage`
 
+## Deployment / Publishing
+
+### Storybook
+
+- Build storybook: `yarn run storybook:build`
+
 ## Conventions
 
 ### Components

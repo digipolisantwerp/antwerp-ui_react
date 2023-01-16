@@ -5,7 +5,8 @@
   "scripts": {
     "test": "yarn nx test",
     "playground": "yarn nx run documentation-playground:serve:development",
-    "storybook": "yarn nx run @acpaas-ui/storybook:start"
+    "storybook": "yarn nx run @acpaas-ui/storybook:start",
+    "storybook:build": "yarn nx run @acpaas-ui/storybook:build"
   },
   "private": true,
   "dependencies": {
