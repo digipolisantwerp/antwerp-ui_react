@@ -7,11 +7,12 @@ import CheckboxExamples from './atoms/CheckboxExamples';
 import RadioExamples from './atoms/RadioExamples';
 import TextFieldExamples from './atoms/TextFieldExamples';
 import TextAreaExamples from './atoms/TextAreaExamples';
+import DatepickerExamples from './molecules/DatepickerExamples';
 
 export function Playground() {
   return (
     <>
-      <IconExamples />
+      {/* <IconExamples />
       <AvatarExamples />
       <BadgeExamples />
       <ButtonExamples />
@@ -19,7 +20,8 @@ export function Playground() {
       <RadioExamples />
       <SpinnerExamples />
       <TextAreaExamples />
-      <TextFieldExamples />
+      <TextFieldExamples /> */}
+      <DatepickerExamples />
     </>
   );
 }

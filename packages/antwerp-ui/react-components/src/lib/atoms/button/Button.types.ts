@@ -19,6 +19,9 @@ export interface ButtonProps {
   theme?: 'success' | 'warning' | 'danger' | 'neutral';
   title?: string;
   transparent?: boolean;
+  className?: string;
+  tabIndex?: number;
+  disabled?: boolean;
 }
 
 export type ButtonAvatarProps = Omit<AvatarProps, 'rounded' | 'size'>;

@@ -22,7 +22,10 @@ export function Button({
   spinner,
   theme,
   title,
-  transparent
+  transparent,
+  className,
+  tabIndex,
+  disabled
 }: ButtonProps) {
   const classes = classNames({
     'a-button': true,
@@ -35,7 +38,8 @@ export function Button({
     'has-icon-left': !!iconLeft && !avatar,
     'has-icon-right': (!!iconRight || !!spinner) && !avatar,
     'has-avatar': !!avatar && (!avatar?.image || !avatar?.letter),
-    'has-avatar-with-inset': !!avatar?.image || !!avatar?.letter
+    'has-avatar-with-inset': !!avatar?.image || !!avatar?.letter,
+    [`${className}`]: !!className
   });
 
   const renderAddOn = (): JSX.Element | null => {
@@ -59,6 +63,9 @@ export function Button({
       type={htmlType}
       aria-label={ariaLabel}
       data-qa={qa}
+      tabIndex={tabIndex}
+      disabled={disabled}
+      aria-disabled={disabled}
     >
       {renderAddOn()}
       {!icon && children}
