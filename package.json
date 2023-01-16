@@ -9,9 +9,11 @@
   },
   "private": true,
   "dependencies": {
+    "@types/uuid": "^9.0.0",
     "moment": "2.29.4",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@nrwl/eslint-plugin-nx": "15.3.3",

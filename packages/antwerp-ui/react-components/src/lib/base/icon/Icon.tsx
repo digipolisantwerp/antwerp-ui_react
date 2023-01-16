@@ -4,7 +4,7 @@ import { classNames } from '../../../utils/dom.utils';
 
 const ICONS_SVG_HTML_ID = 'ai-svg';
 
-export function Icon({ name, screenReaderText, thin, qa }: IconProps) {
+export function Icon({ className, role, tabIndex, name, screenReaderText, thin, qa }: IconProps) {
   const fetchIcons = async function () {
     if (!fetch) return null;
     const response = await fetch(ICONS_URL);
@@ -22,10 +22,11 @@ export function Icon({ name, screenReaderText, thin, qa }: IconProps) {
   const classes = classNames({
     ai: true,
     [`ai-${name.replace('ai-', '')}`]: !!name,
-    'ai--thin': !!thin
+    'ai--thin': !!thin,
+    [`${className}`]: !!className
   });
   return (
-    <span className={classes} data-qa={qa}>
+    <span className={classes} role={role} tabIndex={tabIndex} data-qa={qa}>
       {name ? (
         <svg aria-hidden="true">
           <use href={`#ai-${name.replace('ai-', '')}`} />

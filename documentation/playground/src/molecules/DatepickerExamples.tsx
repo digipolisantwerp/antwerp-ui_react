@@ -1,4 +1,4 @@
-import { Datepicker } from '@acpaas-ui/react-components';
+import { Datepicker, DatepickerInput } from '@acpaas-ui/react-components';
 
 import 'moment/dist/locale/nl-be';
 import { useState } from 'react';
@@ -9,15 +9,17 @@ export function DatepickerExamples() {
   return (
     <div className="u-margin-bottom" style={{ width: '420px' }}>
       <h2>Datepickers</h2>
-      <p>Uncontrolled</p>
+      <p className="u-margin-top">Uncontrolled</p>
       <Datepicker isOpen />
-      <p>Controlled</p>
+      <p className="u-margin-top">Controlled</p>
       <Datepicker
         isOpen
         value={date}
         onChange={setDate}
         unavailable={[new Date('2023-01-13').toISOString(), new Date('2023-01-14').toISOString()]}
       />
+      <p className="u-margin-top">With input</p>
+      <DatepickerInput label="Datepicker label" />
     </div>
   );
 }

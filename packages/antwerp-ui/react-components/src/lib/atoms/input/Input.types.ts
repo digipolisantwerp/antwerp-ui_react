@@ -27,6 +27,7 @@ export interface TextFieldProps extends InputProps {
   onClick?: (e: MouseEvent<HTMLInputElement>) => void;
   onFocus?: (e: FocusEvent<HTMLInputElement>) => void;
   onKeyDown?: (e: KeyboardEvent<HTMLInputElement>) => void;
+  placeholder?: string;
   type?: InputTypes;
 }
 
