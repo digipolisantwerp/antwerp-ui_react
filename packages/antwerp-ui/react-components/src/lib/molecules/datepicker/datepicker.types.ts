@@ -1,14 +1,16 @@
 import { Moment } from 'moment';
 import { FocusEvent, KeyboardEventHandler, MouseEventHandler } from 'react';
+import { TextFieldProps } from '../../atoms/input';
 
 export interface DatepickerInputProps {
   qa?: string;
-  label?: string;
   format?: string;
-  id?: string;
-  required?: boolean;
+  mask?: string;
+  label?: string;
+  description?: string;
+  inputProps?: Pick<TextFieldProps, 'id' | 'disabled' | 'name' | 'placeholder' | 'required' | 'size'>;
   value?: string;
-  onChange?: (value: string) => void;
+  onChange?: (value: string, isValid: boolean) => void;
 }
 
 export interface DatepickerInputIconProps {

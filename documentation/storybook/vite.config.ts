@@ -14,6 +14,9 @@ export default defineConfig({
       root: '../../'
     })
   ],
+  resolve: {
+    preserveSymlinks:true
+  },
 
   test: {
     globals: true,

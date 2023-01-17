@@ -6,7 +6,8 @@ import { MonthsGridProps } from '../datepicker.types';
 export function MonthsGrid({ onChange, value, activeYear }: MonthsGridProps) {
   const renderMonth = (month: number) => {
     const classes = classNames({
-      'is-current': month === moment().month() && activeYear === moment().year()
+      'is-current': month === moment().month() && activeYear === moment().year(),
+      'is-selected': month === value?.month()
     });
     const monthValue = moment()
       .set('year', activeYear)

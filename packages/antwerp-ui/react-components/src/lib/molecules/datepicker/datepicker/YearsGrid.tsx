@@ -5,7 +5,7 @@ import { YearsGridProps } from '../datepicker.types';
 
 export function YearsGrid({ yearsRowsStart, value, activeMonth, onChange }: YearsGridProps) {
   const renderYear = (year: number) => {
-    const classes = classNames({ 'is-current': year === moment().year() });
+    const classes = classNames({ 'is-current': year === moment().year(), 'is-selected': year === value?.year() });
     return (
       <td>
         <button

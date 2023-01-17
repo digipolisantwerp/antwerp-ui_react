@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { useOutsideClick } from 'packages/antwerp-ui/react-components/src/hooks/useOutsideClick.hook';
+import { useOutsideClick } from '../../../../hooks/useOutsideClick.hook';
 import React, { FocusEvent, useRef, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import { TextField } from '../../../atoms/input';
@@ -8,11 +8,21 @@ import { DatepickerInputProps } from '../datepicker.types';
 import Datepicker from '../datepicker/Datepicker';
 import DatepickerInputIcon from './DatepickerInputIcon';
 
-export function DatepickerInput({ qa, value, onChange, format, label, id, required }: DatepickerInputProps) {
+export function DatepickerInput({
+  qa,
+  value,
+  onChange,
+  format,
+  mask,
+  label,
+  description,
+  inputProps
+}: DatepickerInputProps) {
   const idRef = useRef(uuid()).current;
   const datepickerIconRef = useRef<HTMLSpanElement>(null);
   const [currentValue, setCurrentValue] = useState(value || '');
-  const [currentMomentValue, setCurrentMomentValue] = useState(value ? moment(value) : undefined);
+  const [dateInvalidError, setDateInvalidError] = useState('');
+  const [currentMomentValue, setCurrentMomentValue] = useState(value ? moment(value, format, true) : undefined);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOutsideClick = (element: Node) => {
@@ -31,35 +41,44 @@ export function DatepickerInput({ qa, value, onChange, format, label, id, requir
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCurrentValue(e.target.value);
-    onChange && onChange(e.target.value);
-    const momentValue = moment(e.target.value, format, true);
+    const newValue = e.target.value;
+    setCurrentValue(newValue);
+    const momentValue = moment(newValue, format, true);
+    onChange && onChange(newValue, momentValue.isValid());
+
+    if (!!newValue && !newValue.includes('_') && !momentValue.isValid()) {
+      setDateInvalidError('Datum is niet geldig');
+    } else {
+      setDateInvalidError('');
+    }
     if (momentValue.isValid()) {
       setCurrentMomentValue(momentValue);
-    } else {
-      // TODO set error state, there is no error in TextField rn??
     }
   };
 
   const handleCalendarDateChange = (value: string) => {
-    setCurrentMomentValue(moment(value));
-    setCurrentValue(moment(value).format(format));
-    onChange && onChange(moment(value).format(format));
+    const newMomentValue = moment(value);
+    setCurrentMomentValue(newMomentValue);
+    setCurrentValue(newMomentValue.format(format));
+    onChange && onChange(newMomentValue.format(format), newMomentValue.isValid());
+    setDateInvalidError('');
     setIsOpen(false);
   };
 
   return (
     <div className="a-input has-icon-right" data-qa={qa}>
-      {renderLabel({ label, id: id || idRef, required })}
+      {renderLabel({ label, id: inputProps?.id || idRef, required: inputProps?.required })}
       <div className="a-input__wrapper">
         <TextField
-          // TODO add mask === format
+          {...inputProps}
           type="text"
-          name="input-datepicker"
-          id={id || idRef}
-          placeholder={format?.toLowerCase() ?? ''}
+          mask={mask}
+          id={inputProps?.id || idRef}
+          placeholder={format?.toLowerCase()}
           value={currentValue}
           onChange={handleChange}
+          description={dateInvalidError || description}
+          state={dateInvalidError ? 'error' : undefined}
         />
         <DatepickerInputIcon ref={datepickerIconRef} onClick={toggleOpen} onEnter={toggleOpen} />
         {isOpen && (
@@ -77,7 +96,8 @@ export function DatepickerInput({ qa, value, onChange, format, label, id, requir
   );
 }
 DatepickerInput.defaultProps = {
-  format: 'DD/MM/YYYY'
+  format: 'DD/MM/YYYY',
+  mask: '99/99/9999'
 };
 
 export default DatepickerInput;

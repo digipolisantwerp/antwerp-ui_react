@@ -222,13 +222,15 @@ export const Datepicker = forwardRef<HTMLDivElement, DatepickerProps>(
 );
 
 Datepicker.defaultProps = {
+  isOpen: false,
   ariaLabel: 'Datumkiezer dagen bekijken',
   ariaLabelPreviousMonth: 'Ga naar de vorige maand',
   ariaLabelPreviousYear: 'Ga naar vorig jaar',
   ariaLabelPreviousYears: 'Ga naar voorgaande jaren',
   ariaLabelNextMonth: 'Ga naar volgende maand',
   ariaLabelNextYear: 'Ga naar volgend jaar',
-  ariaLabelNextYears: 'Ga naar de volgende jaren'
+  ariaLabelNextYears: 'Ga naar de volgende jaren',
+  unavailable: []
 };
 
 export default Datepicker;

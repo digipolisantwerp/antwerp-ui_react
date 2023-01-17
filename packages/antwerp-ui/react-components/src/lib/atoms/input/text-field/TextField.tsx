@@ -1,3 +1,4 @@
+import InputMask from 'react-input-mask';
 import { TextFieldProps } from '../Input.types';
 import { classNames } from '../../../../utils/dom.utils';
 import { DEFAULT_SIZE, SIZE_MAPPING } from '../../../../constants/layout.settings';
@@ -5,29 +6,32 @@ import { Icon } from '../../../base/icon';
 import { renderCharacterCounter, renderDescription, renderLabel } from '../input.renders';
 import { useState } from 'react';
 
-export function TextField({
-  addonLeft,
-  addonRight,
-  charCounter,
-  description,
-  disabled,
-  iconLeft,
-  iconRight,
-  id,
-  inline,
-  label,
-  maxLength,
-  name,
-  onChange,
-  qa,
-  readOnly,
-  required,
-  size,
-  state,
-  type = 'text',
-  value,
-  ...extraProps
-}: TextFieldProps) {
+export function TextField(props: TextFieldProps) {
+  const {
+    addonLeft,
+    addonRight,
+    charCounter,
+    description,
+    disabled,
+    iconLeft,
+    iconRight,
+    id,
+    inline,
+    label,
+    maxLength,
+    name,
+    onChange,
+    qa,
+    readOnly,
+    required,
+    size,
+    state,
+    type = 'text',
+    value,
+    mask,
+    ...extraProps
+  } = props;
+
   const [characterCount, setCharacterCount] = useState(value ? value.length : 0);
 
   const classes = classNames({
@@ -53,18 +57,23 @@ export function TextField({
       <div className="a-input__wrapper">
         {!!iconLeft && <Icon name={iconLeft} />}
         {!!addonLeft && <div className="a-input__addon">{addonLeft}</div>}
-        <input
-          type={type}
-          value={value}
-          name={name}
-          id={id}
-          disabled={disabled}
-          readOnly={readOnly}
-          required={required}
-          maxLength={maxLength}
-          onChange={_handleChange}
-          {...extraProps}
-        ></input>
+        {mask ? (
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          <InputMask {...(props as any)} />
+        ) : (
+          <input
+            type={type}
+            value={value}
+            name={name}
+            id={id}
+            disabled={disabled}
+            readOnly={readOnly}
+            required={required}
+            maxLength={maxLength}
+            onChange={_handleChange}
+            {...extraProps}
+          ></input>
+        )}
         {!!iconRight && !iconLeft && <Icon name={iconRight} />}
         {!!addonRight && <div className="a-input__addon">{addonRight}</div>}
       </div>

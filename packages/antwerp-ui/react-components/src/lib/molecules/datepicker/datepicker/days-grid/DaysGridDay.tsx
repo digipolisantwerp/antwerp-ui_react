@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { classNames } from 'packages/antwerp-ui/react-components/src/utils/dom.utils';
+import { classNames } from '../../../../../utils/dom.utils';
 import { useMemo } from 'react';
 import { DaysGridDayProps } from '../../datepicker.types';
 

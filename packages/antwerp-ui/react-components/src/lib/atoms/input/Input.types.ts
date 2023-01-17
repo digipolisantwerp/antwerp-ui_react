@@ -14,6 +14,7 @@ interface InputProps {
   required?: boolean;
   size?: 'small' | 'medium' | 'large';
   state?: 'success' | 'error';
+  mask?: string;
   value?: string;
 }
 
