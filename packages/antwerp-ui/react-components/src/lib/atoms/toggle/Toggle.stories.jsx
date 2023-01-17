@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { QA_PROP_STORY } from '../../../constants/stories.settings';
 import Toggle from './Toggle';
 
 export default {
@@ -104,13 +105,7 @@ export default {
       },
       description: 'Click handler, (checked: boolean) => void.'
     },
-    qa: {
-      control: { type: 'text' },
-      table: {
-        type: { summary: 'string' }
-      },
-      description: 'The qa prop allows to set the `data-qa` attribute on the rendered HTML of the component.'
-    }
+    qa: QA_PROP_STORY
   },
   parameters: {}
 };

@@ -8,6 +8,7 @@ import RadioExamples from './atoms/RadioExamples';
 import TextFieldExamples from './atoms/TextFieldExamples';
 import TextAreaExamples from './atoms/TextAreaExamples';
 import ToggleExamples from './atoms/ToggleExamples';
+import LabelExamples from './atoms/LabelExamples';
 
 export function Playground() {
   return (
@@ -17,6 +18,7 @@ export function Playground() {
       <BadgeExamples />
       <ButtonExamples />
       <CheckboxExamples />
+      <LabelExamples />
       <RadioExamples />
       <SpinnerExamples />
       <TextAreaExamples />

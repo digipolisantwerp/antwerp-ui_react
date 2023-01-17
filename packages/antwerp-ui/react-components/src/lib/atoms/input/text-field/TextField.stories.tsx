@@ -1,3 +1,4 @@
+import { QA_PROP_STORY } from '../../../../constants/stories.settings';
 import TextField from './TextField';
 
 export default {
@@ -215,13 +216,7 @@ export default {
       description:
         'Function triggered when the user presses a key inside the `TextField`. The first parameter of this function is of type `(React).KeyboardEvent`.'
     },
-    qa: {
-      control: { type: 'text' },
-      table: {
-        type: { summary: 'string' }
-      },
-      description: 'The `qa` prop allows to set the `data-qa` prop on the rendered HTML of the component.'
-    },
+    qa: QA_PROP_STORY,
     id: {
       control: { type: 'text' },
       defaultValue: 'textfield-story',

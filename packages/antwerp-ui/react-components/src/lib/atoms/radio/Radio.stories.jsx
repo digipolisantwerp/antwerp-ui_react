@@ -1,3 +1,4 @@
+import { QA_PROP_STORY } from '../../../constants/stories.settings';
 import { Radio  } from './Radio';
 
 export default {
@@ -68,13 +69,7 @@ export default {
       description:
         'The `id` prop is required for the Radio component. It is also used to link the label with the HTML `input` tag.'
     },
-    qa: {
-      control: { type: 'text' },
-      table: {
-        type: { summary: 'string' }
-      },
-      description: 'The `qa` prop allows to set the `data-qa` attribute on the rendered HTML of the component.'
-    }
+    qa: QA_PROP_STORY
   }
 };
 

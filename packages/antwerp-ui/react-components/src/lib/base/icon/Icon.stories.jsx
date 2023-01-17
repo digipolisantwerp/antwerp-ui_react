@@ -1,3 +1,4 @@
+import { QA_PROP_STORY } from '../../../constants/stories.settings';
 import { Icon } from './Icon';
 
 export default {
@@ -38,13 +39,7 @@ export default {
         defaultValue: { summary: '' }
       },
     },
-    qa: {
-      control: { type: 'text' },
-      table: {
-        type: { summary: 'string' },
-      },
-      description: 'The qa parameter allows to set the `data-qa` prop on the rendered HTML of the component.',
-    }
+    qa: QA_PROP_STORY
   }
 };
 

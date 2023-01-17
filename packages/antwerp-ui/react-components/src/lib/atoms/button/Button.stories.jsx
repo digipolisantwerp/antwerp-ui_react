@@ -1,3 +1,4 @@
+import { QA_PROP_STORY } from '../../../constants/stories.settings';
 import { Avatar } from '../avatar';
 import Button from './Button';
 
@@ -149,13 +150,7 @@ export default {
       control: { type: 'text' },
       description: 'The `ariaLabel` describes an accessible name for the avatar component.'
     },
-    qa: {
-      table: {
-        type: { summary: 'string' }
-      },
-      control: { type: 'text' },
-      description: 'The `qa` prop allows to set the `data-qa` attribute on the rendered HTML of the component.'
-    }
+    qa: QA_PROP_STORY
   }
 };
 

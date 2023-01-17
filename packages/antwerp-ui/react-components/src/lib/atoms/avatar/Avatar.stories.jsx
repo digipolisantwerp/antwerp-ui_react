@@ -1,3 +1,4 @@
+import { QA_PROP_STORY } from '../../../constants/stories.settings';
 import Avatar from './Avatar';
 
 export default {
@@ -77,13 +78,7 @@ export default {
       defaultValue: 'Avatar afbeelding',
       description: 'Image alt text for the provided image.',
     },
-    qa: {
-      control: { type: 'text' },
-      table: {
-        type: { summary: 'string' },
-      },
-      description: 'The qa prop allows to set the `data-qa` attribute on the rendered HTML of the component.',
-    },
+    qa: QA_PROP_STORY,
   }
 };
 

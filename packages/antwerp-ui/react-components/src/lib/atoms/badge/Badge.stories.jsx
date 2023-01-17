@@ -1,3 +1,4 @@
+import { QA_PROP_STORY } from '../../../constants/stories.settings';
 import Badge from './Badge';
 
 export default {
@@ -50,13 +51,7 @@ export default {
       },
       description: 'The `ariaLabel` describes an accessible name for the badge component.'
     },
-    qa: {
-      control: { type: 'text' },
-      table: {
-        type: { summary: 'string' }
-      },
-      description: 'The `qa` prop allows to set the `data-qa` attribute on the rendered HTML of the component.'
-    }
+    qa: QA_PROP_STORY
   }
 };
 

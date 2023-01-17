@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { QA_PROP_STORY } from '../../../constants/stories.settings';
 import Checkbox from './Checkbox';
 
 export default {
@@ -80,13 +81,7 @@ export default {
       description:
         "The `Checkbox` component's `name` prop. The `name` prop in a checkbox is used to reference form data after it's submitted, and to reference the data on the client side."
     },
-    qa: {
-      control: { type: 'text' },
-      table: {
-        type: { summary: 'string' }
-      },
-      description: 'The `qa` prop allows to set the `data-qa` attribute on the rendered HTML of the component.'
-    }
+    qa: QA_PROP_STORY
   }
 };
 

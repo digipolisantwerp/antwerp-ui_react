@@ -1,4 +1,5 @@
 import React from 'react';
+import { QA_PROP_STORY } from '../../../constants/stories.settings';
 import { Radio } from './Radio';
 import { RadioGroup } from './RadioGroup';
 
@@ -51,13 +52,7 @@ export default {
       action: 'onChange',
       description: 'Function triggered when an option is selected. The first parameter of this function is the selected value as `string`.'
     },
-    qa: {
-      control: { type: 'text' },
-      table: {
-        type: { summary: 'string' }
-      },
-      description: 'The qa prop allows to set the `data-qa` attribute on the rendered HTML of the component.'
-    }
+    qa: QA_PROP_STORY
   }
 };
 
