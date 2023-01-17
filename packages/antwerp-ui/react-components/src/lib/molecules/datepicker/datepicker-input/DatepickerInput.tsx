@@ -33,6 +33,12 @@ export function DatepickerInput({ qa, value, onChange, format, label, id, requir
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCurrentValue(e.target.value);
     onChange && onChange(e.target.value);
+    const momentValue = moment(e.target.value, format, true);
+    if (momentValue.isValid()) {
+      setCurrentMomentValue(momentValue);
+    } else {
+      // TODO set error state, there is no error in TextField rn??
+    }
   };
 
   const handleCalendarDateChange = (value: string) => {
@@ -47,10 +53,11 @@ export function DatepickerInput({ qa, value, onChange, format, label, id, requir
       {renderLabel({ label, id: id || idRef, required })}
       <div className="a-input__wrapper">
         <TextField
+          // TODO add mask === format
           type="text"
           name="input-datepicker"
           id={id || idRef}
-          placeholder={format}
+          placeholder={format?.toLowerCase() ?? ''}
           value={currentValue}
           onChange={handleChange}
         />
