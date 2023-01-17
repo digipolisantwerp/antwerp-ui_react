@@ -9,6 +9,7 @@ import TextFieldExamples from './atoms/TextFieldExamples';
 import TextAreaExamples from './atoms/TextAreaExamples';
 import ToggleExamples from './atoms/ToggleExamples';
 import LabelExamples from './atoms/LabelExamples';
+import ImageExamples from './molecules/ImageExamples';
 
 export function Playground() {
   return (
@@ -24,6 +25,7 @@ export function Playground() {
       <TextAreaExamples />
       <TextFieldExamples />
       <ToggleExamples />
+      <ImageExamples />
     </>
   );
 }
