@@ -7,7 +7,8 @@ THIS IS A DRAFT
 
 - Node version 18.12.1
 - VSCode library
-- Commando `yarn install` in storybook => voeg toe in commando
+- `yarn install`
+- Commando `yarn install` in storybook folder => voeg toe in commando
 - Run example app: `yarn run playground` vs
 - Run storybook: `yarn run storybook`
 

@@ -7,6 +7,7 @@ import CheckboxExamples from './atoms/CheckboxExamples';
 import RadioExamples from './atoms/RadioExamples';
 import TextFieldExamples from './atoms/TextFieldExamples';
 import TextAreaExamples from './atoms/TextAreaExamples';
+import ToggleExamples from './atoms/ToggleExamples';
 
 export function Playground() {
   return (
@@ -20,6 +21,7 @@ export function Playground() {
       <SpinnerExamples />
       <TextAreaExamples />
       <TextFieldExamples />
+      <ToggleExamples />
     </>
   );
 }

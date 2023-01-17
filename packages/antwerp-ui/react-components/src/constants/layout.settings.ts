@@ -17,6 +17,7 @@ export const SIZE_MAPPING: { [size: string]: string } = {
 
 // Themes
 export enum Theme {
+  PRIMARY = 'primary',
   NEUTRAL = 'neutral',
   DANGER = 'danger',
   SUCCESS = 'success',

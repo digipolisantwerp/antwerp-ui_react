@@ -7,3 +7,4 @@ export * from './lib/atoms/checkbox';
 export * from './lib/atoms/input';
 export * from './lib/atoms/radio';
 export * from './lib/atoms/spinner';
+export * from './lib/atoms/toggle';
