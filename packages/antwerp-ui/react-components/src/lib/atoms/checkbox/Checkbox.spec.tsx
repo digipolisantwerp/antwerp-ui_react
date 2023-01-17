@@ -4,7 +4,7 @@ import { fireEvent, render } from '@testing-library/react';
 import { Checkbox } from './Checkbox';
 import { CheckboxProps } from './Checkbox.types';
 
-describe('Checkbox', () => {
+describe('UI Components - Atoms - Checkbox', () => {
   const defaultProps: CheckboxProps = {
     label: 'Checkbox',
     id: 'checkbox',

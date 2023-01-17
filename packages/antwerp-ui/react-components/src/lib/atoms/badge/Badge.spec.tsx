@@ -31,14 +31,14 @@ describe('UI Components - Atoms - Badge', () => {
     expect(badge.classList.contains('a-badge--outlined')).toBe(true);
   });
 
-  it('should not apply the theme and type classes if none are provided', () => {
+  it('should NOT apply the theme and type classes if none are provided', () => {
     render(<Badge>24</Badge>);
     const badge = screen.getByText('24');
     expect(badge.classList.contains('a-badge--primary')).toBe(false);
     expect(badge.classList.contains('a-badge--outlined')).toBe(false);
   });
 
-  it('should not render children that cannot be parsed to a number', () => {
+  it('should NOT render children that cannot be parsed to a number', () => {
     const { baseElement } = render(<Badge>Hello</Badge>);
     expect(baseElement.innerHTML).toEqual('<div><span class="a-badge"></span></div>');
   });

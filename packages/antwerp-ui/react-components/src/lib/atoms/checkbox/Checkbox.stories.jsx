@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Checkbox from './Checkbox';
 
 export default {
@@ -22,12 +23,12 @@ export default {
       description: 'The `Checkbox` component has a `label` prop that is shown next to the checkbox.'
     },
     checked: {
-      control: { type: 'boolean' },
-      defaultValue: false,
+      control: { type: 'boolean', disable: true },
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false }
       },
+      defaultValue: false,
       description:
         'Checked state. When this prop is set, the `Checkbox` becomes a controlled component; use it together with `onChange`.'
     },
@@ -89,5 +90,21 @@ export default {
   }
 };
 
-export const checkbox = '';
+
+const Template = (args) => {
+  const [checked, setChecked] = useState(args.checked ?? false);
+  return (
+    <Checkbox
+      {...args}
+      onChange={(e) => {
+        args.onChange(e);
+        setChecked(e.target.checked);
+      }}
+      checked={checked}
+    />
+  );
+};
+
+export const checkbox = Template.bind({});
+
 

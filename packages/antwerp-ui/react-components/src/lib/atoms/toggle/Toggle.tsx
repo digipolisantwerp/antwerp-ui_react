@@ -24,18 +24,18 @@ export function Toggle({
     'a-toggle': true,
     [`a-toggle--${SIZE_MAPPING[size || DEFAULT_SIZE]}`]: !!size
   });
-  const buttonClasses = (theme?: string, icon?: string) => {
+  const buttonClasses = (theme?: string, icon?: string, onOrOff?: string) => {
     return classNames({
       'a-button': true,
       [`a-button--${SIZE_MAPPING[size || DEFAULT_SIZE]}`]: !!size,
       [`a-button--${theme}`]: !!theme,
       'has-icon-left': !!showLabels && !!icon,
       'has-icon': !showLabels && !!icon,
-      'a-toggle__on': true
+      [`a-toggle__${onOrOff}`]: !!onOrOff
     });
   };
-  const checkedClasses = buttonClasses(checkedTheme, checkedIcon);
-  const uncheckedClasses = buttonClasses(uncheckedTheme, uncheckedIcon);
+  const checkedClasses = buttonClasses(checkedTheme, checkedIcon, 'on');
+  const uncheckedClasses = buttonClasses(uncheckedTheme, uncheckedIcon, 'off');
   return (
     <div className={toggleClass} data-qa={qa}>
       <button className="a-toggle__button" id={id} aria-expanded={checked} onClick={handleClick}>
@@ -53,6 +53,7 @@ export function Toggle({
 }
 
 Toggle.defaultProps = {
+  id: '',
   checked: false,
   checkedLabel: '',
   checkedIcon: 'navigation-menu',
