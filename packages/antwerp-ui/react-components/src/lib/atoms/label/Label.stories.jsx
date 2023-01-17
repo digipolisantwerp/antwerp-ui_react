@@ -4,6 +4,14 @@ import {QA_PROP_STORY} from '../../../constants/stories.settings';
 export default {
   title: 'React/Atoms/Label',
   component: Label,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A label is a small alphabetical (letters only) label component that accompanies other elements, such as text in tables, lists, etc. and is primarily used to indicate a status associated with the accompanying element."
+      }
+    }
+  },
   argTypes: {
     theme: {
       control: { type: 'select' },

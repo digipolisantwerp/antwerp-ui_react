@@ -5,6 +5,14 @@ import Toggle from './Toggle';
 export default {
   title: 'React/Atoms/Toggle',
   component: Toggle,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A toggle button is a button that has two states and triggers another element which is not part of the toggle."
+      }
+    }
+  },
   argTypes: {
     id: {
       control: { type: 'text' },
@@ -106,8 +114,7 @@ export default {
       description: 'Click handler, (checked: boolean) => void.'
     },
     qa: QA_PROP_STORY
-  },
-  parameters: {}
+  }
 };
 
 const Template = (args) => {
