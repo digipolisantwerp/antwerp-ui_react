@@ -7,7 +7,7 @@ export default {
     docs: {
       description: {
         component:
-          'Use the datepicker component to assist the user in finding and selecting the desired date. This can be used as a standalone calendar, if you need input field with it check DatepickerInput component.'
+          "Use the datepicker component to assist the user in finding and selecting the desired date. This can be used as a standalone calendar, if you need input field with it check DatepickerInput component. To change the locale of the component import it from the moment library `import 'moment/dist/locale/nl-be'`. By default it will use `en` locale"
       }
     }
   },

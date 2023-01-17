@@ -6,9 +6,10 @@ export interface DatepickerInputProps {
   qa?: string;
   format?: string;
   mask?: string;
-  label?: string;
-  description?: string;
-  inputProps?: Pick<TextFieldProps, 'id' | 'disabled' | 'name' | 'placeholder' | 'required' | 'size'>;
+  inputProps?: Pick<
+    TextFieldProps,
+    'id' | 'label' | 'description' | 'disabled' | 'name' | 'placeholder' | 'required' | 'size'
+  >;
   value?: string;
   onChange?: (value: string, isValid: boolean) => void;
 }

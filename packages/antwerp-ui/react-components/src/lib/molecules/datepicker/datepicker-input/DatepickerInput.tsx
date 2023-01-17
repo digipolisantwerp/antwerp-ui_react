@@ -3,21 +3,12 @@ import { useOutsideClick } from '../../../../hooks/useOutsideClick.hook';
 import React, { FocusEvent, useRef, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import { TextField } from '../../../atoms/input';
-import { renderLabel } from '../../../atoms/input/input.renders';
+import { renderDescription, renderLabel } from '../../../atoms/input/input.renders';
 import { DatepickerInputProps } from '../datepicker.types';
 import Datepicker from '../datepicker/Datepicker';
 import DatepickerInputIcon from './DatepickerInputIcon';
 
-export function DatepickerInput({
-  qa,
-  value,
-  onChange,
-  format,
-  mask,
-  label,
-  description,
-  inputProps
-}: DatepickerInputProps) {
+export function DatepickerInput({ qa, value, onChange, format, mask, inputProps }: DatepickerInputProps) {
   const idRef = useRef(uuid()).current;
   const datepickerIconRef = useRef<HTMLSpanElement>(null);
   const [currentValue, setCurrentValue] = useState(value || '');
@@ -67,17 +58,22 @@ export function DatepickerInput({
 
   return (
     <div className="a-input has-icon-right" data-qa={qa}>
-      {renderLabel({ label, id: inputProps?.id || idRef, required: inputProps?.required })}
+      {renderLabel({ label: inputProps?.label, id: inputProps?.id || idRef, required: inputProps?.required })}
+      {renderDescription({
+        description: dateInvalidError || inputProps?.description,
+        state: dateInvalidError ? 'error' : undefined
+      })}
       <div className="a-input__wrapper">
         <TextField
           {...inputProps}
+          label={undefined}
+          description={undefined}
           type="text"
           mask={mask}
           id={inputProps?.id || idRef}
           placeholder={format?.toLowerCase()}
           value={currentValue}
           onChange={handleChange}
-          description={dateInvalidError || description}
           state={dateInvalidError ? 'error' : undefined}
         />
         <DatepickerInputIcon ref={datepickerIconRef} onClick={toggleOpen} onEnter={toggleOpen} />
@@ -96,6 +92,7 @@ export function DatepickerInput({
   );
 }
 DatepickerInput.defaultProps = {
+  inputProps: {},
   format: 'DD/MM/YYYY',
   mask: '99/99/9999'
 };

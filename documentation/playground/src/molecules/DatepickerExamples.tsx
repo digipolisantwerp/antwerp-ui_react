@@ -19,9 +19,13 @@ export function DatepickerExamples() {
         unavailable={[new Date('2023-01-13').toISOString(), new Date('2023-01-14').toISOString()]}
       />
       <p className="u-margin-top">With input</p>
-      <DatepickerInput label="Datepicker label" description="Some description for datepicker" />
+      <DatepickerInput inputProps={{ label: 'Datepicker label', description: 'Some description for datepicker' }} />
       <p className="u-margin-top">Custom format and mask</p>
-      <DatepickerInput label="Datepicker label" format="YYYY-MM-DD" mask="9999-99-99" />
+      <DatepickerInput
+        format="YYYY-MM-DD"
+        mask="9999-99-99"
+        inputProps={{ size: 'small', label: 'Datepicker label' }}
+      />
     </div>
   );
 }

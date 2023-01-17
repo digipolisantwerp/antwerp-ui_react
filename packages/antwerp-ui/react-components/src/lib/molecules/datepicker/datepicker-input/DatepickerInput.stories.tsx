@@ -7,110 +7,39 @@ export default {
     docs: {
       description: {
         component:
-          'Use the datepicker component to assist the user in finding and selecting the desired date. This can be accomplished through simple keyboard input directly into the input field, or by finding and selecting a date from the flyout panel.'
+          "Use the datepicker component to assist the user in finding and selecting the desired date. This can be accomplished through simple keyboard input directly into the input field, or by finding and selecting a date from the flyout panel. To change the locale of the component import it from the moment library `import 'moment/dist/locale/nl-be'`. By default it will use `en` locale"
       }
     }
   },
   argTypes: {
-    ariaLabel: {
-      control: { type: 'text' },
-      defaultValue: 'Datumkiezer dagen bekijken',
+    inputProps: {
+      control: { type: 'object' },
+      defaultValue: {},
       table: {
-        defaultValue: { summary: 'Datumkiezer dagen bekijken' },
-        type: { summary: 'string' }
-      },
-      description: 'Used to override `aria-label` attribute on the wrapper element.'
-    },
-    ariaLabelPreviousMonth: {
-      control: { type: 'text' },
-      defaultValue: 'Ga naar de vorige maand',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'Ga naar de vorige maand' }
-      },
-      description: 'Used to override `aria-label` attribute on the `previous` button when component is in `days` view.'
-    },
-    ariaLabelPreviousYear: {
-      control: { type: 'text' },
-      defaultValue: 'Ga naar vorig jaar',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'Ga naar vorig jaar' }
+        defaultValue: { summary: '{}' },
+        type: { summary: 'object' }
       },
       description:
-        'Used to override `aria-label` attribute on the `previous` button when component is in `months` view.'
+        'Props that will be passed through to `TextField` component. Please check React/Atoms/Input/TextField for documentation. Available props: `id` | `label` | `description` | `disabled` | `name` | `placeholder` | `required` | `size`'
     },
-    ariaLabelPreviousYears: {
+    format: {
       control: { type: 'text' },
-      defaultValue: 'Ga naar voorgaande jaren',
+      defaultValue: 'DD/MM/YYYY',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'Ga naar voorgaande jaren' }
+        defaultValue: { summary: 'DD/MM/YYYY' }
       },
-      description: 'Used to override `aria-label` attribute on the `previous` button when component is in `years` view.'
+      description:
+        'Allows to change of date format used to display the value. Should be used with corresponding `mask` and be a valid date-string format'
     },
-    ariaLabelNextMonth: {
+    mask: {
       control: { type: 'text' },
-      defaultValue: 'Ga naar volgende maand',
+      defaultValue: '99/99/9999',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'Ga naar volgende maand' }
+        defaultValue: { summary: '99/99/9999' }
       },
-      description: 'Used to override `aria-label` attribute on the `next` button when component is in `days` view.'
-    },
-    ariaLabelNextYear: {
-      control: { type: 'text' },
-      defaultValue: 'Ga naar volgend jaar',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'Ga naar volgend jaar' }
-      },
-      description: 'Used to override `aria-label` attribute on the `next` button when component is in `months` view.'
-    },
-    ariaLabelNextYears: {
-      control: { type: 'text' },
-      defaultValue: 'Ga naar de volgende jaren',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'Ga naar de volgende jaren' }
-      },
-      description: 'Used to override `aria-label` attribute on the `next` button when component is in `years` view.'
-    },
-    unavailableFrom: {
-      control: { type: 'date' },
-      defaultValue: '',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' }
-      },
-      description: 'Set the date (`ISOString`) from which (inclusively) selection will become unavailable.'
-    },
-    unavailableTo: {
-      control: { type: 'date' },
-      defaultValue: '',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' }
-      },
-      description: 'Set the date (`ISOString`) untill which (inclusively) selection will become unavailable.'
-    },
-    unavailable: {
-      control: { type: 'array' },
-      defaultValue: [],
-      table: {
-        type: { summary: 'string[]' },
-        defaultValue: { summary: '' }
-      },
-      description: 'Set the individual dates (`ISOString`) for which selection will become unavailable.'
-    },
-    isOpen: {
-      control: { type: 'boolean' },
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: true }
-      },
-      defaultValue: true,
-      description: 'Shows/hides `Datepicker` component. When used without input should be set to `true`'
+      description: 'Allows to change of the input mask. Should be used with corresponding `format`'
     },
     value: {
       control: { type: 'text' },
@@ -119,7 +48,7 @@ export default {
         type: { summary: 'string' }
       },
       description:
-        'The value prop of the `Datepicker`. Setting it makes the component controlled and preselects date; use it in combination with `onChange`.'
+        'The value prop of the `DatepickerInput`. Setting it makes the component controlled and preselects date in flyout Datepicker; use it in combination with `onChange`.'
     },
     onChange: {
       control: { type: 'function' },
@@ -128,16 +57,7 @@ export default {
       },
       action: 'onChange',
       description:
-        'Function triggered when the `Datepicker` value has changed. The first parameter of this function is of type `string`.'
-    },
-    onBlur: {
-      control: { type: 'function' },
-      table: {
-        type: { summary: 'function' }
-      },
-      action: 'onBlur',
-      description:
-        'Function triggered when the `Datepicker` is blurred. The first parameter of this function is of type `(React).FocusEvent`.'
+        'Function triggered when the `DatepickerInput` value has changed. The first parameter of this function is of type `string`, second is of type `boolean` which indicates if inputted date is valid.'
     },
     qa: {
       control: { type: 'text' },
