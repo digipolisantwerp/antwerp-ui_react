@@ -21,9 +21,10 @@ export function DaysGridDay({
   );
 
   const isSelected = useMemo(() => !!value && value.isSame(date, 'day'), [value, date]);
+  const isCurrent = date.isSame(moment(), 'day');
 
   const classes = classNames({
-    'is-current': date.isSame(moment(), 'day'),
+    'is-current': isCurrent,
     'is-faded': !date.isBetween(activeMonth.startOf('month'), activeMonth.endOf('month'), 'month', '[]'),
     'is-unavailable': isUnavailable,
     'is-selected': isSelected
@@ -36,7 +37,7 @@ export function DaysGridDay({
         disabled={isUnavailable}
         type="button"
         aria-pressed={isSelected}
-        aria-label={date.format('dddd D MMMM YYYY')}
+        aria-label={`${date.format('dddd D MMMM YYYY')}${isCurrent ? ', huidige dag' : ''}`}
         onClick={() => {
           onChange(date);
         }}

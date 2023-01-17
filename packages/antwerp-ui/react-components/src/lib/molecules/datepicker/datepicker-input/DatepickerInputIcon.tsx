@@ -34,7 +34,15 @@ export const DatepickerInputIcon = forwardRef<HTMLSpanElement, DatepickerInputIc
       'is-clickable': true
     });
     return (
-      <span ref={ref} className={classes} role="button" tabIndex={0} onClick={onClick} onKeyDown={handleEnter}>
+      <span
+        ref={ref}
+        className={classes}
+        role="button"
+        tabIndex={0}
+        onClick={onClick}
+        onKeyDown={handleEnter}
+        aria-label="Geopende kalender"
+      >
         <svg aria-hidden="true">
           <use href="#ai-calendar" />
         </svg>
