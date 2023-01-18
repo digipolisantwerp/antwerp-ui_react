@@ -8,6 +8,13 @@ describe('UI Components - Atoms - Breadcrumb', () => {
     expect(baseElement).toBeTruthy();
   });
 
+  it('should render successfully with wrong input', () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const { baseElement } = render(<Breadcrumb items={''} />);
+    expect(baseElement).toBeTruthy();
+  });
+
   it('should render the correct class', () => {
     const { baseElement } = render(<Breadcrumb />);
     expect(baseElement.getElementsByClassName('a-breadcrumb').length).toBe(1);
