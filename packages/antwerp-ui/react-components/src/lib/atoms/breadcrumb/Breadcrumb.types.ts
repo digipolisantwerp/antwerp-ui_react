@@ -5,5 +5,5 @@ export interface BreadcrumbProps {
   qa?: string;
   title?: Title;
   items: Link[];
-  renderLink?: (link: Link) => ReactNode;
+  renderLinkFunction?: (link: Link) => ReactNode;
 }

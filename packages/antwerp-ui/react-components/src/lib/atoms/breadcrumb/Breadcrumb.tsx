@@ -1,8 +1,11 @@
 import { renderHTMLLink } from '../../../utils/render.utils';
 import { BreadcrumbProps } from './Breadcrumb.types';
 
-export function Breadcrumb({ title, items, renderLink, qa }: BreadcrumbProps) {
-  const renderItems = () => items.map((i) => <li>{renderLink ? renderLink(i) : renderHTMLLink(i)}</li>);
+export function Breadcrumb({ title, items, renderLinkFunction, qa }: BreadcrumbProps) {
+  const renderItems = () =>
+    Array.isArray(items)
+      ? items.map((i) => <li>{renderLinkFunction ? renderLinkFunction(i) : renderHTMLLink(i)}</li>)
+      : null;
   const renderTitle = () => {
     if (title && title.label) {
       const TitleTag = title.tag || ('h1' as keyof JSX.IntrinsicElements);

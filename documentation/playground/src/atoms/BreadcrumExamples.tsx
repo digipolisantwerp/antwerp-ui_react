@@ -37,7 +37,7 @@ const BreadcrumbExamples = () => (
         { label: 'Hello', href: 'https://www.google.be' },
         { label: 'World', href: 'https://www.wikipedia.be' }
       ]}
-      renderLink={(link) => <a href="https://www.google.be">LINK: {link.href} is now GOOGLE</a>}
+      renderLinkFunction={(link) => <a href="https://www.google.be">LINK: {link.href} is now GOOGLE</a>}
     />
   </>
 );
