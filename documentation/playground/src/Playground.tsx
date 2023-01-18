@@ -10,6 +10,7 @@ import TextAreaExamples from './atoms/TextAreaExamples';
 import ToggleExamples from './atoms/ToggleExamples';
 import LabelExamples from './atoms/LabelExamples';
 import ImageExamples from './molecules/ImageExamples';
+import BreadcrumbExamples from './atoms/BreadcrumExamples';
 
 export function Playground() {
   return (
@@ -18,6 +19,7 @@ export function Playground() {
       <AvatarExamples />
       <BadgeExamples />
       <ButtonExamples />
+      <BreadcrumbExamples />
       <CheckboxExamples />
       <LabelExamples />
       <RadioExamples />
