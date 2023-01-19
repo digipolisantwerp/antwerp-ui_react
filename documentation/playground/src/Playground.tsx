@@ -12,6 +12,7 @@ import LabelExamples from './atoms/LabelExamples';
 import ImageExamples from './molecules/ImageExamples';
 import BreadcrumbExamples from './atoms/BreadcrumExamples';
 import TooltipExamples from './atoms/TooltipExamples';
+import SwitchExamples from './atoms/SwitchExamples';
 
 export function Playground() {
   return (
@@ -26,6 +27,7 @@ export function Playground() {
       <LabelExamples />
       <RadioExamples />
       <SpinnerExamples />
+      <SwitchExamples />
       <TextAreaExamples />
       <TextFieldExamples />
       <ToggleExamples />

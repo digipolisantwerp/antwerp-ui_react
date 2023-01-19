@@ -22,7 +22,7 @@ describe('UI Components - Atoms - Breadcrumb', () => {
 
   it('should render the items', () => {
     const { baseElement } = render(
-      <Breadcrumb items={[{ label: 'Hello', href: 'link-1' }, { label: '', href: 'link-2' }, { label: '' }]} />
+      <Breadcrumb items={[{ label: 'Hello', href: 'link-1' }, { label: 'World', href: 'link-2' }, { label: '' }]} />
     );
     expect(baseElement.getElementsByTagName('li').length).toBe(3);
     expect(baseElement.getElementsByTagName('a').length).toBe(2);
