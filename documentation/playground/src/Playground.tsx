@@ -11,10 +11,12 @@ import ToggleExamples from './atoms/ToggleExamples';
 import LabelExamples from './atoms/LabelExamples';
 import ImageExamples from './molecules/ImageExamples';
 import BreadcrumbExamples from './atoms/BreadcrumExamples';
+import TooltipExamples from './atoms/TooltipExamples';
 
 export function Playground() {
   return (
     <>
+      <h1>Atoms</h1>
       <IconExamples />
       <AvatarExamples />
       <BadgeExamples />
@@ -27,6 +29,8 @@ export function Playground() {
       <TextAreaExamples />
       <TextFieldExamples />
       <ToggleExamples />
+      <TooltipExamples />
+      <h1>Molecules</h1>
       <ImageExamples />
     </>
   );

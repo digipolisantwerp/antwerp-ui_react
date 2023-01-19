@@ -11,5 +11,6 @@ export * from './lib/atoms/label';
 export * from './lib/atoms/radio';
 export * from './lib/atoms/spinner';
 export * from './lib/atoms/toggle';
+export * from './lib/atoms/tooltip';
 
 export * from './lib/molecules/image';

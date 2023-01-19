@@ -4,7 +4,7 @@ import { BreadcrumbProps } from './Breadcrumb.types';
 export function Breadcrumb({ title, items, renderLinkFunction, qa }: BreadcrumbProps) {
   const renderItems = () =>
     Array.isArray(items)
-      ? items.map((i) => <li>{renderLinkFunction ? renderLinkFunction(i) : renderHTMLLink(i)}</li>)
+      ? items.map((i) => <li key={i.label}>{renderLinkFunction ? renderLinkFunction(i) : renderHTMLLink(i)}</li>)
       : null;
   const renderTitle = () => {
     if (title && title.label) {
