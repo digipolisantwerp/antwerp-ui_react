@@ -13,6 +13,7 @@ import ImageExamples from './molecules/ImageExamples';
 import BreadcrumbExamples from './atoms/BreadcrumExamples';
 import TooltipExamples from './atoms/TooltipExamples';
 import SwitchExamples from './atoms/SwitchExamples';
+import TagExamples from './molecules/TagExamples';
 
 export function Playground() {
   return (
@@ -34,6 +35,7 @@ export function Playground() {
       <TooltipExamples />
       <h1>Molecules</h1>
       <ImageExamples />
+      <TagExamples />
     </>
   );
 }

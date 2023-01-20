@@ -30,7 +30,9 @@ describe('UI Components - Atoms - Breadcrumb', () => {
 
   it('should render the title', () => {
     const { baseElement } = render(
-      <Breadcrumb items={[{ label: 'Hello', href: 'link-1' }]} title={{ label: 'TitleTest' }} />
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      <Breadcrumb items={[{ label: 'Hello', href: 'link-1' }, { href: '/hello' }]} title={{ label: 'TitleTest' }} />
     );
     expect(baseElement.getElementsByTagName('h1').length).toBe(1);
     expect(baseElement.getElementsByTagName('h1')[0].innerHTML).toEqual('TitleTest');

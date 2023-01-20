@@ -15,3 +15,4 @@ export * from './lib/atoms/toggle';
 export * from './lib/atoms/tooltip';
 
 export * from './lib/molecules/image';
+export * from './lib/molecules/tag';

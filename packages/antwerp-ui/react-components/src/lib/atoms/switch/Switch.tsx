@@ -16,9 +16,10 @@ export function Switch({
   statusLabelOn,
   statusLabelSide
 }: SwitchProps) {
-  const [checked, setChecked] = useState(checkedProp || false);
+  const [checked, setChecked] = useState(checkedProp);
+  const isChecked = checkedProp === true || checked;
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
-    setChecked(checkedProp || !checked);
+    setChecked(!checked);
     if (onClick && typeof onClick === 'function') {
       onClick(e);
     }
@@ -39,7 +40,7 @@ export function Switch({
       data-qa={qa}
       className="a-switch"
       role="switch"
-      aria-checked={checked}
+      aria-checked={isChecked}
       aria-label={ariaLabel}
       aria-labelledby={label ? labelId : undefined}
       disabled={disabled}
