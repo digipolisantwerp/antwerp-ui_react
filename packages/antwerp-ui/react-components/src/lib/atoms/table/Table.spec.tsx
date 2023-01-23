@@ -71,7 +71,9 @@ describe('UI Components - Atoms - Table', () => {
   });
 
   it('should render checkboxes', () => {
-    render(<Table columns={COLUMNS_EXAMPLE} rows={ROWS_EXAMPLE} selectable={true} />);
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    render(<Table columns={COLUMNS_EXAMPLE} rows={ROWS_EXAMPLE} selectable={true} selected={false} />);
     expect(screen.getAllByRole('checkbox').length).toEqual(3);
   });
 

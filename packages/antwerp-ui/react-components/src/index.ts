@@ -15,5 +15,6 @@ export * from './lib/atoms/table';
 export * from './lib/atoms/toggle';
 export * from './lib/atoms/tooltip';
 
+export * from './lib/molecules/button-group';
 export * from './lib/molecules/image';
 export * from './lib/molecules/tag';

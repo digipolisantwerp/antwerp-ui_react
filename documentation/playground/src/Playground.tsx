@@ -15,6 +15,7 @@ import TooltipExamples from './atoms/TooltipExamples';
 import SwitchExamples from './atoms/SwitchExamples';
 import TagExamples from './molecules/TagExamples';
 import TableExamples from './atoms/TableExamples';
+import ButtonGroupExamples from './molecules/ButtonGroupExamples';
 
 export function Playground() {
   return (
@@ -36,6 +37,7 @@ export function Playground() {
       <ToggleExamples />
       <TooltipExamples />
       <h1>Molecules</h1>
+      <ButtonGroupExamples />
       <ImageExamples />
       <TagExamples />
     </>
