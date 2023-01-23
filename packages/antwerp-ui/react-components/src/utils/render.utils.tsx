@@ -1,5 +1,9 @@
-import { ReactElement, ReactNode } from 'react';
+import { cloneElement, ReactElement, ReactNode } from 'react';
 import { Link } from '../constants/application.types';
+
+export function wrapWithIf(toWrap: ReactNode, wrapper: ReactElement, condition: boolean): ReactNode {
+  return condition ? cloneElement(wrapper, { children: toWrap }) : (toWrap as JSX.Element);
+}
 
 export function renderHTMLLink(link: Link): ReactNode {
   if (!link.href) {

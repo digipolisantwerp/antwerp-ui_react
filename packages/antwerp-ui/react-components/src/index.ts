@@ -11,6 +11,7 @@ export * from './lib/atoms/label';
 export * from './lib/atoms/radio';
 export * from './lib/atoms/spinner';
 export * from './lib/atoms/switch';
+export * from './lib/atoms/table';
 export * from './lib/atoms/toggle';
 export * from './lib/atoms/tooltip';
 

@@ -3,7 +3,7 @@ import { ChangeEvent, useState } from 'react';
 
 export function CheckboxExamples() {
   const [firstChecked, setFirstChecked] = useState(false);
-  const onCheckboxChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const onCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
     setFirstChecked(e.target.checked);
   };
   return (

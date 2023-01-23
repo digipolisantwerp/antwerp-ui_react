@@ -8,5 +8,5 @@ export interface CheckboxProps {
   indeterminate?: boolean;
   checked?: boolean;
   disabled?: boolean;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }

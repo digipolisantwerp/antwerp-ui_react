@@ -18,10 +18,10 @@ export function Switch({
 }: SwitchProps) {
   const [checked, setChecked] = useState(checkedProp);
   const isChecked = checkedProp === true || checked;
-  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
     setChecked(!checked);
     if (onClick && typeof onClick === 'function') {
-      onClick(e);
+      onClick(event);
     }
   };
   const statusLabels = (

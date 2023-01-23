@@ -8,9 +8,9 @@ export function Tag({ label, isToggle, active, iconLeft, removable, name, qa, on
   const isRemovable = removable && !isToggle;
   const isPressed = active === true || pressed;
 
-  const handleClick = (e: MouseEvent<HTMLButtonElement | HTMLDivElement>) => {
+  const handleClick = (event: MouseEvent<HTMLButtonElement | HTMLDivElement>) => {
     isToggle && setPressed(!pressed);
-    return (isToggle || isRemovable) && onClick && onClick(e);
+    return (isToggle || isRemovable) && onClick && onClick(event);
   };
 
   const TagElement = isToggle ? 'button' : 'div';

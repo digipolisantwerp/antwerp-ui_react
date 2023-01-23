@@ -30,9 +30,9 @@ export function TextArea({
     'has-error': state === State.ERROR
   });
 
-  const _handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setCharacterCount(e.target.value.length);
-    return onChange && onChange(e);
+  const _handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setCharacterCount(event.target.value.length);
+    return onChange && onChange(event);
   };
 
   return (

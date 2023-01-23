@@ -22,20 +22,20 @@ export interface TextFieldProps extends InputProps {
   addonRight?: string;
   iconLeft?: string;
   iconRight?: string;
-  onBlur?: (e: FocusEvent<HTMLInputElement>) => void;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  onClick?: (e: MouseEvent<HTMLInputElement>) => void;
-  onFocus?: (e: FocusEvent<HTMLInputElement>) => void;
-  onKeyDown?: (e: KeyboardEvent<HTMLInputElement>) => void;
+  onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onClick?: (event: MouseEvent<HTMLInputElement>) => void;
+  onFocus?: (event: FocusEvent<HTMLInputElement>) => void;
+  onKeyDown?: (event: KeyboardEvent<HTMLInputElement>) => void;
   type?: InputTypes;
 }
 
 export interface TextAreaProps extends InputProps {
-  onBlur?: (e: FocusEvent<HTMLTextAreaElement>) => void;
-  onChange?: (e: ChangeEvent<HTMLTextAreaElement>) => void;
-  onClick?: (e: MouseEvent<HTMLTextAreaElement>) => void;
-  onFocus?: (e: FocusEvent<HTMLTextAreaElement>) => void;
-  onKeyDown?: (e: KeyboardEvent<HTMLTextAreaElement>) => void;
+  onBlur?: (event: FocusEvent<HTMLTextAreaElement>) => void;
+  onChange?: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+  onClick?: (event: MouseEvent<HTMLTextAreaElement>) => void;
+  onFocus?: (event: FocusEvent<HTMLTextAreaElement>) => void;
+  onKeyDown?: (event: KeyboardEvent<HTMLTextAreaElement>) => void;
 }
 
 export type LabelProps = Pick<TextFieldProps, 'label' | 'required' | 'inline' | 'id'>;

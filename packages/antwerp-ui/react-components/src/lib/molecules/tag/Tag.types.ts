@@ -8,5 +8,5 @@ export interface TagProps {
   isToggle?: boolean;
   iconLeft?: string;
   qa?: string;
-  onClick?: (e: MouseEvent<HTMLButtonElement | HTMLDivElement>) => void;
+  onClick?: (event: MouseEvent<HTMLButtonElement | HTMLDivElement>) => void;
 }

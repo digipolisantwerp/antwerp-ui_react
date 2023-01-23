@@ -41,9 +41,9 @@ export function TextField({
     'has-error': state === 'error'
   });
 
-  const _handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCharacterCount(e.target.value.length);
-    return onChange && onChange(e);
+  const _handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setCharacterCount(event.target.value.length);
+    return onChange && onChange(event);
   };
 
   return (
