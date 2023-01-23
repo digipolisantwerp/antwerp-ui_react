@@ -79,7 +79,7 @@ export function TableExamples() {
           actions={{
             label: 'Acties',
             buttons: [
-              { label: 'Kopen', id: 'buy', onActionClick: (_, rowId) => setEvent(`buy:${rowId}`) },
+              // { label: 'Kopen', id: 'buy', onActionClick: (_, rowId) => setEvent(`buy:${rowId}`) },
               {
                 label: 'Verwijder',
                 id: 'delete',

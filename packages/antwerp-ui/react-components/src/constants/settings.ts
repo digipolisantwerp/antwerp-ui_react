@@ -1,5 +1,5 @@
 // BASE
-export const ICONS_URL = 'https://cdn.antwerpen.be/core_branding_scss/6.1.1/assets/images/ai.svg';
+export const ICONS_URL = 'https://cdn.antwerpen.be/core_branding_scss/6.2.0/assets/images/ai.svg';
 
 // ATOMS
 export const DEFAULT_AVATAR_ICON = 'single-neutral';
