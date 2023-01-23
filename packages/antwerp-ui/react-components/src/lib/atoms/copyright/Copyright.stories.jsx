@@ -2,7 +2,7 @@ import Copyright from './Copyright';
 import { QA_PROP_STORY } from '../../../constants/stories.settings';
 
 export default {
-  title: 'React/Atoms/Copyright',
+  title: 'React/Molecules/Image/Copyright',
   component: Copyright,
   parameters: {
     docs: {
