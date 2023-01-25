@@ -17,6 +17,7 @@ import TagExamples from './molecules/TagExamples';
 import TableExamples from './atoms/TableExamples';
 import ButtonGroupExamples from './molecules/ButtonGroupExamples';
 import ProgressBarExamples from './atoms/ProgressBarExamples';
+import PageIndicatorExamples from './atoms/PageIndicatorExamples';
 
 export function Playground() {
   return (
@@ -29,6 +30,7 @@ export function Playground() {
       <BreadcrumbExamples />
       <CheckboxExamples />
       <LabelExamples />
+      <PageIndicatorExamples />
       <ProgressBarExamples />
       <RadioExamples />
       <SpinnerExamples />
