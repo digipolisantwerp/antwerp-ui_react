@@ -16,6 +16,7 @@ import SwitchExamples from './atoms/SwitchExamples';
 import TagExamples from './molecules/TagExamples';
 import TableExamples from './atoms/TableExamples';
 import ButtonGroupExamples from './molecules/ButtonGroupExamples';
+import ProgressBarExamples from './atoms/ProgressBarExamples';
 
 export function Playground() {
   return (
@@ -28,6 +29,7 @@ export function Playground() {
       <BreadcrumbExamples />
       <CheckboxExamples />
       <LabelExamples />
+      <ProgressBarExamples />
       <RadioExamples />
       <SpinnerExamples />
       <SwitchExamples />

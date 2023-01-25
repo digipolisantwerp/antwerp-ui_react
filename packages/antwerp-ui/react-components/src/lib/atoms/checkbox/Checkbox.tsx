@@ -18,7 +18,7 @@ export function Checkbox({ label, checked, id, qa, name, disabled, indeterminate
   });
 
   return (
-    <div data-qa={qa} className={classes} data-testid={id}>
+    <div data-qa={qa} className={classes}>
       <input
         type="checkbox"
         id={id}

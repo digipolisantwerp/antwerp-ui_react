@@ -18,7 +18,6 @@ export function Copyright({ sign, label, link, forImage, qa }: CopyrightProps) {
       href={link}
       className={classes}
       aria-expanded={!!(forImage && expanded)}
-      data-testid={qa}
       data-qa={qa}
       onFocus={expand}
       onBlur={shrink}
@@ -26,11 +25,7 @@ export function Copyright({ sign, label, link, forImage, qa }: CopyrightProps) {
       onMouseLeave={shrink}
     >
       <span className="a-copyright__sign">{sign}</span>
-      {label ? (
-        <span className="a-copyright__label" data-testid="copyright-label">
-          {label}
-        </span>
-      ) : null}
+      {label ? <span className="a-copyright__label">{label}</span> : null}
     </ElementTag>
   );
 }

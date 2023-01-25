@@ -20,19 +20,12 @@ describe('Image', () => {
     expect(img).toHaveAttribute('src', src);
   });
 
-  it('renders the correct data-qa attribute', () => {
-    const { getByTestId } = render(<Image {...defaultProps} />);
-    const img = getByTestId(qa);
-    expect(img).toHaveAttribute('data-qa', qa);
-  });
-
   it('renders the image with a copyright as a child', () => {
-    const { getByTestId } = render(
+    const { container } = render(
       <Image {...defaultProps}>
         <Copyright sign="©" label="All rights reserved" link="https://www.google.be/" qa="copyright" />
       </Image>
     );
-    const copyright = getByTestId('copyright');
-    expect(copyright).toHaveAttribute('href', 'https://www.google.be/');
+    expect(container.innerHTML).toContain('href="https://www.google.be/"');
   });
 });

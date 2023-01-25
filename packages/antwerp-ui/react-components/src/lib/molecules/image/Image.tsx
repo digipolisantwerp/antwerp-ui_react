@@ -2,7 +2,7 @@ import { ImageProps } from './Image.types';
 
 export function Image({ alt, children, src, qa }: ImageProps) {
   return (
-    <figure className="m-image" data-qa={qa} data-testid={qa}>
+    <figure className="m-image" data-qa={qa}>
       <img src={src} alt={alt} />
       {children}
     </figure>
