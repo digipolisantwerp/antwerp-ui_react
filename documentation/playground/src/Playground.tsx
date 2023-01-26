@@ -1,23 +1,23 @@
 import AvatarExamples from './atoms/AvatarExamples';
 import BadgeExamples from './atoms/BadgeExamples';
-import ButtonExamples from './atoms/ButtonExamples';
-import IconExamples from './base/IconExamples';
-import SpinnerExamples from './atoms/SpinnerExamples';
-import CheckboxExamples from './atoms/CheckboxExamples';
-import RadioExamples from './atoms/RadioExamples';
-import TextFieldExamples from './atoms/TextFieldExamples';
-import TextAreaExamples from './atoms/TextAreaExamples';
-import ToggleExamples from './atoms/ToggleExamples';
-import LabelExamples from './atoms/LabelExamples';
-import ImageExamples from './molecules/ImageExamples';
 import BreadcrumbExamples from './atoms/BreadcrumExamples';
-import TooltipExamples from './atoms/TooltipExamples';
-import SwitchExamples from './atoms/SwitchExamples';
-import TagExamples from './molecules/TagExamples';
-import TableExamples from './atoms/TableExamples';
+import ButtonExamples from './atoms/ButtonExamples';
 import ButtonGroupExamples from './molecules/ButtonGroupExamples';
+import CheckboxExamples from './atoms/CheckboxExamples';
+import IconExamples from './base/IconExamples';
+import ImageExamples from './molecules/ImageExamples';
+import LabelExamples from './atoms/LabelExamples';
+import PageIndicatorExamples from './molecules/PageIndicatorExamples';
 import ProgressBarExamples from './atoms/ProgressBarExamples';
-import PageIndicatorExamples from './atoms/PageIndicatorExamples';
+import RadioExamples from './atoms/RadioExamples';
+import SpinnerExamples from './atoms/SpinnerExamples';
+import SwitchExamples from './atoms/SwitchExamples';
+import TableExamples from './atoms/TableExamples';
+import TagExamples from './molecules/TagExamples';
+import TextAreaExamples from './atoms/TextAreaExamples';
+import TextFieldExamples from './atoms/TextFieldExamples';
+import ToggleExamples from './atoms/ToggleExamples';
+import TooltipExamples from './atoms/TooltipExamples';
 
 export function Playground() {
   return (
@@ -30,7 +30,6 @@ export function Playground() {
       <BreadcrumbExamples />
       <CheckboxExamples />
       <LabelExamples />
-      <PageIndicatorExamples />
       <ProgressBarExamples />
       <RadioExamples />
       <SpinnerExamples />
@@ -43,6 +42,7 @@ export function Playground() {
       <h1>Molecules</h1>
       <ButtonGroupExamples />
       <ImageExamples />
+      <PageIndicatorExamples />
       <TagExamples />
     </>
   );

@@ -8,7 +8,6 @@ export * from './lib/atoms/checkbox';
 export * from './lib/atoms/copyright';
 export * from './lib/atoms/input';
 export * from './lib/atoms/label';
-export * from './lib/atoms/page-indicator';
 export * from './lib/atoms/progress-bar';
 export * from './lib/atoms/radio';
 export * from './lib/atoms/spinner';
@@ -19,4 +18,5 @@ export * from './lib/atoms/tooltip';
 
 export * from './lib/molecules/button-group';
 export * from './lib/molecules/image';
+export * from './lib/molecules/page-indicator';
 export * from './lib/molecules/tag';
