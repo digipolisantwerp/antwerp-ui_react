@@ -17,6 +17,14 @@ export function SwitchExamples() {
       />
       <div className="u-margin-bottom" />
       <Switch
+        checked={false}
+        id="switch-2"
+        labelId="switch-2-label"
+        statusLabelSide="right"
+        label="Controlled switch - no onClick"
+      />
+      <div className="u-margin-bottom" />
+      <Switch
         id="switch-5"
         labelId="switch-5-label"
         label="Controlled switch - Onclick"

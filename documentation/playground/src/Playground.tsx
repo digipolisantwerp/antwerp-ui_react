@@ -18,6 +18,7 @@ import TextAreaExamples from './atoms/TextAreaExamples';
 import TextFieldExamples from './atoms/TextFieldExamples';
 import ToggleExamples from './atoms/ToggleExamples';
 import TooltipExamples from './atoms/TooltipExamples';
+import AccordionExamples from './molecules/AccordionExamples';
 
 export function Playground() {
   return (
@@ -40,6 +41,7 @@ export function Playground() {
       <ToggleExamples />
       <TooltipExamples />
       <h1>Molecules</h1>
+      <AccordionExamples />
       <ButtonGroupExamples />
       <ImageExamples />
       <PageIndicatorExamples />

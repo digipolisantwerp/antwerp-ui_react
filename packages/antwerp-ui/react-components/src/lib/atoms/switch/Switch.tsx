@@ -16,8 +16,8 @@ export function Switch({
   statusLabelOn,
   statusLabelSide
 }: SwitchProps) {
-  const [checked, setChecked] = useState(checkedProp);
-  const isChecked = checkedProp === true || checked;
+  const [checked, setChecked] = useState(!!checkedProp);
+  const isChecked = checkedProp === true || checkedProp === false ? !!checkedProp : checked;
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
     setChecked(!checked);
     if (onClick && typeof onClick === 'function') {
@@ -68,7 +68,6 @@ export function Switch({
 }
 
 Switch.defaultProps = {
-  checked: false,
   disabled: false,
   id: 'aui-switch',
   internalIOLabels: false,

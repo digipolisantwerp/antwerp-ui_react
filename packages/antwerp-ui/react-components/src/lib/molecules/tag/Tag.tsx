@@ -6,7 +6,7 @@ import { TagProps } from './Tag.types';
 export function Tag({ label, isToggle, active, iconLeft, removable, name, qa, onClick }: TagProps) {
   const [pressed, setPressed] = React.useState(active);
   const isRemovable = removable && !isToggle;
-  const isPressed = active === true || pressed;
+  const isPressed = active === true || active === false ? active : pressed;
 
   const handleClick = (event: MouseEvent<HTMLButtonElement | HTMLDivElement>) => {
     isToggle && setPressed(!pressed);

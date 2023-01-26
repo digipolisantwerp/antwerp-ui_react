@@ -49,6 +49,7 @@ export default {
     },
     onPageChange: {
       control: { type: 'function' },
+      action: 'onPageChange',
       table: {
         type: { summary: 'function' }
       },

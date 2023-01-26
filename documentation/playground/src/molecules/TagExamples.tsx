@@ -11,6 +11,7 @@ export function TagExamples() {
       <Tag label="Static Tag with Icon" iconLeft="tags" />
       <Tag label="Removable tag" iconLeft="tags" removable />
       <Tag label="Controlled tag - no Onclick" active isToggle iconLeft="tags" />
+      <Tag label="Controlled tag - no Onclick" active={false} isToggle iconLeft="tags" />
       <Tag
         label="Controlled tag - with onClick"
         active={active}

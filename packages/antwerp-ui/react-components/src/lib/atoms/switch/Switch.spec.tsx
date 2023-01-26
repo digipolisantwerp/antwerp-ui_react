@@ -12,7 +12,7 @@ describe('UI Components - Atoms - Switch', () => {
 
   it('should handle click correctly', () => {
     const mockOnClick = jest.fn();
-    const { baseElement } = render(<Switch onClick={mockOnClick} />);
+    const { baseElement } = render(<Switch onClick={mockOnClick} checked={false} />);
     fireEvent.click(baseElement.getElementsByClassName('a-switch')[0]);
     expect(mockOnClick).toHaveBeenCalledTimes(1);
   });
