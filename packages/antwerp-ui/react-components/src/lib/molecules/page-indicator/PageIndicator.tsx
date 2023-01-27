@@ -1,7 +1,7 @@
 import React, { KeyboardEvent } from 'react';
 import { classNames } from '../../../utils/dom.utils';
 import { PageIndicatorProps } from './PageIndicator.types';
-import { DEFAULT_SIZE, SIZE_MAPPING } from '../../../constants/layout.settings';
+import { DEFAULT_SIZE, SIZE_MAP } from '../../../constants/layout.settings';
 
 // Keyboard and Tab handling according to ARIA spec
 // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
@@ -42,7 +42,7 @@ export function PageIndicator({ qa, size, pages, activePage, onPageChange }: Pag
 
   const classes = classNames({
     'a-page-indicator': true,
-    [`a-page-indicator--${SIZE_MAPPING[size || DEFAULT_SIZE]}`]: !!size
+    [`a-page-indicator--${SIZE_MAP[size || DEFAULT_SIZE]}`]: !!size
   });
 
   return (

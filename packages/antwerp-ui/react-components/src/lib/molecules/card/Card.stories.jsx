@@ -62,6 +62,16 @@ export default {
       },
       description: 'The `link` prop sets the footer action for the card component.'
     },
+    titleId: {
+      control: { type: 'text' },
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'aui-card-title' }
+      },
+      defaultValue: 'aui-card-title',
+      description:
+        'The `titleId` prop is the id of the title that is also used in the `aria-labelledby` attribute.'
+    },
     qa: QA_PROP_STORY
   }
 };

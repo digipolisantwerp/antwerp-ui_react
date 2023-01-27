@@ -5,6 +5,7 @@ export interface ButtonProps {
   ariaLabel?: string;
   avatar?: ButtonAvatarProps;
   children?: React.ReactNode;
+  className?: string;
   fullWidth?: boolean;
   htmlType?: 'button' | 'submit' | 'reset';
   icon?: string;

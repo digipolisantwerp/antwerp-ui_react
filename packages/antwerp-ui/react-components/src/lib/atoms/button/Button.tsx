@@ -1,7 +1,7 @@
 import { Avatar } from '../avatar';
 import { ButtonProps } from './Button.types';
 import { classNames } from '../../../utils/dom.utils';
-import { DEFAULT_SIZE, Size, SIZE_MAPPING, Theme } from '../../../constants/layout.settings';
+import { DEFAULT_SIZE, Size, SIZE_MAP, Theme } from '../../../constants/layout.settings';
 import { Icon } from '../../base/icon';
 import { Spinner } from '../spinner';
 
@@ -9,6 +9,7 @@ export function Button({
   ariaLabel,
   avatar,
   children,
+  className,
   fullWidth,
   htmlType,
   icon,
@@ -26,7 +27,7 @@ export function Button({
 }: ButtonProps) {
   const classes = classNames({
     'a-button': true,
-    [`a-button--${SIZE_MAPPING[size || DEFAULT_SIZE]}`]: !!size,
+    [`a-button--${SIZE_MAP[size || DEFAULT_SIZE]}`]: !!size,
     [`a-button--${theme}`]: !!theme && !(theme === Theme.NEUTRAL && !(outline || transparent)),
     'a-button--outlined': !!outline,
     'a-button--text': !!transparent,
@@ -35,7 +36,8 @@ export function Button({
     'has-icon-left': !!iconLeft && !avatar,
     'has-icon-right': (!!iconRight || !!spinner) && !avatar,
     'has-avatar': !!avatar && (!avatar?.image || !avatar?.letter),
-    'has-avatar-with-inset': !!avatar?.image || !!avatar?.letter
+    'has-avatar-with-inset': !!avatar?.image || !!avatar?.letter,
+    [`${className}`]: !!className
   });
 
   const renderAddOn = (): JSX.Element | null => {

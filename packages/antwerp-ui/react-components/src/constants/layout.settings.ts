@@ -8,7 +8,7 @@ export enum Size {
 
 export const DEFAULT_SIZE = Size.MD;
 
-export const SIZE_MAPPING: { [size: string]: string } = {
+export const SIZE_MAP: { [size: string]: string } = {
   [Size.XS]: 'xs',
   [Size.S]: 's',
   [Size.MD]: 'md',
@@ -23,6 +23,12 @@ export enum Theme {
   SUCCESS = 'success',
   WARNING = 'warning'
 }
+
+export const THEME_ICON_MAP: { [Theme: string]: string } = {
+  [Theme.SUCCESS]: 'check-1',
+  [Theme.DANGER]: 'alert-circle',
+  [Theme.WARNING]: 'alert-triangle'
+};
 
 // States
 export enum State {

@@ -1,5 +1,5 @@
 import { classNames } from '../../../../utils/dom.utils';
-import { DEFAULT_SIZE, SIZE_MAPPING, State } from '../../../../constants/layout.settings';
+import { DEFAULT_SIZE, SIZE_MAP, State } from '../../../../constants/layout.settings';
 import { useState } from 'react';
 import { renderCharacterCounter, renderDescription, renderLabel } from '../input.renders';
 import { TextAreaProps } from '../Input.types';
@@ -26,7 +26,7 @@ export function TextArea({
   const wrapperClasses = classNames({
     'a-input': true,
     'a-input--inline': !!inline,
-    [`a-input--${SIZE_MAPPING[size || DEFAULT_SIZE]}`]: !!size,
+    [`a-input--${SIZE_MAP[size || DEFAULT_SIZE]}`]: !!size,
     'has-error': state === State.ERROR
   });
 

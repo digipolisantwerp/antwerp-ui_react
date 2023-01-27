@@ -20,6 +20,7 @@ import ToggleExamples from './atoms/ToggleExamples';
 import TooltipExamples from './atoms/TooltipExamples';
 import AccordionExamples from './molecules/AccordionExamples';
 import CardExamples from './molecules/CardExamples';
+import AlertExamples from './molecules/AlertExamples';
 
 export function Playground() {
   return (
@@ -43,6 +44,7 @@ export function Playground() {
       <TooltipExamples />
       <h1>Molecules</h1>
       <AccordionExamples />
+      <AlertExamples />
       <ButtonGroupExamples />
       <CardExamples />
       <ImageExamples />

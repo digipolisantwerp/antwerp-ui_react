@@ -1,4 +1,4 @@
-import { DEFAULT_SIZE, SIZE_MAPPING } from '../../../constants/layout.settings';
+import { DEFAULT_SIZE, SIZE_MAP } from '../../../constants/layout.settings';
 import { classNames } from '../../../utils/dom.utils';
 import { Icon } from '../../base/icon';
 import { ToggleProps } from './Toggle.types';
@@ -22,12 +22,12 @@ export function Toggle({
   };
   const toggleClass = classNames({
     'a-toggle': true,
-    [`a-toggle--${SIZE_MAPPING[size || DEFAULT_SIZE]}`]: !!size
+    [`a-toggle--${SIZE_MAP[size || DEFAULT_SIZE]}`]: !!size
   });
   const buttonClasses = (theme?: string, icon?: string, onOrOff?: string) => {
     return classNames({
       'a-button': true,
-      [`a-button--${SIZE_MAPPING[size || DEFAULT_SIZE]}`]: !!size,
+      [`a-button--${SIZE_MAP[size || DEFAULT_SIZE]}`]: !!size,
       [`a-button--${theme}`]: !!theme,
       'has-icon-left': !!showLabels && !!icon,
       'has-icon': !showLabels && !!icon,

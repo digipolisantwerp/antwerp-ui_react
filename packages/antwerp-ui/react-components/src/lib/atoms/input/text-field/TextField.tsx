@@ -1,6 +1,6 @@
 import { TextFieldProps } from '../Input.types';
 import { classNames } from '../../../../utils/dom.utils';
-import { DEFAULT_SIZE, SIZE_MAPPING } from '../../../../constants/layout.settings';
+import { DEFAULT_SIZE, SIZE_MAP } from '../../../../constants/layout.settings';
 import { Icon } from '../../../base/icon';
 import { renderCharacterCounter, renderDescription, renderLabel } from '../input.renders';
 import { useState } from 'react';
@@ -33,7 +33,7 @@ export function TextField({
   const classes = classNames({
     'a-input': true,
     'a-input--inline': !!inline,
-    [`a-input--${SIZE_MAPPING[size || DEFAULT_SIZE]}`]: !!size,
+    [`a-input--${SIZE_MAP[size || DEFAULT_SIZE]}`]: !!size,
     'has-icon-left': !!iconLeft,
     'has-icon-right': !iconLeft && !!iconRight,
     'has-addon-left': !!addonLeft,
