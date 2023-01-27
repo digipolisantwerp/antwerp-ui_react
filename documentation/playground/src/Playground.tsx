@@ -19,6 +19,7 @@ import TextFieldExamples from './atoms/TextFieldExamples';
 import ToggleExamples from './atoms/ToggleExamples';
 import TooltipExamples from './atoms/TooltipExamples';
 import AccordionExamples from './molecules/AccordionExamples';
+import CardExamples from './molecules/CardExamples';
 
 export function Playground() {
   return (
@@ -43,6 +44,7 @@ export function Playground() {
       <h1>Molecules</h1>
       <AccordionExamples />
       <ButtonGroupExamples />
+      <CardExamples />
       <ImageExamples />
       <PageIndicatorExamples />
       <TagExamples />

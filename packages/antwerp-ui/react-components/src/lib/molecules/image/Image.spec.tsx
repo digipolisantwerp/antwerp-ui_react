@@ -20,6 +20,11 @@ describe('Image', () => {
     expect(img).toHaveAttribute('src', src);
   });
 
+  it('renders the image without class', () => {
+    const { baseElement } = render(<Image {...defaultProps} noClass />);
+    expect(baseElement).not.toHaveClass('m-image');
+  });
+
   it('renders the image with a copyright as a child', () => {
     const { container } = render(
       <Image {...defaultProps}>

@@ -18,6 +18,7 @@ export * from './lib/atoms/tooltip';
 
 export * from './lib/molecules/accordion';
 export * from './lib/molecules/button-group';
+export * from './lib/molecules/card';
 export * from './lib/molecules/image';
 export * from './lib/molecules/page-indicator';
 export * from './lib/molecules/tag';

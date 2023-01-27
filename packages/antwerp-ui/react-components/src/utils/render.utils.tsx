@@ -1,17 +1,23 @@
 import { cloneElement, ReactElement, ReactNode } from 'react';
 import { Link } from '../constants/application.types';
+import { Icon } from '../lib/base/icon';
 
 export function wrapWithIf(toWrap: ReactNode, wrapper: ReactElement, condition: boolean): ReactNode {
   return condition ? cloneElement(wrapper, { children: toWrap }) : (toWrap as JSX.Element);
 }
 
-export function renderHTMLLink(link: Link): ReactNode {
-  if (!link.href) {
-    return link.label || '';
+export function renderHTMLLink(
+  link: Link,
+  icon?: string,
+  props?: { className?: string; 'aria-labelledby'?: string }
+): ReactNode {
+  if (!link?.href) {
+    return link?.label || '';
   }
   return (
-    <a href={link.href} target={link.target || '_self'}>
+    <a href={link.href} target={link.target || '_self'} {...props}>
       {link.label || ''}
+      {icon ? <Icon name={icon} /> : null}
     </a>
   );
 }

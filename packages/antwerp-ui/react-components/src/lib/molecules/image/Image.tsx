@@ -1,8 +1,12 @@
+import { classNames } from '../../../utils/dom.utils';
 import { ImageProps } from './Image.types';
 
-export function Image({ alt, children, src, qa }: ImageProps) {
+export function Image({ alt, children, src, noClass, qa }: ImageProps) {
+  const classes = classNames({
+    'm-image': !noClass
+  });
   return (
-    <figure className="m-image" data-qa={qa}>
+    <figure className={classes} data-qa={qa}>
       <img src={src} alt={alt} />
       {children}
     </figure>

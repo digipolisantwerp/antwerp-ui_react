@@ -55,7 +55,16 @@ describe('Utils - Render utils', () => {
       const link = renderHTMLLink({ label: 'Label', href: '/home' });
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      expect((link || {}).props).toEqual({ children: 'Label', href: '/home', target: '_self' });
+      expect((link || {}).props).toEqual({ children: ['Label', null], href: '/home', target: '_self' });
+    });
+
+    it('should add an icon', () => {
+      const link = renderHTMLLink({ label: 'Label', href: '/home' }, 'arrow-left');
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      expect((link || {}).props.children[1].props).toEqual({
+        name: 'arrow-left'
+      });
     });
   });
 });
