@@ -21,6 +21,7 @@ import TooltipExamples from './atoms/TooltipExamples';
 import AccordionExamples from './molecules/AccordionExamples';
 import CardExamples from './molecules/CardExamples';
 import AlertExamples from './molecules/AlertExamples';
+import FooterExamples from './organisms/FooterExamples';
 
 export function Playground() {
   return (
@@ -50,6 +51,8 @@ export function Playground() {
       <ImageExamples />
       <PageIndicatorExamples />
       <TagExamples />
+      <h1>Organisms</h1>
+      <FooterExamples />
     </>
   );
 }

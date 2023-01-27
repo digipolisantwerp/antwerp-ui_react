@@ -1,3 +1,4 @@
+import React from 'react';
 import { renderHTMLLink } from '../../../utils/render.utils';
 import { Button } from '../../atoms/button';
 import { FooterProps } from './Footer.types';
@@ -14,22 +15,22 @@ export function Footer({ backToTop, backToTopAriaLabel, items, qa }: FooterProps
       const item = renderHTMLLink(i);
       const addDivider = items.length > 1 && index !== items.length - 1;
       return (
-        <>
-          {item}${addDivider ? ' | ' : ''}
-        </>
+        <React.Fragment key={i.label}>
+          {item}
+          {addDivider ? ' | ' : ''}
+        </React.Fragment>
       );
     });
 
   return (
-    <footer className="o-footer" data-qa={qa} data-testId={qa}>
+    <footer className="o-footer" data-qa={qa}>
       <span className="o-footer__label">{renderItems()}</span>
       {backToTop && (
         <Button
-          className="o-footer__button"
+          className="o-footer__button a-button--secondary"
           icon="arrow-up-1"
           onClick={scrollToTop}
           ariaLabel={backToTopAriaLabel}
-          theme="danger"
         />
       )}
     </footer>
