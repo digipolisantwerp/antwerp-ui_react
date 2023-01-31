@@ -25,3 +25,4 @@ export * from './lib/molecules/page-indicator';
 export * from './lib/molecules/tag';
 
 export * from './lib/organisms/footer';
+export * from './lib/organisms/tag-list';

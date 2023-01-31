@@ -22,6 +22,7 @@ import AccordionExamples from './molecules/AccordionExamples';
 import CardExamples from './molecules/CardExamples';
 import AlertExamples from './molecules/AlertExamples';
 import FooterExamples from './organisms/FooterExamples';
+import TagListExamples from './organisms/TagListExamples';
 
 export function Playground() {
   return (
@@ -53,6 +54,7 @@ export function Playground() {
       <TagExamples />
       <h1>Organisms</h1>
       <FooterExamples />
+      <TagListExamples />
     </>
   );
 }
