@@ -23,6 +23,7 @@ import CardExamples from './molecules/CardExamples';
 import AlertExamples from './molecules/AlertExamples';
 import FooterExamples from './organisms/FooterExamples';
 import TagListExamples from './organisms/TagListExamples';
+import PaginationExamples from './molecules/PaginationExamples';
 
 export function Playground() {
   return (
@@ -51,6 +52,7 @@ export function Playground() {
       <CardExamples />
       <ImageExamples />
       <PageIndicatorExamples />
+      <PaginationExamples />
       <TagExamples />
       <h1>Organisms</h1>
       <FooterExamples />

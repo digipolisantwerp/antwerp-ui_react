@@ -1,5 +1,6 @@
 import { classNames, isScrollAtTheEnd } from './dom.utils';
 import { renderHTMLLink } from './render.utils';
+import { pagesArray } from './math.utils';
 
 describe('Utils - DOM Utils', () => {
   describe('- classNames', () => {
@@ -65,6 +66,38 @@ describe('Utils - Render utils', () => {
       expect((link || {}).props.children[1].props).toEqual({
         name: 'arrow-left'
       });
+    });
+  });
+});
+
+describe('Utils - Math Utils', () => {
+  describe('- pagesArray', () => {
+    it('should correctly generate an array of pages', () => {
+      expect(pagesArray(1, 8)).toEqual([1, 2, 3, 4, 5, 0, 8]);
+      expect(pagesArray(2, 8)).toEqual([1, 2, 3, 4, 5, 0, 8]);
+      expect(pagesArray(3, 8)).toEqual([1, 2, 3, 4, 5, 0, 8]);
+      expect(pagesArray(4, 8)).toEqual([1, 2, 3, 4, 5, 0, 8]);
+      expect(pagesArray(5, 8)).toEqual([1, 0, 4, 5, 6, 7, 8]);
+      expect(pagesArray(6, 8)).toEqual([1, 0, 4, 5, 6, 7, 8]);
+      expect(pagesArray(7, 8)).toEqual([1, 0, 4, 5, 6, 7, 8]);
+      expect(pagesArray(8, 8)).toEqual([1, 0, 4, 5, 6, 7, 8]);
+      expect(pagesArray(1, 1)).toEqual([1]);
+      expect(pagesArray(1, 2)).toEqual([1, 2]);
+      expect(pagesArray(1, 3)).toEqual([1, 2, 3]);
+      expect(pagesArray(3, 3)).toEqual([1, 2, 3]);
+      expect(pagesArray(1, 4)).toEqual([1, 2, 3, 4]);
+      expect(pagesArray(1, 5)).toEqual([1, 2, 3, 4, 5]);
+      expect(pagesArray(1, 6)).toEqual([1, 2, 3, 4, 5, 6]);
+      expect(pagesArray(1, 7)).toEqual([1, 2, 3, 4, 5, 6, 7]);
+      expect(pagesArray(5, 5)).toEqual([1, 2, 3, 4, 5]);
+      expect(pagesArray(5, 6)).toEqual([1, 2, 3, 4, 5, 6]);
+      expect(pagesArray(5, 7)).toEqual([1, 2, 3, 4, 5, 6, 7]);
+      expect(pagesArray(1, 10)).toEqual([1, 2, 3, 4, 5, 0, 10]);
+      expect(pagesArray(4, 10)).toEqual([1, 2, 3, 4, 5, 0, 10]);
+      expect(pagesArray(5, 10)).toEqual([1, 0, 4, 5, 6, 0, 10]);
+      expect(pagesArray(8, 10)).toEqual([1, 0, 6, 7, 8, 9, 10]);
+      expect(pagesArray(10, 10)).toEqual([1, 0, 6, 7, 8, 9, 10]);
+      expect(pagesArray(7, 11)).toEqual([1, 0, 6, 7, 8, 0, 11]);
     });
   });
 });

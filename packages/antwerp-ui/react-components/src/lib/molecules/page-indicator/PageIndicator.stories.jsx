@@ -9,9 +9,9 @@ export default {
     docs: {
       description: {
         component:
-          'A page indicator is used to inform the users on which panel or page in a set they are currently viewing. It displays the total number of panels, as well as which panel is currently active, or in view.',
-      },
-    },
+          'A page indicator is used to inform the users on which panel or page in a set they are currently viewing. It displays the total number of panels, as well as which panel is currently active, or in view.'
+      }
+    }
   },
   argTypes: {
     activePage: {
@@ -56,7 +56,7 @@ export default {
       description: 'Allows to control which page is activated. First parameter of the function is the new page.'
     },
     qa: QA_PROP_STORY
-  },
+  }
 };
 
 const Template = (args) => {
@@ -90,7 +90,14 @@ const Template = (args) => {
       >
         <p>Content for the third panel (switch page to change content)</p>
       </div>
-      <PageIndicator {...args} activePage={activePage} onPageChange={setActivePage} />
+      <PageIndicator
+        {...args}
+        activePage={activePage}
+        onPageChange={(p) => {
+          args.onPageChange(p);
+          setActivePage(p);
+        }}
+      />
     </div>
   );
 };

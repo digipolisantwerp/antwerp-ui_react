@@ -22,6 +22,7 @@ export * from './lib/molecules/button-group';
 export * from './lib/molecules/card';
 export * from './lib/molecules/image';
 export * from './lib/molecules/page-indicator';
+export * from './lib/molecules/pagination';
 export * from './lib/molecules/tag';
 
 export * from './lib/organisms/footer';

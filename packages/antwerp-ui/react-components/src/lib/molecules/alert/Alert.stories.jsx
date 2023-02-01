@@ -77,7 +77,6 @@ export default {
       control: { type: 'function' },
       table: {
         type: { summary: 'function' },
-        defaultValue: { summary: 'Confirm' }
       },
       action: 'onCancel',
       description:
