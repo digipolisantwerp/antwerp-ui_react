@@ -20,6 +20,7 @@ export * from './lib/molecules/accordion';
 export * from './lib/molecules/alert';
 export * from './lib/molecules/button-group';
 export * from './lib/molecules/card';
+export * from './lib/molecules/flyout';
 export * from './lib/molecules/image';
 export * from './lib/molecules/page-indicator';
 export * from './lib/molecules/pagination';
