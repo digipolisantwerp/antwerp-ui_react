@@ -25,6 +25,7 @@ import FooterExamples from './organisms/FooterExamples';
 import TagListExamples from './organisms/TagListExamples';
 import PaginationExamples from './molecules/PaginationExamples';
 import FlyoutExamples from './molecules/FlyoutExamples';
+import UploadExamples from './molecules/UploadExamples';
 
 export function Playground() {
   return (
@@ -56,6 +57,7 @@ export function Playground() {
       <PageIndicatorExamples />
       <PaginationExamples />
       <TagExamples />
+      <UploadExamples />
       <h1>Organisms</h1>
       <FooterExamples />
       <TagListExamples />
