@@ -57,7 +57,7 @@ describe('Modal', () => {
     );
     await act(async () => fireEvent.click(getByText('Open')));
     expect(baseElement.getElementsByClassName('modal-content').length).toBe(1);
-    await act(async () => fireEvent.click(getByText('Okay')));
+    await act(async () => fireEvent.click(getByText('Bevestigen')));
     expect(baseElement.getElementsByClassName('modal-content').length).toBe(0);
     expect(mockConfirm).toBeCalledTimes(1);
   });

@@ -1,5 +1,6 @@
 import React, { cloneElement } from 'react';
 import ReactModal from 'react-modal';
+import { DEFAULT_SIZE, SIZE_MAP } from '../../../constants/layout.settings';
 import { classNames } from '../../../utils/dom.utils';
 import { Button } from '../../atoms/button';
 import { ModalProps } from './Modal.types';
@@ -43,7 +44,7 @@ export function Modal({
         appElement={document.getElementById(appRootId) as HTMLElement}
         bodyOpenClassName={null}
         htmlOpenClassName={null}
-        className={classNames({ 'm-modal': true, [`m-modal--${size}`]: !!size })}
+        className={classNames({ 'm-modal': true, [`m-modal--${SIZE_MAP[size || DEFAULT_SIZE]}`]: !!size })}
         isOpen={showModal}
         onRequestClose={handleClose}
         role="dialog"
@@ -94,7 +95,7 @@ Modal.defaultProps = {
   ariaCloseLabel: 'Sluiten',
   cancelText: 'Annuleren',
   closeButton: true,
-  confirmText: 'Okay',
+  confirmText: 'Bevestigen',
   showCancel: true,
   showConfirm: true,
   size: '',
