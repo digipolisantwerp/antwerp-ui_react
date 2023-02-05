@@ -1,0 +1,19 @@
+import { QA_PROP_STORY } from '../../../constants/stories.settings';
+import <%= className %> from './<%= className %>';
+
+export default {
+  title: 'React/<%= blockName %>/<%= className %>',
+  component: <%= className %>,
+  parameters: {
+    docs: {
+      description: {
+        component: ''
+      }
+    }
+  },
+  argTypes: {
+    qa: QA_PROP_STORY
+  }
+};
+
+export const <%= propertyName %> = '';

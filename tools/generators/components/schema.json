@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "Component",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "Enter the name of your component?"
+    },
+    "category": {
+      "type": "string",
+      "x-prompt": "Base, atom, molecule, organism?"
+    }
+  },
+  "required": ["name", "category"]
+}

@@ -14,7 +14,9 @@ React Components using Core Branding 6.2.0.
 
 ## Code generation
 
-- yarn nx g @nrwl/react:component --project antwerp-ui-react-components --directory=lib/atoms antwerp-ui-react-components --name Badge --export true --pascalCaseFiles true
+Create a new component:
+
+- `yarn generate` or `yarn g`
 
 ## Testing
 

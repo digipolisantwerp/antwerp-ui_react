@@ -44,7 +44,7 @@ Here is the branching strategy for contributions:
 - Check if component is really necessary.
   - Does it already exist?
   - Check with "Digitale Huisstijl" before starting.
-- TODO-NT Generation command.
+- Generate component with `yarn g`, this will create boilerplate files for the component.
 - Development steps (order can vary)
   - Define your props/interface
   - Write tests

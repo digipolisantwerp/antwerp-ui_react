@@ -1,0 +1,2 @@
+export { <%= className %> } from './<%= className %>';
+export type { <%= className %>Props } from './<%= className %>.types';

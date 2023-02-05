@@ -6,10 +6,14 @@
     "test": "yarn nx test",
     "playground": "yarn nx run documentation-playground:serve:development",
     "storybook": "yarn nx run @acpaas-ui/storybook:start",
-    "storybook:build": "yarn nx run @acpaas-ui/storybook:build"
+    "storybook:build": "yarn nx run @acpaas-ui/storybook:build",
+    "g": "yarn nx g @acpaas-ui/react-components:component",
+    "generate": "yarn nx g @acpaas-ui/react-components:component"
   },
   "private": true,
   "dependencies": {
+    "@swc-node/register": "^1.5.5",
+    "@swc/core": "^1.3.32",
     "@types/react-modal": "^3.13.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",

@@ -1,0 +1,13 @@
+import { <%= className %>Props } from './<%= className %>.types';
+import { classNames } from '../../../utils/dom.utils';
+
+export function <%= className %>({ qa }: <%= className %>Props) {
+  const classes = classNames({});
+  return (
+    <div className={classes} data-qa={qa}>
+      Hello <%= className %>!
+    </div>
+  );
+}
+
+export default <%= className %>;

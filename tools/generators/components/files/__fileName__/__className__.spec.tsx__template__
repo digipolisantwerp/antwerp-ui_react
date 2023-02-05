@@ -1,0 +1,10 @@
+import { <%= className %> } from './<%= className %>';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
+
+describe ('UI Components - <%= blockName %> - <%= className %>', () => {
+  it('should render successfully', () => {
+    const { baseElement } = render(<<%= className %> />);
+    expect(baseElement).toBeTruthy();
+  })
+});
