@@ -31,7 +31,6 @@ export default {
     },
     qa: QA_PROP_STORY
   },
-  parameters: {}
 };
 
 export const label = '';
