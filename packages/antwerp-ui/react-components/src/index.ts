@@ -25,6 +25,7 @@ export * from './lib/molecules/image';
 export * from './lib/molecules/modal';
 export * from './lib/molecules/page-indicator';
 export * from './lib/molecules/pagination';
+export * from './lib/molecules/step-indicator';
 export * from './lib/molecules/tag';
 export * from './lib/molecules/upload';
 

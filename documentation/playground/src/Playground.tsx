@@ -27,6 +27,7 @@ import PaginationExamples from './molecules/PaginationExamples';
 import FlyoutExamples from './molecules/FlyoutExamples';
 import UploadExamples from './molecules/UploadExamples';
 import ModalExamples from './molecules/ModalExamples';
+import StepIndicatorExamples from './molecules/StepIndicatorExamples';
 
 export function Playground() {
   return (
@@ -58,6 +59,7 @@ export function Playground() {
       <ModalExamples />
       <PageIndicatorExamples />
       <PaginationExamples />
+      <StepIndicatorExamples />
       <TagExamples />
       <UploadExamples />
       <h1>Organisms</h1>

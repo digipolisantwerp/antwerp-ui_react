@@ -14,9 +14,6 @@ export default {
     }
   },
   argTypes: {
-  // onAfterOpen?: () => void;
-  // onClose?: () => void;
-
     appRootId: {
       control: { type: 'text' },
       table: {
@@ -162,7 +159,6 @@ export default {
       action: 'onAfterOpen',
       description: 'Modal open callback, called after modal opening.'
     },
-
     qa: QA_PROP_STORY
   },
 };
