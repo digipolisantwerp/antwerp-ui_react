@@ -60,7 +60,7 @@ export default {
       table: {
         type: { summary: 'string' }
       },
-      options: ['', 'small', 'large'],
+      options: ['', 'small', 'medium'],
       description: 'Set the size of the pagination, `medium` is the default and can be omitted.'
     },
     ariaLabel: {

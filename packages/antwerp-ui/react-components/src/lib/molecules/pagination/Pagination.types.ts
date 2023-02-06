@@ -5,7 +5,7 @@ export interface PaginationProps {
 
   onChange?: (page: number) => void;
   display?: 'text' | 'numbers';
-  size?: 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium';
 
   ariaLabel?: string;
   ariaLabelPreviousPage?: string;
