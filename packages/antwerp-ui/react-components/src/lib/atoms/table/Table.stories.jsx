@@ -186,7 +186,7 @@ export default {
       table: {
         type: { summary: 'function' }
       },
-      description: 'Function that is triggered when a row is selected via a checkbox. The first argument is of type `ChangeEvent`, the second one is the `id` of the row.'
+      description: 'Function that is triggered when a row is selected via a checkbox/row click. The first argument is the `id` of the row.'
     },
     onSelectAll: {
       control: { type: 'function' },

@@ -1,8 +1,9 @@
+import { SyntheticEvent } from 'react';
 import { classNames } from '../../../utils/dom.utils';
 import { wrapWithIf } from '../../../utils/render.utils';
 import { Button } from '../button';
 import { Checkbox } from '../checkbox';
-import { TableBodyProps } from './Table.types';
+import { TableBodyProps, TableRowSchema } from './Table.types';
 
 // TODO-NT USE BUTTON GROUP
 export function TableBody({
@@ -18,17 +19,24 @@ export function TableBody({
   const rowClasses = classNames({
     'is-clickable': !!selectable
   });
+
+  const selectRow = (event: SyntheticEvent, row: TableRowSchema) => {
+    event.preventDefault();
+    event.stopPropagation();
+    return selectable && onSelect && onSelect(row.id);
+  };
+
   return (
     <tbody>
       {rows.map((row) => (
-        <tr className={rowClasses} key={row?.id}>
+        <tr onClick={(e) => selectRow(e, row)} className={rowClasses} key={row?.id}>
           {selectable ? (
             <td>
               <Checkbox
                 name={`aui-table-checkbox-${tableId}-${row.id}`}
                 id={`aui-table-checkbox-row-${tableId}-${row.id}`}
                 checked={(selected || []).includes(row.id)}
-                onChange={(e) => onSelect && onSelect(e, row.id)}
+                onChange={(e) => selectRow(e, row)}
               />
             </td>
           ) : null}

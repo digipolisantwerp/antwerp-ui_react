@@ -66,7 +66,7 @@ export function TableHeader({
             >
               {wrapWithIf(
                 col?.label,
-                <button onClick={(e) => onSortClick && onSortClick(e, col.value)} className={thSortClasses}></button>,
+                <button onClick={(e) => onSortClick && onSortClick(col.value)} className={thSortClasses}></button>,
                 !!col?.sortable
               )}
             </th>

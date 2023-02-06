@@ -1,6 +1,6 @@
 // import { ButtonProps } from '../button';
 
-import { ChangeEvent, MouseEvent, ReactNode } from 'react';
+import { MouseEvent, ReactNode } from 'react';
 import { ButtonProps } from '../button';
 
 export interface TableProps {
@@ -15,9 +15,9 @@ export interface TableProps {
   fixedColumnLeft?: boolean;
   fixedColumnRight?: boolean;
   id?: string;
-  onSelect?: (event: ChangeEvent<HTMLInputElement>, id?: string) => void;
-  onSelectAll?: (event: ChangeEvent<HTMLInputElement>) => void;
-  onSortClick?: (event: MouseEvent<HTMLButtonElement>, columnValue: string) => void;
+  onSelect?: (id?: string) => void;
+  onSelectAll?: () => void;
+  onSortClick?: (columnValue: string) => void;
   open?: boolean;
   qa?: string;
   responsive?: boolean;

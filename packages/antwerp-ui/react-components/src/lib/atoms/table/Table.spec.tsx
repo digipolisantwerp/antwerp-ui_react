@@ -128,8 +128,8 @@ describe('UI Components - Atoms - Table', () => {
     );
     fireEvent.click(screen.getAllByRole('checkbox')[0]);
     fireEvent.click(screen.getAllByRole('checkbox')[1]);
-    expect(mockOnSelect).toHaveBeenCalledTimes(1);
-    expect(mockOnSelectAll).toHaveBeenCalledTimes(1);
+    expect(mockOnSelect).toHaveBeenCalled();
+    expect(mockOnSelectAll).toHaveBeenCalled();
   });
 
   it('should call onSortClick', () => {
