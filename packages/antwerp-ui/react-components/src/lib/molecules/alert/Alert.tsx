@@ -18,9 +18,11 @@ const renderModalAlert = (className: string, props: AlertProps) => {
     title,
     titleId
   } = props;
+
   const textClass = classNames({
     'u-margin-bottom': !!(onConfirm || onCancel)
   });
+
   return (
     <div role="alertdialog" className={className} aria-labelledby={titleId} aria-modal="true" data-qa={qa}>
       <Button
@@ -80,6 +82,7 @@ export function Alert(props: AlertProps) {
     [`m-alert--${props.theme}`]: !!props.theme,
     'm-alert--inline': !props.modal
   });
+
   return props.modal ? renderModalAlert(alertClasses, props) : renderInlineAlert(alertClasses, props);
 }
 

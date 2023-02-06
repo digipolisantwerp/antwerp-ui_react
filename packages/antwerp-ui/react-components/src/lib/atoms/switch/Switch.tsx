@@ -18,12 +18,14 @@ export function Switch({
 }: SwitchProps) {
   const [checked, setChecked] = useState(!!checkedProp);
   const isChecked = checkedProp === true || checkedProp === false ? !!checkedProp : checked;
+
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
     setChecked(!checked);
     if (onClick && typeof onClick === 'function') {
       onClick(event);
     }
   };
+
   const statusLabels = (
     <>
       <div className="a-switch__label a-switch__label--on" aria-hidden="true">
@@ -34,6 +36,7 @@ export function Switch({
       </div>
     </>
   );
+
   return labelWrapper(
     <button
       id={id}

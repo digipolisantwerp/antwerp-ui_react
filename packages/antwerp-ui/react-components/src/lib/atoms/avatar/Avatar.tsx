@@ -22,12 +22,14 @@ export function Avatar({ letter, rounded, size, ariaLabel, image, imageAlt, icon
     }
     return iconAvatar(icon || DEFAULT_AVATAR_ICON, ariaLabel || '');
   };
+
   const classes = classNames({
     'a-avatar': true,
     'a-avatar--primary': !!letter,
     'a-avatar--rounded': !!rounded,
     [`a-avatar--${SIZE_MAP[size || DEFAULT_SIZE]}`]: !!size
   });
+
   return (
     <div className={classes} data-qa={qa}>
       {renderContent()}

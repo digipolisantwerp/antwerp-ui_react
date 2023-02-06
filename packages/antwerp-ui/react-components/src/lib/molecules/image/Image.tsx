@@ -5,6 +5,7 @@ export function Image({ alt, children, src, noClass, qa }: ImageProps) {
   const classes = classNames({
     'm-image': !noClass
   });
+
   return (
     <figure className={classes} data-qa={qa}>
       <img src={src} alt={alt} />

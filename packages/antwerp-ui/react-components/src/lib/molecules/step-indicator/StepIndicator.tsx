@@ -16,6 +16,7 @@ export function StepIndicator({
       onStepClick(stepId, index);
     }
   };
+
   return (
     <ol className="m-step-indicator" data-qa={qa}>
       {steps?.map((step: Step, index) => {

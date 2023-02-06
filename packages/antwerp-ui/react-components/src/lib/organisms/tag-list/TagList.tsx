@@ -7,6 +7,7 @@ export function TagList({ children = [], qa }: TagListProps) {
   const classes = classNames({
     'o-tag-list': true
   });
+
   return (
     <ul className={classes} data-qa={qa}>
       {Children.map(children, (child: ReactNode) => {

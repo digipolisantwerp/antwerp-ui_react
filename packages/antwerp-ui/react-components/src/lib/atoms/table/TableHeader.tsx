@@ -24,6 +24,7 @@ export function TableHeader({
         .map((r) => r.id)
         .sort()
         .join(',');
+
   return (
     <thead>
       <tr>
@@ -44,14 +45,17 @@ export function TableHeader({
             'is-collapsed': !!col.sortable,
             'is-condensed': !!small
           });
+
           const isAscending = sort === col?.value && sortDirection === SORT_ASCENDING;
           const isDescending = sort === col?.value && sortDirection === SORT_DESCENDING;
+
           const thSortClasses = classNames({
             'a-table__sort-button': true,
             'a-table__sort-button--unsorted': sort !== col?.value,
             'a-table__sort-button--sorted-asc': isAscending,
             'a-table__sort-button--sorted-desc': isDescending
           });
+
           return (
             <th
               key={col?.value}

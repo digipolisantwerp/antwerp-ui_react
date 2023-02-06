@@ -34,7 +34,9 @@ export function Modal({
   };
 
   const handleCancel = () => runFunctionAndClose(onCancel);
+
   const handleConfirm = () => runFunctionAndClose(onConfirm);
+
   const handleClose = () => runFunctionAndClose(onClose);
 
   return (

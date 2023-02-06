@@ -20,10 +20,12 @@ export function Toggle({
   const handleClick = () => {
     onClick && onClick(!checked);
   };
+
   const toggleClass = classNames({
     'a-toggle': true,
     [`a-toggle--${SIZE_MAP[size || DEFAULT_SIZE]}`]: !!size
   });
+
   const buttonClasses = (theme?: string, icon?: string, onOrOff?: string) => {
     return classNames({
       'a-button': true,
@@ -34,8 +36,11 @@ export function Toggle({
       [`a-toggle__${onOrOff}`]: !!onOrOff
     });
   };
+
   const checkedClasses = buttonClasses(checkedTheme, checkedIcon, 'on');
+
   const uncheckedClasses = buttonClasses(uncheckedTheme, uncheckedIcon, 'off');
+
   return (
     <div className={toggleClass} data-qa={qa}>
       <button className="a-toggle__button" id={id} aria-expanded={checked} onClick={handleClick}>

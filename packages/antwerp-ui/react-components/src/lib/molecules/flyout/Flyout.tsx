@@ -16,6 +16,7 @@ export function Flyout({
   qa
 }: FlyoutProps) {
   const [isOpen, setIsOpen] = React.useState(!!open);
+
   const flyoutRef = React.useRef(null);
 
   const _handleOutsideClick = React.useCallback(

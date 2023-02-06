@@ -5,6 +5,7 @@ export function Radio({ value, label, id, qa, name, onChange, checked, disabled 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     onChange && onChange(event);
   };
+
   return (
     <div className="a-input__radio" data-qa={qa}>
       <input

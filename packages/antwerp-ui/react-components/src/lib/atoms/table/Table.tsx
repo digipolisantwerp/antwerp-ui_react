@@ -27,16 +27,19 @@ export function Table({
   const [isScrollStart, setIsScrollStart] = useState(true);
   const [isScrollEnd, setIsScrollEnd] = useState(true);
   const scrollDivRef = useRef(null);
+
   const setScrollPoints = (target: Element) => {
     setIsScrollStart(target.scrollLeft === 0);
     setIsScrollEnd(isScrollAtTheEnd(target));
   };
+
   useEffect(() => {
     const target = scrollDivRef.current;
     if (target) {
       setScrollPoints(target);
     }
   }, [scrollDivRef]);
+
   useEffect(() => {
     function handleResize() {
       scrollDivRef.current && setScrollPoints(scrollDivRef.current);
@@ -44,6 +47,7 @@ export function Table({
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
   const handleScroll = (e: UIEvent<HTMLDivElement>) => {
     const target = e.target as Element;
     setScrollPoints(target);
@@ -90,6 +94,7 @@ export function Table({
       />
     </table>
   );
+
   return responsive ? (
     <div className={responsiveWrapperClasses} data-qa={qa}>
       <div ref={scrollDivRef} onScroll={handleScroll} className="a-table-scrollable-wrapper">

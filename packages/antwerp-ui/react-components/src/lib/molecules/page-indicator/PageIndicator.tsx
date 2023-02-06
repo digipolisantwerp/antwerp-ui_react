@@ -10,6 +10,7 @@ export function PageIndicator({ qa, size, pages, activePage, onPageChange }: Pag
   const [focusedIndex, setFocusedIndex] = React.useState(0);
 
   const handleFocus = (index: number) => setFocusedIndex(index);
+
   const clickHandler = (pageId: string) => () => onPageChange && onPageChange(pageId);
 
   const handleArrowNavigation = (e: KeyboardEvent<HTMLDivElement>) => {

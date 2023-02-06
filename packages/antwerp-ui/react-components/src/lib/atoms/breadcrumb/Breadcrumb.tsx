@@ -8,6 +8,7 @@ export function Breadcrumb({ title, items, renderLinkFunction, qa }: BreadcrumbP
           <li key={i.label || i.href}>{renderLinkFunction ? renderLinkFunction(i) : renderHTMLLink(i)}</li>
         ))
       : null;
+
   const renderTitle = () => {
     if (title && title.label) {
       const TitleTag = title.tag || ('h1' as keyof JSX.IntrinsicElements);
@@ -15,6 +16,7 @@ export function Breadcrumb({ title, items, renderLinkFunction, qa }: BreadcrumbP
     }
     return null;
   };
+
   return (
     <>
       <ul className="a-breadcrumb" data-qa={qa}>

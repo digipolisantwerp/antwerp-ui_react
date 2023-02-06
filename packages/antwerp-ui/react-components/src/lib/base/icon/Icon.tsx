@@ -16,14 +16,17 @@ export function Icon({ name, screenReaderText, thin, qa }: IconProps) {
       document.body.appendChild(svgWrapper);
     }
   };
+
   if (typeof document !== 'undefined' && !document.getElementById(ICONS_SVG_HTML_ID)) {
     fetchIcons();
   }
+
   const classes = classNames({
     ai: true,
     [`ai-${name.replace('ai-', '')}`]: !!name,
     'ai--thin': !!thin
   });
+
   return (
     <span className={classes} data-qa={qa}>
       {name ? (

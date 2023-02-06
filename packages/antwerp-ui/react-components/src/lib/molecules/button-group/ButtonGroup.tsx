@@ -6,6 +6,7 @@ export function ButtonGroup({ children, vertical, qa }: ButtonGroupProps) {
     'm-button-group': true,
     'm-button-group--vertical': !!vertical
   });
+
   return (
     <div className={classes} data-qa={qa}>
       {children}

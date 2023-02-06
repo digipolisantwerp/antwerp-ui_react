@@ -10,10 +10,11 @@ export function Footer({ backToTop, backToTopAriaLabel, items, qa }: FooterProps
       behavior: 'smooth'
     });
   };
+
   const renderItems = () =>
     items?.map((i, index) => {
       const item = renderHTMLLink(i);
-      const addDivider = items.length > 1 && index !== items.length - 1;
+      const addDivider: boolean = items.length > 1 && index !== items.length - 1;
       return (
         <React.Fragment key={i.label}>
           {item}

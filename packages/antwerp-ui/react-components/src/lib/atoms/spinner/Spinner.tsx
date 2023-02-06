@@ -9,6 +9,7 @@ export function Spinner({ label, showText, size, vertical, qa }: SpinnerProps) {
     [`a-spinner--${SIZE_MAP[size || DEFAULT_SIZE]}`]: !!size,
     'a-spinner--vertical': !!vertical
   });
+
   return (
     <div className={classes} role="alert" data-qa={qa}>
       <span className="a-spinner__circle"></span>

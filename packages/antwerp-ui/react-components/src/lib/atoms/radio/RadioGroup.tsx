@@ -6,9 +6,11 @@ export function RadioGroup({ label, name, children = [], value, qa, onChange }: 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     return onChange && onChange(event.target?.value);
   };
+
   const classes = classNames({
     'a-input': true
   });
+
   return (
     <fieldset className={classes} data-qa={qa}>
       <legend className="a-input__label">{label}</legend>

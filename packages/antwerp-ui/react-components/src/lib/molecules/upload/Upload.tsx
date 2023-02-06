@@ -20,12 +20,14 @@ export function Upload({
   sizeErrorLabel
 }: UploadProps) {
   const inputRef = React.useRef<HTMLInputElement>(null);
+
   const handleDelete = (file: File) => {
     onDelete && onDelete(files?.filter((f) => f?.name !== file.name));
     if (inputRef.current) {
       inputRef.current.value = '';
     }
   };
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (multiple) {
       const newFiles = e.target?.files
@@ -39,6 +41,7 @@ export function Upload({
       onChange && onChange(newFile, areFilesValid(newFile, acceptedFormat, maxSize));
     }
   };
+
   return (
     <div className={classNames({ 'm-upload': true, 'is-disabled': !!disabled })}>
       <div className="m-upload__inner">
