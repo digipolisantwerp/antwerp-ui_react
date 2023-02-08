@@ -89,9 +89,9 @@ export function Alert(props: AlertProps) {
 Alert.defaultProps = {
   title: '',
   titleId: 'aui-alert-title',
-  ariaLabelClose: 'Close',
-  confirmLabel: 'Confirm',
-  cancelLabel: 'Cancel'
+  ariaLabelClose: 'Sluiten',
+  confirmLabel: 'Bevestigen',
+  cancelLabel: 'Annuleren'
 };
 
 export default Alert;

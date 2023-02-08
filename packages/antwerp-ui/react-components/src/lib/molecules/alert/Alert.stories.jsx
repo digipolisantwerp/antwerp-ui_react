@@ -67,7 +67,7 @@ export default {
       control: { type: 'text' },
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'Confirm' }
+        defaultValue: { summary: 'Bevestigen' }
       },
       defaultValue: 'Confirm',
       description:
@@ -86,7 +86,7 @@ export default {
       control: { type: 'text' },
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'Cancel' }
+        defaultValue: { summary: 'Annuleren' }
       },
       defaultValue: 'Cancel',
       description:
@@ -105,7 +105,7 @@ export default {
       defaultValue: 'Close',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'Close' }
+        defaultValue: { summary: 'Sluiten' }
       },
       description: 'The aria label used on the close icon when a modal alert is used.'
     },

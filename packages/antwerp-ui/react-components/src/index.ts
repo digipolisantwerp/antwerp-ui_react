@@ -23,6 +23,7 @@ export * from './lib/molecules/card';
 export * from './lib/molecules/flyout';
 export * from './lib/molecules/image';
 export * from './lib/molecules/modal';
+export * from './lib/molecules/navigation-list';
 export * from './lib/molecules/page-indicator';
 export * from './lib/molecules/pagination';
 export * from './lib/molecules/step-indicator';

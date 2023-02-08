@@ -1,8 +1,8 @@
 import { TableProps } from './Table.types';
-import { classNames, isScrollAtTheEnd } from '../../../utils/dom.utils';
+import { classNames } from '../../../utils/dom.utils';
 import { TableHeader } from './TableHeader';
 import { TableBody } from './TableBody';
-import { UIEvent, useEffect, useRef, useState } from 'react';
+import { useHorizontalScroll } from '../../../utils/custom.hooks';
 
 export function Table({
   id,
@@ -24,34 +24,7 @@ export function Table({
   fixedColumnRight,
   fixedColumnLeft
 }: TableProps) {
-  const [isScrollStart, setIsScrollStart] = useState(true);
-  const [isScrollEnd, setIsScrollEnd] = useState(true);
-  const scrollDivRef = useRef(null);
-
-  const setScrollPoints = (target: Element) => {
-    setIsScrollStart(target.scrollLeft === 0);
-    setIsScrollEnd(isScrollAtTheEnd(target));
-  };
-
-  useEffect(() => {
-    const target = scrollDivRef.current;
-    if (target) {
-      setScrollPoints(target);
-    }
-  }, [scrollDivRef]);
-
-  useEffect(() => {
-    function handleResize() {
-      scrollDivRef.current && setScrollPoints(scrollDivRef.current);
-    }
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  const handleScroll = (e: UIEvent<HTMLDivElement>) => {
-    const target = e.target as Element;
-    setScrollPoints(target);
-  };
+  const [scrollDivRef, handleScroll, isScrollStart, isScrollEnd] = useHorizontalScroll();
 
   const tableClasses = classNames({
     'a-table': true,

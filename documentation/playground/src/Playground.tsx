@@ -28,6 +28,7 @@ import FlyoutExamples from './molecules/FlyoutExamples';
 import UploadExamples from './molecules/UploadExamples';
 import ModalExamples from './molecules/ModalExamples';
 import StepIndicatorExamples from './molecules/StepIndicatorExamples';
+import NavigationListExamples from './molecules/NavigationListExamples';
 
 export function Playground() {
   return (
@@ -57,6 +58,7 @@ export function Playground() {
       <FlyoutExamples />
       <ImageExamples />
       <ModalExamples />
+      <NavigationListExamples />
       <PageIndicatorExamples />
       <PaginationExamples />
       <StepIndicatorExamples />
