@@ -31,4 +31,5 @@ export * from './lib/molecules/tag';
 export * from './lib/molecules/upload';
 
 export * from './lib/organisms/footer';
+export * from './lib/organisms/header';
 export * from './lib/organisms/tag-list';

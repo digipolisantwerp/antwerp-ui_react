@@ -29,6 +29,7 @@ import UploadExamples from './molecules/UploadExamples';
 import ModalExamples from './molecules/ModalExamples';
 import StepIndicatorExamples from './molecules/StepIndicatorExamples';
 import NavigationListExamples from './molecules/NavigationListExamples';
+import HeaderExamples from './organisms/HeaderExamples';
 
 export function Playground() {
   return (
@@ -66,6 +67,7 @@ export function Playground() {
       <UploadExamples />
       <h1>Organisms</h1>
       <FooterExamples />
+      <HeaderExamples />
       <TagListExamples />
     </>
   );
