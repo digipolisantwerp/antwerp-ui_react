@@ -27,7 +27,7 @@ describe('UI Components - Organisms - Header', () => {
   });
 
   it('should render header buttons', () => {
-    const { baseElement, getByText } = render(<Header buttons={[{ label: 'Hello world' }]} />);
+    const { baseElement, getByText } = render(<Header buttons={[{ id: 'hello', label: 'Hello world' }]} />);
     expect(baseElement.getElementsByClassName('o-header__button')[0]).toBeTruthy();
     expect(getByText('Hello world')).toBeTruthy();
   });

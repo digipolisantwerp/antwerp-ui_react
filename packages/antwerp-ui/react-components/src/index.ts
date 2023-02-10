@@ -8,6 +8,7 @@ export * from './lib/atoms/checkbox';
 export * from './lib/atoms/copyright';
 export * from './lib/atoms/input';
 export * from './lib/atoms/label';
+export * from './lib/atoms/list';
 export * from './lib/atoms/progress-bar';
 export * from './lib/atoms/radio';
 export * from './lib/atoms/spinner';

@@ -3,7 +3,7 @@ import jest from 'jest-mock';
 import { act } from 'react-dom/test-utils';
 import { Modal } from './Modal';
 
-describe('Modal', () => {
+describe('UI Components - Molecules - Modal', () => {
   it('should render successfully', () => {
     const { baseElement } = render(
       <Modal appRootId="root">
