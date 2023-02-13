@@ -12,7 +12,7 @@ const iconAvatar = (icon: string, ariaLabel: string) => (
   </span>
 );
 
-export function Avatar({ letter, rounded, size, ariaLabel, image, imageAlt, icon, qa }: AvatarProps) {
+export function Avatar({ className, letter, rounded, size, ariaLabel, image, imageAlt, icon, qa }: AvatarProps) {
   const renderContent = () => {
     if (image) {
       return imageAvatar(image, imageAlt || '');
@@ -27,7 +27,8 @@ export function Avatar({ letter, rounded, size, ariaLabel, image, imageAlt, icon
     'a-avatar': true,
     'a-avatar--primary': !!letter,
     'a-avatar--rounded': !!rounded,
-    [`a-avatar--${SIZE_MAP[size || DEFAULT_SIZE]}`]: !!size
+    [`a-avatar--${SIZE_MAP[size || DEFAULT_SIZE]}`]: !!size,
+    [className || '']: !!className
   });
 
   return (

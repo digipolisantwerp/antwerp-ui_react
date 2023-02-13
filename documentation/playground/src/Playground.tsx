@@ -30,6 +30,7 @@ import ModalExamples from './molecules/ModalExamples';
 import StepIndicatorExamples from './molecules/StepIndicatorExamples';
 import NavigationListExamples from './molecules/NavigationListExamples';
 import HeaderExamples from './organisms/HeaderExamples';
+import ListExamples from './atoms/ListExamples';
 
 export function Playground() {
   return (
@@ -42,6 +43,7 @@ export function Playground() {
       <BreadcrumbExamples />
       <CheckboxExamples />
       <LabelExamples />
+      <ListExamples />
       <ProgressBarExamples />
       <RadioExamples />
       <SpinnerExamples />
