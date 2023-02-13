@@ -24,3 +24,29 @@ export const pagesArray = (current: number, total: number) => {
   }
   return pages;
 };
+
+export const lineValuesToPosition = (value: number, min: number, max: number, limit: number) => {
+  const diffMaxMin = max - min;
+  const diffValMin = value - min;
+  const percentage = diffValMin / diffMaxMin;
+  return Math.round(percentage * limit);
+};
+
+const clamp = (value: number, min: number, max: number) => {
+  return Math.min(Math.max(value, min), max);
+};
+
+export const getPosition = (coordinate: number, grab: number, direction: number | undefined) => {
+  return direction ? coordinate - direction - grab : coordinate - grab;
+};
+
+export const getValueFromPosition = (pos: number, limit: number, step: number, max: number, min: number) => {
+  const percentage = clamp(pos, 0, limit) / (limit || 1);
+  const baseVal = step * Math.round((percentage * (max - min)) / step);
+
+  let value = baseVal + min;
+
+  if (value >= max) value = max;
+  if (value <= min) value = min;
+  return value;
+};

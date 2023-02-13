@@ -31,6 +31,7 @@ import StepIndicatorExamples from './molecules/StepIndicatorExamples';
 import NavigationListExamples from './molecules/NavigationListExamples';
 import HeaderExamples from './organisms/HeaderExamples';
 import ListExamples from './atoms/ListExamples';
+import RangeSliderExamples from './atoms/RangeSliderExamples';
 
 export function Playground() {
   return (
@@ -46,6 +47,7 @@ export function Playground() {
       <ListExamples />
       <ProgressBarExamples />
       <RadioExamples />
+      <RangeSliderExamples />
       <SpinnerExamples />
       <SwitchExamples />
       <TableExamples />
