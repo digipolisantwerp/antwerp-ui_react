@@ -5,7 +5,7 @@ export interface RangeSliderProps {
   min?: number;
   max?: number;
   step?: number;
-  minRange?: number;
+  minRange?: number | false;
   unit?: string;
   range?: boolean;
   labelStart?: string;
@@ -31,9 +31,9 @@ export interface RangeSliderHandleProps {
   min: number;
   max: number;
   step: number;
-  direction: number;
-  sliderPos: number;
+  direction?: number;
+  sliderPos?: number;
   onUpdate: (value: number) => void;
   getPositionFromValue: (value: number) => number;
-  ariaLabel: string;
+  ariaLabel?: string;
 }

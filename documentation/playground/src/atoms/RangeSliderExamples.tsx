@@ -35,6 +35,7 @@ export function RangeSliderExamples() {
           min={0}
           max={10}
           start={5}
+          end={8}
           step={1}
           unit="out of 10"
           label="Controlled no onChange"

@@ -1,6 +1,6 @@
 import { classNames, isScrollAtTheEnd } from './dom.utils';
 import { renderHTMLLink } from './render.utils';
-import { pagesArray } from './math.utils';
+import { getPosition, getValueFromPosition, pagesArray } from './math.utils';
 
 describe('Utils - DOM Utils', () => {
   describe('- classNames', () => {
@@ -98,6 +98,29 @@ describe('Utils - Math Utils', () => {
       expect(pagesArray(8, 10)).toEqual([1, 0, 6, 7, 8, 9, 10]);
       expect(pagesArray(10, 10)).toEqual([1, 0, 6, 7, 8, 9, 10]);
       expect(pagesArray(7, 11)).toEqual([1, 0, 6, 7, 8, 0, 11]);
+    });
+  });
+
+  describe('- getPosition', () => {
+    it('should correctly calculate the position based on coordinate, grab and direction values', () => {
+      expect(getPosition(10, 5, 5)).toEqual(0);
+      expect(getPosition(20, 6, 5)).toEqual(9);
+      expect(getPosition(60, 5, 1)).toEqual(54);
+      expect(getPosition(9, 5, 5)).toEqual(-1);
+      expect(getPosition(0, 10, 10)).toEqual(-20);
+      expect(getPosition(10, 0, 1)).toEqual(9);
+    });
+  });
+  describe('- getValueFromPosition', () => {
+    it('should correctly calculate the value based on position, limit, step, max and min values', () => {
+      expect(getValueFromPosition(12, 480, 1, 20, 0)).toEqual(1);
+      expect(getValueFromPosition(0, 480, 1, 20, 0)).toEqual(0);
+      expect(getValueFromPosition(0, 240, 1, 20, 0)).toEqual(0);
+      expect(getValueFromPosition(20, 480, 1, 20, 5)).toEqual(6);
+      expect(getValueFromPosition(10, 480, 1, 20, 19)).toEqual(19);
+      expect(getValueFromPosition(10, 20, 1, 20, 0)).toEqual(10);
+      expect(getValueFromPosition(1000, 480, 1, 8, 0)).toEqual(8);
+      expect(getValueFromPosition(10, 0, 1, 8, 0)).toEqual(0);
     });
   });
 });

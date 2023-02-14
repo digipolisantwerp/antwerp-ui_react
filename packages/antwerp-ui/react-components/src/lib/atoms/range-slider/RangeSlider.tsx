@@ -2,13 +2,13 @@ import React from 'react';
 import { lineValuesToPosition } from '../../../utils/math.utils';
 import { Icon } from '../../base/icon';
 import { RangeSliderProps } from './RangeSlider.types';
-import RangeSliderBar from './RangeSliderBar';
-import RangeSliderHandle from './RangeSliderHandle';
+import { RangeSliderBar } from './RangeSliderBar';
+import { RangeSliderHandle } from './RangeSliderHandle';
 
 export function RangeSlider({
   label,
   start = 0,
-  end = 10,
+  end = 1,
   min = 0,
   max = 100,
   step = 1,
@@ -82,7 +82,7 @@ export function RangeSlider({
           getPositionFromValue={getPositionFromValue}
           ariaLabel={ariaLabelMin}
         />
-        {range && minRange && typeof end === 'number' && (
+        {range && typeof minRange === 'number' && typeof end === 'number' && (
           <RangeSliderHandle
             value={end}
             onUpdate={handleUpdateEnd}
