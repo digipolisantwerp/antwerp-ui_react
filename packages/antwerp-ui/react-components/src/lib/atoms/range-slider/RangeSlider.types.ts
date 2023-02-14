@@ -14,13 +14,14 @@ export interface RangeSliderProps {
   iconEnd?: string;
   ariaLabelMax?: string;
   ariaLabelMin?: string;
+  tickMarks?: boolean;
   qa?: string;
-  onChange?: (start: number, end: number) => void;
+  onChange?: (start: number, end?: number) => void;
 }
 
 export interface RangeSliderBarProps {
   start: number;
-  end: number;
+  end?: number;
   min: number;
   range: boolean;
   getPositionFromValue: (value: number) => number;
@@ -33,6 +34,7 @@ export interface RangeSliderHandleProps {
   step: number;
   direction?: number;
   sliderPos?: number;
+  range?: boolean;
   onUpdate: (value: number) => void;
   getPositionFromValue: (value: number) => number;
   ariaLabel?: string;

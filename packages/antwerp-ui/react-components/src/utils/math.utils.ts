@@ -42,6 +42,7 @@ export const getPosition = (coordinate: number, grab: number, direction: number 
 
 export const getValueFromPosition = (pos: number, limit: number, step: number, max: number, min: number) => {
   const percentage = clamp(pos, 0, limit) / (limit || 1);
+
   const baseVal = step * Math.round((percentage * (max - min)) / step);
 
   let value = baseVal + min;
@@ -49,4 +50,15 @@ export const getValueFromPosition = (pos: number, limit: number, step: number, m
   if (value >= max) value = max;
   if (value <= min) value = min;
   return value;
+};
+
+export const getSteps = (min: number, max: number, step: number): number[] => {
+  const array: number[] = [];
+  if (step <= 0) {
+    return [max];
+  }
+  for (let index = min; index < max; index += step) {
+    array.push(index);
+  }
+  return [...array, max];
 };

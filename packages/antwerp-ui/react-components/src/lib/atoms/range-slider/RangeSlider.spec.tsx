@@ -28,6 +28,11 @@ describe('UI Components - Atoms - Slider', () => {
     expect(baseElement.textContent).toContain('percent');
   });
 
+  it('should render tick marks successfully', () => {
+    const { container } = render(<RangeSlider {...defaultProps} tickMarks />);
+    expect(container.getElementsByClassName('a-range-slider__tickmark').length).toEqual(11);
+  });
+
   it('should add labels and icons if labelStart, labelEnd, iconStart and/or iconEnd is passed', () => {
     const { baseElement, queryByText } = render(
       <RangeSlider
@@ -44,9 +49,18 @@ describe('UI Components - Atoms - Slider', () => {
     expect(baseElement.getElementsByClassName('ai-volume-control-full').length).toBe(1);
   });
 
+  it('should call onChange with undefined end if range = false', () => {
+    const mockOnChange = jest.fn();
+    const { getAllByRole } = render(<RangeSlider {...defaultProps} onChange={mockOnChange} start={2} />);
+    const handleStart = getAllByRole('slider')[0];
+    handleStart.focus();
+    fireEvent.keyDown(handleStart, { key: 'ArrowLeft', code: 37 });
+    expect(mockOnChange).toHaveBeenCalled();
+  });
+
   it('should call onChange when arrow keys are pressed', () => {
     const mockOnChange = jest.fn();
-    const { getAllByRole } = render(<RangeSlider {...defaultProps} onChange={mockOnChange} start={2} end={5} />);
+    const { getAllByRole } = render(<RangeSlider {...defaultProps} onChange={mockOnChange} range start={2} end={5} />);
     const handleStart = getAllByRole('slider')[0];
     handleStart.focus();
     fireEvent.keyDown(handleStart, { key: 'ArrowLeft', code: 37 });

@@ -1,6 +1,6 @@
 import { classNames, isScrollAtTheEnd } from './dom.utils';
 import { renderHTMLLink } from './render.utils';
-import { getPosition, getValueFromPosition, pagesArray } from './math.utils';
+import { getPosition, getSteps, getValueFromPosition, pagesArray } from './math.utils';
 
 describe('Utils - DOM Utils', () => {
   describe('- classNames', () => {
@@ -111,6 +111,7 @@ describe('Utils - Math Utils', () => {
       expect(getPosition(10, 0, 1)).toEqual(9);
     });
   });
+
   describe('- getValueFromPosition', () => {
     it('should correctly calculate the value based on position, limit, step, max and min values', () => {
       expect(getValueFromPosition(12, 480, 1, 20, 0)).toEqual(1);
@@ -121,6 +122,14 @@ describe('Utils - Math Utils', () => {
       expect(getValueFromPosition(10, 20, 1, 20, 0)).toEqual(10);
       expect(getValueFromPosition(1000, 480, 1, 8, 0)).toEqual(8);
       expect(getValueFromPosition(10, 0, 1, 8, 0)).toEqual(0);
+    });
+  });
+
+  describe('- getSteps', () => {
+    it('should correctly return steps between min and max', () => {
+      expect(getSteps(1, 3, 1)).toEqual([1, 2, 3]);
+      expect(getSteps(1, 3, 2)).toEqual([1, 3]);
+      expect(getSteps(1, 5, -2)).toEqual([5]);
     });
   });
 });

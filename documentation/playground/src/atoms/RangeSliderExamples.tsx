@@ -5,9 +5,9 @@ export function RangeSliderExamples() {
   const [handleStartValue, setHandleStartValue] = useState(5);
   const [handleEndValue, setHandleEndValue] = useState(12);
 
-  const handleChange = (start: number, end: number) => {
+  const handleChange = (start: number, end?: number) => {
     setHandleStartValue(start);
-    setHandleEndValue(end);
+    setHandleEndValue(end || 0);
   };
 
   return (
@@ -23,6 +23,7 @@ export function RangeSliderExamples() {
           onChange={handleChange}
           start={handleStartValue}
           end={handleEndValue}
+          tickMarks
           step={1}
           minRange={3}
           range

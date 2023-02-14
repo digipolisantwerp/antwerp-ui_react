@@ -1,5 +1,5 @@
 import React from 'react';
-import { lineValuesToPosition } from '../../../utils/math.utils';
+import { getSteps, lineValuesToPosition } from '../../../utils/math.utils';
 import { Icon } from '../../base/icon';
 import { RangeSliderProps } from './RangeSlider.types';
 import { RangeSliderBar } from './RangeSliderBar';
@@ -8,19 +8,20 @@ import { RangeSliderHandle } from './RangeSliderHandle';
 export function RangeSlider({
   label,
   start = 0,
-  end = 1,
+  end,
   min = 0,
-  max = 100,
+  max = 10,
   step = 1,
-  unit = '%',
+  unit = '',
   minRange = 1,
-  range = true,
+  range = false,
   labelStart,
   labelEnd,
   iconStart,
   iconEnd,
   ariaLabelMin = 'Minimum',
   ariaLabelMax = 'Maximimum',
+  tickMarks,
   qa,
   onChange
 }: RangeSliderProps) {
@@ -49,8 +50,8 @@ export function RangeSlider({
   };
 
   const handleUpdateStart = (s: number) => {
-    if (end && minRange && end - s < minRange) return;
-    return onChange && onChange(s, end);
+    if (range && end && minRange && end - s < minRange) return;
+    return onChange && onChange(s, range ? end : undefined);
   };
 
   const handleUpdateEnd = (e: number) => {
@@ -70,12 +71,19 @@ export function RangeSlider({
         </div>
       </div>
       <div className="a-range-slider__inner">
+        {tickMarks && (
+          <div className="a-range-slider__tickmarks">
+            {getSteps(min, max, step).map((st) => (
+              <div key={st} className="a-range-slider__tickmark"></div>
+            ))}
+          </div>
+        )}
         <RangeSliderBar start={start} end={end} getPositionFromValue={getPositionFromValue} range={!!range} min={min} />
         <RangeSliderHandle
           value={start}
           onUpdate={handleUpdateStart}
           min={min}
-          max={minRange ? max - minRange : max}
+          max={range && minRange ? max - minRange : max}
           step={step}
           sliderPos={sliderPos}
           direction={direction}
