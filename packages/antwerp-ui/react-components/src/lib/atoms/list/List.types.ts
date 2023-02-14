@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode } from 'react';
+import { MouseEvent, ReactElement, ReactNode } from 'react';
 import { AvatarProps } from '../avatar';
 import { CheckboxProps } from '../checkbox';
 
@@ -25,6 +25,7 @@ export interface ListItemProps {
   iconRight?: string;
   children?: ReactNode;
   onClick?: (name?: string) => void;
+  onMouseDown?: (event: MouseEvent) => void;
   qa?: string;
 }
 

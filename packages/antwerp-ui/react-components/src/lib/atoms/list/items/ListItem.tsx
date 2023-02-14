@@ -3,7 +3,17 @@ import { MouseEvent } from 'react';
 import { Icon } from '../../../base/icon';
 import { ListItemProps } from '../list.types';
 
-export function ListItem({ name, link, active, iconLeft, iconRight, children, onClick, qa }: ListItemProps) {
+export function ListItem({
+  name,
+  link,
+  active,
+  iconLeft,
+  iconRight,
+  children,
+  onClick,
+  onMouseDown,
+  qa
+}: ListItemProps) {
   const ItemTag = `${link && (link.href || link.href === '') ? 'a' : 'span'}` as keyof JSX.IntrinsicElements;
 
   const listItemContentClasses = classNames({
@@ -23,6 +33,7 @@ export function ListItem({ name, link, active, iconLeft, iconRight, children, on
       <ItemTag
         className={listItemContentClasses}
         onClick={onLinkClick}
+        onMouseDown={onMouseDown}
         {...(link && (link.href || link.href === '') ? { href: link.href } : {})}
       >
         {iconLeft && <Icon name={iconLeft} />}

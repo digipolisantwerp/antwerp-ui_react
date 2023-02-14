@@ -32,12 +32,13 @@ import NavigationListExamples from './molecules/NavigationListExamples';
 import HeaderExamples from './organisms/HeaderExamples';
 import ListExamples from './atoms/ListExamples';
 import RangeSliderExamples from './atoms/RangeSliderExamples';
+import AutocompleteExamples from './molecules/AutocompleteExamples';
 
 export function Playground() {
   return (
     <>
       <h1>Atoms</h1>
-      <IconExamples />
+      {/* <IconExamples />
       <AvatarExamples />
       <BadgeExamples />
       <ButtonExamples />
@@ -54,9 +55,10 @@ export function Playground() {
       <TextAreaExamples />
       <TextFieldExamples />
       <ToggleExamples />
-      <TooltipExamples />
+      <TooltipExamples /> */}
       <h1>Molecules</h1>
-      <AccordionExamples />
+      <AutocompleteExamples />
+      {/* <AccordionExamples />
       <AlertExamples />
       <ButtonGroupExamples />
       <CardExamples />
@@ -68,11 +70,11 @@ export function Playground() {
       <PaginationExamples />
       <StepIndicatorExamples />
       <TagExamples />
-      <UploadExamples />
+      <UploadExamples /> */}
       <h1>Organisms</h1>
-      <FooterExamples />
+      {/* <FooterExamples />
       <HeaderExamples />
-      <TagListExamples />
+      <TagListExamples /> */}
     </>
   );
 }

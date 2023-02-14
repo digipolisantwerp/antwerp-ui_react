@@ -20,6 +20,7 @@ export * from './lib/atoms/tooltip';
 
 export * from './lib/molecules/accordion';
 export * from './lib/molecules/alert';
+export * from './lib/molecules/autocomplete';
 export * from './lib/molecules/button-group';
 export * from './lib/molecules/card';
 export * from './lib/molecules/flyout';
