@@ -7,11 +7,12 @@ export function FlyoutExamples() {
     <div className="u-margin-bottom">
       <h2>Flyouts</h2>
       <p>First is OPEN: {`${isFirstOpen}`}</p>
-      <Flyout onStateChange={setIsFirstOpen} trigger={<Button>Hello</Button>}>
+      <Flyout open={isFirstOpen} onStateChange={setIsFirstOpen} trigger={<Button>Hello controlled</Button>}>
         World!
       </Flyout>
       <Flyout trigger={<h1>Hello</h1>}>World!</Flyout>
-      <Flyout open trigger={<h1>I am open</h1>}>
+
+      <Flyout open trigger={<h1>I am open and uncontrolled</h1>}>
         By default...
       </Flyout>
       <Flyout scrollable size="small" orientation="upper-left" trigger={<Button>Upper left SMALL & SCROLL</Button>}>

@@ -43,7 +43,7 @@ describe('UI Components - Atoms - FunctionalList', () => {
     const mockClick2 = jest.fn();
     const { getAllByRole } = render(
       <FunctionalList onItemClick={mockClick}>
-        <ListItem link={{ href: '#' }}>List item 1</ListItem>
+        <ListItem link={{ href: '' }}>List item 1</ListItem>
         <ListItem link={{ href: '#' }} active onClick={mockClick2}>
           List item 2
         </ListItem>
@@ -104,7 +104,7 @@ describe('UI Components - Atoms - FunctionalList', () => {
     const mockClick2 = jest.fn();
     const { getAllByRole } = render(
       <FunctionalList type="avatar" onItemClick={mockClick}>
-        <ListItemAvatar link={{ href: '#' }} />
+        <ListItemAvatar link={{ href: '' }} />
         <ListItemAvatar link={{ href: '#' }} active onClick={mockClick2} />
       </FunctionalList>
     );

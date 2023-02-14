@@ -4,7 +4,7 @@ import { Icon } from '../../../base/icon';
 import { ListItemProps } from '../list.types';
 
 export function ListItem({ name, link, active, iconLeft, iconRight, children, onClick, qa }: ListItemProps) {
-  const ItemTag = `${link && link.href ? 'a' : 'span'}` as keyof JSX.IntrinsicElements;
+  const ItemTag = `${link && (link.href || link.href === '') ? 'a' : 'span'}` as keyof JSX.IntrinsicElements;
 
   const listItemContentClasses = classNames({
     'a-list__content': true,
@@ -23,7 +23,7 @@ export function ListItem({ name, link, active, iconLeft, iconRight, children, on
       <ItemTag
         className={listItemContentClasses}
         onClick={onLinkClick}
-        {...(link && link.href ? { href: link.href } : {})}
+        {...(link && (link.href || link.href === '') ? { href: link.href } : {})}
       >
         {iconLeft && <Icon name={iconLeft} />}
         <span className="a-list__text">{children}</span>

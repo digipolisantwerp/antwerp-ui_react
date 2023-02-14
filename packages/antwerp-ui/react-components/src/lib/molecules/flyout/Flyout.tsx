@@ -16,6 +16,7 @@ export function Flyout({
   qa
 }: FlyoutProps) {
   const [isOpen, setIsOpen] = React.useState(!!open);
+  const showFlyout = open === false || open === true ? open : isOpen;
 
   const flyoutRef = React.useRef(null);
 
@@ -31,17 +32,17 @@ export function Flyout({
   );
 
   const initEventHandlers = React.useCallback(() => {
-    if (isOpen) {
+    if (showFlyout) {
       document.addEventListener('click', _handleOutsideClick, false);
     } else {
       document.removeEventListener('click', _handleOutsideClick, false);
     }
-  }, [_handleOutsideClick, isOpen]);
+  }, [_handleOutsideClick, showFlyout]);
 
   const _toggleIsOpen = () => {
-    setIsOpen(!isOpen);
+    setIsOpen(!showFlyout);
     initEventHandlers();
-    onStateChange && onStateChange(!isOpen);
+    onStateChange && onStateChange(!showFlyout);
   };
 
   React.useEffect(() => {
@@ -50,7 +51,7 @@ export function Flyout({
 
   const flyoutClasses = classNames({
     'm-flyout': true,
-    'is-open': !!isOpen,
+    'is-open': !!showFlyout,
     'u-text-right': !!orientation?.includes('right'),
     [`m-flyout--${orientation}`]: !!orientation,
     [`m-flyout--${SIZE_MAP[size || DEFAULT_SIZE]}`]: !!size,
@@ -63,7 +64,7 @@ export function Flyout({
   });
 
   return trigger ? (
-    <div className={flyoutClasses} ref={flyoutRef} aria-haspopup="true" aria-expanded={isOpen} data-qa={qa}>
+    <div className={flyoutClasses} ref={flyoutRef} aria-haspopup="true" aria-expanded={showFlyout} data-qa={qa}>
       {cloneElement(trigger, { onClick: _toggleIsOpen })}
       <div className={flyoutContentClasses}>{children}</div>
     </div>
@@ -72,8 +73,7 @@ export function Flyout({
 
 Flyout.defaultProps = {
   hasPadding: true,
-  scrollable: false,
-  open: false
+  scrollable: false
 };
 
 export default Flyout;

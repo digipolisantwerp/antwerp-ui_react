@@ -26,14 +26,14 @@ describe('UI Components - Molecules - Flyout', () => {
     expect(baseElement.getElementsByClassName('m-flyout')[0].className.includes('is-open')).toBeTruthy();
   });
 
-  it('should close the flyout when clicking outside the flyout', () => {
+  it('should not close the flyout if it is uncontrolled', () => {
     const onStateChange = jest.fn();
     const { container, baseElement } = render(
       <Flyout trigger={<Button>Open Flyout</Button>} open={true} onStateChange={onStateChange} />
     );
     fireEvent.click(container);
     expect(onStateChange).toHaveBeenCalledWith(false);
-    expect(baseElement.getElementsByClassName('m-flyout')[0].className.includes('is-open')).toBeFalsy();
+    expect(baseElement.getElementsByClassName('m-flyout')[0].className.includes('is-open')).toBeTruthy();
   });
 
   it(`should add the 'u-text-right' class`, () => {
