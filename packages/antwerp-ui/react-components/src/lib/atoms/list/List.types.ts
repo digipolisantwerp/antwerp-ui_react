@@ -24,6 +24,8 @@ export interface ListItemProps {
   iconLeft?: string;
   iconRight?: string;
   children?: ReactNode;
+  tabIndex?: number;
+  highlighted?: boolean;
   onClick?: (name?: string) => void;
   onMouseDown?: (event: MouseEvent) => void;
   qa?: string;

@@ -1,24 +1,18 @@
-import React, { cloneElement } from 'react';
+import React, { cloneElement, ForwardedRef, forwardRef, useImperativeHandle } from 'react';
 import ReactDOM from 'react-dom';
 import { DEFAULT_SIZE, SIZE_MAP } from '../../../constants/layout.settings';
 import { classNames } from '../../../utils/dom.utils';
 import { FlyoutProps } from './Flyout.types';
 
-export function Flyout({
-  trigger,
-  open,
-  hasPadding,
-  orientation,
-  size,
-  children,
-  scrollable,
-  onStateChange,
-  qa
-}: FlyoutProps) {
+export const Flyout = forwardRef(function Flyout(
+  { trigger, open, hasPadding, orientation, size, children, scrollable, onStateChange, qa }: FlyoutProps,
+  forwardRef: ForwardedRef<null>
+) {
   const [isOpen, setIsOpen] = React.useState(!!open);
   const showFlyout = open === false || open === true ? open : isOpen;
 
   const flyoutRef = React.useRef(null);
+  useImperativeHandle(forwardRef, () => flyoutRef.current);
 
   const _handleOutsideClick = React.useCallback(
     (e: MouseEvent) => {
@@ -69,7 +63,7 @@ export function Flyout({
       <div className={flyoutContentClasses}>{children}</div>
     </div>
   ) : null;
-}
+});
 
 Flyout.defaultProps = {
   hasPadding: true,

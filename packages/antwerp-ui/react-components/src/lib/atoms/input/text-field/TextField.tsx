@@ -3,31 +3,34 @@ import { classNames } from '../../../../utils/dom.utils';
 import { DEFAULT_SIZE, SIZE_MAP } from '../../../../constants/layout.settings';
 import { Icon } from '../../../base/icon';
 import { renderCharacterCounter, renderDescription, renderLabel } from '../input.renders';
-import { useState } from 'react';
+import { ForwardedRef, forwardRef, useState } from 'react';
 
-export function TextField({
-  addonLeft,
-  addonRight,
-  charCounter,
-  description,
-  disabled,
-  iconLeft,
-  iconRight,
-  id,
-  inline,
-  label,
-  maxLength,
-  name,
-  onChange,
-  qa,
-  readOnly,
-  required,
-  size,
-  state,
-  type = 'text',
-  value,
-  ...extraProps
-}: TextFieldProps) {
+export const TextField = forwardRef(function TextField(
+  {
+    addonLeft,
+    addonRight,
+    charCounter,
+    description,
+    disabled,
+    iconLeft,
+    iconRight,
+    id,
+    inline,
+    label,
+    maxLength,
+    name,
+    onChange,
+    qa,
+    readOnly,
+    required,
+    size,
+    state,
+    type = 'text',
+    value,
+    ...extraProps
+  }: TextFieldProps,
+  inputRef: ForwardedRef<HTMLInputElement>
+) {
   const [characterCount, setCharacterCount] = useState(value ? value.length : 0);
 
   const classes = classNames({
@@ -54,6 +57,7 @@ export function TextField({
         {!!iconLeft && <Icon name={iconLeft} />}
         {!!addonLeft && <div className="a-input__addon">{addonLeft}</div>}
         <input
+          ref={inputRef}
           type={type}
           value={value}
           name={name}
@@ -71,7 +75,7 @@ export function TextField({
       {renderCharacterCounter({ charCounter, characterCount: value ? value.length : characterCount, maxLength })}
     </div>
   );
-}
+});
 
 TextField.defaultProps = {
   type: 'text'

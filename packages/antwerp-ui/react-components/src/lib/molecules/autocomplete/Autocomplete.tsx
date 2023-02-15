@@ -4,6 +4,7 @@ import { TextField } from '../../atoms/input';
 import { FunctionalList, ListItem } from '../../atoms/list';
 import { Flyout } from '../flyout';
 import { AutocompleteProps } from './Autocomplete.types';
+import './Autocomplete.css';
 
 export function Autocomplete({
   label,
@@ -17,10 +18,15 @@ export function Autocomplete({
   qa
 }: AutocompleteProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [results, setResults] = useState(items);
   const [input, setInput] = useState(inputValue || '');
   const [selected, setSelected] = useState(value || '');
+  const [cursor, setCursor] = useState(-1);
+
   const fieldValue = inputValue || inputValue === '' ? inputValue : input;
   const selectedValue = value || value === '' ? value : selected;
+
+  const flyoutRef = React.useRef(null);
 
   useEffect(() => {
     if (value) {
@@ -28,11 +34,27 @@ export function Autocomplete({
     }
   }, [value]);
 
-  // const [focusList, setFocusList] = React.useState(false);
-  // const [cursor, setCursor] = React.useState(0);
+  useEffect(() => {
+    setResults(
+      (items || []).filter((i) => (fieldValue ? i.label?.toLowerCase().includes(fieldValue.toLowerCase()) : true))
+    );
+  }, [fieldValue]);
+
+  useEffect(() => {
+    if (flyoutRef.current) {
+      const current = flyoutRef.current as HTMLDivElement;
+      const highlighted = current.querySelector(`.a-list__item:nth-child(${cursor + 1})`);
+      highlighted?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    }
+  }, [cursor]);
 
   const handleStateChange = (state: boolean) => {
     setIsOpen(state);
+  };
+
+  const closeFlyout = () => {
+    setIsOpen(false);
+    setCursor(-1);
   };
 
   const handleInput = (val: string) => {
@@ -50,7 +72,7 @@ export function Autocomplete({
       const actualValue = items?.find((i) => i.value === val);
       handleInput(actualValue?.label || '');
       setSelected(actualValue?.value || '');
-      setIsOpen(false);
+      closeFlyout();
     }
     !silence && onChange && onChange(val, name);
   };
@@ -60,42 +82,34 @@ export function Autocomplete({
     if (actualValue && fieldValue?.length && actualValue.label !== fieldValue) {
       handleInput(actualValue.label);
     }
+    closeFlyout();
   };
 
-  // const toggleOpen = () => {
-  //   setIsOpen(!isOpen);
-  //   setFocusList(false);
-  // };
-  // const processKeyEvent = (e: React.KeyboardEvent<HTMLButtonElement | HTMLInputElement>, v: number) => {
-  //   e.preventDefault();
-  //   setFocusList(true);
-  //   setCursor(v);
-  // };
-  // const handleKeyPress = (e: React.KeyboardEvent<HTMLButtonElement | HTMLInputElement>) => {
-  //   if ((e.key === 'ArrowDown' && !focusList) || e.key === 'Home') {
-  //     processKeyEvent(e, 0);
-  //   } else if (e.key === 'ArrowDown' && cursor < results.length - 1) {
-  //     processKeyEvent(e, cursor + 1);
-  //   } else if (e.key === 'ArrowUp' && cursor > 0) {
-  //     processKeyEvent(e, cursor - 1);
-  //   } else if (e.key === 'End') {
-  //     processKeyEvent(e, results.length - 1);
-  //   } else if (e.key === 'Enter' && isOpen && focusList) {
-  //     e.preventDefault();
-  //     setFocusList(false);
-  //     setIsOpen(false);
-  //     handleChange(e);
-  //   } else if ((e.key === 'Enter' && !isOpen) || e.key === 'Backspace') {
-  //     setIsOpen(true);
-  //   } else if (e.key === 'Esc' || e.key === 'Escape') {
-  //     e.preventDefault();
-  //     setIsOpen(false);
-  //   }
-  // };
+  const onEnter = () => {
+    const highlighted = results && results[cursor];
+    if (highlighted) {
+      selectValue(highlighted.value);
+    }
+  };
 
-  const results = (items || []).filter((i) =>
-    fieldValue ? i.label?.toLowerCase().includes(fieldValue.toLowerCase()) : true
-  );
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const totalResults = results?.length || 0;
+    switch (e.key) {
+      case 'ArrowDown':
+        setCursor(cursor === -1 ? 0 : (cursor + 1) % totalResults);
+        return setIsOpen(true);
+      case 'ArrowUp':
+        setCursor(cursor === -1 ? totalResults - 1 : cursor - 1 < 0 ? totalResults - 1 : cursor - 1);
+        return setIsOpen(true);
+      case 'Enter':
+        return onEnter();
+      case 'Esc':
+      case 'Escape':
+        return closeFlyout();
+      default:
+        break;
+    }
+  };
 
   return (
     <Flyout
@@ -111,15 +125,19 @@ export function Autocomplete({
           data-qa={qa}
           aria-autocomplete="list"
           aria-haspopup="true"
+          onKeyDown={handleKeyDown}
         />
       }
+      ref={flyoutRef}
       open={isOpen}
       onStateChange={handleStateChange}
     >
       {results && results.length ? (
         <FunctionalList lined onItemClick={selectValue}>
-          {results.map((r) => (
+          {results.map((r, i) => (
             <ListItem
+              tabIndex={-1}
+              highlighted={i === cursor}
               onMouseDown={(e) => e.preventDefault()}
               active={r.value === selectedValue}
               name={r.value}

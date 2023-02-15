@@ -1,0 +1,4 @@
+.a-list.a-list--lined a.a-list__content.is-highlighted {
+  background-color: var(--list-item-hover-bg-color);
+  color: var(--list-item-hover-color);
+}

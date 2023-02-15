@@ -7,17 +7,20 @@ export function ListItem({
   name,
   link,
   active,
+  highlighted,
   iconLeft,
   iconRight,
   children,
   onClick,
   onMouseDown,
+  tabIndex,
   qa
 }: ListItemProps) {
   const ItemTag = `${link && (link.href || link.href === '') ? 'a' : 'span'}` as keyof JSX.IntrinsicElements;
 
   const listItemContentClasses = classNames({
     'a-list__content': true,
+    'is-highlighted': !!highlighted,
     'is-active': !!active
   });
 
@@ -34,6 +37,7 @@ export function ListItem({
         className={listItemContentClasses}
         onClick={onLinkClick}
         onMouseDown={onMouseDown}
+        tabIndex={tabIndex}
         {...(link && (link.href || link.href === '') ? { href: link.href } : {})}
       >
         {iconLeft && <Icon name={iconLeft} />}
