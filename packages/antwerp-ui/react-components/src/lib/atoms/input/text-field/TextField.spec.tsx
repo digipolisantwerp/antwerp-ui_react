@@ -1,6 +1,6 @@
 import jest from 'jest-mock';
 import { fireEvent, render } from '@testing-library/react';
-import { TextField } from './TextField';
+import { TextField } from '../index';
 
 describe('UI Components - Atoms - Input - TextField', () => {
   it('should render successfully', () => {

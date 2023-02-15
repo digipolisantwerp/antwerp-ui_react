@@ -7,6 +7,7 @@ import { AutocompleteProps } from './Autocomplete.types';
 import './Autocomplete.css';
 
 export function Autocomplete({
+  id,
   label,
   items,
   name,
@@ -103,7 +104,6 @@ export function Autocomplete({
         return setIsOpen(true);
       case 'Enter':
         return onEnter();
-      case 'Esc':
       case 'Escape':
         return closeFlyout();
       default:
@@ -115,14 +115,15 @@ export function Autocomplete({
     <Flyout
       scrollable
       hasPadding={false}
+      qa={qa}
       trigger={
         <TextField
+          id={id}
           name={name}
           label={label}
           onBlur={setValueBack}
           value={fieldValue}
           onChange={(e) => handleInput(e.target.value)}
-          data-qa={qa}
           aria-autocomplete="list"
           aria-haspopup="true"
           onKeyDown={handleKeyDown}
@@ -160,6 +161,7 @@ export function Autocomplete({
 }
 
 Autocomplete.defaultProps = {
+  id: 'aui-autocomplete',
   noResultsText: 'Geen resultaten'
 };
 

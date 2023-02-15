@@ -1,10 +1,7 @@
 import { fireEvent, render } from '@testing-library/react';
 import jest from 'jest-mock';
 import '@testing-library/jest-dom';
-import { FunctionalList } from './FunctionalList';
-import { ListItem } from '../items/ListItem';
-import { ListItemCheckbox } from '../items/ListItemCheckbox';
-import { ListItemAvatar } from '../items/ListItemAvatar';
+import { FunctionalList, ListItem, ListItemCheckbox, ListItemAvatar, AvatarList, CheckboxList } from '../index';
 
 describe('UI Components - Atoms - FunctionalList', () => {
   it('should render successfully', () => {
@@ -65,6 +62,16 @@ describe('UI Components - Atoms - FunctionalList', () => {
     expect(container.querySelector('.a-list')).not.toBeInTheDocument();
   });
 
+  it('should provide syntatic sugar for a checkbox list', () => {
+    const { container } = render(
+      <CheckboxList type="checkbox" flushed>
+        <ListItemCheckbox name="test" id="test"></ListItemCheckbox>
+      </CheckboxList>
+    );
+    expect(container.querySelector('.a-checkbox-list.a-checkbox-list--flushed')).toBeInTheDocument();
+    expect(container.querySelector('.a-list')).not.toBeInTheDocument();
+  });
+
   it('should trigger onItemClick and onClick on children in Checkbox lists', () => {
     const mockClick = jest.fn();
     const { baseElement } = render(
@@ -81,6 +88,16 @@ describe('UI Components - Atoms - FunctionalList', () => {
       <FunctionalList type="avatar">
         <ListItemAvatar iconRight="mouse"></ListItemAvatar>
       </FunctionalList>
+    );
+    expect(container.querySelector('.a-avatar-list')).toBeInTheDocument();
+    expect(container.querySelector('.a-list')).not.toBeInTheDocument();
+  });
+
+  it('should provide syntatic sugar for an avatar list', () => {
+    const { container } = render(
+      <AvatarList type="avatar">
+        <ListItemAvatar iconRight="mouse"></ListItemAvatar>
+      </AvatarList>
     );
     expect(container.querySelector('.a-avatar-list')).toBeInTheDocument();
     expect(container.querySelector('.a-list')).not.toBeInTheDocument();

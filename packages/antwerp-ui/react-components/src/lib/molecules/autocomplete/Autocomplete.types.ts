@@ -1,4 +1,5 @@
 export interface AutocompleteProps {
+  id?: string;
   label?: string;
   items?: { value: string; label: string }[];
   name?: string;

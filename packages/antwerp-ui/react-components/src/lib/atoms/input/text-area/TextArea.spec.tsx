@@ -1,6 +1,6 @@
 import jest from 'jest-mock';
 import { fireEvent, render } from '@testing-library/react';
-import { TextArea } from './TextArea';
+import { TextArea } from '../index';
 
 describe('UI Components - Atoms - Input - TextArea', () => {
   it('should render successfully', () => {

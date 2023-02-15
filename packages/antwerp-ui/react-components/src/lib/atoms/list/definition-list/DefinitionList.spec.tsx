@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { DefinitionList } from './DefinitionList';
+import { DefinitionList } from '../index';
 
 describe('UI Components - Atoms - DefinitionList', () => {
   it('should render successfully', () => {
