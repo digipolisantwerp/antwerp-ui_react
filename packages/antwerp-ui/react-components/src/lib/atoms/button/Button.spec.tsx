@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { Button } from './Button';
+import { SocialButton } from './social-button/SocialButton';
 
 describe('UI Components - Atoms - Button', () => {
   it('should render successfully', () => {
@@ -86,5 +87,35 @@ describe('UI Components - Atoms - Button', () => {
   it('should prohibit the use of the neutral theme in high emphasis buttons', () => {
     const { baseElement } = render(<Button theme="neutral" />);
     expect(baseElement.getElementsByClassName('a-button--neutral').length).toBe(0);
+  });
+});
+
+describe('UI Componenst - Atoms - Buttons - SocialButton', () => {
+  it('should render successfully', () => {
+    const { baseElement } = render(<SocialButton ariaLabel="social button" />);
+    expect(baseElement).toBeTruthy();
+  });
+  it('should use the type prop to change its style', () => {
+    const { baseElement } = render(<SocialButton ariaLabel="facebook" type="facebook" />);
+    expect(baseElement.getElementsByClassName('a-button--facebook').length).toBe(1);
+  });
+  it('should not add a type class if uniform prop is true', () => {
+    const { baseElement } = render(<SocialButton ariaLabel="facebook" type="facebook" uniform />);
+    expect(baseElement.getElementsByClassName('a-button--facebook').length).toBe(0);
+    expect(baseElement.getElementsByClassName('a-button--social').length).toBe(1);
+  });
+  it('should add negative class if negative prop is true', () => {
+    const { baseElement } = render(<SocialButton ariaLabel="facebook" type="facebook" uniform negative />);
+    expect(baseElement.getElementsByClassName('a-button--negative').length).toBe(1);
+  });
+  it('should change icons based on type', () => {
+    const { baseElement } = render(
+      <>
+        <SocialButton ariaLabel="linkedin" type="linkedin" />
+        <SocialButton ariaLabel="instagram" type="instagram" />
+      </>
+    );
+    expect(baseElement.getElementsByClassName('ai-professional-network-linkedin').length).toBe(1);
+    expect(baseElement.getElementsByClassName('ai-social-instagram').length).toBe(1);
   });
 });

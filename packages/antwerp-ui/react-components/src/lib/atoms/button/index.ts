@@ -1,2 +1,3 @@
 export { Button } from './Button';
-export type { ButtonProps, ButtonAvatarProps } from './Button.types';
+export { SocialButton } from './social-button/SocialButton';
+export type { ButtonProps, ButtonAvatarProps, SocialButtonProps } from './Button.types';

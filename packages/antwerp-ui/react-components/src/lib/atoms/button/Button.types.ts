@@ -23,3 +23,12 @@ export interface ButtonProps {
 }
 
 export type ButtonAvatarProps = Omit<AvatarProps, 'rounded' | 'size'>;
+
+export interface SocialButtonProps {
+  ariaLabel: string;
+  type?: string;
+  href?: string;
+  negative?: boolean;
+  uniform?: boolean;
+  qa?: string;
+}
