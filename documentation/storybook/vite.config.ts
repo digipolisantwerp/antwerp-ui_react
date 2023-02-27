@@ -14,7 +14,6 @@ export default defineConfig({
       root: '../../'
     })
   ],
-
   test: {
     globals: true,
     cache: {

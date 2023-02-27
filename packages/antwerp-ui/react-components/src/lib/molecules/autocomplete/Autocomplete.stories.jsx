@@ -11,7 +11,6 @@ export default {
       }
     }
   },
-  // noResultsText?: string;
   argTypes: {
     name: {
       control: { type: 'text' },
