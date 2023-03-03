@@ -1,5 +1,5 @@
 import Label from './Label';
-import {QA_PROP_STORY} from '../../../constants/stories.settings';
+import { QA_PROP_STORY } from '../../../constants/stories.settings';
 
 export default {
   title: 'React/Atoms/Label',
@@ -8,12 +8,12 @@ export default {
     docs: {
       description: {
         component:
-          "A label is a small alphabetical (letters only) label component that accompanies other elements, such as text in tables, lists, etc. and is primarily used to indicate a status associated with the accompanying element."
+          'A label is a small alphabetical (letters only) label component that accompanies other elements, such as text in tables, lists, etc. and is primarily used to indicate a status associated with the accompanying element.'
       }
     }
   },
   argTypes: {
-    theme: {
+    type: {
       control: { type: 'select' },
       table: {
         type: { summary: 'string' },
@@ -21,7 +21,7 @@ export default {
       },
       options: ['', 'primary', 'success', 'warning', 'danger'],
       defaultValue: '',
-      description: 'Sets the theme for the component. Can be omitted for default.'
+      description: 'Sets the type for the component. Can be omitted for default.'
     },
     children: {
       control: 'text',
@@ -30,7 +30,7 @@ export default {
       description: 'Sets the label text.'
     },
     qa: QA_PROP_STORY
-  },
+  }
 };
 
 export const label = '';
