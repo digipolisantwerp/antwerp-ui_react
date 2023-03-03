@@ -20,7 +20,7 @@ describe('UI Components - Atoms - Avatar', () => {
 
   it('should contain an image with a default alt text', () => {
     const { getByAltText } = render(<Avatar image="image-url" />);
-    expect(getByAltText('Avatar afbeelding').getAttribute('src')).toEqual('image-url');
+    expect(getByAltText('Avatar').getAttribute('src')).toEqual('image-url');
   });
 
   it('should contain letters', () => {
@@ -40,7 +40,7 @@ describe('UI Components - Atoms - Avatar', () => {
 
   it('should render with default aria-label', () => {
     render(<Avatar />);
-    expect(screen.getByLabelText('Gebruiker icoon'));
+    expect(screen.getByLabelText('Gebruiker'));
   });
 
   it('should render with new aria-label', () => {
