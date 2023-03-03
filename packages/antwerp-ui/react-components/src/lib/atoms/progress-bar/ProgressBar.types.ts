@@ -1,7 +1,7 @@
 export interface ProgressBarProps {
   percentage: number;
   label: string;
-  absoluteValue?: number;
+  ariaValueNow?: number;
   minValue?: number;
   maxValue?: number;
   large?: boolean;
