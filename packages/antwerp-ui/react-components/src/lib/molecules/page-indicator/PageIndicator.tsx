@@ -47,7 +47,7 @@ export function PageIndicator({ qa, size, pages, activePage, onPageChange }: Pag
   });
 
   return (
-    <div className={classes} data-qa={qa} onKeyDown={handleArrowNavigation}>
+    <div className={classes} data-qa={qa} onKeyDown={handleArrowNavigation} role="tablist">
       {pages?.map((page, index) => {
         const isActive = !!activePage && activePage === page.id;
         const classes = classNames({
