@@ -60,6 +60,7 @@ export function Button({
       onClick={onClick}
       type={htmlType}
       aria-label={ariaLabel}
+      aria-hidden={spinner ? true : undefined}
       data-qa={qa}
     >
       {renderAddOn()}
