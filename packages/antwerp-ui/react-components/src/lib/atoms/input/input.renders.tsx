@@ -31,9 +31,9 @@ export const renderDescription = ({ description, state }: DescriptionProps) => {
   ) : null;
 };
 
-export const renderCharacterCounter = ({ charCounter, characterCount, maxLength }: CharacterCounterProps) => {
+export const renderCharacterCounter = ({ charCounter, characterCount, maxLength, id }: CharacterCounterProps) => {
   return charCounter && maxLength ? (
-    <small aria-live="polite" className="a-input__description u-text-right">
+    <small aria-live="polite" className="a-input__description u-text-right" id={`text-field-description-${id}`}>
       {`${characterCount} / ${maxLength}`}
     </small>
   ) : null;

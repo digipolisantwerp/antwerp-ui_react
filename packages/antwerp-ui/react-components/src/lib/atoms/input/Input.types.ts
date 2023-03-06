@@ -44,6 +44,7 @@ export type CharacterCounterProps = {
   charCounter?: boolean;
   characterCount: number;
   maxLength?: number;
+  id?: string;
 };
 
 type InputTypes =

@@ -47,13 +47,13 @@ export function TextArea({
           disabled={disabled}
           readOnly={readOnly}
           required={required}
-          aria-describedby="text-field-description"
+          aria-describedby={`text-field-description-${id}`}
           maxLength={maxLength}
           onChange={_handleChange}
           {...extraProps}
         ></textarea>
       </div>
-      {renderCharacterCounter({ charCounter, characterCount: value ? value.length : characterCount, maxLength })}
+      {renderCharacterCounter({ charCounter, characterCount: value ? value.length : characterCount, maxLength, id })}
     </div>
   );
 }
