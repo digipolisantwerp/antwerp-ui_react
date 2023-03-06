@@ -1,24 +1,16 @@
 <meta name="robots" content="noindex" />
 <style>
   #react-atoms-switchcomponent--switch-component {
-    visibility: hidden;
+    font-size: 0;
     position: relative;
   }
-  #react-atoms-switchcomponent--switch-component svg {
-    visibility: visible;
-  }
   #react-atoms-switchcomponent--switch-component::before {
-    box-sizing: border-box;
     content: 'Switch';
+    font-size: 14px;
+    left: 17px;
+    padding-left: 34px;
+    padding: 3px;
     position: absolute;
     top: 0;
-    left: 17px;
-    visibility: visible;
-    padding: 3px;
-    padding-left: 34px;
-    width: 100%;
-  }
-  #react-atoms-switchcomponent--switch-component[data-selected='true']::before {
-    background: #1ea7fd;
   }
 </style>
