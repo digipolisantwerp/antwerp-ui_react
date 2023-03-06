@@ -65,6 +65,13 @@ export default {
       },
       description: 'Use this prop to set the `aria-valuemax` attribute.'
     },
+    ariaLabel: {
+      control: { type: 'text' },
+      table: {
+        type: { summary: 'string' }
+      },
+      description: 'The `ariaLabel` describes an accessible name for the `ProgressBar` component.'
+    },
     qa: QA_PROP_STORY
   }
 };

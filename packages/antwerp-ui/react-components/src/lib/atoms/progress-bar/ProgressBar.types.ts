@@ -5,5 +5,6 @@ export interface ProgressBarProps {
   minValue?: number;
   maxValue?: number;
   large?: boolean;
+  ariaLabel?: string;
   qa?: string;
 }
