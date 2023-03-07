@@ -33,11 +33,12 @@ import HeaderExamples from './organisms/HeaderExamples';
 import ListExamples from './atoms/ListExamples';
 import RangeSliderExamples from './atoms/RangeSliderExamples';
 import AutocompleteExamples from './molecules/AutocompleteExamples';
+import DatepickerExamples from './molecules/DatepickerExamples';
 
 export function Playground() {
   return (
     <>
-      <h1>Atoms</h1>
+      {/* <h1>Atoms</h1>
       <IconExamples />
       <AvatarExamples />
       <BadgeExamples />
@@ -61,8 +62,9 @@ export function Playground() {
       <AccordionExamples />
       <AlertExamples />
       <ButtonGroupExamples />
-      <CardExamples />
-      <FlyoutExamples />
+      <CardExamples /> */}
+      <DatepickerExamples />
+      {/* <FlyoutExamples />
       <ImageExamples />
       <ModalExamples />
       <NavigationListExamples />
@@ -74,7 +76,7 @@ export function Playground() {
       <h1>Organisms</h1>
       <FooterExamples />
       <HeaderExamples />
-      <TagListExamples />
+      <TagListExamples /> */}
     </>
   );
 }

@@ -23,6 +23,7 @@ export * from './lib/molecules/alert';
 export * from './lib/molecules/autocomplete';
 export * from './lib/molecules/button-group';
 export * from './lib/molecules/card';
+export * from './lib/molecules/datepicker';
 export * from './lib/molecules/flyout';
 export * from './lib/molecules/image';
 export * from './lib/molecules/modal';
