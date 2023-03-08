@@ -23,7 +23,8 @@ export function Button({
   spinner,
   theme,
   title,
-  transparent
+  transparent,
+  ...extraProps
 }: ButtonProps) {
   const classes = classNames({
     'a-button': true,
@@ -62,6 +63,7 @@ export function Button({
       aria-label={ariaLabel}
       aria-hidden={spinner ? true : undefined}
       data-qa={qa}
+      {...extraProps}
     >
       {renderAddOn()}
       {!icon && children}
