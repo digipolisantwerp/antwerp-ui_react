@@ -60,7 +60,9 @@ export const Flyout = forwardRef(function Flyout(
   return trigger ? (
     <div className={flyoutClasses} ref={flyoutRef} aria-haspopup="true" aria-expanded={showFlyout} data-qa={qa}>
       {cloneElement(trigger, { onClick: _toggleIsOpen })}
-      <div className={flyoutContentClasses}>{children}</div>
+      <div className={flyoutContentClasses} {...(scrollable ? { tabIndex: 0 } : {})}>
+        {children}
+      </div>
     </div>
   ) : null;
 });
