@@ -1,4 +1,4 @@
-import { Tooltip } from '@acpaas-ui/react-components';
+import { TextField, Tooltip } from '@acpaas-ui/react-components';
 import { useEffect, useState } from 'react';
 
 export function TooltipExamples() {
@@ -22,7 +22,7 @@ export function TooltipExamples() {
         text="Test tooltip"
         location="bottom"
         anchorId="tooltip-2"
-        anchor={<span>Example text that has tooltip at BOTTOM</span>}
+        anchor={<TextField id='tooltip-2' label="test" inline></TextField>}
       ></Tooltip>
       <div style={{ marginLeft: '150px' }}>
         <Tooltip
