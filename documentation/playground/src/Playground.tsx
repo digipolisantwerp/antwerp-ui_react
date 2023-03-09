@@ -38,7 +38,7 @@ import DatepickerExamples from './molecules/DatepickerExamples';
 export function Playground() {
   return (
     <>
-      {/* <h1>Atoms</h1>
+      <h1>Atoms</h1>
       <IconExamples />
       <AvatarExamples />
       <BadgeExamples />
@@ -62,9 +62,9 @@ export function Playground() {
       <AccordionExamples />
       <AlertExamples />
       <ButtonGroupExamples />
-      <CardExamples /> */}
+      <CardExamples />
       <DatepickerExamples />
-      {/* <FlyoutExamples />
+      <FlyoutExamples />
       <ImageExamples />
       <ModalExamples />
       <NavigationListExamples />
@@ -76,7 +76,7 @@ export function Playground() {
       <h1>Organisms</h1>
       <FooterExamples />
       <HeaderExamples />
-      <TagListExamples /> */}
+      <TagListExamples />
     </>
   );
 }

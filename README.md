@@ -10,7 +10,7 @@ React Components using Core Branding 6.2.0.
 - `npm i -g yarn`
 - `yarn install`
 - Commando `yarn install` in storybook folder => voeg toe in commando
-- Run example app: `yarn run playground` vs
+- Run example app: `yarn run playground` (and go to `localhost:4200`) vs
 - Run storybook: `yarn run storybook`
 
 ## Code generation
