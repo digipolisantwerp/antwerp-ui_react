@@ -58,4 +58,15 @@ describe('UI Components - Atoms - Breadcrumb', () => {
     expect(baseElement.getElementsByTagName('span').length).toBe(2);
     expect(baseElement.getElementsByTagName('span')[0].innerHTML).toEqual('CUSTOMLINK');
   });
+  it('should not render a title if none is provided', () => {
+    const { baseElement } = render(
+      <Breadcrumb
+        items={[
+          { label: 'Hello', href: 'link-1' },
+          { label: 'Goodbye', href: '/goodbye' }
+        ]}
+      />
+    );
+    expect(baseElement.getElementsByClassName('h1').length).toBe(0);
+  });
 });
