@@ -20,7 +20,8 @@ export default {
         type: { summary: 'url' },
         defaultValue: { summary: '' }
       },
-      description: 'The `image` prop will allow to display an authenticated user in the avatar. It will override the `letter` prop if provided.',
+      description:
+        'The `image` prop will allow to display an authenticated user in the avatar. It will override the `letter` prop if provided.'
     },
     letter: {
       control: { type: 'text' },
@@ -29,7 +30,8 @@ export default {
         defaultValue: { summary: '' }
       },
       defaultValue: 'NT',
-      description: 'The `letter` prop will allow an authenticated user to display their initials. If an image is provided, it will override the letter parameter.',
+      description:
+        'The `letter` prop will allow an authenticated user to display their initials (will display up to 3 characters. Extra characters will be ignored). If an image is provided, it will override the letter parameter.'
     },
     icon: {
       control: { type: 'select' },
@@ -39,7 +41,8 @@ export default {
       },
       defaultValue: 'single-neutral',
       options: ['single-neutral', 'social-media-snapchat', 'house-chimney', 'bicycle', 'flash'],
-      description: 'The `icon` prop displays an icon in the avatar for guest users. Authenticated users will have this replaced with their initials, or an image, if they provided one.',
+      description:
+        'The `icon` prop displays an icon in the avatar for guest users. Authenticated users will have this replaced with their initials, or an image, if they provided one.'
     },
     rounded: {
       control: { type: 'boolean' },
@@ -48,7 +51,7 @@ export default {
         defaultValue: { summary: false }
       },
       defaultValue: false,
-      description: 'Adds a class to the underlying HTML to change the style to rounded.',
+      description: 'Adds a class to the underlying HTML to change the style to rounded.'
     },
     size: {
       control: { type: 'select' },
@@ -58,27 +61,27 @@ export default {
       },
       options: ['', 'small', 'medium', 'large'],
       defaultValue: '',
-      description: 'Sets the size for the component. Can be omitted for `medium`.',
+      description: 'Sets the size for the component. Can be omitted for `medium`.'
     },
     ariaLabel: {
       control: { type: 'text' },
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'Gebruiker icoon' }
+        defaultValue: { summary: 'Gebruiker' }
       },
-      defaultValue: 'Gebruiker icoon',
-      description: 'The `ariaLabel` describes an accessible name for the icon inside the `Avatar` component.',
+      defaultValue: 'Gebruiker',
+      description: 'The `ariaLabel` describes an accessible name for the icon inside the `Avatar` component.'
     },
     imageAlt: {
       control: { type: 'text' },
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'Avatar afbeelding' }
+        defaultValue: { summary: 'Avatar' }
       },
-      defaultValue: 'Avatar afbeelding',
-      description: 'Image alt text for the provided image.',
+      defaultValue: 'Avatar',
+      description: 'Image alt text for the provided image.'
     },
-    qa: QA_PROP_STORY,
+    qa: QA_PROP_STORY
   }
 };
 

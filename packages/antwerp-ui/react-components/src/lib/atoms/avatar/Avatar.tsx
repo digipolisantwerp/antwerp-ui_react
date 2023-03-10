@@ -7,7 +7,7 @@ import { Icon } from '../../base/icon';
 const letterAvatar = (letter: string) => <span className="a-avatar__letter">{letter}</span>;
 const imageAvatar = (image: string, alt: string) => <img src={`${image}`} alt={`${alt}`} />;
 const iconAvatar = (icon: string, ariaLabel: string) => (
-  <span className="a-avatar__icon" aria-label={ariaLabel}>
+  <span className="a-avatar__icon" aria-label={ariaLabel} role="img">
     <Icon name={icon} />
   </span>
 );
@@ -18,7 +18,7 @@ export function Avatar({ className, letter, rounded, size, ariaLabel, image, ima
       return imageAvatar(image, imageAlt || '');
     }
     if (letter) {
-      return letterAvatar(letter);
+      return letterAvatar(letter.slice(0, 3));
     }
     return iconAvatar(icon || DEFAULT_AVATAR_ICON, ariaLabel || '');
   };
@@ -39,8 +39,8 @@ export function Avatar({ className, letter, rounded, size, ariaLabel, image, ima
 }
 
 Avatar.defaultProps = {
-  ariaLabel: 'Gebruiker icoon',
-  imageAlt: 'Avatar afbeelding'
+  ariaLabel: 'Gebruiker',
+  imageAlt: 'Avatar'
 };
 
 export default Avatar;
