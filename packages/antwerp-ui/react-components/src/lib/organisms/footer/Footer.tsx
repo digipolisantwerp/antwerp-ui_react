@@ -12,12 +12,12 @@ export function Footer({ backToTop, backToTopAriaLabel, items, qa }: FooterProps
   };
 
   const renderItems = () =>
-    items?.map((i, index) => {
-      const item = renderHTMLLink(i);
+    items?.map((item, index) => {
+      const itemLink = renderHTMLLink(item);
       const addDivider: boolean = items.length > 1 && index !== items.length - 1;
       return (
-        <React.Fragment key={i.label}>
-          {item}
+        <React.Fragment key={item.label}>
+          {itemLink}
           {addDivider ? ' | ' : ''}
         </React.Fragment>
       );
@@ -40,7 +40,7 @@ export function Footer({ backToTop, backToTopAriaLabel, items, qa }: FooterProps
 
 Footer.default = {
   items: [],
-  ariaLabel: 'Go back to top'
+  ariaLabel: 'Terug naar omhoog'
 };
 
 export default Footer;

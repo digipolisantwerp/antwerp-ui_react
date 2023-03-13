@@ -29,7 +29,7 @@ export default {
       if: { arg: 'backToTop' },
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'Go back to top' }
+        defaultValue: { summary: 'Terug naar omhoog' }
       },
       description: 'The `ariaLabel` prop provides the back to top button with a suitable aria-label attribute.'
     },
