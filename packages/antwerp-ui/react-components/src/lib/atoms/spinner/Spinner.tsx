@@ -9,11 +9,15 @@ export function Spinner({ label, showText, size, vertical, qa }: SpinnerProps) {
     [`a-spinner--${SIZE_MAP[size || DEFAULT_SIZE]}`]: !!size,
     'a-spinner--vertical': !!vertical
   });
+  const labelClasses = classNames({
+    'a-spinner__text': !!showText,
+    [SCREEN_READER_CLASS]: !showText
+  });
 
   return (
     <div className={classes} role="alert" aria-busy="true" data-qa={qa}>
       <span className="a-spinner__circle"></span>
-      <span className={`${showText ? 'a-spinner__text' : SCREEN_READER_CLASS}`}>{label}</span>
+      <span className={labelClasses}>{label}</span>
     </div>
   );
 }
