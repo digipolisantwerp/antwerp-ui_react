@@ -15,7 +15,7 @@ export function Header({ logoHref, logoAlt, buttons, logoSrc, skipToMainLabel, a
         </div>
         <div className="o-header__menu-items">
           {(buttons || []).map((b) => (
-            <Button {...b} key={b.id} transparent theme="neutral" className="o-header__button">
+            <Button {...b} key={b.id} emphasis="low" theme="neutral" className="o-header__button">
               {b.label}
             </Button>
           ))}

@@ -2,6 +2,7 @@ import { BadgeProps } from './Badge.types';
 import { classNames } from '../../../utils/dom.utils';
 import { useEffect } from 'react';
 import { DEFAULT_EMPHASIS, EMPHASIS_MAP } from '../../../constants/layout.settings';
+import { logWarning } from '../../../utils/log.utils';
 
 export function Badge({ ariaLabel, theme, emphasis, children, qa }: BadgeProps) {
   const number = parseInt(children);
@@ -14,7 +15,7 @@ export function Badge({ ariaLabel, theme, emphasis, children, qa }: BadgeProps) 
 
   useEffect(() => {
     if (isNaN(number)) {
-      console.warn('[AUI] Warning - Using the Badge Component with a non-numerical value.');
+      logWarning('Using the Badge Component with a non-numerical value');
     }
   }, [children]);
 

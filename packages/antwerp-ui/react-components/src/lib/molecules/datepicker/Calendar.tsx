@@ -166,14 +166,14 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
           <div className="m-datepicker__nav-pagination">
             <Button
               ariaLabel={activeTimeframeLabels.prev}
-              transparent
-              icon="arrow-left-1"
+              emphasis="low"
+              addOn={{ type: 'icon', iconProps: { name: 'arrow-left-1' } }}
               onClick={handlePreviousDatesClick}
             ></Button>
             <Button
               ariaLabel={activeTimeframeLabels.next}
-              transparent
-              icon="arrow-right-1"
+              emphasis="low"
+              addOn={{ type: 'icon', iconProps: { name: 'arrow-right-1' } }}
               onClick={handleNextDatesClick}
             ></Button>
           </div>

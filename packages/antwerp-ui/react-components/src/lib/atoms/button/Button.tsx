@@ -1,56 +1,45 @@
-import { Avatar } from '../avatar';
 import { ButtonProps } from './Button.types';
 import { classNames } from '../../../utils/dom.utils';
-import { DEFAULT_SIZE, Size, SIZE_MAP, Theme } from '../../../constants/layout.settings';
-import { Icon } from '../../base/icon';
-import { Spinner } from '../spinner';
+import { DEFAULT_EMPHASIS, DEFAULT_SIZE, Emphasis, SIZE_MAP, Theme } from '../../../constants/layout.settings';
+import { renderAddOn } from '../../../utils/render.utils';
+import { useEffect } from 'react';
+import { logWarning } from '../../../utils/log.utils';
 
 export function Button({
+  addOn,
   ariaLabel,
-  avatar,
   children,
   className,
+  emphasis,
   fullWidth,
   htmlType,
-  icon,
-  iconLeft,
-  iconRight,
   id,
   onClick,
-  outline,
   qa,
   size,
-  spinner,
   theme,
-  title,
-  transparent
+  title
 }: ButtonProps) {
-  const classes = classNames({
+  const classObject = {
     'a-button': true,
     [`a-button--${SIZE_MAP[size || DEFAULT_SIZE]}`]: !!size,
-    [`a-button--${theme}`]: !!theme && !(theme === Theme.NEUTRAL && !(outline || transparent)),
-    'a-button--outlined': !!outline,
-    'a-button--text': !!transparent,
+    [`a-button--${theme}`]: !!theme && !(theme === Theme.NEUTRAL && emphasis === Emphasis.HIGH),
+    'a-button--outlined': emphasis === Emphasis.MEDIUM,
+    'a-button--text': emphasis === Emphasis.LOW,
     'a-button--full': !!fullWidth,
-    'has-icon': !!icon,
-    'has-icon-left': !!iconLeft && !avatar,
-    'has-icon-right': (!!iconRight || !!spinner) && !avatar,
-    'has-avatar': !!avatar && (!avatar?.image || !avatar?.letter),
-    'has-avatar-with-inset': !!avatar?.image || !!avatar?.letter,
+    'has-icon': addOn?.type === 'icon' && !['left', 'right'].includes(addOn?.align || ''),
+    'has-icon-left': addOn?.type !== 'avatar' && addOn?.align === 'left',
+    'has-icon-right':
+      (addOn?.type !== 'avatar' && addOn?.align === 'right') || (addOn?.type === 'spinner' && addOn?.align !== 'left'),
+    'has-avatar': addOn?.type === 'avatar',
+    'has-avatar-with-inset': addOn?.type === 'avatar' && (!!addOn.avatarProps?.letter || !!addOn.avatarProps?.image),
     [`${className}`]: !!className
-  });
-
-  const renderAddOn = (): JSX.Element | null => {
-    const iconType = icon || iconLeft || iconRight;
-    if (avatar) {
-      return <Avatar {...avatar} size={size} />;
-    } else if (spinner) {
-      return <Spinner size={size === Size.S ? Size.XS : Size.S} />;
-    } else if (iconType) {
-      return <Icon name={iconType} />;
-    }
-    return null;
   };
+  const classes = classNames(classObject);
+
+  useEffect(() => {
+    if (classObject['has-icon'] && !ariaLabel) logWarning('Using an Icon Button without an aria-label');
+  }, [classObject]);
 
   return (
     <button
@@ -62,14 +51,15 @@ export function Button({
       aria-label={ariaLabel}
       data-qa={qa}
     >
-      {renderAddOn()}
-      {!icon && children}
+      {renderAddOn(addOn, size)}
+      {classObject['has-icon'] ? null : children}
     </button>
   );
 }
 
 Button.defaultProps = {
-  htmlType: 'button'
+  htmlType: 'button',
+  emphasis: DEFAULT_EMPHASIS
 };
 
 export default Button;

@@ -45,14 +45,9 @@ export default {
       table: {
         type: { summary: 'ReactNode' }
       },
-      defaultValue: (
-        <p>
-          Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa{' '}
-          <a href="javascript:void(0);">justo sit amet risus</a>. Sed posuere consectetur est at lobortis. Donec
-          ullamcorper nulla non metus auctor fringilla.
-        </p>
-      ),
-      description: 'Rich text / string to be shown as content inside the `Alert` component.'
+      defaultValue:
+        'Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Sed posuere consectetur est at lobortis. Donec ullamcorper nulla non metus auctor fringilla.',
+      description: 'Rich text (HTML) / string to be shown as content inside the `Alert` component.'
     },
     onConfirm: {
       control: { type: 'function' },
@@ -76,7 +71,7 @@ export default {
     onCancel: {
       control: { type: 'function' },
       table: {
-        type: { summary: 'function' },
+        type: { summary: 'function' }
       },
       action: 'onCancel',
       description:
@@ -116,8 +111,7 @@ export default {
         defaultValue: { summary: 'aui-alert-title' }
       },
       defaultValue: 'aui-alert-title',
-      description:
-        'The `titleId` prop is the id of the title that is also used in the `aria-labelledby` attribute.'
+      description: 'The `titleId` prop is the id of the title that is also used in the `aria-labelledby` attribute.'
     },
     qa: QA_PROP_STORY
   }

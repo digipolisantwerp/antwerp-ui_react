@@ -26,8 +26,8 @@ const renderModalAlert = (className: string, props: AlertProps) => {
   return (
     <div role="alertdialog" className={className} aria-labelledby={titleId} aria-modal="true" data-qa={qa}>
       <Button
-        icon="remove"
-        transparent
+        addOn={{ type: 'icon', iconProps: { name: 'remove' } }}
+        emphasis="low"
         className="m-alert__close"
         theme={theme}
         ariaLabel={ariaLabelClose}
@@ -49,7 +49,7 @@ const renderModalAlert = (className: string, props: AlertProps) => {
           </Button>
         ) : null}
         {onCancel ? (
-          <Button id="aui-alert-cancel" size="small" theme={theme} outline onClick={onCancel}>
+          <Button id="aui-alert-cancel" size="small" theme={theme} emphasis="medium" onClick={onCancel}>
             {cancelLabel}
           </Button>
         ) : null}

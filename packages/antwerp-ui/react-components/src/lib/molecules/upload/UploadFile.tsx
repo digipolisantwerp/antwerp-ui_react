@@ -24,8 +24,8 @@ export function UploadFile({
         <div className="m-upload__delete">
           <Button
             ariaLabel={deleteAriaLabel}
-            icon="remove"
-            transparent
+            addOn={{ type: 'icon', iconProps: { name: 'remove' } }}
+            emphasis="low"
             theme="danger"
             size="small"
             onClick={() => onDelete(file)}

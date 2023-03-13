@@ -1,5 +1,5 @@
 // Emphasis
-enum Emphasis {
+export enum Emphasis {
   HIGH = 'high',
   MEDIUM = 'medium',
   LOW = 'low'

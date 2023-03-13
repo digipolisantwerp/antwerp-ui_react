@@ -68,9 +68,9 @@ export function Modal({
                 <Button
                   className="m-modal__close"
                   theme="neutral"
-                  icon="ai-close"
+                  addOn={{ type: 'icon', iconProps: { name: 'ai-close' } }}
                   ariaLabel={ariaCloseLabel}
-                  transparent
+                  emphasis="low"
                   onClick={handleClose}
                 />
               )}
@@ -81,7 +81,7 @@ export function Modal({
             <div className="m-modal__footer">
               {showConfirm && <Button onClick={handleConfirm}>{confirmText}</Button>}
               {showCancel && (
-                <Button outline onClick={handleCancel}>
+                <Button emphasis="medium" onClick={handleCancel}>
                   {cancelText}
                 </Button>
               )}

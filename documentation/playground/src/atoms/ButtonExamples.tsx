@@ -5,22 +5,24 @@ export function ButtonExamples() {
     <div className="u-margin-bottom">
       <h2>Buttons</h2>
       <Button size="large">Click me!</Button>
-      <Button avatar={{ image: 'https://placedog.net/100/100?r' }}>Avatar button</Button>
-      <Button size="small" spinner>
+      <Button addOn={{ type: 'avatar', avatarProps: { image: 'https://placedog.net/100/100?r' } }}>
+        Avatar button
+      </Button>
+      <Button size="small" addOn={{ type: 'spinner' }}>
         Spinner button
       </Button>
-      <Button iconLeft="ai-archive">Icon left</Button>
-      <Button iconRight="archive">Icon right</Button>
-      <Button outline>Outline</Button>
-      <Button transparent>Transparent</Button>
+      <Button ariaLabel="Click to archive!" addOn={{ type: 'icon', iconProps: { name: 'archive' } }}></Button>
+      <Button addOn={{ type: 'icon', align: 'right', iconProps: { name: 'archive' } }}>Icon right</Button>
+      <Button addOn={{ type: 'icon', align: 'left', iconProps: { name: 'ai-archive' } }}>Icon Left</Button>
+      <Button emphasis="medium">Outline</Button>
+      <Button emphasis="low">Transparent</Button>
       <Button theme="danger">Danger</Button>
-      <Button theme="neutral" outline>
+      <Button theme="neutral" emphasis="medium">
         Neutral outline
       </Button>
-      <Button theme="warning" outline>
+      <Button theme="warning" emphasis="medium">
         Warning outline
       </Button>
-      <Button icon="ai-archive"></Button>
     </div>
   );
 }

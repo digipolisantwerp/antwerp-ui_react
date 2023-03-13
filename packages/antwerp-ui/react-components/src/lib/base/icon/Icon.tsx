@@ -23,7 +23,7 @@ export function Icon({ name, screenReaderText, thin, qa }: IconProps) {
 
   const classes = classNames({
     ai: true,
-    [`ai-${name.replace('ai-', '')}`]: !!name,
+    [`ai-${name?.replace('ai-', '')}`]: !!name,
     'ai--thin': !!thin
   });
 

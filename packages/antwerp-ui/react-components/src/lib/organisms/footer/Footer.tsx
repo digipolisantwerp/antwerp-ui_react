@@ -29,7 +29,7 @@ export function Footer({ backToTop, backToTopAriaLabel, items, qa }: FooterProps
       {backToTop && (
         <Button
           className="o-footer__button a-button--secondary"
-          icon="arrow-up-1"
+          addOn={{ type: 'icon', iconProps: { name: 'arrow-up-1' } }}
           onClick={scrollToTop}
           ariaLabel={backToTopAriaLabel}
         />

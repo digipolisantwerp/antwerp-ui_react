@@ -20,8 +20,7 @@ export default {
         type: { summary: 'boolean' },
         defaultValue: { summary: 'false' }
       },
-      description:
-        'Buttons in a `ButtonGroup` can be aligned horizontally (default) or vertically as a list.'
+      description: 'Buttons in a `ButtonGroup` can be aligned horizontally (default) or vertically as a list.'
     },
     qa: QA_PROP_STORY
   }
@@ -29,9 +28,9 @@ export default {
 
 const Template = ({ ...args }) => (
   <ButtonGroup {...args}>
-    <Button avatar={{ image: 'https://placedog.net/100/100?r' }}>Avatar button</Button>
-    <Button iconLeft="ai-archive">Icon left</Button>
-    <Button iconRight="archive">Icon right</Button>
+    <Button addOn={{ type: 'avatar', avatarProps: { image: 'https://placedog.net/100/100?r' } }}>Avatar button</Button>
+    <Button addOn={{ type: 'icon', align: 'left', iconProps: { name: 'archive' } }}>Icon left</Button>
+    <Button addOn={{ type: 'icon', align: 'right', iconProps: { name: 'archive' } }}>Icon right</Button>
     <Button outline>Outline</Button>
   </ButtonGroup>
 );
