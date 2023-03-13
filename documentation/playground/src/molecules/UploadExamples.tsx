@@ -13,6 +13,7 @@ export function UploadExamples() {
       <div className="row">
         <div className="col-xs-6">
           <Upload
+            id="aui-upload-example-1"
             maxSize={1}
             files={files}
             acceptedFormat="image/*"
@@ -23,7 +24,17 @@ export function UploadExamples() {
           />
         </div>
         <div className="col-xs-6">
-          <Upload disabled files={[]} label="Deze label kan overgeschreven worden" maxSizeLabel="Dit is het maximum:" />
+          <Upload
+            id="aui-upload-example-2"
+            disabled
+            files={[]}
+            label={
+              <p>
+                Deze label kan <b>overgeschreven</b> worden
+              </p>
+            }
+            maxSizeLabel="Dit is het maximum:"
+          />
         </div>
       </div>
     </div>

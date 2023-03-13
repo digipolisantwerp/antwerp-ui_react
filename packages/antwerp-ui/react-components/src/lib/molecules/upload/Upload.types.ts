@@ -1,11 +1,13 @@
+import { ReactElement } from 'react';
+
 export interface UploadProps {
   acceptedFormat?: string;
   deleteAriaLabel?: string;
   disabled?: boolean;
   files: File[];
   formatErrorLabel?: string;
-  id?: string;
-  label?: string;
+  id: string;
+  label?: ReactElement | string;
   maxSize?: number;
   maxSizeLabel?: string;
   multiple?: boolean;

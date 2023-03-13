@@ -26,19 +26,17 @@ export default {
     id: {
       control: { type: 'text' },
       table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'aui-upload' }
+        type: { summary: 'string' }
       },
-      defaultValue: '',
-      description:
-        "Override default ID on input element. Make sure it's unique across all `Upload` components."
+      defaultValue: 'aui-upload-stories',
+      description: "ID on input element. Make sure it's unique across all `Upload` components."
     },
     label: {
       control: { type: 'text' },
-      description: 'Override default text of upload zone.',
+      description: 'Override default text of upload zone. This can be rich text (ReactElement).',
       defaultValue: 'Sleep een bestand hier of klik om te bladeren',
       table: {
-        type: { summary: 'string' },
+        type: { summary: 'ReactElement | string' },
         defaultValue: { summary: 'Sleep een bestand hier of klik om te bladeren' }
       }
     },
@@ -64,10 +62,10 @@ export default {
       control: { type: 'text' },
       description:
         'Allows to set accepted format. Should be MIME type or `.ext`, accepts wildcard when using MIME types, like `image/*`.',
-      defaultValue: "*",
+      defaultValue: '*',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: "*" }
+        defaultValue: { summary: '*' }
       }
     },
     maxSize: {

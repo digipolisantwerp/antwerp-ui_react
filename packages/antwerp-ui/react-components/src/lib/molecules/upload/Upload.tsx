@@ -17,7 +17,8 @@ export function Upload({
   multiple,
   onChange,
   onDelete,
-  sizeErrorLabel
+  sizeErrorLabel,
+  qa
 }: UploadProps) {
   const inputRef = React.useRef<HTMLInputElement>(null);
 
@@ -43,7 +44,7 @@ export function Upload({
   };
 
   return (
-    <div className={classNames({ 'm-upload': true, 'is-disabled': !!disabled })}>
+    <div className={classNames({ 'm-upload': true, 'is-disabled': !!disabled })} data-qa={qa}>
       <div className="m-upload__inner">
         <div className="m-upload__dropzone">
           <input
@@ -60,7 +61,6 @@ export function Upload({
             <label htmlFor={id} className="m-upload__message u-margin-bottom">
               {label}
             </label>
-            <p className="m-upload__uploads u-text-bold">{files?.map((f) => f?.name)?.join(', ')}</p>
           </div>
         </div>
       </div>
@@ -94,7 +94,6 @@ Upload.defaultProps = {
   disabled: false,
   acceptedFormat: '*',
   files: [],
-  id: 'aui-upload',
   maxSizeLabel: 'Maximale bestandsgrootte:',
   formatErrorLabel: 'Dit bestandsformaat is niet toegestaan.',
   sizeErrorLabel: 'Maximale bestandsgrootte overschreden.',
