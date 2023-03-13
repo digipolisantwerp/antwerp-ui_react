@@ -20,7 +20,7 @@ export function Tooltip({ anchor, anchorId, location, text, qa }: TooltipProps) 
 
 Tooltip.defaultProps = {
   text: '',
-  location: 'top',
+  location: 'bottom',
   anchorId: 'aui-tooltip'
 };
 

@@ -16,13 +16,13 @@ export function TooltipExamples() {
       <Tooltip
         text={`Test tooltip ${count}`}
         anchorId="tooltip-1"
-        anchor={<span>Example text that has tooltip on TOP of it</span>}
+        anchor={<span>Example text that has tooltip on BOTTOM of it</span>}
       ></Tooltip>
       <Tooltip
         text="Test tooltip"
-        location="bottom"
+        location="top"
         anchorId="tooltip-2"
-        anchor={<span>Example text that has tooltip at BOTTOM</span>}
+        anchor={<span>Example text that has tooltip at TOP</span>}
       ></Tooltip>
       <div style={{ marginLeft: '150px' }}>
         <Tooltip
