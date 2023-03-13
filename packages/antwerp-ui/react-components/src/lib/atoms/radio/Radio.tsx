@@ -1,7 +1,7 @@
 import { ChangeEvent } from 'react';
 import { RadioProps } from './Radio.types';
 
-export function Radio({ value, label, id, qa, name, onChange, checked, disabled }: RadioProps) {
+export function Radio({ autoFocus, value, label, id, qa, name, onChange, checked, disabled }: RadioProps) {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     onChange && onChange(event);
   };
@@ -16,6 +16,7 @@ export function Radio({ value, label, id, qa, name, onChange, checked, disabled 
         value={value}
         onChange={handleChange}
         disabled={disabled}
+        autoFocus={autoFocus}
       />
       <label htmlFor={id}>{label}</label>
     </div>

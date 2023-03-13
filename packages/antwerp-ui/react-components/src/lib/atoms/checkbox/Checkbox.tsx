@@ -1,8 +1,19 @@
 import { ChangeEvent } from 'react';
+import { SCREEN_READER_CLASS } from '../../../constants/settings';
 import { classNames } from '../../../utils/dom.utils';
 import { CheckboxProps } from './Checkbox.types';
 
-export function Checkbox({ label, checked, id, qa, name, disabled, indeterminate, onChange }: CheckboxProps) {
+export function Checkbox({
+  label,
+  showLabel,
+  checked,
+  id,
+  qa,
+  name,
+  disabled,
+  indeterminate,
+  onChange
+}: CheckboxProps) {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     return onChange && onChange(event);
   };
@@ -28,9 +39,15 @@ export function Checkbox({ label, checked, id, qa, name, disabled, indeterminate
         disabled={disabled}
         onChange={handleChange}
       />
-      <label htmlFor={id}>{label}</label>
+      <label htmlFor={id}>
+        <span className={showLabel ? undefined : SCREEN_READER_CLASS}>{label}</span>
+      </label>
     </div>
   );
 }
+
+Checkbox.defaultProps = {
+  showLabel: true
+};
 
 export default Checkbox;

@@ -18,6 +18,11 @@ describe('UI Components - Atoms - Checkbox', () => {
     expect(checkbox.type).toBe('checkbox');
   });
 
+  it('can hide the label of a checkbox', () => {
+    const { container } = render(<Checkbox {...defaultProps} showLabel={false} />);
+    expect(container.getElementsByClassName('u-screen-reader-only')).toBeTruthy();
+  });
+
   it('sets the checked property when the checkbox is clicked', () => {
     const { getByLabelText } = render(<Checkbox {...defaultProps} />);
     const checkbox = getByLabelText('Checkbox') as HTMLInputElement;

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { QA_PROP_STORY } from '../../../constants/stories.settings';
 import Checkbox from './Checkbox';
+import { useArgs } from '@storybook/client-api';
 
 export default {
   title: 'React/Atoms/Checkbox',
@@ -22,6 +23,15 @@ export default {
         defaultValue: { summary: '' }
       },
       description: 'The `Checkbox` component has a `label` prop that is shown next to the checkbox.'
+    },
+    showLabel: {
+      control: { type: 'boolean' },
+      defaultValue: true,
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: true }
+      },
+      description: 'Set to false to hide the label (by adding `u-screen-reader-only` class to it).'
     },
     checked: {
       control: { type: 'boolean', disable: true },
@@ -56,10 +66,11 @@ export default {
     onChange: {
       control: { type: 'function' },
       table: {
-        type: { summary: 'function' },
+        type: { summary: 'function' }
       },
       action: 'onChange',
-      description: 'Function triggered when the checkbox value has changed. First parameter of this function is of type `(React).ChangeEvent`.'
+      description:
+        'Function triggered when the checkbox value has changed. First parameter of this function is of type `(React).ChangeEvent`.'
     },
     id: {
       control: { type: 'text' },
@@ -85,21 +96,17 @@ export default {
   }
 };
 
-
 const Template = (args) => {
-  const [checked, setChecked] = useState(args.checked ?? false);
+  const [{}, updateArgs] = useArgs();
   return (
     <Checkbox
       {...args}
       onChange={(e) => {
         args.onChange(e);
-        setChecked(e.target.checked);
+        updateArgs({ ...args, indeterminate: false, checked: e.target.checked });
       }}
-      checked={checked}
     />
   );
 };
 
 export const checkbox = Template.bind({});
-
-

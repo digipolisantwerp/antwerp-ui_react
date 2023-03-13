@@ -1,5 +1,5 @@
 import { QA_PROP_STORY } from '../../../constants/stories.settings';
-import { Radio  } from './Radio';
+import { Radio } from './Radio';
 
 export default {
   title: 'React/Atoms/Radios/Radio',
@@ -7,7 +7,8 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'The Radio component should be used as the child of a RadioGroup component. Use radio buttons when users can only select one option from a list of presented choices.'
+        component:
+          'The Radio component should be used as the child of a RadioGroup component. Use radio buttons when users can only select one option from a list of presented choices.'
       }
     }
   },
@@ -38,8 +39,16 @@ export default {
         type: { summary: 'boolean' },
         defaultValue: { summary: false }
       },
-      description:
-        'A `Radio` component can be `disabled`, barring any interaction with the control.'
+      description: 'A `Radio` component can be `disabled`, barring any interaction with the control.'
+    },
+    autoFocus: {
+      control: { type: 'boolean' },
+      defaultValue: false,
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false }
+      },
+      description: 'Set the `autofocus` attribute on the underlying `input` HTML tag.'
     },
     name: {
       control: { type: 'text' },
@@ -54,10 +63,11 @@ export default {
     onChange: {
       control: { type: 'function' },
       table: {
-        type: { summary: 'function' },
+        type: { summary: 'function' }
       },
       action: 'onChange',
-      description: 'Function triggered when the radio value is selected. The first parameter of this function is of type `(React).ChangeEvent`.'
+      description:
+        'Function triggered when the radio value is selected. The first parameter of this function is of type `(React).ChangeEvent`.'
     },
     id: {
       control: { type: 'text' },
@@ -72,6 +82,5 @@ export default {
     qa: QA_PROP_STORY
   }
 };
-
 
 export const radio = '';

@@ -17,6 +17,7 @@ export function CheckboxExamples() {
       <Checkbox name="checkbox" id="check-6" label="Disabled unchecked" disabled />
       <Checkbox name="checkbox" id="check-7" label="Disabled indeterminate" disabled indeterminate />
       <Checkbox name="checkbox" id="check-8" label="Disabled checked" disabled checked />
+      <Checkbox name="checkbox" id="check-9" label="Hidden label" showLabel={false} />
     </div>
   );
 }

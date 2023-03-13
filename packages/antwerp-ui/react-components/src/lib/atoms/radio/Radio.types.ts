@@ -1,6 +1,7 @@
 import { ReactElement } from 'react';
 
 export interface RadioProps {
+  autoFocus?: boolean;
   checked?: boolean;
   disabled?: boolean;
   id: string;
