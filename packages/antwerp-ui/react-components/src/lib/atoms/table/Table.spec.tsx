@@ -114,6 +114,12 @@ describe('UI Components - Atoms - Table', () => {
     fireEvent(window, new Event('resize'));
   });
 
+  it('should not render the scroll wrapper if responsive is set to false', () => {
+    const { container } = render(<Table columns={COLUMNS_EXAMPLE} responsive={false} />);
+    const scrollContainers = container.getElementsByClassName('a-table-scrollable-wrapper');
+    expect(scrollContainers.length).toEqual(0);
+  });
+
   it('should call onSelect and onSelectAll', () => {
     const mockOnSelect = jest.fn();
     const mockOnSelectAll = jest.fn();

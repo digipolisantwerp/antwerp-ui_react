@@ -57,6 +57,23 @@ const ROWS_EXAMPLE: TableRowSchema[] = [
 
 export function TableExamples() {
   const [event, setEvent] = useState('none');
+
+  const customColumn = {
+    label: 'Hello world',
+    content: [
+      {
+        label: 'Verwijder',
+        id: 'delete',
+        theme: 'danger',
+        iconLeft: 'close',
+        onActionClick: (_, rowId) => {
+          setEvent(`delete:${rowId}`);
+          console.log(rowId);
+        }
+      }
+    ]
+  };
+
   return (
     <>
       <h1 className="u-margin-bottom">Table</h1>
@@ -65,17 +82,17 @@ export function TableExamples() {
         <Table
           id="table-1"
           selectable
-          responsive
+          size="large"
           striped
           open
           columns={COLUMNS_EXAMPLE}
           rows={ROWS_EXAMPLE}
           sort="snack"
           selected={['0']}
-          onSelect={(_, id) => setEvent(`onSelect:${id}`)}
+          onSelect={(id) => setEvent(`onSelect:${id}`)}
           onSelectAll={() => setEvent(`onSelect:all`)}
           sortDirection="descending"
-          onSortClick={(_, col) => setEvent(`sortClick:${col}`)}
+          onSortClick={(col) => setEvent(`sortClick:${col}`)}
           actions={{
             label: 'Acties',
             buttons: [
@@ -85,7 +102,10 @@ export function TableExamples() {
                 id: 'delete',
                 theme: 'danger',
                 iconLeft: 'close',
-                onActionClick: (_, rowId) => setEvent(`delete:${rowId}`)
+                onActionClick: (_, rowId) => {
+                  setEvent(`delete:${rowId}`);
+                  console.log(rowId);
+                }
               }
             ]
           }}

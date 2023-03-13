@@ -10,6 +10,7 @@ export function TableBody({
   actions,
   columns,
   small,
+  size,
   tableId,
   selectable,
   onSelect,
@@ -60,7 +61,7 @@ export function TableBody({
                 key={`aui-table-action-${tableId}-${x?.id}-${row.id}`}
                 {...x}
                 id={`aui-table-action-${tableId}-${x?.id}-${row.id}`}
-                size="small"
+                size={size}
               >
                 {x?.label}
               </Button>

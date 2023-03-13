@@ -13,6 +13,7 @@ export function Table({
   qa,
   striped,
   small,
+  size,
   open,
   selectable,
   selected,
@@ -58,6 +59,7 @@ export function Table({
       <TableBody
         tableId={id}
         small={small}
+        size={size}
         selectable={selectable}
         selected={selected}
         columns={columns}
@@ -82,7 +84,9 @@ export function Table({
 Table.defaultProps = {
   id: 'aui-table',
   columns: [],
-  rows: []
+  rows: [],
+  size: 'small',
+  responsive: true
 };
 
 export default Table;

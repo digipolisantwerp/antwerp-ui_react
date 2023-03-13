@@ -25,6 +25,7 @@ export interface TableProps {
   selectable?: boolean;
   selected?: string[];
   small?: boolean;
+  size?: 'small' | 'medium' | 'large' | undefined;
   sort?: string;
   sortDirection?: 'ascending' | 'descending';
   striped?: boolean;
@@ -55,11 +56,12 @@ export type TableHeaderProps = Pick<
   | 'small'
   | 'sort'
   | 'sortDirection'
+  | 'size'
 > & { tableId?: string };
 
 export type TableBodyProps = Pick<
   TableProps,
-  'actions' | 'columns' | 'onSelect' | 'selectable' | 'selected' | 'rows' | 'small'
+  'actions' | 'columns' | 'onSelect' | 'selectable' | 'selected' | 'rows' | 'small' | 'size'
 > & {
   tableId?: string;
 };

@@ -5,5 +5,5 @@ export function classNames(classConfig: { [key: string]: boolean }): string {
 }
 
 export function isScrollAtTheEnd(target: Element) {
-  return target.clientWidth === target.scrollWidth || target.clientWidth + target.scrollLeft >= target.scrollWidth;
+  return target.clientWidth === target.scrollWidth || target.clientWidth + target.scrollLeft === target.scrollWidth;
 }
