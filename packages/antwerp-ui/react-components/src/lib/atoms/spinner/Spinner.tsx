@@ -11,7 +11,7 @@ export function Spinner({ label, showText, size, vertical, qa }: SpinnerProps) {
   });
 
   return (
-    <div className={classes} role="alert" data-qa={qa}>
+    <div className={classes} role="alert" aria-busy="true" data-qa={qa}>
       <span className="a-spinner__circle"></span>
       <span className={`${showText ? 'a-spinner__text' : SCREEN_READER_CLASS}`}>{label}</span>
     </div>
