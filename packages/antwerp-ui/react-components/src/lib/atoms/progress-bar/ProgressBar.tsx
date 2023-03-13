@@ -1,8 +1,8 @@
 import { classNames } from '../../../utils/dom.utils';
 import { ProgressBarProps } from './ProgressBar.types';
 
-export function ProgressBar({ label, percentage, absoluteValue, minValue, maxValue, large, qa }: ProgressBarProps) {
-  const value = absoluteValue || percentage;
+export function ProgressBar({ label, percentage, ariaValueNow, minValue, maxValue, large, qa }: ProgressBarProps) {
+  const value = ariaValueNow || percentage;
 
   const classes = classNames({
     'a-progress': true,

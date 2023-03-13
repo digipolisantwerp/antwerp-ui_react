@@ -1,7 +1,6 @@
 import ProgressBar from './ProgressBar';
 import { QA_PROP_STORY } from '../../../constants/stories.settings';
 
-
 export default {
   title: 'React/Atoms/ProgressBar',
   component: ProgressBar,
@@ -9,7 +8,7 @@ export default {
     docs: {
       description: {
         component:
-          "A progress indicator communicates to the user that they have to wait for a page, element of functionality to complete loading or processing a task before they can access it."
+          'A progress indicator communicates to the user that they have to wait for a page, element of functionality to complete loading or processing a task before they can access it.'
       }
     }
   },
@@ -41,10 +40,10 @@ export default {
       defaultValue: 'Downloading...',
       description: 'Label of the progress bar.'
     },
-    absoluteValue: {
+    ariaValueNow: {
       control: { type: 'number' },
       table: {
-        type: { summary: 'number' },
+        type: { summary: 'number' }
       },
       description: 'Use this prop to override the `aria-valuenow`, if not set the `percentage` prop is used.'
     },
@@ -67,8 +66,7 @@ export default {
       description: 'Use this prop to set the `aria-valuemax` attribute.'
     },
     qa: QA_PROP_STORY
-  },
-
+  }
 };
 
 export const progressBar = '';
