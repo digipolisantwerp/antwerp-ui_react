@@ -44,7 +44,7 @@ export function Switch({
       className="a-switch"
       role="switch"
       aria-checked={isChecked}
-      aria-label={ariaLabel}
+      aria-label={label ? undefined : ariaLabel}
       aria-labelledby={label ? labelId : undefined}
       disabled={disabled}
       onClick={handleClick}
