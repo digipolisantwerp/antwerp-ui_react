@@ -1,7 +1,7 @@
 export interface BadgeProps {
   ariaLabel?: string;
   qa?: string;
-  type?: 'outlined' | 'transparent';
+  emphasis?: 'high' | 'medium' | 'low';
   theme?: 'primary' | 'neutral';
   children: string;
 }

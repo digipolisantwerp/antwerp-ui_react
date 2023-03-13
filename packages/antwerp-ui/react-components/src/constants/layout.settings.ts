@@ -1,3 +1,17 @@
+// Emphasis
+enum Emphasis {
+  HIGH = 'high',
+  MEDIUM = 'medium',
+  LOW = 'low'
+}
+
+export const DEFAULT_EMPHASIS = Emphasis.HIGH;
+
+export const EMPHASIS_MAP: { [emphasis: string]: string } = {
+  [Emphasis.MEDIUM]: 'outlined',
+  [Emphasis.LOW]: 'transparent'
+};
+
 // Sizes
 export enum Size {
   XS = 'extra-small',

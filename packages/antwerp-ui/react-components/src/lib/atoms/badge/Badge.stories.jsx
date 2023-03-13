@@ -22,10 +22,9 @@ export default {
       },
       description: 'The content of the badge is passed as the `children` prop. It will only display numeric values.'
     },
-    type: {
+    emphasis: {
       control: { type: 'select' },
-      defaultValue: '',
-      options: ['', 'outlined', 'transparent'],
+      options: ['high', 'medium', 'low'],
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' }
@@ -35,8 +34,7 @@ export default {
     },
     theme: {
       control: { type: 'select' },
-      defaultValue: '',
-      options: ['', 'primary', 'neutral'],
+      options: ['primary', 'neutral'],
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' }

@@ -21,9 +21,10 @@ export function AutocompleteExamples() {
     <div className="u-margin" style={{ width: '420px' }}>
       <h2>Autocomplete</h2>
       <div className="u-margin-bottom"></div>
-      <Autocomplete label="Select National Parc (Uncontrolled)" items={items} />
+      <Autocomplete id="autocomplete-example-1" label="Select National Parc (Uncontrolled)" items={items} />
 
       <Autocomplete
+        id="autocomplete-example-2"
         noResultsText="NOTHING FOUND"
         label="Select National Parc (Controlled)"
         items={items}

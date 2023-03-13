@@ -1,14 +1,22 @@
 import { BadgeProps } from './Badge.types';
 import { classNames } from '../../../utils/dom.utils';
+import { useEffect } from 'react';
+import { DEFAULT_EMPHASIS, EMPHASIS_MAP } from '../../../constants/layout.settings';
 
-export function Badge({ ariaLabel, theme, type, children, qa }: BadgeProps) {
+export function Badge({ ariaLabel, theme, emphasis, children, qa }: BadgeProps) {
   const number = parseInt(children);
 
   const classes = classNames({
     'a-badge': true,
     [`a-badge--${theme}`]: !!theme,
-    [`a-badge--${type}`]: !!type
+    [`a-badge--${EMPHASIS_MAP[emphasis || DEFAULT_EMPHASIS]}`]: !!EMPHASIS_MAP[emphasis || DEFAULT_EMPHASIS]
   });
+
+  useEffect(() => {
+    if (isNaN(number)) {
+      console.warn('[AUI] Warning - Using the Badge Component with a non-numerical value.');
+    }
+  }, [children]);
 
   return (
     <span className={classes} aria-label={ariaLabel} data-qa={qa}>

@@ -4,14 +4,15 @@ export function BadgeExamples() {
   return (
     <div className="u-margin-bottom">
       <h2>Badges</h2>
+      <Badge>NOT A NUMBER</Badge>
       <Badge>1</Badge>
-      <Badge theme="primary" type="transparent">
+      <Badge theme="primary" emphasis="low">
         2
       </Badge>
-      <Badge theme="primary" type="outlined">
+      <Badge theme="primary" emphasis="medium">
         3
       </Badge>
-      <Badge ariaLabel="Four" theme="neutral" type="outlined">
+      <Badge ariaLabel="Four" theme="neutral" emphasis="medium">
         4
       </Badge>
     </div>

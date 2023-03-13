@@ -14,15 +14,15 @@ describe('UI Components - Atoms - Badge', () => {
     expect(badge.classList.contains('a-badge--primary')).toBe(true);
   });
 
-  it('should apply the type class', () => {
-    render(<Badge type="outlined">24</Badge>);
+  it('should apply the emphasis class', () => {
+    render(<Badge emphasis="low">24</Badge>);
     const badge = screen.getByText('24');
-    expect(badge.classList.contains('a-badge--outlined')).toBe(true);
+    expect(badge.classList.contains('a-badge--transparent')).toBe(true);
   });
 
-  it('should apply both the theme and type classes', () => {
+  it('should apply both the theme and emphasis classes', () => {
     render(
-      <Badge theme="primary" type="outlined">
+      <Badge theme="primary" emphasis="medium">
         24
       </Badge>
     );
