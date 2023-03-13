@@ -20,15 +20,26 @@ describe('UI Components - Atoms - Toggle', () => {
     expect(baseElement.getElementsByClassName('a-toggle__on').length).toBe(1);
   });
 
-  it('should render checked icon by default', () => {
-    const { baseElement } = render(<Toggle checked />);
+  it('should render checked icon if passed', () => {
+    const { baseElement } = render(<Toggle checked checkedIcon="navigation-menu" />);
     expect(baseElement.getElementsByClassName('ai-navigation-menu').length).toBe(1);
   });
 
-  it('should render unchecked icon by default', () => {
+  it('should render unchecked icon if passed', () => {
+    cleanup();
+    const { baseElement } = render(<Toggle uncheckedIcon="close" />);
+    expect(baseElement.getElementsByClassName('ai-close').length).toBe(1);
+  });
+
+  it('should not render checked icon by default', () => {
+    const { baseElement } = render(<Toggle checked />);
+    expect(baseElement.querySelector('use')?.getAttribute('href')).toBeFalsy();
+  });
+
+  it('should not render unchecked icon by default', () => {
     cleanup();
     const { baseElement } = render(<Toggle />);
-    expect(baseElement.getElementsByClassName('ai-close').length).toBe(1);
+    expect(baseElement.querySelector('use')?.getAttribute('href')).toBeFalsy();
   });
 
   it('should NOT render checked icon if not provided', () => {
@@ -42,7 +53,9 @@ describe('UI Components - Atoms - Toggle', () => {
   });
 
   it('should NOT render labels if `showLabels` is false', () => {
-    const { baseElement, rerender } = render(<Toggle checkedLabel="Checked label" showLabels />);
+    const { baseElement, rerender } = render(
+      <Toggle checkedLabel="Checked label" checkedIcon="navigation-menu" uncheckedIcon="close" showLabels />
+    );
     expect(baseElement.getElementsByClassName('a-toggle__label').length).toBe(2);
     rerender(<Toggle showLabels={false} />);
     expect(baseElement.getElementsByClassName('a-toggle__label').length).toBe(0);

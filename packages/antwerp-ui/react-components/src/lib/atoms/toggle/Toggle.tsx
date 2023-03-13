@@ -61,11 +61,9 @@ Toggle.defaultProps = {
   id: '',
   checked: false,
   checkedLabel: '',
-  checkedIcon: 'navigation-menu',
   checkedTheme: '',
   showLabels: false,
   uncheckedLabel: '',
-  uncheckedIcon: 'close',
   uncheckedTheme: 'danger'
 };
 

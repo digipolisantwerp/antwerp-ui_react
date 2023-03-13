@@ -9,13 +9,20 @@ export function ToggleExamples() {
   return (
     <>
       <h1>Toggles</h1>
-      <Toggle checked={toggle1Checked} onClick={setToggle1Checked} />
+      <Toggle
+        checked={toggle1Checked}
+        checkedLabel="Menu"
+        uncheckedLabel="Close"
+        showLabels
+        onClick={setToggle1Checked}
+      />
       <br />
       <Toggle
         id="toggle-small"
         size="small"
         checkedLabel="Open menu"
         checkedIcon="mouse"
+        uncheckedIcon="mouse"
         uncheckedLabel="Close menu"
         checked={toggle2Checked}
         onClick={setToggle2Checked}
@@ -27,6 +34,7 @@ export function ToggleExamples() {
         checkedLabel="Open menu"
         checked={toggle3Checked}
         onClick={setToggle3Checked}
+        checkedIcon="navigation-menu"
         uncheckedIcon="maps"
         uncheckedLabel="Close menu"
       />

@@ -9,7 +9,7 @@ export default {
     docs: {
       description: {
         component:
-          "A toggle button is a button that has two states and triggers another element which is not part of the toggle."
+          'A toggle button is a button that has two states and triggers another element which is not part of the toggle.'
       }
     }
   },
@@ -70,21 +70,21 @@ export default {
       description: 'Text in unchecked state label.'
     },
     checkedIcon: {
-      control: { type: 'text' },
+      control: { type: 'select' },
       table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'navigation-menu' }
+        type: { summary: 'string' }
       },
+      options: ['navigation-menu', 'single-neutral', 'social-media-snapchat', 'os-system-apple', 'love-it'],
       defaultValue: 'navigation-menu',
       description: 'Icon in checked state.'
     },
     uncheckedIcon: {
-      control: { type: 'text' },
+      control: { type: 'select' },
       table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'close' }
+        type: { summary: 'string' }
       },
       defaultValue: 'close',
+      options: ['close', 'mouse', 'list-bullets', 'os-system-apple', 'love-it'],
       description: 'Icon in unchecked state.'
     },
     checkedTheme: {
