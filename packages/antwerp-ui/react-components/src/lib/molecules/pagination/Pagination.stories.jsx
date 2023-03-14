@@ -49,19 +49,32 @@ export default {
     display: {
       control: { type: 'select' },
       table: {
-        type: { summary: 'string' }
+        type: { summary: 'string' },
+        defaultValue: { summary: 'numbers' }
       },
       defaultValue: 'numbers',
-      options: ['', 'text', 'numbers'],
+      options: ['text', 'numbers'],
       description: 'Set the type of pagination, or with all numbers or with one single text label.'
     },
     size: {
       control: { type: 'select' },
       table: {
-        type: { summary: 'string' }
+        type: { summary: 'string' },
+        defaultValue: { summary: 'medium' }
       },
-      options: ['', 'small', 'medium'],
+      options: ['small', 'medium'],
       description: 'Set the size of the pagination, `medium` is the default and can be omitted.'
+    },
+    text: {
+      if: { arg: 'display', eq: 'text' },
+      control: { type: 'text' },
+      defaultValue: '%currentPage% of %totalPages%',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '%currentPage% van de %totalPages%' }
+      },
+      description:
+        'Text used when the `display` mode is `text`. `%currentPage%` and `%totalPages%` can be used and will be replaced by their actual values.'
     },
     ariaLabel: {
       control: { type: 'text' },

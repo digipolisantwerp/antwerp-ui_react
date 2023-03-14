@@ -6,10 +6,10 @@ import { MouseEvent, useEffect, useState } from 'react';
 import { DEFAULT_SIZE, SIZE_MAP } from '../../../constants/layout.settings';
 import { pagesArray } from '../../../utils/math.utils';
 
-const renderTextPagination = (currentPage: number, totalPages: number, ariaLabelPage?: string) => (
+const renderTextPagination = (currentPage: number, totalPages: number, text: string, ariaLabelPage?: string) => (
   <li className="m-pagination__label" key="pagination__label">
     <span className="u-screen-reader-only">{ariaLabelPage} </span>
-    {`${currentPage} of ${totalPages}`}
+    {text.replace('%currentPage%', `${currentPage}`).replace('%totalPages%', `${totalPages}`)}
   </li>
 );
 
@@ -55,6 +55,7 @@ export function Pagination({
   ariaLabelNextPage,
   ariaLabelPreviousPage,
   ariaLabelPage,
+  text,
   qa
 }: PaginationProps) {
   const [totalPages, setTotalPages] = useState<number>(0);
@@ -100,7 +101,7 @@ export function Pagination({
             <Icon name="arrow-left-1" />
           </a>
         </li>
-        {display === 'text' && renderTextPagination(currentPage, totalPages, ariaLabelPage)}
+        {display === 'text' && renderTextPagination(currentPage, totalPages, text, ariaLabelPage)}
         {display === 'numbers' && renderNumbersPagination(currentPage, totalPages, ariaLabelPage, pageChange)}
         <li className="m-pagination__next" key="pagination__next">
           <a href={'#'} className={paginationNextClass} aria-label={ariaLabelNextPage} onClick={onNext}>
@@ -117,7 +118,9 @@ Pagination.defaultProps = {
   ariaLabel: 'Paginering',
   ariaLabelNextPage: 'Volgende pagina',
   ariaLabelPreviousPage: 'Vorige pagina',
-  ariaLabelPage: 'Pagina'
+  ariaLabelPage: 'Pagina',
+  text: '%currentPage% van de %totalPages%',
+  display: 'numbers'
 };
 
 export default Pagination;

@@ -12,5 +12,7 @@ export interface PaginationProps {
   ariaLabelNextPage?: string;
   ariaLabelPage?: string;
 
+  text?: string;
+
   qa?: string;
 }
