@@ -29,8 +29,8 @@ describe('UI Components - Molecules - Tag', () => {
   it('should call onClick when removable prop is passed', () => {
     const mockOnClick = jest.fn();
     const { baseElement } = render(<Tag label="Hello world" removable onClick={mockOnClick} />);
-    const tag = baseElement.querySelector('.m-tag') as Element;
-    fireEvent.click(tag);
+    const deleteButton = baseElement.querySelector('.m-tag__button') as Element;
+    fireEvent.click(deleteButton);
     expect(mockOnClick).toHaveBeenCalled();
   });
 

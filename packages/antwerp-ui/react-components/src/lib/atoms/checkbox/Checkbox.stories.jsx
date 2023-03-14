@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { QA_PROP_STORY } from '../../../constants/stories.settings';
 import Checkbox from './Checkbox';
 import { useArgs } from '@storybook/client-api';

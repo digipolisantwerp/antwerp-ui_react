@@ -1,5 +1,6 @@
 import Tag from './Tag';
 import { QA_PROP_STORY } from '../../../constants/stories.settings';
+import { useArgs } from '@storybook/client-api';
 
 export default {
   title: 'React/Molecules/Tag',
@@ -7,8 +8,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component:
-          'Tags are components that help filter content to the desired relevance.'
+        component: 'Tags are components that help filter content to the desired relevance.'
       }
     }
   },
@@ -22,6 +22,7 @@ export default {
       },
       description: 'The `label` describes the `Tag` component.'
     },
+
     isToggle: {
       control: { type: 'boolean' },
       defaultValue: false,
@@ -40,7 +41,8 @@ export default {
         type: { summary: 'boolean' },
         defaultValue: { summary: false }
       },
-      description: 'This prop sets a toggle `Tag` component as `active`. This prop makes the `Tag` a controlled component and should be used together with `onClick`.'
+      description:
+        'This prop sets a toggle `Tag` component as `active`. This prop makes the `Tag` a controlled component and should be used together with `onClick`.'
     },
     iconLeft: {
       control: { type: 'select' },
@@ -79,8 +81,39 @@ export default {
       description:
         'Function triggered when the tag is clicked. First parameter of this function is of type `(React).MouseEvent`. Only available on tags with `isToggle` or `removable` enabled.'
     },
-    qa: QA_PROP_STORY,
+    name: {
+      control: { type: 'text' },
+      defaultValue: 'aui-tag',
+      table: {
+        type: { summary: 'string' }
+      },
+      description:
+        'The `name` prop is set on the button if the `isToggle` prop is true. It is also used for the name on the remove button (postfixed with `-delete`).'
+    },
+    ariaLabelDelete: {
+      control: { type: 'text' },
+      defaultValue: 'Delete',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'Verwijderen' }
+      },
+      description: 'The `aria-label` for the delete icon button on removable tags.'
+    },
+    qa: QA_PROP_STORY
   }
 };
 
-export const tag = '';
+const Template = (args) => {
+  const [{}, updateArgs] = useArgs();
+  return (
+    <Tag
+      {...args}
+      onClick={(name) => {
+        args.onClick(name);
+        updateArgs({ ...args, active: args.isToggle ? !args.active : args.active });
+      }}
+    />
+  );
+};
+
+export const tag = Template.bind({});

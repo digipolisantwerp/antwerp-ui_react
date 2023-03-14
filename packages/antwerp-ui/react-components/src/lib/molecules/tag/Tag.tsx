@@ -1,16 +1,16 @@
-import React, { MouseEvent } from 'react';
+import React, { createElement } from 'react';
 import { classNames } from '../../../utils/dom.utils';
 import { Icon } from '../../base/icon';
 import { TagProps } from './Tag.types';
 
-export function Tag({ label, isToggle, active, iconLeft, removable, name, qa, onClick }: TagProps) {
+export function Tag({ label, isToggle, active, iconLeft, removable, name, qa, onClick, ariaLabelDelete }: TagProps) {
   const [pressed, setPressed] = React.useState(active);
   const isRemovable = removable && !isToggle;
   const isPressed = active === true || active === false ? active : pressed;
 
-  const handleClick = (event: MouseEvent<HTMLButtonElement | HTMLDivElement>) => {
+  const handleClick = (clickedName: string) => {
     isToggle && setPressed(!pressed);
-    return (isToggle || isRemovable) && onClick && onClick(event);
+    return (isToggle || isRemovable) && onClick && onClick(clickedName);
   };
 
   const TagElement = isToggle ? 'button' : 'div';
@@ -18,9 +18,20 @@ export function Tag({ label, isToggle, active, iconLeft, removable, name, qa, on
     'm-tag': true,
     'is-clickable': !!isRemovable
   });
+  const toggleProps = {
+    name,
+    onClick: () => handleClick(name),
+    'aria-pressed': isPressed
+  };
 
-  return (
-    <TagElement className={classes} data-qa={qa} name={name} onClick={handleClick} aria-pressed={isPressed}>
+  return createElement(
+    TagElement,
+    {
+      className: classes,
+      'data-qa': qa,
+      ...(isToggle ? toggleProps : {})
+    },
+    <>
       {iconLeft && (
         <div className="m-tag__icon">
           <Icon name={iconLeft} />
@@ -28,16 +39,21 @@ export function Tag({ label, isToggle, active, iconLeft, removable, name, qa, on
       )}
       <div className="m-tag__label">{label}</div>
       {isRemovable ? (
-        <button className="m-tag__button" aria-label="Delete">
+        <button
+          className="m-tag__button"
+          name={`${name}-delete`}
+          onClick={() => handleClick(`${name}-delete`)}
+          aria-label={ariaLabelDelete}
+        >
           <Icon name="remove" />
         </button>
       ) : null}
-    </TagElement>
+    </>
   );
 }
 
 Tag.defaultProps = {
-  name: 'aui-tag'
+  ariaLabelDelete: 'Verwijderen'
 };
 
 export default Tag;
