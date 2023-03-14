@@ -81,7 +81,7 @@ export default {
         defaultValue: { summary: '[]' }
       },
       description:
-        'The columns parameter contains the data for the table columns. The `value` fields are used to read the data from the rows. All the fields are: `label`, `value`, `alignRight`, `dataType`, `sortable` and `transformFunction`. The transform function can be used to transform all the values of a column and has signature (ReactNode) => ReactNode.'
+        'The columns parameter contains the data for the table columns. The `value` fields are used to read the data from the rows. All the fields are: `label`, `value`, `alignRight`, `dataType`, `sortable` and `transformFunction`. The transform function can be used to transform all the values of a column and has signature `(ReactNode) => ReactNode`.'
     },
     striped: {
       control: { type: 'boolean' },
