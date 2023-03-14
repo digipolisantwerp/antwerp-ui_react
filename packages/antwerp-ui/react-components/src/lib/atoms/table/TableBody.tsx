@@ -5,7 +5,6 @@ import { Button } from '../button';
 import { Checkbox } from '../checkbox';
 import { TableBodyProps, TableRowSchema } from './Table.types';
 
-// TODO-NT USE BUTTON GROUP
 export function TableBody({
   actions,
   columns,
@@ -21,6 +20,10 @@ export function TableBody({
   });
 
   const selectRow = (event: SyntheticEvent, row: TableRowSchema) => {
+    const target = event.target as Element;
+    if (target?.classList.contains('a-button') || target.parentElement?.parentElement?.classList.contains('a-button')) {
+      return false;
+    }
     event.preventDefault();
     event.stopPropagation();
     return selectable && onSelect && onSelect(row.id);
@@ -49,7 +52,7 @@ export function TableBody({
             });
             return (
               <td className={tdClasses} key={col?.value}>
-                {row[col?.value] || null}
+                {col.transformFunction ? col.transformFunction(row[col?.value] || null) : row[col?.value] || null}
               </td>
             );
           })}
@@ -60,7 +63,7 @@ export function TableBody({
                 key={`aui-table-action-${tableId}-${x?.id}-${row.id}`}
                 {...x}
                 id={`aui-table-action-${tableId}-${x?.id}-${row.id}`}
-                size="small"
+                size={x?.size || 'small'}
               >
                 {x?.label}
               </Button>

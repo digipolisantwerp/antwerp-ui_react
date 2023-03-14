@@ -3,7 +3,7 @@ import {
   TableColumnSchema,
   TableRowSchema
 } from 'packages/antwerp-ui/react-components/src/lib/atoms/table/Table.types';
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
 
 const COLUMNS_EXAMPLE: TableColumnSchema[] = [
   {
@@ -28,6 +28,14 @@ const COLUMNS_EXAMPLE: TableColumnSchema[] = [
     label: 'Price',
     value: 'price',
     alignRight: true
+  },
+  {
+    label: 'Year',
+    value: 'date',
+    transformFunction: (value: ReactNode): ReactNode => {
+      const date = value as string;
+      return date.slice(0, 4);
+    }
   }
 ];
 
@@ -37,21 +45,28 @@ const ROWS_EXAMPLE: TableRowSchema[] = [
     snack: 'Ice cream',
     description: 'Tasty, frozen treat for a hot day',
     stock: 160,
-    price: '€2,49'
+    price: '€2,49',
+    date: '2022-10-10'
   },
   {
     id: '1',
     snack: 'Chips',
     description: 'Salty, crunchy goodness',
     stock: 48,
-    price: '€1,99'
+    price: '€1,99',
+    date: '2021-10-10'
   },
   {
     id: '2',
     snack: 'Candy bar',
     description: 'Chewy and quite nutty',
-    stock: 240,
-    price: '€1,49'
+    stock: (
+      <p>
+        <b>240</b>
+      </p>
+    ),
+    price: '€1,49',
+    date: '2020-10-10'
   }
 ];
 
@@ -72,20 +87,19 @@ export function TableExamples() {
           rows={ROWS_EXAMPLE}
           sort="snack"
           selected={['0']}
-          onSelect={(_, id) => setEvent(`onSelect:${id}`)}
+          onSelect={(id) => setEvent(`onSelect:${id}`)}
           onSelectAll={() => setEvent(`onSelect:all`)}
           sortDirection="descending"
-          onSortClick={(_, col) => setEvent(`sortClick:${col}`)}
+          onSortClick={(col) => setEvent(`sortClick:${col}`)}
           actions={{
             label: 'Acties',
             buttons: [
-              // { label: 'Kopen', id: 'buy', onActionClick: (_, rowId) => setEvent(`buy:${rowId}`) },
               {
                 label: 'Verwijder',
                 id: 'delete',
                 theme: 'danger',
-                iconLeft: 'close',
-                onActionClick: (_, rowId) => setEvent(`delete:${rowId}`)
+                addOn: { type: 'icon', align: 'left', iconProps: { name: 'close' } },
+                onActionClick: (_ev, rowId) => setEvent(`delete:${rowId}`)
               }
             ]
           }}

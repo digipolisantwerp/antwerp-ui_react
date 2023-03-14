@@ -1,7 +1,7 @@
 import { RefObject, UIEvent, UIEventHandler, useEffect, useRef, useState } from 'react';
 import { isScrollAtTheEnd } from './dom.utils';
 
-export function useHorizontalScroll(): [RefObject<HTMLUListElement>, UIEventHandler, boolean, boolean] {
+export function useHorizontalScroll(): [RefObject<any>, UIEventHandler, boolean, boolean] {
   const [isScrollStart, setIsScrollStart] = useState(true);
   const [isScrollEnd, setIsScrollEnd] = useState(true);
   const scrollDivRef = useRef(null);

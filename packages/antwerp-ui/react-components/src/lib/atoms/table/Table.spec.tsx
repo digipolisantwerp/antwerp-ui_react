@@ -42,7 +42,7 @@ const ROWS_EXAMPLE: TableRowSchema[] = [
 
 describe('UI Components - Atoms - Table', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Table />);
+    const { baseElement } = render(<Table responsive={false} />);
     expect(baseElement).toBeTruthy();
   });
 
@@ -53,6 +53,30 @@ describe('UI Components - Atoms - Table', () => {
     expect(screen.getByText('Stock')).toBeTruthy();
     expect(screen.getByText('Ice cream')).toBeTruthy();
     expect(screen.getByText('Chips')).toBeTruthy();
+  });
+
+  it('should be able to transform columns', () => {
+    render(
+      <Table
+        columns={[
+          {
+            ...COLUMNS_EXAMPLE[0],
+            transformFunction: (value) => {
+              return ((value || '') as string).replace('Ice cream', 'Not for you');
+            }
+          },
+          COLUMNS_EXAMPLE[1],
+          COLUMNS_EXAMPLE[2]
+        ]}
+        rows={[
+          ...ROWS_EXAMPLE,
+          {
+            id: '10'
+          }
+        ]}
+      />
+    );
+    expect(screen.getByText('Not for you')).toBeTruthy();
   });
 
   it('should render the ascending sort', () => {

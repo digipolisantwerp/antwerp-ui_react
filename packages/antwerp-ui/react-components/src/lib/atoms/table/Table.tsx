@@ -82,7 +82,8 @@ export function Table({
 Table.defaultProps = {
   id: 'aui-table',
   columns: [],
-  rows: []
+  rows: [],
+  responsive: true
 };
 
 export default Table;

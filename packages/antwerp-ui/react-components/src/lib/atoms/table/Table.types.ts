@@ -6,7 +6,7 @@ import { ButtonProps } from '../button';
 export interface TableProps {
   actions?: {
     label?: string;
-    buttons: (Omit<ButtonProps, 'size'> & {
+    buttons: (ButtonProps & {
       label: string;
       onActionClick?: (event: MouseEvent<HTMLButtonElement>, rowId: string) => void;
     })[];
@@ -38,6 +38,7 @@ export interface TableRowSchema {
 export interface TableColumnSchema {
   label?: string;
   value: string;
+  transformFunction?: (value: ReactNode) => ReactNode;
   alignRight?: boolean;
   sortable?: boolean;
   dataType?: 'primary' | 'secondary';
