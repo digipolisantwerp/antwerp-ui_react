@@ -95,7 +95,7 @@ export function Pagination({
 
   return (
     <nav role="navigation" aria-label={ariaLabel} data-qa={qa}>
-      <ul className={paginationClass} data-qa={qa}>
+      <ul className={paginationClass}>
         <li className="m-pagination__prev" key={'pagination__prev'}>
           <a href={'#'} className={paginationPreviousClass} aria-label={ariaLabelPreviousPage} onClick={onPrev}>
             <Icon name="arrow-left-1" />
