@@ -25,7 +25,8 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: docs
-          path: documentation/storybook/storybook-static
+          path: ./documentation/storybook/storybook-static
+          if-no-files-found: error
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
