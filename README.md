@@ -8,7 +8,7 @@ React Components using Core Branding 6.2.0.
 
 - Node version 18, v. `18.14.2` at time of writing.
 - `npm i -g yarn`
-- `yarn install`
+- `yarn install` (installs node_modules for global project and for storybook)
 - Commando `yarn install` in storybook folder => voeg toe in commando
 - Run example app: `yarn run playground` (and go to `localhost:4200`) vs
 - Run storybook: `yarn run storybook`

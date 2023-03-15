@@ -7,11 +7,13 @@
     "playground": "yarn nx run documentation-playground:serve:development",
     "storybook": "yarn nx run @acpaas-ui/storybook:start",
     "storybook:build": "yarn nx run @acpaas-ui/storybook:build",
-    "g": "yarn nx g @acpaas-ui/react-components:component",
-    "generate": "yarn nx g @acpaas-ui/react-components:component"
+    "generate": "yarn nx g @acpaas-ui/react-components:component",
+    "g": "yarn generate",
+    "postinstall": "cd documentation/storybook && yarn install && cd ../.."
   },
   "private": true,
   "dependencies": {
+    "@storybook/client-api": "^6.5.16",
     "@swc-node/register": "^1.5.5",
     "@swc/core": "^1.3.32",
     "@types/react-modal": "^3.13.1",

@@ -18,6 +18,6 @@
   "dependencies": {},
   "scripts": {
     "storybook": "NODE_OPTIONS=--openssl-legacy-provider  start-storybook -p 6006",
-    "build": "build-storybook"
+    "build": "NODE_OPTIONS=--openssl-legacy-provider build-storybook"
   }
 }
