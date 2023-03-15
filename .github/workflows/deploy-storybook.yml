@@ -9,20 +9,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-      - name: Use Node 12.x
-        uses: actions/setup-node@v1
+        uses: actions/checkout@v3
+      - name: Use Node 18.x
+        uses: actions/setup-node@v3
         with:
           node-version: '18.14.2'
-      - name: Install yarn
+      - name: Install Yarn
         run: npm i -g yarn
-      - name: Install dependencies
+      - name: Install package.json dependencies
         run: yarn install
       - name: Build storybook
         run: yarn run storybook:build
-      - name: Archive build
+      - name: Upload build artifact
         if: success()
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v3
         with:
           name: docs
           path: documentation/storybook/storybook-static
@@ -32,9 +32,9 @@ jobs:
     needs: build
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
       - name: Download build
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v3
         with:
           name: docs
       - name: Deploy to GitHub Pages
