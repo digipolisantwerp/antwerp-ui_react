@@ -33,6 +33,7 @@ Jest and react test library
 
 - Build storybook: `yarn run storybook:build`
 - Static build can be found in `documentation/storybook/storybook-static`
+- (There is a github workflow that builds and deploys Storybook on Github pages) `.github/workflows/deploy-storybook.yml`
 
 ## Contributions
 
