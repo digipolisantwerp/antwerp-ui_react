@@ -1,3 +1,7 @@
+# Deprecated
+
+This repo is deprecated. Please, see https://github.com/a-ui/core_components_react
+
 # Antwerp UI - React Components
 
 ## Introduction
